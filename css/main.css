@@ -1,0 +1,11 @@
+* {
+  text-shadow: 1px 1px 1px #333;
+}
+
+.site-wrapper {
+  background: url(../img/bg.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
