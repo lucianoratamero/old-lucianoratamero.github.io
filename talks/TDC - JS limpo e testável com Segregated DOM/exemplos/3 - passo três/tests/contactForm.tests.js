@@ -10,11 +10,11 @@ describe("contactForm tests:", function() {
       }
     };
     spyOn(window, '$populateFieldErrors'); // mock da função de popular erros do campo
-    spyOn(window, '$nameFieldWrapper')     // mock da função que retorna o wrapper do nome
+    spyOn(window, '$nameFieldWrapper').and.returnValue('wrapper');
 
     $populateErrors(data); // chamada da função
 
-    expect($populateFieldErrors).toHaveBeenCalledWith($nameFieldWrapper(), data);
+    expect($populateFieldErrors).toHaveBeenCalledWith('wrapper', 'error message');
     // aqui, esperamos que o populateFieldErrors tenha sido chamado corretamente
 
     expect($populateFieldErrors.calls.count()).toEqual(1);
