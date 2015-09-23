@@ -3,9 +3,25 @@
 }
 
 .site-wrapper {
-  background: url(../img/bg.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background-color: #368;
+}
+
+#my-photo {
+  height: 15rem;
+  width: 15rem;
+  margin: 0 auto;
+}
+
+#my-photo .image-frame {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  border-radius: 50%;
+  border: 2px solid #39c;
+}
+
+#my-photo .image-frame img {
+  height: 100%;
+  border-radius: 50%;
+  border: 5px solid #fff;
 }
