@@ -4,8 +4,27 @@ body {
     font-weight: normal;
 }
 
-img { max-width: 100%; }
+img {
+    max-width: 100%;
+    max-height: 600px;
+}
+
+ul {
+    padding: 0;
+    display: inline-block;
+    li {
+        list-style: none;
+    }
+}
 
 .section { text-align: center; }
 
-h1, h2, h3 { font-weight: 700; }
+h1, h2, h3 { font-weight: 700; margin-top: 0; }
+
+pre {
+    display: inline-block;
+    text-align: left;
+}
+
+.fp-controlArrow.fp-prev { border-right-color: #333; }
+.fp-controlArrow.fp-next { border-left-color: #333; }
