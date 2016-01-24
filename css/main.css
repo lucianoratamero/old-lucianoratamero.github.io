@@ -26,6 +26,8 @@
   border: 5px solid #fff;
 }
 
+.btn { white-space: initial; }
+
 @media (max-width: 992px) {
   .masthead { margin-bottom: 0; }
   .mastfoot .inner, .masthead .inner { padding: 1rem; }
