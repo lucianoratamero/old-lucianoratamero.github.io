@@ -28,3 +28,20 @@ pre {
 
 .fp-controlArrow.fp-prev { border-right-color: #333; }
 .fp-controlArrow.fp-next { border-left-color: #333; }
+
+@media (max-width: @screen-sm-max) {
+    .fp-slidesNav.bottom {
+        margin-left: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        text-align: center;
+        width: 100% !important;
+    }
+    #fp-nav ul li, .fp-slidesNav ul li {
+        width: 7px;
+        height: 5px;
+        margin: 3px;
+    }
+    a { word-wrap: break-word; }
+    img { max-height: 400px; }
+}
