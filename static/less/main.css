@@ -6727,6 +6727,22 @@ button.close {
 body {
   font-family: "Josefin Slab";
   font-weight: 600;
+  font-size: 48px;
+}
+h1 {
+  font-size: 80px;
+}
+h2 {
+  font-size: 72px;
+}
+h3 {
+  font-size: 64px;
+}
+h4 {
+  font-size: 56px;
+}
+h5 {
+  font-size: 48px;
 }
 a {
   overflow-wrap: break-word;
@@ -6766,7 +6782,45 @@ pre {
 .fp-controlArrow.fp-next {
   border-left-color: #333;
 }
+@media (max-width: 1199px) {
+  body {
+    font-size: 28px;
+  }
+  h1 {
+    font-size: 52px;
+  }
+  h2 {
+    font-size: 46px;
+  }
+  h3 {
+    font-size: 40px;
+  }
+  h4 {
+    font-size: 34px;
+  }
+  h5 {
+    font-size: 28px;
+  }
+}
 @media (max-width: 991px) {
+  body {
+    font-size: 18px;
+  }
+  h1 {
+    font-size: 42px;
+  }
+  h2 {
+    font-size: 36px;
+  }
+  h3 {
+    font-size: 30px;
+  }
+  h4 {
+    font-size: 24px;
+  }
+  h5 {
+    font-size: 18px;
+  }
   .fp-slidesNav.bottom {
     margin-left: 0 !important;
     left: 0 !important;
