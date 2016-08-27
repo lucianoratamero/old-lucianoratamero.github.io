@@ -6729,7 +6729,12 @@ body {
   font-weight: 600;
 }
 a {
-  word-wrap: break-all !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
 }
 img {
   max-width: 100%;
