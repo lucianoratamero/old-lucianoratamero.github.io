@@ -46,6 +46,7 @@
 
   var initializePage = function(){
     $('#index, #loading').fullpage(fullpageConfig);
+    $('#index, #loading').fullpage.setResponsive(true); // firefox, you crazy bastard
     $('#font-awesome-loader').hide();
     hljs.initHighlightingOnLoad();
   }
