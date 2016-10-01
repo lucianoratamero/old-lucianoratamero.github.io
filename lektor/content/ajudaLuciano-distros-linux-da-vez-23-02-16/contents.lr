@@ -1,0 +1,131 @@
+title: #ajudaLuciano - distros linux da vez (23/02/2016)
+---
+pub_date: 2016-02-23 01:31:00
+---
+tags: #ajudaLuciano, distros, linux, 23/20/2016
+---
+summary:
+
+gostei demais do feedback sobre o post de ontem, pessoal! por isso, e pelo fato dos meus amigos encherem o saco pra ter algo chamado #ajudaLuciano no blog, trago pra vocês o primeiro post do #ajudaLuciano.
+
+pretendo que essa série de posts seja de assuntos que vocês tragam pra mim, pra que eu dê minha opinião ou faça um tutorial de alguma coisa.
+
+sem mais delongas, vou falar dessa vez sobre as distros linux da vez. vamos lá o/
+---
+body:
+
+gostei demais do feedback sobre o post de ontem, pessoal! por isso, e pelo fato dos meus amigos encherem o saco pra ter algo chamado #ajudaLuciano no blog, trago pra vocês o primeiro post do #ajudaLuciano.
+
+pretendo que essa série de posts seja de assuntos que vocês tragam pra mim, pra que eu dê minha opinião ou faça um tutorial de alguma coisa.
+
+sem mais delongas, vou falar dessa vez sobre as distros linux da vez. vamos lá o/
+
+<hr>
+
+vou fazer algumas subdivisões aqui, pras distros que servem propósitos diferentes. lembrando: **essas são as minhas sugestões**. se eu não falar sobre puppy linux, não fique triste; eu só não vi ainda uma aplicabilidade ou simplesmente ainda não tive chance de testar.
+
+e pra quem caiu aqui de paraquedas: quando falo de **distro**, falo de **distribuição linux**, ou seja, uma **versão** de um sistema operacional baseado em linux. cada distro difere nos programas que vêm embutidos na instalação, difere nas filosofias e, muitas vezes, na própria interface.
+
+e aqui não vou discutir filosofia, software livre ou não - isso é conversa pra outros momentos (ou pra mesa de bar ;)). vamo lá!
+
+### pra quem não quer dor de cabeça e tá vindo do windows:
+
+#### Linux Mint
+
+<div class="image-wrapper">
+    <a href="mint.jpg"><img src="mint.jpg"></a>
+</div>
+
+**Linux Mint** é a distro desktop mais popular do [distrowatch](http://distrowatch.com/), e por um bom motivo: ela é uma distro **muito** familiar pra quem quer sair do windows. ela usa o *desktop environment (ou seja, interface)* Cinnamon, desenvolvido pelo próprio pessoal do Linux Mint, com o propósito de ser simples, leve e oferecer uma experiência similar à do windows, então é díficil pra qualquer um ficar perdido ao usar o Mint. além disso tudo, o Mint é feito sobre o Debian e o Ubuntu, o que traz pro Mint uma gigantesca comunidade e programas usados em tudo que é lugar.
+
+site: [http://linuxmint.com/](http://linuxmint.com/)
+
+download: [http://www.linuxmint.com/download.php](http://www.linuxmint.com/download.php)
+
+### pra quem não quer dor de cabeça, mas não liga pra interface
+
+#### Ubuntu
+
+<div class="image-wrapper">
+    <a href="ubuntu.jpg"><img src="ubuntu.jpg"></a>
+</div>
+
+o **Ubuntu** é praticamente onipresente no vocabulário dos linuxeiros. conhecido por sua interface personalizada, por decisões duvidosas e por ter versões populares para uso em servidores, o Ubuntu é uma ótima pedida pra quem tá começando com linux e quer algo diferente. a comunidade é absurdamente grande e as novas versões têm longos anos de garantia de suporte. vale a pena dar uma olhada ;D
+
+site: [http://www.ubuntu.com/](http://www.ubuntu.com/)
+
+download: [http://www.ubuntu.com/download/desktop](http://www.ubuntu.com/download/desktop)
+
+#### Fedora
+
+<div class="image-wrapper">
+    <a href="fedora.jpg"><img src="fedora.jpg"></a>
+</div>
+
+quando se fala de linux, é impossível fugir do **Fedora**. o Fedora é uma distro sólida desenvolvida pela [Red Hat](http://www.redhat.com/), uma das maiores empresas de código aberto do mundo. geralmente, o Fedora oferece uma experiência mais clássica, no sentido de que não há praticamente nada que seja especificamente criado pra distribuição, o que faz com que você tenha nas mãos as melhores ferramentas criadas pela comunidade. normalmente traz programas mais recentes que os oferecidos pelas LTSs do Ubuntu.
+
+site: [https://getfedora.org/](https://getfedora.org/)
+
+download: [https://getfedora.org/pt_BR/workstation/download/](https://getfedora.org/pt_BR/workstation/download/)
+
+### pra quem não quer dor de cabeça, mas algo lindo <span>*-*</span>
+
+#### elementaryOS
+
+<div class="image-wrapper">
+    <a href="elementary.jpg"><img src="elementary.jpg"></a>
+</div>
+
+em matéria de beleza e funcionalidade básica, ninguém, **ninguém** ganha do elementaryOS. criado com o design e a usabilidade como prioridades, o elementary deixa qualquer usuário de Mac OSX babando; tudo isso com software 100% aberto. ele é baseado no Ubuntu, então traz consigo toda uma comunidade pronta pra dar suporte. já falei que ele é **lindo**?
+
+site: [https://elementary.io](https://elementary.io)
+
+download: [https://elementary.io](https://elementary.io) (você pode optar por pagar R$ 0, ele deixa!)
+
+### pra quem já é usuário de linux e quer algo novo
+
+#### Manjaro
+
+<div class="image-wrapper">
+    <a href="manjaro.jpg"><img src="manjaro.jpg"></a>
+</div>
+
+**Manjaro** é uma distro relativamente nova, baseada em Arch Linux, que vem ganhando bastante força. ela é fácil de instalar e vem em milhões de diferentes *flavours*: xfce, kde, cinnamon, gnome, fluxbox, bspwm, openbox, mate, deepin... **vários** *flavours*. é a distro que eu uso no dia-a-dia, por oferecer as ferramentas do Arch (como o AUR) com uma maior estabilidade e uma grande facilidade de instalação e configuração. pra quem entende de linux, vale **muito** dar uma olhada.
+
+site: [http://manjaro.github.io/](http://manjaro.github.io/)
+
+download: [http://manjaro.github.io/download/](http://manjaro.github.io/download/)
+
+#### Apricity OS
+
+<div class="image-wrapper">
+    <a href="apricity.jpg"><img src="apricity.jpg"></a>
+</div>
+
+o **Apricity** é um dos desconhecidos. ele oferece também vários *flavours*, também é baseado em Arch e **também** é lindo, oferecendo interfaces bem diferenciadas. ele vem com umas sacanageiras, como integração com o PushBullet e com o Evernote, o que deixa ele bem fora da mente de quem quer só software livre rodando. o único grande problema dele é que ele, bem, é desconhecido, então não dá pra ter previsibilidade dele ser mantido a longo prazo. ele tem o diferencial de só ter um live USB pra todas as diferentes interfaces, mas requer internet para poder baixar os programas corretos na hora da instalação. enfim, algo novo, vale estar no radar.
+
+site: [https://apricityos.com/](https://apricityos.com/)
+
+download: [https://apricityos.com/](https://apricityos.com/)
+
+### pra quem quer algo hardcore
+
+#### manjaro - versão i3
+
+<div class="image-wrapper">
+    <a href="manjaro-i3.jpg"><img src="manjaro-i3.jpg"></a>
+</div>
+
+essa é pra quem quer um desafio. o manjaro em si já é uma distro que precisa de alguém minimamente experiente pra saber usar seu potencial; quando falamos de uma versão preconfigurada com o i3 então, chega a outro nível. o [i3wm](https://i3wm.org/) é um *tiling window manager* (se você não sabe o que isso é, sério, pula essa) desenvolvido por uns malucos da Google. se você quer algo leve (o desktop environment inteiro pesa menos de 10Mb), rápido (respostas em menos de 100ms!), baseado em teclado e não tem problema em perder horas e horas configurando, essa é uma ótima pedida. uso no meu celeron de 7 anos atrás, funciona lindamente =)
+
+site: [http://manjaro.github.io/](http://manjaro.github.io/)
+
+download: [https://sourceforge.net/projects/manjarolinux/files/community/i3/](https://sourceforge.net/projects/manjarolinux/files/community/i3/)
+
+<hr>
+
+### por enquanto é isso
+
+essas são as minhas escolhas atuais de distro no momento. se você tem alguma recomendação de uma distro diferente, fala comigo nos comentários! e se tiver algum tema pra ser discutido no próximo #ajudaLuciano, só falarem comigo onde for, sim?
+
+abraços, e até a próxima! o/

@@ -1,2 +1,7 @@
-.DS_Store
 node_modules/
+bin/
+lib/
+include/
+.Python
+pip-selfcheck.json
+.DS_Store

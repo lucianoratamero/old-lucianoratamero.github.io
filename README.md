@@ -1,2 +1,0 @@
-# lucianoratamero.github.io
-\#ajudaluciano

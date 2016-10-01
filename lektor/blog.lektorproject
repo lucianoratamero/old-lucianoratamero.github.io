@@ -1,0 +1,10 @@
+[project]
+name = blog
+url = https://lucianoratamero.github.io/blog
+
+[servers.ghpages]
+target = ghpages+https://lucianoratamero/blog
+
+[packages]
+lektor-disqus-comments = 0.1
+lektor-atom = 0.1

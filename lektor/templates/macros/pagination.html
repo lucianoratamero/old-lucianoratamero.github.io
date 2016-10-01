@@ -1,0 +1,25 @@
+{% macro render_pagination(pagination) %}
+  <div class="custom-pagination">
+    <div class="btn-group">
+      {% if pagination.has_prev %}
+        <a href="{{ pagination.prev|url }}" class="btn btn-primary"><i class="fa fa-chevron-left"></i></a>
+      {% else %}
+        <a class="btn btn-primary disabled"><i class="fa fa-chevron-left"></i></a>
+      {% endif %}
+
+      {% for item in pagination.iter_pages() %}
+        {% if item == 1 %}
+          <a href="/blog/" class="btn btn-primary">{{ item }}</a>
+        {% else %}
+          <a href="/blog/page/{{ item }}" class="btn btn-primary">{{ item }}</a>
+        {% endif %}
+      {% endfor %}
+
+      {% if pagination.has_next %}
+        <a href="{{ pagination.next|url }}" class="btn btn-primary"><i class="fa fa-chevron-right"></i></a>
+      {% else %}
+        <a class="btn btn-primary disabled"><i class="fa fa-chevron-right"></i></a>
+      {% endif %}
+    </div>
+  </div>
+{% endmacro %}

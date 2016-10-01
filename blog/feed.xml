@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title type="text">blog@lucianoratamero.github.io</title>
+  <id>urn:uuid:9bf1804a-e012-3a1f-9d8e-81d2e5d13e2b</id>
+  <updated>2016-02-26T16:10:00Z</updated>
+  <link href="https://lucianoratamero.github.io/blog/" />
+  <link href="https://lucianoratamero.github.io/blog/feed.xml" rel="self" />
+  <author>
+    <name></name>
+  </author>
+  <generator uri="https://github.com/ajdavis/lektor-atom" version="0.1">Lektor Atom Plugin</generator>
+  <entry xml:base="https://lucianoratamero.github.io/blog/a-jquery-nao-e-a-vila-voce-e-uma-discussao-sobre-o-uso-da-jquery-em-grandes-projetos/">
+    <title type="text">a jQuery não é a vilã; você é - uma discussão sobre o uso da jQuery em grandes projetos</title>
+    <id>urn:uuid:2a43f809-1026-31e3-ad8f-ce289b368633</id>
+    <updated>2016-02-26T16:10:00Z</updated>
+    <link href="https://lucianoratamero.github.io/blog/a-jquery-nao-e-a-vila-voce-e-uma-discussao-sobre-o-uso-da-jquery-em-grandes-projetos/" />
+    <author>
+      <name></name>
+    </author>
+    <content type="html">&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;img src=&quot;cover.png&quot;&gt;
+&lt;/div&gt;&lt;p&gt;&lt;em&gt;publicado no &lt;a href=&quot;https://medium.com/@lucianoratamero/a-jquery-n%C3%A3o-%C3%A9-a-vil%C3%A3-voc%C3%AA-%C3%A9-uma-discuss%C3%A3o-sobre-o-uso-da-jquery-em-grandes-projetos-75db3659b34#.mpgzha4gs&quot;&gt;medium&lt;/a&gt; em 13 de Dezembro de 2015&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;uma das coisas que mais me deixam feliz na comunidade de javascript é sua velocidade de mudança e absorção de ideias. durante meus cinco anos de desenvolvedor, vi grandes mudanças no uso e no perfil de quem usa javascript — pra melhor, &lt;strong&gt;muito&lt;/strong&gt; melhor. é uma comunidade com orgulho de ser jovem, de fazer as coisas com as próprias mãos, de não ter medo de aprender com as outras linguagens e que admite as próprias falhas. no entanto, uma coisa nunca fez muito sentido pra mim: por que raios todo mundo odeia a jQuery?&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;tenho alguns pensamentos sobre o assunto, pensamentos mamílicos, e finalmente saí da inércia de escrever sobre isso. bem, antes de tudo, aqueles disclaimers: essa é a minha opinião, somente minha, e você tem todo o direito de concordar ou discordar, completamente ou em partes. minha intenção é exatamente essa, de gerar material para gerar discussão. :)&lt;/p&gt;
+&lt;p&gt;vou dividir meus pensamentos em quatro partes:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;jQuery como porta de entrada ao mundo do front end;&lt;/li&gt;
+&lt;li&gt;jQuery e seu papel em grandes projetos;&lt;/li&gt;
+&lt;li&gt;jQuery, suas características e seu ecossistema;&lt;/li&gt;
+&lt;li&gt;os problemas da jQuery e como solucioná-los.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;então sentem-se em um lugar confortável, peguem café e aguinha e tentem me acompanhar nesse post que promete ser bem grande. e lá vamos nós!&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3&gt;jQuery como porta de entrada ao mundo do front end&lt;/h3&gt;
+&lt;p&gt;bem, aqui vou chover um pouco no molhado, mas é necessário dizer: aprender javascript de front end é difícil. tão difícil como aprender outras linguagens de alto nível; talvez um pouco mais, por seus tipos dinâmicos e mensagens de erro não muito intuitivas (nunca vou me esquecer do meu primeiro NaN, e acho que vocês também não se esqueceram dos seus).
+mas isso não é tanto problema, já que no front a gente não precisa de uma programação muito pesada, e grande parte dela envolve lidar com o DOM. mas o DOM… o DOM… ele é um menino volúvel. um menino verboso. um menino que consegue ser menos intuitivo do que as mensagens de erros do javascript.&lt;/p&gt;
+&lt;p&gt;a verdade é que poucos de nós paramos pra realmente entender como o DOM funciona, exatamente porque não precisamos disso para a maioria das tarefas diárias. temos bibliotecas e frameworks que lidam com ele por nós — e isso é bom.&lt;/p&gt;
+&lt;p&gt;por isso eu digo: agradeço imensamente por ter começado a aprender javascript com front end, principalmente por ter aprendido com a jQuery. ela esconde o suficiente, te ensinando o necessário para suas tarefas diárias. a jQuery é tão boa, mas tão boa, que muitos nem aprendem javascript; ficam na jQuery mesmo.&lt;/p&gt;
+&lt;p&gt;a jQuery é boa pros iniciantes por ser uma camada fina, mas consistente, por cima do DOM.&lt;/p&gt;
+&lt;p&gt;“mas Luciano, eu não sou iniciante, eu sei javascript! se eu sei fazer o que a jQuery faz, pra que que eu preciso usar?”, você está pensando. calma, calma, vamos lá.&lt;/p&gt;
+&lt;h3&gt;jQuery e seu papel em grandes projetos&lt;/h3&gt;
+&lt;p&gt;quem aqui já teve que manter um projeto por mais de três anos, por favor, levante a mão. o/ manter um projeto de longa data não é fácil, e isso se dá por vários motivos: a rotatividade de pessoas tende a ser alta; as convenções de padrões de desenvolvimento se perdem; as dependências tecnológicas do projeto mudam.&lt;/p&gt;
+&lt;p&gt;em um projeto de longa data, o código que antes era bom e resolvia um problema agora é ruim, obsoleto, difícil de manter; e isso é natural.&lt;/p&gt;
+&lt;p&gt;é natural porque as pessoas aprendem. porque elas evoluem, assim como a tecnologia. porque elas entram e saem do projeto, trazendo e levando a bagagem de cada um.&lt;/p&gt;
+&lt;p&gt;nessa hora, ter uma API consistente, única e bem documentada é essencial. uma API consistente permite que pessoas entrem e saiam do projeto sem ter medo de deixar um código ininteligível pra trás — a não ser que queiram.&lt;/p&gt;
+&lt;p&gt;se a API for simples, fácil de usar e bem documentada, ela permite que desenvolvedores que mal conhecem do projeto possam cair dentro e desenvolverem o que precisam, sem muito medo de fazer besteira. e a jQuery é perfeita pra esse papel.&lt;/p&gt;
+&lt;p&gt;perdi a conta das vezes que vi desenvolvedores de back end ou de outros projetos mandando ver em correção de bug dos meus projetos, e isso só se tornou possível porque desenvolver front se tornou fácil.&lt;/p&gt;
+&lt;p&gt;“mas Luciano, a jQuery é muito pesada, quero que meu site mobile seja leve”, você diz. calma, calma, vamos lá.&lt;/p&gt;
+&lt;h3&gt;jQuery, suas características e seu ecossistema&lt;/h3&gt;
+&lt;p&gt;digamos que você tá fazendo seu projetinho, e ele é só seu, e você é bom em javascript, e você acha que a jQuery é pesada demais pro que você quer fazer. é uma preocupação válida essa, a de fazer seu usuário baixar o mínimo de script possível. só te digo uma coisa: falar que a jQuery é pesada é coisa do passado. a moda agora é, é gzipar pesado.&lt;/p&gt;
+&lt;p&gt;piada bosta à parte, tô falando sério. a jQuery mais nova, minificada e gzipada, pesa 29kbs. &lt;a href=&quot;https://mathiasbynens.be/demo/jquery-size&quot;&gt;sério. mesmo.&lt;/a&gt; 29kbs não é nada hoje em dia. &lt;a href=&quot;https://en.wikipedia.org/wiki/Nintendo_Entertainment_System_technical_specifications#Memory&quot;&gt;cabe até num cartucho de NES.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;outra coisa: ela aumentou de tamanho ao longo dos anos, sim, mas diminuiu de tamanho em relação a alguns anos atrás. isso, aliado à evolução da velocidade de tráfego de dados, faz com que o argumento que jQuery é pesada seja, no mínimo, desinformado.&lt;/p&gt;
+&lt;p&gt;claro, claro, conseguimos fazer coisas mais leves, usando outros frameworks (como o &lt;a href=&quot;http://riotjs.com/&quot;&gt;riot&lt;/a&gt;) ou outras bibliotecas similares (como o &lt;a href=&quot;http://zeptojs.com/&quot;&gt;zepto&lt;/a&gt;) para fazermos trabalhos parecidos, mas nenhuma dessas bibliotecas/frameworks tem a longevidade (9 anos!) e o ecossistema de extensões que a jQuery tem.&lt;/p&gt;
+&lt;p&gt;além disso, a jQuery te dá helpers pra fazer praticamente tudo que se precisa no dia a dia sem precisar de uma quantidade gigantesca de código. dessa forma, você não precisa de tanto trabalho braçal, nem de esquentar a cabeça com o tamanho dos seus próprios arquivos js.&lt;/p&gt;
+&lt;p&gt;então, antes de falar que a jQuery é pesada, pense na fonte marota que você mandou carregar no seu site mobile. naquela imagem bonita de capa. pense no quanto você pode economizar de outras formas e no quanto você pode facilitar a vida de outros, caso você decida abrir seu projeto. faz bem.&lt;/p&gt;
+&lt;p&gt;“mas Luciano, na verdade eu não gosto da jQuery porque é horrível de manter. o código fica todo macarrônico, a gente nunca sabe o que tá fazendo o que, e por isso que eu uso o framework X, pra poder organizar o código”, você tá pensando. e é agora que eu digo: a vilã não é a jQuery — é você. vou explicar melhor nessa próxima parte.&lt;/p&gt;
+&lt;h3&gt;os problemas da jQuery e como resolvê-los&lt;/h3&gt;
+&lt;p&gt;todos nós provavelmente já passamos por algum projeto em que o js no front tava bizarro e botamos a culpa na jQuery. as críticas a ela nesse âmbito geralmente estão em três pontos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;o código está ilegível, macarrônico, desorganizado;&lt;/li&gt;
+&lt;li&gt;o código está difícil de testar (aliás, palmas se você se preocupa com isso, parabéns mesmo);&lt;/li&gt;
+&lt;li&gt;o código tem problemas de performance.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;vou te dizer uma coisa que você não quer ouvir: esses três pontos tem uma, e apenas uma variável em comum, e ela não é a jQuery; é você.&lt;/p&gt;
+&lt;p&gt;pros dois primeiros problemas, digo o seguinte: a API da jQuery não permite declarar intenção. ela não diz pra que serve no projeto, ela diz somente o que cada função faz. quem tem que deixar claro o papel do código no projeto é você, não ela. e a solução pra esse problema é bem simples: envolva o código da jQuery em funções suas, em arquivos diferentes e categorizados.&lt;/p&gt;
+&lt;p&gt;ou, se quiser, melhor ainda: envolva todo e qualquer código que tenha ligações hardcoded com o DOM e pronto: você tem um código desacoplado. quer usar outra biblioteca no lugar da jQuery? só mudar as amarras com o DOM. quer testar? só mockar as chamadas à jQuery e pronto: seu código está testável.&lt;/p&gt;
+&lt;p&gt;já fiz &lt;a href=&quot;http://lucianoratamero.github.io/talks&quot;&gt;algumas palestras&lt;/a&gt; sobre o conceito de &lt;a href=&quot;http://radar.oreilly.com/2014/01/keeping-jquery-in-check.html&quot;&gt;Segregated DOM&lt;/a&gt; e já tô me achando chato por sempre falar que é uma ótima ideia desacoplar o DOM do seu código (meu nome até aparece no google quando se pesquisa o termo! #orgulhodamamãe). mas é que é tão, tão fácil fazer código testável e organizado no front que me irrita o fato de que ninguém se esforça a fazer.&lt;/p&gt;
+&lt;p&gt;faltou falar sobre problemas de performance, e novamente devo dizer que, se você estudar como os browsers funcionam, você consegue fazer um código rápido com quase qualquer ferramenta que você quiser usar. aliás, recomendo &lt;a href=&quot;https://www.youtube.com/watch?v=SmE4OwHztCc&quot;&gt;essa palestra aqui&lt;/a&gt; sobre esse tema, &lt;a href=&quot;http://www.dicionarioinformal.com.br/cair+o+cu+da+bunda/&quot;&gt;é de cair o cu da bunda&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;e se, mesmo assim, você estiver tendo problemas, reveja o conceito da página, porque provavelmente ela está fazendo coisa demais. problemas conceituais, sejam de levantamento de requisito ou de design de fluxo da aplicação, sempre refletem no código, e você deveria estar sempre com a guarda levantada sobre esse aspecto do desenvolvimento.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;enfim, espero que tenha apresentado meus pontos de vista direito. mas ó, jQuery também não é bala de prata. use a ferramenta certa pro problema certo. eu mesmo me pego usando angular pra alguns projetos, e eu odeio angular, mas isso é papo pra outros posts. só queria deixar claro uma coisa: usar jQuery nunca é uma ideia ruim. pode até não ser uma ideia maravilhosa, mas ruim não é.&lt;/p&gt;
+&lt;p&gt;então antes de perder quinze horas fazendo aquela feature sem jQuery, pense duas vezes. recomendo usá-la, a não ser que você queira provar pra si mesmo que consegue fazer sem ela (o que é ótimo, até recomendável); mas num projeto de verdade, não tenha medo de usar. vai na fé irmão.&lt;/p&gt;
+&lt;p&gt;fiquem à vontade pra discordar, estarei aqui pra conversar sobre o assunto, ou no bar mais próximo, só chamar e pagar uma cerveja. até então, fico por aqui. abraços, e até mais! o/&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="https://lucianoratamero.github.io/blog/ajudaLuciano-distros-linux-da-vez-23-02-16/">
+    <title type="text">#ajudaLuciano - distros linux da vez (23/02/2016)</title>
+    <id>urn:uuid:8f0828d9-45a4-3fda-b94f-cd3b60b94877</id>
+    <updated>2016-02-23T01:31:00Z</updated>
+    <link href="https://lucianoratamero.github.io/blog/ajudaLuciano-distros-linux-da-vez-23-02-16/" />
+    <author>
+      <name></name>
+    </author>
+    <content type="html">&lt;p&gt;gostei demais do feedback sobre o post de ontem, pessoal! por isso, e pelo fato dos meus amigos encherem o saco pra ter algo chamado #ajudaLuciano no blog, trago pra vocês o primeiro post do #ajudaLuciano.&lt;/p&gt;
+&lt;p&gt;pretendo que essa série de posts seja de assuntos que vocês tragam pra mim, pra que eu dê minha opinião ou faça um tutorial de alguma coisa.&lt;/p&gt;
+&lt;p&gt;sem mais delongas, vou falar dessa vez sobre as distros linux da vez. vamos lá o/&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;vou fazer algumas subdivisões aqui, pras distros que servem propósitos diferentes. lembrando: &lt;strong&gt;essas são as minhas sugestões&lt;/strong&gt;. se eu não falar sobre puppy linux, não fique triste; eu só não vi ainda uma aplicabilidade ou simplesmente ainda não tive chance de testar.&lt;/p&gt;
+&lt;p&gt;e pra quem caiu aqui de paraquedas: quando falo de &lt;strong&gt;distro&lt;/strong&gt;, falo de &lt;strong&gt;distribuição linux&lt;/strong&gt;, ou seja, uma &lt;strong&gt;versão&lt;/strong&gt; de um sistema operacional baseado em linux. cada distro difere nos programas que vêm embutidos na instalação, difere nas filosofias e, muitas vezes, na própria interface.&lt;/p&gt;
+&lt;p&gt;e aqui não vou discutir filosofia, software livre ou não - isso é conversa pra outros momentos (ou pra mesa de bar ;)). vamo lá!&lt;/p&gt;
+&lt;h3&gt;pra quem não quer dor de cabeça e tá vindo do windows:&lt;/h3&gt;
+&lt;h4&gt;Linux Mint&lt;/h4&gt;
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;a href=&quot;mint.jpg&quot;&gt;&lt;img src=&quot;mint.jpg&quot;&gt;&lt;/a&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Linux Mint&lt;/strong&gt; é a distro desktop mais popular do &lt;a href=&quot;http://distrowatch.com/&quot;&gt;distrowatch&lt;/a&gt;, e por um bom motivo: ela é uma distro &lt;strong&gt;muito&lt;/strong&gt; familiar pra quem quer sair do windows. ela usa o &lt;em&gt;desktop environment (ou seja, interface)&lt;/em&gt; Cinnamon, desenvolvido pelo próprio pessoal do Linux Mint, com o propósito de ser simples, leve e oferecer uma experiência similar à do windows, então é díficil pra qualquer um ficar perdido ao usar o Mint. além disso tudo, o Mint é feito sobre o Debian e o Ubuntu, o que traz pro Mint uma gigantesca comunidade e programas usados em tudo que é lugar.&lt;/p&gt;
+&lt;p&gt;site: &lt;a href=&quot;http://linuxmint.com/&quot;&gt;http://linuxmint.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;download: &lt;a href=&quot;http://www.linuxmint.com/download.php&quot;&gt;http://www.linuxmint.com/download.php&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;pra quem não quer dor de cabeça, mas não liga pra interface&lt;/h3&gt;
+&lt;h4&gt;Ubuntu&lt;/h4&gt;
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;a href=&quot;ubuntu.jpg&quot;&gt;&lt;img src=&quot;ubuntu.jpg&quot;&gt;&lt;/a&gt;
+&lt;/div&gt;&lt;p&gt;o &lt;strong&gt;Ubuntu&lt;/strong&gt; é praticamente onipresente no vocabulário dos linuxeiros. conhecido por sua interface personalizada, por decisões duvidosas e por ter versões populares para uso em servidores, o Ubuntu é uma ótima pedida pra quem tá começando com linux e quer algo diferente. a comunidade é absurdamente grande e as novas versões têm longos anos de garantia de suporte. vale a pena dar uma olhada ;D&lt;/p&gt;
+&lt;p&gt;site: &lt;a href=&quot;http://www.ubuntu.com/&quot;&gt;http://www.ubuntu.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;download: &lt;a href=&quot;http://www.ubuntu.com/download/desktop&quot;&gt;http://www.ubuntu.com/download/desktop&lt;/a&gt;&lt;/p&gt;
+&lt;h4&gt;Fedora&lt;/h4&gt;
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;a href=&quot;fedora.jpg&quot;&gt;&lt;img src=&quot;fedora.jpg&quot;&gt;&lt;/a&gt;
+&lt;/div&gt;&lt;p&gt;quando se fala de linux, é impossível fugir do &lt;strong&gt;Fedora&lt;/strong&gt;. o Fedora é uma distro sólida desenvolvida pela &lt;a href=&quot;http://www.redhat.com/&quot;&gt;Red Hat&lt;/a&gt;, uma das maiores empresas de código aberto do mundo. geralmente, o Fedora oferece uma experiência mais clássica, no sentido de que não há praticamente nada que seja especificamente criado pra distribuição, o que faz com que você tenha nas mãos as melhores ferramentas criadas pela comunidade. normalmente traz programas mais recentes que os oferecidos pelas LTSs do Ubuntu.&lt;/p&gt;
+&lt;p&gt;site: &lt;a href=&quot;https://getfedora.org/&quot;&gt;https://getfedora.org/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;download: &lt;a href=&quot;https://getfedora.org/pt_BR/workstation/download/&quot;&gt;https://getfedora.org/pt_BR/workstation/download/&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;pra quem não quer dor de cabeça, mas algo lindo &lt;span&gt;*-*&lt;/span&gt;&lt;/h3&gt;
+&lt;h4&gt;elementaryOS&lt;/h4&gt;
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;a href=&quot;elementary.jpg&quot;&gt;&lt;img src=&quot;elementary.jpg&quot;&gt;&lt;/a&gt;
+&lt;/div&gt;&lt;p&gt;em matéria de beleza e funcionalidade básica, ninguém, &lt;strong&gt;ninguém&lt;/strong&gt; ganha do elementaryOS. criado com o design e a usabilidade como prioridades, o elementary deixa qualquer usuário de Mac OSX babando; tudo isso com software 100% aberto. ele é baseado no Ubuntu, então traz consigo toda uma comunidade pronta pra dar suporte. já falei que ele é &lt;strong&gt;lindo&lt;/strong&gt;?&lt;/p&gt;
+&lt;p&gt;site: &lt;a href=&quot;https://elementary.io&quot;&gt;https://elementary.io&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;download: &lt;a href=&quot;https://elementary.io&quot;&gt;https://elementary.io&lt;/a&gt; (você pode optar por pagar R$ 0, ele deixa!)&lt;/p&gt;
+&lt;h3&gt;pra quem já é usuário de linux e quer algo novo&lt;/h3&gt;
+&lt;h4&gt;Manjaro&lt;/h4&gt;
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;a href=&quot;manjaro.jpg&quot;&gt;&lt;img src=&quot;manjaro.jpg&quot;&gt;&lt;/a&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Manjaro&lt;/strong&gt; é uma distro relativamente nova, baseada em Arch Linux, que vem ganhando bastante força. ela é fácil de instalar e vem em milhões de diferentes &lt;em&gt;flavours&lt;/em&gt;: xfce, kde, cinnamon, gnome, fluxbox, bspwm, openbox, mate, deepin... &lt;strong&gt;vários&lt;/strong&gt; &lt;em&gt;flavours&lt;/em&gt;. é a distro que eu uso no dia-a-dia, por oferecer as ferramentas do Arch (como o AUR) com uma maior estabilidade e uma grande facilidade de instalação e configuração. pra quem entende de linux, vale &lt;strong&gt;muito&lt;/strong&gt; dar uma olhada.&lt;/p&gt;
+&lt;p&gt;site: &lt;a href=&quot;http://manjaro.github.io/&quot;&gt;http://manjaro.github.io/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;download: &lt;a href=&quot;http://manjaro.github.io/download/&quot;&gt;http://manjaro.github.io/download/&lt;/a&gt;&lt;/p&gt;
+&lt;h4&gt;Apricity OS&lt;/h4&gt;
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;a href=&quot;apricity.jpg&quot;&gt;&lt;img src=&quot;apricity.jpg&quot;&gt;&lt;/a&gt;
+&lt;/div&gt;&lt;p&gt;o &lt;strong&gt;Apricity&lt;/strong&gt; é um dos desconhecidos. ele oferece também vários &lt;em&gt;flavours&lt;/em&gt;, também é baseado em Arch e &lt;strong&gt;também&lt;/strong&gt; é lindo, oferecendo interfaces bem diferenciadas. ele vem com umas sacanageiras, como integração com o PushBullet e com o Evernote, o que deixa ele bem fora da mente de quem quer só software livre rodando. o único grande problema dele é que ele, bem, é desconhecido, então não dá pra ter previsibilidade dele ser mantido a longo prazo. ele tem o diferencial de só ter um live USB pra todas as diferentes interfaces, mas requer internet para poder baixar os programas corretos na hora da instalação. enfim, algo novo, vale estar no radar.&lt;/p&gt;
+&lt;p&gt;site: &lt;a href=&quot;https://apricityos.com/&quot;&gt;https://apricityos.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;download: &lt;a href=&quot;https://apricityos.com/&quot;&gt;https://apricityos.com/&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;pra quem quer algo hardcore&lt;/h3&gt;
+&lt;h4&gt;manjaro - versão i3&lt;/h4&gt;
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;a href=&quot;manjaro-i3.jpg&quot;&gt;&lt;img src=&quot;manjaro-i3.jpg&quot;&gt;&lt;/a&gt;
+&lt;/div&gt;&lt;p&gt;essa é pra quem quer um desafio. o manjaro em si já é uma distro que precisa de alguém minimamente experiente pra saber usar seu potencial; quando falamos de uma versão preconfigurada com o i3 então, chega a outro nível. o &lt;a href=&quot;https://i3wm.org/&quot;&gt;i3wm&lt;/a&gt; é um &lt;em&gt;tiling window manager&lt;/em&gt; (se você não sabe o que isso é, sério, pula essa) desenvolvido por uns malucos da Google. se você quer algo leve (o desktop environment inteiro pesa menos de 10Mb), rápido (respostas em menos de 100ms!), baseado em teclado e não tem problema em perder horas e horas configurando, essa é uma ótima pedida. uso no meu celeron de 7 anos atrás, funciona lindamente =)&lt;/p&gt;
+&lt;p&gt;site: &lt;a href=&quot;http://manjaro.github.io/&quot;&gt;http://manjaro.github.io/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;download: &lt;a href=&quot;https://sourceforge.net/projects/manjarolinux/files/community/i3/&quot;&gt;https://sourceforge.net/projects/manjarolinux/files/community/i3/&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3&gt;por enquanto é isso&lt;/h3&gt;
+&lt;p&gt;essas são as minhas escolhas atuais de distro no momento. se você tem alguma recomendação de uma distro diferente, fala comigo nos comentários! e se tiver algum tema pra ser discutido no próximo #ajudaLuciano, só falarem comigo onde for, sim?&lt;/p&gt;
+&lt;p&gt;abraços, e até a próxima! o/&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="https://lucianoratamero.github.io/blog/linux-para-leigos-por-que-usar-linux/">
+    <title type="text">linux para leigos: por que usar linux?</title>
+    <id>urn:uuid:98c8a057-dda9-3717-a965-b260542a9a32</id>
+    <updated>2016-02-21T13:31:00Z</updated>
+    <link href="https://lucianoratamero.github.io/blog/linux-para-leigos-por-que-usar-linux/" />
+    <author>
+      <name></name>
+    </author>
+    <content type="html">&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;img src=&quot;cover.png&quot;&gt;
+&lt;/div&gt;&lt;p&gt;se você está lendo isso daqui, quer dizer que você já pelo menos pensou na possibilidade de usar linux (que bonito! :D). seja por esforço de um amigo ou parente, ou até pela busca no google, você decidiu que quer entender melhor qual é a desse negócio de linux. bem, não posso te prometer nada, mas vou tentar passar pelos maiores argumentos pra que você faça a transição sabendo da coisa linda que tá fazendo. sem mais delongas, vamos começar!&lt;/p&gt;
+&lt;div class=&quot;alert alert-info text-center&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;aviso:&lt;/strong&gt;&lt;/p&gt;
+    &lt;p&gt;pro povo que já sabe qual é, devo deixar só o aviso de que quando falo &lt;strong&gt;linux&lt;/strong&gt;, me refiro a &lt;strong&gt;distribuições GNU/Linux&lt;/strong&gt;.&lt;/p&gt;
+    &lt;p&gt;só quero simplificar a ideia e não queria muito perder tempo com a questão semântica de me referir ao GNU/Linux como linux, ok? ok, então. fica triste não :*&lt;/p&gt;
+&lt;/div&gt;&lt;hr&gt;
+
+&lt;h3&gt;o que é o linux?&lt;/h3&gt;
+&lt;p&gt;quando falamos de &lt;strong&gt;linux&lt;/strong&gt;, estamos falando de &lt;strong&gt;sistemas operacionais baseados em linux&lt;/strong&gt;.&lt;/p&gt;
+&lt;h4&gt;pera, já começou complicado, o que raios é um sistema operacional? e como assim baseado em linux?&lt;/h4&gt;
+&lt;p&gt;caaaalma, caaaalma, vamos por partes. um &lt;strong&gt;sistema operacional&lt;/strong&gt; não é nada mais que um conjunto de &lt;strong&gt;programas&lt;/strong&gt; que fazem a &lt;strong&gt;ponte entre o que o seu computador entende (zeros e uns) e o que os seres humanos entendem (textos, sons, imagens, vídeos)&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;eles fazem com que, quando você movimente o mouse, a imagem do cursor mude de lugar na tela, por exemplo. lidam com todas as camadas: a sensibilidade de ver que o mouse mexeu, a interpretação disso como uma intenção de mover o cursor, a atualização do local onde o cursor está e a exibição dele no novo lugar da tela. não parece, mas essa é uma operação mega complexa. enfim, eles fazem isso, e também dão recursos para que &lt;strong&gt;outros programas possam ser instalados&lt;/strong&gt; e usados nesse computador.&lt;/p&gt;
+&lt;h4&gt;hmm, saquei, então por isso que linux é tipo o windows, né?&lt;/h4&gt;
+&lt;p&gt;isso, ele é igual ao windows no sentido de que você primeiro precisa instalar ele, o sistema operacional, antes de instalar todos os outros programas, exatamente por ele ser essa ponte. mas, é claro, se o linux não fosse diferente o suficiente, eu não estaria explicando, né. então vamos pras diferenças reais!&lt;/p&gt;
+&lt;h3&gt;instalação de programas&lt;/h3&gt;
+&lt;p&gt;uma das primeiras grandes vantagens do linux é seu modo de instalar programas. em todas as grandes &lt;strong&gt;distribuições linux&lt;/strong&gt;, o sistema já vem com um programa que &lt;strong&gt;literalmente&lt;/strong&gt; te deixa instalar qualquer programa disponível. &lt;strong&gt;no mundo. &lt;em&gt;sim. isso mesmo.&lt;/em&gt;&lt;/strong&gt; cabou superdownloads, cabou o negócio de você instalar uma toolbar sem querer só por causa do winrar, cabou essa caça por lugares confiáveis pra baixar os programas. (ah, chamamos de distribuição linux um sistema qualquer que use linux. leia-se somente &lt;em&gt;linux&lt;/em&gt;)&lt;/p&gt;
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;img src=&quot;instalador de programas.png&quot;&gt;
+&lt;/div&gt;&lt;p&gt;basicamente, toda distribuição tem seus &lt;strong&gt;repositórios de softwares&lt;/strong&gt;. pense nisso como o seguinte: toda distribuição tem um &lt;strong&gt;gigantesco&lt;/strong&gt; servidor com &lt;strong&gt;todos os programas nele&lt;/strong&gt;. daí, quer instalar alguma coisa, só abrir o programa de instalar programas, buscar o que quer e pronto, instalado. fácil, limpo, sem medo de ser feliz (e sem &lt;a href=&quot;http://olhardigital.uol.com.br/noticia/saiba-como-remover-o-hao123-do-computador/44048&quot;&gt;pegadinha do Hao123&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;o único problema é que programas patenteados &lt;em&gt;(estou olhando pra você, Adobe)&lt;/em&gt; não podem ser distribuídos dessa forma. isso significa &lt;strong&gt;nada de photoshop, nada de office&lt;/strong&gt;. mas, relaxa, &lt;strong&gt;existem programas extremamente competentes&lt;/strong&gt; em fazer o trabalho que esses aí fazem; só é necessário que você pare pra aprender como mexer neles, assim como aprendeu a mexer no office. e, olha, geralmente eles são &lt;strong&gt;bem parecidos&lt;/strong&gt; (como o &lt;a href=&quot;https://www.wps.com/linux&quot;&gt;WPS Office&lt;/a&gt;, por exemplo) e compatíveis. e o melhor, &lt;strong&gt;tudo grátis, pra sempre grátis&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3&gt;velocidade&lt;/h3&gt;
+&lt;p&gt;cara, eu tenho um computador de 7 anos atrás, um &lt;strong&gt;celeron&lt;/strong&gt; bosta, todo ferrado, mais lento que meu smartphone, e ele roda linux &lt;strong&gt;como um campeão&lt;/strong&gt;. se você não entendeu, te digo então: &lt;strong&gt;&lt;em&gt;linux é rápido pra cacete&lt;/em&gt;&lt;/strong&gt;. então se você quer usar seu laptop por mais, sei lá, quatro anos, mas ele tá lento, coloca linux nele. não vai se arrepender.&lt;/p&gt;
+&lt;p&gt;ah, só pra dizer, seu smartphone também é linux, provavelmente. é android? sim, android é linux. a google foi muito esperta mesmo.&lt;/p&gt;
+&lt;h3&gt;segurança&lt;/h3&gt;
+&lt;p&gt;como eu disse ali em cima, você nunca mais vai cair nas pegadinhas de instaladores do windows. além disso, como toda a instalação está centralizada em um programa só, ele sabe perfeitamente quando tem que atualizar os programas, caso algum deles deixe alguma brecha de segurança aberta.&lt;/p&gt;
+&lt;p&gt;mas o que mais explica a segurança dos sistemas linux é o fato de que, geralmente, todos os programas são, pelo menos, &lt;strong&gt;open source&lt;/strong&gt;.&lt;/p&gt;
+&lt;h4&gt;como assim? ter o código inteiro do programa aberto pra qualquer um ver não significa que qualquer um pode ver as falhas dele?&lt;/h4&gt;
+&lt;p&gt;é, parece um paradoxo, né? engraçado, mas o fato de ter as falhas expostas só faz com que os programas sejam &lt;strong&gt;ainda mais seguros&lt;/strong&gt;. já que as falhas estão expostas, qualquer um pode apontar a falha, e isso faz com que as brechas de segurança sejam consertadas &lt;strong&gt;em questão de minutos&lt;/strong&gt;. porque esse é o ponto principal: já que é a &lt;strong&gt;própria comunidade&lt;/strong&gt; que vê e corrige os problemas de forma &lt;strong&gt;voluntária&lt;/strong&gt;, o único motivo que sobra para consertar algo é, bem, &lt;em&gt;ter algo consertado&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;no windows, quando um problema é encontrado, a microsoft tem que &lt;strong&gt;pagar alguém&lt;/strong&gt; pra ir lá e consertar; ou seja, como uma empresa, ela geralmente prefere &lt;strong&gt;esconder suas falhas&lt;/strong&gt; pra não gastar dinheiro do que pagar alguém pra consertar. isso significa que uma &lt;strong&gt;falha de segurança&lt;/strong&gt; que está lá, no seu computador, &lt;strong&gt;há anos&lt;/strong&gt;, pode estar sendo explorada por alguém, pelo simples fato de que a microsoft quer economizar grana e não deixa o código do windows aberto.&lt;/p&gt;
+&lt;p&gt;yep, abrir o código te dá mais segurança. &lt;em&gt;deal with it.&lt;/em&gt;&lt;/p&gt;
+&lt;h3&gt;drivers? que drivers?&lt;/h3&gt;
+&lt;p&gt;falando em windows, quem aqui nunca teve problema de drivers levanta a mão! sabe quando você compra um computador e ele vem cheio de programa aleatório com nome de quinze empresas, e se você quiser tirar, se ferra aí? esses são nossos amigos &lt;strong&gt;drivers&lt;/strong&gt; (mentira, são inimigos mesmo).&lt;/p&gt;
+&lt;p&gt;outro cenário: deu pau no seu HD e você tem que formatar tudo? &lt;strong&gt;&lt;em&gt;oh, noez,&lt;/em&gt;&lt;/strong&gt; agora tá tudo zoado, nem o som funciona direito, a tela tá com tudo grande, a wifi não funciona. &lt;em&gt;drivers, man, friggin drivers.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;cabou. linux tem disso não. instalou o sistema operacional, tá tudo funcionando. mesmo. tipo, cabou drivers, não tem mais drivers. &lt;a href=&quot;https://www.youtube.com/watch?v=z64LKnEAI7k&quot;&gt;morreu. feneceu. tá enterrado.&lt;/a&gt; assim, &lt;em&gt;até tem&lt;/em&gt;, e de vez em quando &lt;em&gt;sim, dá problema&lt;/em&gt;, mas, sério, faz &lt;strong&gt;muito&lt;/strong&gt; tempo que não vejo gente reclamando de drivers quando tá usando linux (fora o pessoal que é chato e fica mexendo onde não deve, né, Rômulo?). isso significa que &lt;strong&gt;você pode instalar linux num pendrive e usar como computador&lt;/strong&gt;. sério! eu já fiz isso, foi super de boa :D&lt;/p&gt;
+&lt;h3&gt;suporte e comunidade&lt;/h3&gt;
+&lt;p&gt;eu já disse que é tudo grátis, né? então, o suporte também é grátis. na verdade, &lt;a href=&quot;http://www.diolinux.com.br/2016/02/russia-vai-migrar-para-linux.html&quot;&gt;tem &lt;strong&gt;muita&lt;/strong&gt; repartição pública pelo mundo&lt;/a&gt; que tá trocando pra linux exatamente porque tudo se atualiza automaticamente, e tudo é grátis, sem ligação direta com nenhuma empresa. eu lembro que &lt;a href=&quot;http://www.ic.uff.br/index.php/pt/laboratorios/graduacao&quot;&gt;até a UFF já usa linux em seus laboratórios de informática&lt;/a&gt; pra não precisar pagar os &lt;strong&gt;rios de dinheiros&lt;/strong&gt; em licensas do windows.&lt;/p&gt;
+&lt;p&gt;bem, de vez em quando você vai ter um problema ou outro, e isso é normal com qualquer tipo de computador e sistema. mas aí vem outra parte importante do mundo linux: &lt;strong&gt;a comunidade&lt;/strong&gt;. se você tá tendo um problema, cara, &lt;strong&gt;alguém&lt;/strong&gt; já teve esse problema e provavelmente &lt;strong&gt;já resolveu&lt;/strong&gt;. uma bela busca no google e pronto, você mesmo consertou seu pc. no pior dos piores casos, é só você instalar o linux de novo, o que é mais fácil que entender como funciona o jogo do truco (sério, não entendo truco até hoje!).&lt;/p&gt;
+&lt;h3&gt;personalização&lt;/h3&gt;
+&lt;p&gt;outra grande vantagem é que você não tem só uma versão do sistema pra usar. na verdade, existem &lt;a href=&quot;http://distrowatch.com/dwres.php?resource=popularity&quot;&gt;mais de 270 versões diferentes de linux por aí&lt;/a&gt;. imagina como seria ter 270 versões diferentes do windows? de repente, &lt;em&gt;até teria uma boa!&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;ok, brincadeiras de lado, além de tantas distribuições diferentes, também temos várias interfaces diferentes pra se escolher. essas interfaces mudam de tudo, desde como usar as janelas, onde fica a barra de notificações, onde fica o relógio, onde ficam os ícones dos programas a serem abertos, enfim, &lt;strong&gt;tudo que é visual&lt;/strong&gt;. sempre tem &lt;strong&gt;alguma&lt;/strong&gt; dessas interfaces que vai ser a melhor pra você, desde o &lt;a href=&quot;https://unity.ubuntu.com/&quot;&gt;unity&lt;/a&gt;, até o &lt;a href=&quot;https://www.gnome.org/gnome-3/&quot;&gt;gnome&lt;/a&gt;, o &lt;a href=&quot;https://www.kde.org/screenshots/&quot;&gt;kde&lt;/a&gt;, o &lt;a href=&quot;https://en.wikipedia.org/wiki/Elementary_OS#/media/File:Elementary_OS_0.3_%22Freya%22.png&quot;&gt;pantheon&lt;/a&gt;, o &lt;a href=&quot;http://www.xfce.org/about/screenshots&quot;&gt;xfce&lt;/a&gt;, o &lt;a href=&quot;http://lxde.org/image_galleries/screenshots/&quot;&gt;lxde&lt;/a&gt;, o &lt;a href=&quot;http://openbox.org/wiki/Openbox:Screenshots&quot;&gt;openbox&lt;/a&gt;... tem muitos pra listar aqui. &lt;strong&gt;&lt;a href=&quot;http://www.howtogeek.com/163154/linux-users-have-a-choice-8-linux-desktop-environments/&quot;&gt;mesmo.&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;aliás, o &lt;a href=&quot;https://elementary.io/pt_BR/&quot;&gt;elementary os&lt;/a&gt; é o sistema operacional mais lindo que já vi, na boa.&lt;/p&gt;
+&lt;h3&gt;bem-vindo ao mundo do software livre!&lt;/h3&gt;
+&lt;p&gt;além das &lt;strong&gt;claras&lt;/strong&gt; vantagens sobre o windows, você começa a se envolver no mundo do software livre. foi a partir do linux que comecei a querer me tornar programador, e por causa do software livre que fiquei. é um mundo vasto, cheio de pessoas lindas e coisas novas a descobrir.&lt;/p&gt;
+&lt;h3&gt;tl;dr, #comofas&lt;/h3&gt;
+&lt;p&gt;o linux é pra você se você quer algo &lt;strong&gt;seguro, gratuito, leve, bonito e configurável&lt;/strong&gt;. ou seja, &lt;strong&gt;não há motivos pra não querer usar&lt;/strong&gt;. já se foi o tempo em que era difícil instalar e configurar; hoje, instalar é fácil, usar é fácil, manter atualizado é fácil.&lt;/p&gt;
+&lt;p&gt;só &lt;strong&gt;não recomendo linux pra&lt;/strong&gt; dois tipos de público: &lt;strong&gt;designers&lt;/strong&gt; e &lt;strong&gt;gamers&lt;/strong&gt;. apesar de termos ferramentas maravilhosas como o &lt;a href=&quot;https://inkscape.org/&quot;&gt;inkscape&lt;/a&gt; para trabalhar como designer e de termos a &lt;a href=&quot;http://store.steampowered.com/browse/linux/&quot;&gt;steam disponível pra linux&lt;/a&gt;, ainda não chegamos no ponto de simplesmente substituir o windows ou o osx pra esses públicos. &lt;strong&gt;mas as coisas estão melhorando nesses aspectos&lt;/strong&gt; e duvido que vá demorar muito mais tempo pra quebrarmos de vez todas as barreiras.&lt;/p&gt;
+&lt;p&gt;se você ficou empolgado e agora quer dar o pontapé inicial, &lt;a href=&quot;https://www.facebook.com/lucianoratamero&quot;&gt;pode falar comigo no facebook&lt;/a&gt; ou esperar um post que está por vir, o de &lt;strong&gt;como escolher a distribuição linux ideal pra você&lt;/strong&gt;. até lá, fico por aqui, respondendo a comentários. abraços o/&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="https://lucianoratamero.github.io/blog/habemus-rss/">
+    <title type="text">habemus rss!</title>
+    <id>urn:uuid:164f12a4-fcff-3db9-be87-45b3c4b5985f</id>
+    <updated>2016-02-20T01:31:00Z</updated>
+    <link href="https://lucianoratamero.github.io/blog/habemus-rss/" />
+    <author>
+      <name></name>
+    </author>
+    <content type="html">&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;img src=&quot;cover.png&quot;&gt;
+&lt;/div&gt;&lt;p&gt;só pra avisar: agora tenho um feed rss, pra quem é de rss. os links estão no header e no footer, sim?&lt;/p&gt;
+&lt;p&gt;beijos,&lt;br&gt;Luciano.&lt;/p&gt;</content>
+  </entry>
+  <entry xml:base="https://lucianoratamero.github.io/blog/git-e-github-parte-3-boas-praticas-de-organizacao-de-branchs/">
+    <title type="text">git e github parte 3: boas práticas de organização de branches</title>
+    <id>urn:uuid:57b10032-9405-3071-a529-87902a6a9c32</id>
+    <updated>2016-02-19T13:31:00Z</updated>
+    <link href="https://lucianoratamero.github.io/blog/git-e-github-parte-3-boas-praticas-de-organizacao-de-branchs/" />
+    <author>
+      <name></name>
+    </author>
+    <content type="html">&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;img src=&quot;cover.png&quot;&gt;
+&lt;/div&gt;&lt;p&gt;chegamos à parte 3 dos posts sobre git e github! nos &lt;a href=&quot;http://lucianoratamero.github.io/blog/git-e-github-parte-1-o-que-sao-e-como-usar/&quot;&gt;outros&lt;/a&gt; &lt;a href=&quot;http://lucianoratamero.github.io/blog/git-e-github-parte-2-conceitos-basicos-para-trabalhar-com-git/&quot;&gt;dois&lt;/a&gt;, falei sobre o que são o git e o github e slguns conceitos básicos pra começar a usar o git. hoje, vou falar mais sobre algumas boas práticas pra organização de branches, baseado nas sugestões do &lt;a href=&quot;https://github.com/nvie/gitflow&quot;&gt;git flow&lt;/a&gt;.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3&gt;o que é o git flow?&lt;/h3&gt;
+&lt;p&gt;o &lt;strong&gt;git flow&lt;/strong&gt; é uma extensão do git que permite uma maior organização e agilidade na hora de lidar com o git. ele segue uma série de convenções que caracterizam alguns tipos de branches com responsabilidades diferentes, próprias pra cada etapa do processo de desenvolvimento. vou detalhar melhor o papel de cada um dos tipos de branch.&lt;/p&gt;
+&lt;div class=&quot;alert alert-info text-center&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;lembre-se:&lt;/strong&gt;&lt;/p&gt;
+    &lt;p&gt;essas são apenas &lt;strong&gt;sugestões&lt;/strong&gt; minhas e das próprias convenções do git flow.&lt;/p&gt;
+    &lt;p&gt;o uso dessas sugestões muda de projeto a projeto, apesar dessas sugestões funcionarem em grande parte dos casos.&lt;/p&gt;
+&lt;/div&gt;&lt;h3&gt;branch &lt;code&gt;master&lt;/code&gt;&lt;/h3&gt;&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;img src=&quot;master.jpg&quot;&gt;
+&lt;/div&gt;&lt;p&gt;o branch &lt;code&gt;master&lt;/code&gt; é o branch no qual está o código que está em &lt;strong&gt;produção&lt;/strong&gt;, ou seja, que está sendo &lt;strong&gt;diretamente usado pelos clientes&lt;/strong&gt;. ele é caracterizado por sua grande quantidade de &lt;strong&gt;tags&lt;/strong&gt;, que refletem cada versão do projeto que foi pra uso corrente. nele, não se deve ter commits soltos; devemos apenas adicionar commits nele através de merges de branches de &lt;code&gt;release&lt;/code&gt; e de &lt;code&gt;hotfix&lt;/code&gt;.&lt;/p&gt;
+&lt;h3&gt;branch &lt;code&gt;develop&lt;/code&gt;&lt;/h3&gt;&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;img src=&quot;develop.jpg&quot;&gt;
+&lt;/div&gt;&lt;p&gt;o branch &lt;code&gt;develop&lt;/code&gt; é o que contém o código previsto para a próxima &lt;code&gt;release&lt;/code&gt;, ou seja, o próximo código que irá pro ar. nele, também não devemos commitar diretamente, deixando que seu código seja fornecido pelos branches de &lt;code&gt;feature&lt;/code&gt; e &lt;code&gt;hotfix&lt;/code&gt;, mas essa regra é um pouco mais flexível que a do &lt;code&gt;master&lt;/code&gt;. uma boa prática é sempre deixá-lo estável, pronto para ir para o ar a qualquer momento, para evitar que uma funcionalidade não vá pro ar por causa de instabilidade de outras.&lt;/p&gt;
+&lt;h3&gt;branches de &lt;code&gt;release&lt;/code&gt;&lt;/h3&gt;&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;img src=&quot;release.jpg&quot;&gt;
+&lt;/div&gt;&lt;p&gt;os branches de &lt;code&gt;release&lt;/code&gt; são aqueles que resumem o que uma nova versão do seu projeto terá. ele tem a responsabilidade de sair do &lt;code&gt;develop&lt;/code&gt;, se mergear no &lt;code&gt;master&lt;/code&gt; e no &lt;code&gt;develop&lt;/code&gt; e, ao mergear no &lt;code&gt;master&lt;/code&gt;, criar uma &lt;code&gt;tag&lt;/code&gt; com o número da nova versão. geralmente, recebem o nome &lt;code&gt;release/[numero-da-versao]&lt;/code&gt;. na minha experiência, acho uma má ideia commitar em branches de &lt;code&gt;release&lt;/code&gt;, pelo simples motivo que, assim, temos certeza de que todo o código veio dos &lt;code&gt;hotfixes&lt;/code&gt; e das &lt;code&gt;features&lt;/code&gt;. dessa forma, os branches de &lt;code&gt;release&lt;/code&gt; servem &lt;strong&gt;apenas como um ritual&lt;/strong&gt; para que você tenha &lt;strong&gt;certeza&lt;/strong&gt; do que está colocando no ar e qual é a versão desejada. é uma burocracia que já salvou minha vida algumas vezes. ;)&lt;/p&gt;
+&lt;h3&gt;branches de &lt;code&gt;hotfix&lt;/code&gt;&lt;/h3&gt;&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;img src=&quot;hotfix.jpg&quot;&gt;
+&lt;/div&gt;&lt;p&gt;os branches de &lt;code&gt;hotfix&lt;/code&gt; são os que são abertos na hora que algo em produção dá problema. são branches criados a partir do &lt;code&gt;master&lt;/code&gt; e que se mergeiam novamente no &lt;code&gt;master&lt;/code&gt; e no &lt;code&gt;develop&lt;/code&gt;, já que precisamos das correções também no código que está sendo desenvolvido. geralmente, recebem o nome &lt;code&gt;hotfix/[numero-da-versao]&lt;/code&gt;. eles também recebem suas próprias &lt;code&gt;tags&lt;/code&gt;, que servem para dizer que, nesta versão, o problema x foi corrigido.&lt;/p&gt;
+&lt;h3&gt;branches de &lt;code&gt;feature&lt;/code&gt;&lt;/h3&gt;&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;img src=&quot;feature.jpg&quot;&gt;
+&lt;/div&gt;&lt;p&gt;os branches de &lt;code&gt;feature&lt;/code&gt; servem para, bem, features, né. eles partem do &lt;code&gt;develop&lt;/code&gt; e mergeiam também no &lt;code&gt;develop&lt;/code&gt;. geralmente, recebem o nome &lt;code&gt;feature/[descricao-da-funcionalidade]&lt;/code&gt;. neles, commitamos o que é necessário para novas funcionalidades ficarem prontas, apesar de que eu, novamente, não recomendo que sejam feitos commits diretamente nele. o motivo disso é que, ao meu ver, features têm a tendência de terem muitos commits, o que deixaria difícil a revisão do código em um &lt;em&gt;pull request&lt;/em&gt;. recomendo que, a partir dos branches de &lt;code&gt;feature&lt;/code&gt;, sejam criados branches de &lt;code&gt;topic&lt;/code&gt;, que terão o conteúdo de uma parte da funcionalidade, em um tamanho que permita a fácil revisão do código por outras pessoas.&lt;/p&gt;
+&lt;h3&gt;branches de &lt;code&gt;topic&lt;/code&gt;&lt;/h3&gt;&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;img src=&quot;topic.jpg&quot;&gt;
+&lt;/div&gt;&lt;p&gt;os branches de &lt;code&gt;topic&lt;/code&gt; são os coringas. geralmente, recebem o nome &lt;code&gt;topic/[nome-do-topico-abordado]&lt;/code&gt;. são usados em qualquer lugar em que seja legal ter mais de um tópico, para facilitar a revisão de código. na real, uso os branches de &lt;code&gt;topic&lt;/code&gt; saindo dos de &lt;code&gt;feature&lt;/code&gt; e mergeando nos mesmos, ou partindo de um branch de &lt;code&gt;hotfix&lt;/code&gt; e mergeando nos mesmos. são os menores branches, feitos para serem lidos e revisados rapidamente.&lt;/p&gt;
+&lt;h3&gt;e o que o git flow tem a ver com isso tudo?&lt;/h3&gt;
+&lt;p&gt;o git flow, como eu disse, é uma extensão do git. ele cria comandos que servem de atalhos para os processos descritos acima. ele tem comandos para abrir e fechar &lt;code&gt;releases&lt;/code&gt;, &lt;code&gt;features&lt;/code&gt; e &lt;code&gt;hotfixes&lt;/code&gt;, e é facilmente configurável. se essa organização de branches te interessou, acho que vale a pena dar uma olhada no &lt;a href=&quot;https://github.com/nvie/gitflow&quot;&gt;repositório deles&lt;/a&gt; e ler o &lt;a href=&quot;http://nvie.com/posts/a-successful-git-branching-model/&quot;&gt;post sobre o workflow deles&lt;/a&gt;. nesse post, eles detalham melhor o que é realmente necessário ser feito pra realizar essa proposta de organização.&lt;/p&gt;
+&lt;p&gt;como sempre, qualquer dúvida ou sugestão, é só falar nos comentários. espero que tenham gostado dessa série de posts e que tenha sido útil :D&lt;/p&gt;
+&lt;p&gt;eu fico por aqui, até a próxima! o/&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="https://lucianoratamero.github.io/blog/git-e-github-parte-2-conceitos-basicos-para-trabalhar-com-git/">
+    <title type="text">git e github parte 2: conceitos básicos para trabalhar com git</title>
+    <id>urn:uuid:8c2bf260-f225-3de8-9b8b-d34e33b59d74</id>
+    <updated>2016-02-18T13:31:00Z</updated>
+    <link href="https://lucianoratamero.github.io/blog/git-e-github-parte-2-conceitos-basicos-para-trabalhar-com-git/" />
+    <author>
+      <name></name>
+    </author>
+    <content type="html">&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;img src=&quot;cover.png&quot;&gt;
+&lt;/div&gt;&lt;p&gt;eis que voltamos para a parte 2 dos posts sobre git e github! dessa vez, vou discutir alguns conceitos básicos necessários para quem quer trabalhar com git. se ainda não leu o primeiro post, &lt;a href=&quot;http://lucianoratamero.github.io/blog/git-e-github-parte-1-o-que-sao-e-como-usar/&quot;&gt;façam o favor&lt;/a&gt;, porque não vou explicar de novo (#ranzinza). então vamos lá!&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3&gt;merge e conflitos&lt;/h3&gt;
+&lt;p&gt;a última coisa que discutimos no último post foi a questão de termos branchs diferentes para commits e tarefas diferentes. ter múltiplos branchs é importante para que uma tarefa não influencie na outra, mas o que importa no final das contas é que todas as tarefas estejam prontas, juntas, entregues.&lt;/p&gt;
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;img src=&quot;merge.jpg&quot;&gt;
+&lt;/div&gt;&lt;p&gt;pra isso, os branchs paralelos precisam ser misturados novamente em um só, usando o processo que chamamos de &lt;strong&gt;merge&lt;/strong&gt;. &lt;strong&gt;merge&lt;/strong&gt; significa, ao pé da letra, &lt;strong&gt;convergir&lt;/strong&gt;. essa convergência é necessária para que saibamos que tudo funciona em conjunto e para que possamos criar uma nova versão do projeto que está sendo desenvolvido.&lt;/p&gt;
+&lt;p&gt;isso se complica na hora que pensamos que, em branchs diferentes, os desenvolvedores podem mudar o mesmo arquivo, na mesma linha. quando isso acontece, ocorre o que chamamos de &lt;strong&gt;conflito&lt;/strong&gt;. na hora do merge, o git tenta misturar o código (e geralmente é bem inteligente em se resolver sozinho), mas quando conflitos acontecem, é necessária intervenção manual no código para que tudo funcione bonitinho, então fiquem ligados pra que seu processo se adapte visando evitar conflitos.&lt;/p&gt;
+&lt;h3&gt;cherry-pick&lt;/h3&gt;
+&lt;p&gt;digamos que no branch 1 temos uma tarefa e no 2, outra. pode acontecer o caso de que o branch 2 desenvolva algo que seria importante para o desenvolvimento do 1, mas, obviamente, temos o código de um separado do outro. nessas horas, podemos usar o &lt;strong&gt;cherry-pick&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;img src=&quot;cherry-pick.jpg&quot;&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;cherry-pick&lt;/strong&gt; é o processo de pegar um commit específico, ou uma série de commits, e copiá-lo(s) para outro branch. pode ficar tranquilo, isso não vai interferir na hora do merge (mas pode dar a ilusão de que mais coisas foram mudadas na hora de gerar um pull request). use o cherry-pick com &lt;strong&gt;muita&lt;/strong&gt; parcimônia.&lt;/p&gt;
+&lt;h3&gt;rebase&lt;/h3&gt;
+&lt;p&gt;muitas vezes acontece de você criar um branch a partir de outro, mas perceber que devia ter esperado mais, porque foi feita alguma nova alteração importante no branch base. nessas horas, você pode usar o &lt;strong&gt;rebase&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;img src=&quot;rebase.jpg&quot;&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;rebase&lt;/strong&gt; é o ato de mudar o commit base de uma série de commits. ele é útil em alguns momentos, mas deve ser &lt;strong&gt;evitado&lt;/strong&gt;, já que ele &lt;strong&gt;altera o histórico do git e pode gerar inconsistências de dados&lt;/strong&gt; quando mais de uma pessoa está trabalhando no mesmo branch.&lt;/p&gt;
+&lt;p&gt;a maior utilidade que vejo no rebase é na hora em que você faz um commit local e, nesse meio tempo, alguém enviou um novo commit no repositório. nesse momento, para evitar um commit de merge na hora de sicronizar o código, você pode simplesmente usar o comando &lt;code&gt;git pull --rebase&lt;/code&gt; pra pegar seu commit e colocar logo em seguida do que estava no repositório remoto.&lt;/p&gt;
+&lt;h3&gt;remotes&lt;/h3&gt;
+&lt;p&gt;uma das coisas mais interessantes do git é a possibilidade de configurar múltiplas origens pra um mesmo projeto. assim, podemos enviar código de um projeto para múltiplos repositórios, e isso é feito a partir da configurações de &lt;strong&gt;remotes&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;img src=&quot;remotes.jpg&quot;&gt;
+&lt;/div&gt;&lt;p&gt;geralmente, só temos uma origem remota pra cada projeto, mas podemos ter, por exemplo, um outro repositório remoto configurado para fazer o deploy da aplicação. esse processo é usado por alguns serviços de hospedagem de site, como o &lt;a href=&quot;http://heroku.com/&quot;&gt;heroku&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;tag&lt;/h3&gt;
+&lt;p&gt;quando você tem vários commits com várias funcionalidades diferentes, você tende a não saber mais muito bem em qual commit que tal feature ficou pronta. para que você possa nomear o estado do projeto em um commit específico, você pode usar uma &lt;strong&gt;tag&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;img src=&quot;tag.jpg&quot;&gt;
+&lt;/div&gt;&lt;p&gt;uma &lt;strong&gt;tag&lt;/strong&gt; nada mais é do que um atalho a um commit específico, que descreve um estado do seu projeto. você pode, por exemplo, nomear de 1.0 a versão inicial de seu projeto e ir criando novas tags pra cada nova versão de produção.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;por hoje, acho que é isso, pessoal. no próximo, e último post, vou discutir um pouco sobre boas práticas para desenvolvimento usando git. caso tenham alguma dúvida ou sugestão, só mandarem ver nos comentários, sim? abraços, e até a próxima! o/&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="https://lucianoratamero.github.io/blog/git-e-github-parte-1-o-que-sao-e-como-usar/">
+    <title type="text">git e github parte 1: o que são e como usar?</title>
+    <id>urn:uuid:56398c62-6980-3115-800a-2239bb62c445</id>
+    <updated>2016-02-14T13:31:00Z</updated>
+    <link href="https://lucianoratamero.github.io/blog/git-e-github-parte-1-o-que-sao-e-como-usar/" />
+    <author>
+      <name></name>
+    </author>
+    <content type="html">&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;img src=&quot;cover.png&quot;&gt;
+&lt;/div&gt;&lt;p&gt;hoje eu tava conversando com uns amigos sobre git e github e percebemos um problema: não temos atualmente um lugar com conteúdo sobre os dois em português, principalmente para leigos ou iniciantes. depois de pegar com o pessoal uns pontos importantes, decidi fazer alguns posts sobre o assunto, para servir de referência. aí vamos nós o/&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3&gt;o que é o git?&lt;/h3&gt;
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;img src=&quot;git_logo.png&quot;&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a href=&quot;https://git-scm.com/&quot;&gt;git&lt;/a&gt; é uma &lt;strong&gt;ferramenta para versionamento de arquivos&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;um exemplo: digamos que você queira escrever um poema pro seu amorzinho e tenha várias ideias. você escreve um verso, escreve outro e pronto, taí seu poema, o &lt;code&gt;amorzinho.txt&lt;/code&gt;. você manda o arquivo pro seu amorzinho, que fica apaixonado. depois de alguns dias, você tem uma ideia nova, volta no texto, reescreve um verso e manda pro seu amorzinho de novo, esperando coraçõezinhos de carinho. mas seu amorzinho diz &quot;a versão antiga era tão mais bonita... tem como me mandar a antiga?&quot;. mas, oh!, você esqueceu como o texto era e não tem mais salvo em lugar nenhum! aí que entra o git.&lt;/p&gt;
+&lt;p&gt;o git serve para que você possa criar uma linha do tempo com diferentes pontos das alterações feitas. assim, você consegue manter o histórico das alterações de um mesmo arquivo ou arquivos ao longo do tempo.&lt;/p&gt;
+&lt;p&gt;nem preciso dizer o quanto isso é &lt;strong&gt;crucial&lt;/strong&gt; para projetos de software, já que esses projetos exigem que você e sua equipe criem novas funcionalidades nos mesmos arquivos, com uma versão antiga salva pro caso da nova dar problema. vou explicar melhor &lt;strong&gt;como&lt;/strong&gt; ele funciona daqui a pouco, mas, antes, tenho que explicar o que é o github.&lt;/p&gt;
+&lt;h3&gt;o que é o github?&lt;/h3&gt;
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;img src=&quot;github_logo.png&quot;&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/&quot;&gt;github&lt;/a&gt; é só um &lt;strong&gt;site&lt;/strong&gt; no qual você pode fazer &lt;strong&gt;upload de projetos git&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;o github (palavra que seria traduzida como &quot;agregador de gits&quot;) é o site mais conhecido de hospedagem de projetos git. ele serve para que você e sua equipe possam manter as versões do projeto em que trabalham em um lugar centralizado, na internet, acessível a quem pertence ao projeto.&lt;/p&gt;
+&lt;p&gt;além de hospedar projetos git, o github dá visibilidade da linha do tempo de diferentes versões do projeto, provê ferramentas de métricas (como quais usuários alteraram mais o projeto, quando alteraram, o que alteraram, etc), gerência de problemas relatados (&lt;em&gt;tickets&lt;/em&gt; ou &lt;em&gt;issues&lt;/em&gt;), dentre outras. vou detalhar um pouco melhor daqui a pouco.&lt;/p&gt;
+&lt;div class=&quot;alert alert-info text-center&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;lembrem-se:&lt;/strong&gt;&lt;/p&gt;
+    &lt;p&gt;a diferença entre git e github é que &lt;strong&gt;o git é só uma ferramenta para versionar projetos&lt;/strong&gt;, enquanto &lt;strong&gt;o github é o site no qual você colocará esses projetos versionados&lt;/strong&gt;. uma analogia válida seria que o git é seu pincel e tintas enquanto o github é um museu.&lt;/p&gt;
+&lt;/div&gt;&lt;h3&gt;beleza, mas como o git funciona?&lt;/h3&gt;
+&lt;p&gt;vou tentar explicar conceitos básicos, mas não vou fazer um tutorial de como usar a ferramenta, porque &lt;a href=&quot;https://www.atlassian.com/git/tutorials/&quot;&gt;tem&lt;/a&gt; &lt;a href=&quot;https://try.github.io/levels/1/challenges/1&quot;&gt;vários&lt;/a&gt; &lt;a href=&quot;http://rogerdudler.github.io/git-guide/&quot;&gt;por&lt;/a&gt; &lt;a href=&quot;https://git-scm.com/book/pt-br/v1/Primeiros-passos-No%C3%A7%C3%B5es-B%C3%A1sicas-de-Git&quot;&gt;aí&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;bem, digamos que você tenha uma pasta com seus textos, ok? seria muito legal saber, ao longo do tempo, como foi sua evolução como escritor, ou seja, quais textos foram adicionados, removidos ou alterados. você decide começar a usar o git na pasta de textos e quer salvar o estado atual da pasta.&lt;/p&gt;
+&lt;p&gt;pra isso, você cria um &lt;strong&gt;commit&lt;/strong&gt; inicial.&lt;/p&gt;
+&lt;p&gt;um &lt;strong&gt;commit&lt;/strong&gt; é um documento que descreve uma alteração, um ponto na linha do tempo do projeto. ele é como um registro de uma alteração no projeto. essa alteração é salva com seu nome, seu email, data da alteração, suas alterações na pasta e uma descrição da alteração, que você mesmo escreve.&lt;/p&gt;
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;img src=&quot;commit.jpg&quot;&gt;
+&lt;/div&gt;&lt;p&gt;então, na hora que você coloca os textos na pasta pela primeira vez, você cria um commit com a descrição &quot;adiciona os textos que tenho agora&quot;, seleciona todos os arquivos e pronto, você tem um ponto na linha do tempo!&lt;/p&gt;
+&lt;h3&gt;ok, mas agora quero usar o github pra salvar meus textos na nuvem? #comofas&lt;/h3&gt;
+&lt;p&gt;pra isso, você cria uma conta no github e cria o que chamamos de um &lt;strong&gt;repositório&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;na linguagem do povo de computação, &lt;strong&gt;repositórios&lt;/strong&gt; são &lt;strong&gt;locais nos quais colocamos arquivos na internet&lt;/strong&gt;. eles servem para que qualquer um consiga &lt;strong&gt;repor&lt;/strong&gt; o código de um projeto no seu computador, caso você não tenha ele salvo. isso significa que, quando você for colocar seu projeto no github, você primeiro precisa criar um repositório lá.&lt;/p&gt;
+&lt;p&gt;com o repositório criado no github, você só precisa configurar &lt;strong&gt;onde&lt;/strong&gt; está seu repositório e &lt;strong&gt;empurrar&lt;/strong&gt; as &lt;strong&gt;alterações&lt;/strong&gt; pra lá. ou seja, você define a &lt;strong&gt;origem&lt;/strong&gt; do repositório e faz um &lt;strong&gt;push&lt;/strong&gt; dos &lt;strong&gt;commits&lt;/strong&gt; pra lá.&lt;/p&gt;
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;img src=&quot;repositorio.jpg&quot;&gt;
+&lt;/div&gt;&lt;h3&gt;legal, agora tenho os meus textos salvos no github. que que eu faço com isso?&lt;/h3&gt;
+&lt;p&gt;agora, com os textos lá, você pode fazer várias coisas. vou enumerar algumas, as mais básicas e úteis. :)&lt;/p&gt;
+&lt;h4&gt;clonagem de repositórios&lt;/h4&gt;
+&lt;p&gt;digamos que você foi passar o fim de ano na casa dos seus pais e você quer alterar algum texto. você sabe que tem todos eles no seu computador, mas você (sua anta) esqueceu de trazê-lo. você até pode copiar os textos direto do site do github pro computador da sua mãe, mas isso significa que, se você quiser salvar a nova versão lá, você vai ter que criar &lt;strong&gt;outro&lt;/strong&gt; repositório. relaxa, pra isso serve a clonagem de repositórios.&lt;/p&gt;
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;img src=&quot;clone.jpg&quot;&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;clonar&lt;/strong&gt; um repositório significa &lt;strong&gt;baixar o projeto git inteiro, direto da origem, pro seu computador&lt;/strong&gt;. isso quer dizer que &lt;strong&gt;todas as alterações&lt;/strong&gt;, de &lt;strong&gt;toda a linha do tempo&lt;/strong&gt;, estão agora no seu computador. assim, ao você clonar um repositório, você pode simplesmente &lt;strong&gt;criar novos commits&lt;/strong&gt; e &lt;strong&gt;dar push&lt;/strong&gt; das novas alterações.&lt;/p&gt;
+&lt;p&gt;isso permite que uma equipe possa fazer alterações no projeto, cada um em seu  computador, e possa sincronizar essas alterações através de &lt;strong&gt;pushs (empurrões)&lt;/strong&gt; e &lt;strong&gt;pulls (puxadas)&lt;/strong&gt; de &lt;strong&gt;commits (alterações)&lt;/strong&gt; de um mesmo &lt;strong&gt;repositório (projeto)&lt;/strong&gt;. é assim que uma equipe de software trabalha hoje em dia. :)&lt;/p&gt;
+&lt;h4&gt;forks de repositórios&lt;/h4&gt;
+&lt;p&gt;ok, digamos que seu amigo tem um amorzinho também e quer escrever aquele poema lindo, mas não tem muita criatividade. você diz pra ele &quot;cara, pode usar o amorzinho.txt, mas tem que dar uma alterada, senão vai pegar mal&quot;. você não quer, no entanto, que seu amiguinho use seu repositório, porque, né, é seu, com seus textos. o que seu amigo pode fazer pra ter a versão dele dos seus textos é criar o que chamamos de &lt;strong&gt;fork&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;img src=&quot;fork.jpg&quot;&gt;
+&lt;/div&gt;&lt;p&gt;um &lt;strong&gt;fork&lt;/strong&gt; é um repositório criado a partir de outro. tudo nele é literalmente igual, desde o conteúdo dos arquivos até os commits salvos; a única diferença é que &lt;strong&gt;pertence a um usuário diferente&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;no entanto, a utilidade de um fork só se revela totalmente quando começamos a falar sobre &lt;strong&gt;issues e pull requests&lt;/strong&gt;.&lt;/p&gt;
+&lt;h4&gt;issues e pull requests&lt;/h4&gt;
+&lt;p&gt;seu amigo, ao ler o seu poema &lt;code&gt;amorzinho.txt&lt;/code&gt;, percebe que você escreveu errado o nome do seu amorzinho. ele quer te avisar que isso precisa ser corrigido, porque isso é um &lt;strong&gt;problema&lt;/strong&gt;, uma &lt;strong&gt;issue&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;uma &lt;strong&gt;issue&lt;/strong&gt; é um relatório de um problema que precisa ser corrigido. imaginemos que seu site, por exemplo, tem um link quebrado. qualquer um pode &lt;strong&gt;abrir uma issue&lt;/strong&gt; no seu &lt;strong&gt;repositório no github&lt;/strong&gt; dizendo que o link da página tal está quebrado.&lt;/p&gt;
+&lt;p&gt;o problema é que você, mantenedor do projeto, tá extremamente ocupado dando aulas pro seu amigo de como escrever um poema romântico. você vai lá e responde pro cara, na própria issue, que você tá enrolado demais, mas que ficaria muito agradecido caso o cara pudesse corrigir esse problema pra você.&lt;/p&gt;
+&lt;p&gt;o cara é esperto: ele cria um &lt;strong&gt;fork&lt;/strong&gt; do repositório, localiza o arquivo problemático, corrige o link, salva, &lt;strong&gt;cria um commit&lt;/strong&gt;, &lt;strong&gt;faz um push&lt;/strong&gt; das alterações &lt;strong&gt;pro fork dele&lt;/strong&gt;, tudo certo. só um detalhe: a correção &lt;strong&gt;precisa ser misturada com o seu&lt;/strong&gt; repositório&lt;strong&gt;. pra isso, ele cria um &lt;/strong&gt;pull request&lt;strong&gt;, ou seja, um &lt;/strong&gt;pedido de empurrão de alterações**.&lt;/p&gt;
+&lt;p&gt;nesse pull request, constam os &lt;strong&gt;commits&lt;/strong&gt; feitos, os &lt;strong&gt;arquivos alterados&lt;/strong&gt; e uma descrição da correção. mas digamos que o cara esqueceu de alterar em outro lugar; você comenta no pull request dizendo que precisa alterar no outro lugar.&lt;/p&gt;
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;img src=&quot;pull_request.jpg&quot;&gt;
+&lt;/div&gt;&lt;p&gt;esse detalhe deixa claro que &lt;strong&gt;pull requests também são issues&lt;/strong&gt;. ambos são &lt;strong&gt;discussões sobre um problema&lt;/strong&gt;. mas, claro, &lt;strong&gt;issues não são necessariamente pull requests&lt;/strong&gt;, porque &lt;strong&gt;pull requests têm como objetivo a correção de uma ou mais issues&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3&gt;ufa. tá tenso. mas ok, vamo lá, mais alguma coisa?&lt;/h3&gt;
+&lt;p&gt;só mais uma, juro, tá acabando! digamos que você e seu amigo querem fazer diferentes versões de um mesmo poema num mesmo repositório. se você alterar e fizer um commit, seu amigo vai acabar fazendo outro commit por cima do seu, e isso não é legal. o que você pode fazer é &lt;strong&gt;criar uma bifurcação no repositório&lt;/strong&gt; e dizer pro seu amigo que o seu branch é o seu e o dele é o dele. assim, enquanto você faz commits em uma bifurcação, seu amigo faz em outra, sem que uma interfira na outra. isso significa que, agora, seu projeto tem &lt;strong&gt;dois branchs&lt;/strong&gt; (tecnicamente, três, porque tem o branch base, né).&lt;/p&gt;
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;img src=&quot;branch.jpg&quot;&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;branchs&lt;/strong&gt; são &lt;strong&gt;bifurcações ou ramificações&lt;/strong&gt; dentro de um projeto git. eles servem para que tenhamos diferentes versões baseadas em um mesmo ponto do tempo. são usados para que a equipe se organize, para que um desenvolvedor faça a correção do link em um branch, enquanto outro desenvolvedor continua commitando em outro branch, sem interferirem um no processo do outro.&lt;/p&gt;
+&lt;h3&gt;tl;dr (resumo)&lt;/h3&gt;
+&lt;p&gt;bem, falei até demais, mas acho que valeu a pena. vamos resumir alguns termos então.&lt;/p&gt;
+&lt;h4&gt;git&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;git&lt;/strong&gt; é um &lt;strong&gt;programa&lt;/strong&gt;, uma &lt;strong&gt;ferramenta&lt;/strong&gt; para versionamento de arquivos. serve para que você tenha uma linha do tempo de alterações de uma pasta, de um projeto.&lt;/p&gt;
+&lt;h4&gt;commit&lt;/h4&gt;
+&lt;p&gt;um &lt;strong&gt;commit&lt;/strong&gt; é um ponto da linha do tempo de um projeto git. ele descreve as alterações feitas num ponto do tempo, criando um &lt;strong&gt;snapshot&lt;/strong&gt; do projeto.&lt;/p&gt;
+&lt;h4&gt;repositório&lt;/h4&gt;
+&lt;p&gt;um &lt;strong&gt;repositório&lt;/strong&gt; é um &lt;strong&gt;local na internet&lt;/strong&gt; onde podemos colocar nosso projeto git.&lt;/p&gt;
+&lt;h4&gt;github&lt;/h4&gt;
+&lt;p&gt;o &lt;strong&gt;github&lt;/strong&gt; é o site mais famoso de hospedagem de repositórios.&lt;/p&gt;
+&lt;h4&gt;clonagem&lt;/h4&gt;
+&lt;p&gt;a &lt;strong&gt;clonagem&lt;/strong&gt; de repositórios é a ação que cria no seu computador local uma cópia de um projeto git ligada diretamente a um repositório. permite que você possa rapidamente criar um novo commit e empurrar as alterações diretamente para seu repositório.&lt;/p&gt;
+&lt;h4&gt;push e pull&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;push&lt;/strong&gt; e &lt;strong&gt;pull&lt;/strong&gt; são as ações mais feitas para se sincronizar o estado de um projeto git. com o &lt;strong&gt;push&lt;/strong&gt; você &lt;strong&gt;empurra&lt;/strong&gt; os commits feitos localmente e com o &lt;strong&gt;pull&lt;/strong&gt; você pega as alterações que estão no repositório.&lt;/p&gt;
+&lt;h4&gt;forks&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;forks&lt;/strong&gt; são repositórios criados a partir de outro. servem para que um usuário possa ter sua própria cópia de um repositório, para que faça suas próprias alterações.&lt;/p&gt;
+&lt;h4&gt;issues&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;issues&lt;/strong&gt; são tickets, relatos de problemas de um projeto. permitem discutir um bug, propor uma nova funcionalidade, etc.&lt;/p&gt;
+&lt;h4&gt;pull requests&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;pull requests&lt;/strong&gt; são &lt;strong&gt;issues* que contém &lt;/strong&gt;commits&lt;strong&gt; que solucionam &lt;/strong&gt;issues&lt;strong&gt; ou &lt;/strong&gt;adicionam funcionalidades**. também servem para discutir problemas, soluções e também para revisar alterações feitas.&lt;/p&gt;
+&lt;h4&gt;branchs&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;branchs&lt;/strong&gt; são &lt;strong&gt;bifurcações&lt;/strong&gt; em um projeto git. servem para que pessoas possam trabalhar em paralelo em um mesmo projeto sem medo de sobrescrever ou alterar algo que outra pessoa está fazendo.&lt;/p&gt;
+&lt;h3&gt;acho que é isso então&lt;/h3&gt;
+&lt;p&gt;é, falei aqui sobre alguns aspectos básicos do git, mas muita, &lt;strong&gt;muita&lt;/strong&gt; coisa ficou de fora. pra quem é leigo, acho que tá tranquilo parar por aqui, mas pros programadores iniciantes, pessoas que querem se envolver na área ou curiosos, tô preparando uma parte 2, com conceitos um pouco mais avançados.&lt;/p&gt;
+&lt;p&gt;enquanto isso, discutam nos comentários sobre o que ficou confuso ou o que pode melhorar! quem quiser &lt;strong&gt;mesmo&lt;/strong&gt;, pode fazer um &lt;strong&gt;pull request&lt;/strong&gt; pra esse post direto no &lt;a href=&quot;https://github.com/lucianoratamero/blog&quot;&gt;repositório do blog no github&lt;/a&gt;. ainda não criei guidelines pra quem quiser contribuir, mas vou pensando nisso =)&lt;/p&gt;
+&lt;p&gt;pro povo do Medium, recomendo mesmo que visitem o &lt;a href=&quot;https://lucianoratamero.github.io/blog/git-e-github-parte-1-o-que-sao-e-como-usar/&quot;&gt;post original&lt;/a&gt;, porque ele que vai ficar atualizado. é isso aí, pessoal. até mais o/&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="https://lucianoratamero.github.io/blog/lektor-parte-2-deploy-macros-admin-e-plugins/">
+    <title type="text">Lektor parte 2: deploy, macros, admin e plugins</title>
+    <id>urn:uuid:cdd0d9da-b80f-36d4-aade-de364679ffd8</id>
+    <updated>2016-02-03T13:31:00Z</updated>
+    <link href="https://lucianoratamero.github.io/blog/lektor-parte-2-deploy-macros-admin-e-plugins/" />
+    <author>
+      <name></name>
+    </author>
+    <content type="html">&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;a target=&quot;_blank&quot; href=&quot;https://getlektor.com/&quot;&gt;&lt;img src=&quot;cover.png&quot;&gt;&lt;/a&gt;
+&lt;/div&gt;&lt;p&gt;agora que já expliquei o básico de como utilizar o Lektor pra desenvolver seu site estático, vou começar a explicar alguns aspectos mais avançados. não pretendo ser muito detalhista, mas fiquem a vontade para pedir mais informações nos comentários. aí vai!&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3&gt;deploy&lt;/h3&gt;
+&lt;p&gt;sim, o Lektor vem pronto para uma série de opções para deploy facilitado: &lt;a href=&quot;https://www.getlektor.com/docs/deployment/rsync/&quot;&gt;rsync&lt;/a&gt;, &lt;a href=&quot;https://www.getlektor.com/docs/deployment/ftp/&quot;&gt;ftp&lt;/a&gt;, &lt;a href=&quot;https://www.getlektor.com/docs/deployment/ghpages/&quot;&gt;github pages&lt;/a&gt; e, via plugin, &lt;a href=&quot;https://github.com/spenczar/lektor-s3&quot;&gt;s3&lt;/a&gt;. isso significa que basta ter um local remoto para manter seus arquivos estáticos que você tem um site pronto, com deploy e tudo.&lt;/p&gt;
+&lt;p&gt;o deploy dele é facilmente configurado e bem inteligente, já que ele verifica somente os arquivos que precisam ser alterados e os sobrescreve. para configurar, basta seguir &lt;a href=&quot;https://www.getlektor.com/docs/deployment/#lektor-assisted-deployments&quot;&gt;a documentação&lt;/a&gt; do método escolhido e rodar &lt;code&gt;lektor build  lektor deploy&lt;/code&gt;. esse processo garante que o Lektor pegará a versão mais nova antes de sincronizar com o servidor.&lt;/p&gt;
+&lt;p&gt;no meu caso, foi só (juro que foi só isso) colocar o seguinte no meu arquivo de projeto, o &lt;code&gt;blog.lektorproject&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[servers.ghpages]
+target = ghpages+https://lucianoratamero/blog&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;não cheguei a ver os outros, mas &lt;strong&gt;duvido&lt;/strong&gt; que sejam muito mais complicados que isso.&lt;/p&gt;
+&lt;h3&gt;macros&lt;/h3&gt;
+&lt;p&gt;quando você tiver brincado o suficiente com os modelos do Lektor, você vai sentir falta de iteradores de template. um exemplo clássico é uma página de resumo dos posts de um blog, como a que eu tenho na home desse aqui.&lt;/p&gt;
+&lt;p&gt;pra isso, existem as macros. elas são templates com lógicas embutidas. mais fácil de explicar mostrando um exemplo.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;django&quot;&gt;{% macro render_blog_post(post, from_index=false) %}
+  &amp;lt;div class=&quot;blog-post&quot;&amp;gt;
+  {% if from_index %}
+    &amp;lt;h2&amp;gt;&amp;lt;a href=&quot;{{ post|url }}&quot;&amp;gt;{{ post.title }}&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;
+  {% else %}
+    &amp;lt;h2&amp;gt;{{ post.title }}&amp;lt;/h2&amp;gt;
+  {% endif %}
+  &amp;lt;p class=&quot;meta&quot;&amp;gt;
+    {{ post.pub_date }}
+  &amp;lt;/p&amp;gt;
+  {{ post.body }}
+  &amp;lt;/div&amp;gt;
+{% endmacro %}&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;o papel dessa macro é receber um objeto &lt;code&gt;post&lt;/code&gt; e formatá-lo de acordo com o template. ele é usado pelo template de blog da seguinte forma:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;django&quot;&gt;{% extends &quot;layout.html&quot; %}
+{% from &quot;macros/blog.html&quot; import render_blog_post %}
+{% from &quot;macros/pagination.html&quot; import render_pagination %}
+
+{% block title %}
+  {% if this.title %}{{ this.title }}{% else %}olar{% endif %}
+{% endblock %}
+
+{% block body %}
+  {% for child in this.pagination.items %}
+    {{ render_blog_post(child, from_index=true) }}
+  {% endfor %}
+
+  {{ render_pagination(this.pagination) }}
+{% endblock %} &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;vemos assim que só é necessário importar a macro criada e passar os objetos corretos. pra saber quais objetos e como usá-los, é só dar uma olhada na documentação da &lt;a href=&quot;https://www.getlektor.com/docs/api/db/&quot;&gt;API de tratamento de dados&lt;/a&gt; do Lektor.&lt;/p&gt;
+&lt;h3&gt;admin&lt;/h3&gt;
+&lt;p&gt;ah, sim, o Lektor, quando usado localmente, oferece uma interface administrativa pra edição e criação de conteúdo. pra usá-la, basta rodar o servidor com &lt;code&gt;lektor server&lt;/code&gt;, acessar a página &lt;code&gt;localhost:5000&lt;/code&gt; e clicar no ícone do lápis do canto da tela.&lt;/p&gt;
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;img src=&quot;acessando-o-admin.jpg&quot;&gt;
+&lt;/div&gt;&lt;p&gt;isso te levará pra uma página do admin similar à essa:&lt;/p&gt;
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;img src=&quot;admin.jpg&quot;&gt;
+&lt;/div&gt;&lt;p&gt;todas as alterações feitas nela refletirão nos seus arquivos do projeto e vice-versa. fica na sua preferência utilizar a interface administrativa ou editar os arquivos &lt;code&gt;content.lr&lt;/code&gt; diretamente. :) mais um pouco e já poderemos colocar isso na mão dos próprios clientes!&lt;/p&gt;
+&lt;h3&gt;plugins&lt;/h3&gt;
+&lt;p&gt;como o Lektor é bem documentado e extensível, ficou fácil pra (pequena) comunidade criar plugins que adicionam novos comportamentos. vocês devem ter notado que uso o disqus como plataforma de comentários, e não tive trabalho quase nenhum pra colocá-lo no blog, quase nenhum &lt;strong&gt;mesmo&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;pra usar um plugin, é só procurar na &lt;a href=&quot;https://www.getlektor.com/docs/plugins/&quot;&gt;página de plugins do Lektor&lt;/a&gt; o plugin que quer usar e seguir a própria documentação. vou demonstrar pra vocês como foi fácil colocar o &lt;a href=&quot;https://github.com/lektor/lektor-disqus-comments&quot;&gt;plugin de comentários do disqus&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;o que eu fiz foi abrir o aquivo &lt;code&gt;blog.lektorproject&lt;/code&gt; na raiz do meu projeto (o nome do arquivo varia com o nome do projeto) e colocar as seguintes linhas:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[packages]
+lektor-disqus-comments = 0.1&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;isso fez com que, quando eu rodasse &lt;code&gt;lektor server&lt;/code&gt; ou &lt;code&gt;lektor build&lt;/code&gt;, ele detectasse minha intenção, instalasse as dependências e ficasse pronto pra usar o plugin.&lt;/p&gt;
+&lt;p&gt;depois disso, fui no &lt;a href=&quot;https://publishers.disqus.com/engage?utm_source=Home-Nav&quot;&gt;disqus&lt;/a&gt; e criei uma comunidade pro blog (é bem autoexplicativo o processo, não me demorou dois minutos).&lt;/p&gt;
+&lt;p&gt;com o nome da comunidade em mãos, criei uma pasta &lt;code&gt;configs/&lt;/code&gt; na raiz do projeto com um arquivo &lt;code&gt;disqus-comments.ini&lt;/code&gt; dentro. nesse arquivo, só precisei declarar o shortname da comunidade.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;shortname = lucianoratamerosblog&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;com o disqus configurado, escolhi o template de blog-post pra habilitar os comentários e os coloquei assim:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;django&quot;&gt;{% extends &quot;layout.html&quot; %}
+{% from &quot;macros/blog.html&quot; import render_blog_post %}
+{% block title %}{{ this.title }}{% endblock %}
+{% block tags %}{{ this.tags }}{% endblock %}
+{% block body %}
+  {{ render_blog_post(this) }}
+  &lt;div class=&quot;comments&quot;&gt;{{ render_disqus_comments() }}&lt;/div&gt;
+{% endblock %} &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;só precisei botar mesmo a div de comentários. daí foi recarregar a página e voilá, tudo funcionando &lt;strong&gt;lindamente&lt;/strong&gt;.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;enfim, espero ter abordado um pouco melhor alguns detalhes e features interessantes do Lektor. caso tenham alguma pergunta ou dúvida, só mandarem ver nos comentários. é isso por enquanto, minha gente, vejo vocês na próxima! o/&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="https://lucianoratamero.github.io/blog/lektor-gerador-de-sites-estaticos-escrito-em-python/">
+    <title type="text">Lektor: gerador de sites estáticos escrito em Python</title>
+    <id>urn:uuid:9bce2be7-83c0-31ee-8862-a6125af772c7</id>
+    <updated>2016-02-02T13:31:00Z</updated>
+    <link href="https://lucianoratamero.github.io/blog/lektor-gerador-de-sites-estaticos-escrito-em-python/" />
+    <author>
+      <name></name>
+    </author>
+    <content type="html">&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;a target=&quot;_blank&quot; href=&quot;https://getlektor.com/&quot;&gt;&lt;img src=&quot;cover.png&quot;&gt;&lt;/a&gt;
+&lt;/div&gt;&lt;p&gt;vamos começar com um post um pouco meta: sobre como eu fiz esse blog usando Python e &lt;a href=&quot;https://getlektor.com/&quot;&gt;Lektor&lt;/a&gt;, um gerador de sites estáticos escrito em Python. por que usar uma ferramenta em Python em vez de JavaScript? pra poder falar sobre ele pro pessoal da &lt;a href=&quot;https://www.facebook.com/pythonrio/&quot;&gt;PythOnRio&lt;/a&gt;, claro. e porque foi a melhor ferramenta que usei pra esse propósito até hoje. mas isso é só um detalhe. enfim, vamos começar do começo: o que raios é Lektor?&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3&gt;o que raios é Lektor?&lt;/h3&gt;
+&lt;p&gt;bem, como eu disse, o Lektor é um gerador de sites estáticos escrito em Python, ou seja, um gerador de htmls. basicamente, ele pega &lt;strong&gt;conteúdo&lt;/strong&gt;, o formata em &lt;strong&gt;modelos&lt;/strong&gt; e os aplica a &lt;strong&gt;templates&lt;/strong&gt; pré-definidos. tudo isso pra poder te dar a liberdade de construir o conteúdo da forma que quiser, bem categorizado e organizado, e transformá-lo em um site estático sem se preocupar com copiar e colar html, css e javascript.&lt;/p&gt;
+&lt;p&gt;ele é perfeito pra quem quer algo entre a construção manual de páginas em html puro, mas não precisa de uma estrutura rebuscada nem de uma aplicação e servidor necessários a um &lt;a href=&quot;https://pt.wikipedia.org/wiki/Sistema_de_gerenciamento_de_conte%C3%BAdo&quot;&gt;CMS&lt;/a&gt;. dessa forma, podemos ter um site com uma estrutura complexa em html puro, deixando o computador ter o trabalho de montar o site pra gente. &lt;strong&gt;detalhe: esse blog é feito com Lektor ;)&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;ok, como eu começo a ver qual é?&lt;/h3&gt;
+&lt;p&gt;como todo bom pacote Python, basta instalar via pip:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pip install lektor&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;sempre bom lembrar que o recomendável é instalar dentro de uma &lt;a href=&quot;http://docs.python-guide.org/en/latest/dev/virtualenvs/&quot;&gt;virtualenv&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;com o Lektor no seu path, é só dar um:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;lektor quickstart&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;ele vai fazer uma série de perguntas, como &lt;em&gt;nome do projeto&lt;/em&gt;, &lt;em&gt;autor&lt;/em&gt;, &lt;em&gt;pasta destino do projeto&lt;/em&gt;, essas coisas. com isso, temos um projeto pronto pra funcionar. só precisamos saber como funciona, certo?&lt;/p&gt;
+&lt;h3&gt;como funciona?&lt;/h3&gt;
+&lt;p&gt;como eu disse anteriormente, ele transforma uma estrutura própria dele em html puro. vou destrinchar então cada parte dele pra a gente entender melhor.&lt;/p&gt;
+&lt;h4&gt;estrutura de diretórios&lt;/h4&gt;
+&lt;p&gt;o &lt;code&gt;quickstart&lt;/code&gt; do Lektor gerou algo similar à seguinte estrutura de diretórios:&lt;/p&gt;
+&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;lektor-tree.jpg&quot;&gt;&lt;/div&gt;&lt;p&gt;temos três pastas centrais aqui: &lt;strong&gt;content&lt;/strong&gt;, &lt;strong&gt;models&lt;/strong&gt; e &lt;strong&gt;templates&lt;/strong&gt;. vou explicar cada uma com calma.&lt;/p&gt;
+&lt;h4&gt;./content&lt;/h4&gt;
+&lt;div class=&quot;image-wrapper&quot;&gt;&lt;a target=&quot;_blank&quot; href=&quot;content.jpg&quot;&gt;&lt;img src=&quot;content.jpg&quot;&gt;&lt;/a&gt;&lt;/div&gt;&lt;p&gt;aqui está o conteúdo do seu site. é um ponto interessante do Lektor: ele não usa um banco de dados pra guardar os dados do seu site, &lt;strong&gt;é tudo em estrutura de pastas e arquivos&lt;/strong&gt;. assim, você automaticamente tem uma visão geral de todo seu conteúdo e tudo eternamente organizado - fora o fato de que, bem, você não precisa de um banco de dados! quer criar uma página nova? é só criar uma pasta com o nome da página e um arquivo chamado &lt;code&gt;content.lr&lt;/code&gt; dentro, com o conteúdo em si.&lt;/p&gt;
+&lt;h4&gt;./models&lt;/h4&gt;
+&lt;div class=&quot;image-wrapper&quot;&gt;&lt;a target=&quot;_blank&quot; href=&quot;models.jpg&quot;&gt;&lt;img src=&quot;models.jpg&quot;&gt;&lt;/a&gt;&lt;/div&gt;&lt;p&gt;se vocês notaram na parte do &lt;strong&gt;content&lt;/strong&gt;, ele tem subdivisões: &lt;em&gt;title&lt;/em&gt; e &lt;em&gt;body&lt;/em&gt;. essas são características do &lt;strong&gt;modelo de página&lt;/strong&gt;. isso aí: &lt;em&gt;você pode criar tipos de conteúdo diferentes&lt;/em&gt;, e eles podem interagir entre si. por exemplo, o modelo de &lt;em&gt;blog-post&lt;/em&gt; pertence ao modelo de &lt;em&gt;blog&lt;/em&gt;. isso permite um maior nível de customização na hora de formatar seu conteúdo nos &lt;strong&gt;templates&lt;/strong&gt;.&lt;/p&gt;
+&lt;h4&gt;./templates&lt;/h4&gt;
+&lt;div class=&quot;image-wrapper&quot;&gt;&lt;a target=&quot;_blank&quot; href=&quot;templates.jpg&quot;&gt;&lt;img src=&quot;templates.jpg&quot;&gt;&lt;/a&gt;&lt;/div&gt;&lt;p&gt;se você já trabalhou com Django ou Jinja, ou até Angular, vai estar em casa aqui. &lt;strong&gt;templates&lt;/strong&gt; são representações html dos &lt;strong&gt;modelos&lt;/strong&gt; preenchidos com &lt;strong&gt;conteúdos&lt;/strong&gt;. podemos ver que nosso template de página extende o template de layout (que é o que contém todo o html repetido em todas as páginas) e substitui locais específicos com dados específicos, definidos no conteúdo criado.&lt;/p&gt;
+&lt;h3&gt;ok, ok, mas eu não faço idéia de como tá ficando!&lt;/h3&gt;
+&lt;p&gt;caaalma. abre o terminal de novo, faz favor. digita aí.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;lektor server&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;então, agora você pode visitar seu site e ver o que tá fazendo acessando &lt;code&gt;localhost:5000&lt;/code&gt;. mas aí vem a confusão: &lt;em&gt;o Lektor não gera html puro? que negócio é esse de servidor?&lt;/em&gt; então, o que ele tá fazendo é somente detectando mudanças nos arquivos, gerando os htmls de novo e servindo esse html localmente. não tem servidor nenhum (tem, mas só é usado pra isso), é só uma conveniência pra que você consiga trabalhar melhor.&lt;/p&gt;
+&lt;p&gt;caso você queira ver exatamente o que ele está gerando, use o comando &lt;code&gt;lektor build&lt;/code&gt;. ele te dará a pasta na qual ele tá colocando os arquivos gerados. é só abrir os htmls no navegador que você verá que tá tudo perfeito, bizarramente mágico. se quiser mudar a pasta de destino dos arquivos gerados, adicione a flag &lt;code&gt;--output-path [caminho da pasta]&lt;/code&gt; que ele vai &lt;strong&gt;sobrescrever&lt;/strong&gt; o conteúdo da pasta com o código gerado. então &lt;strong&gt;tenha cuidado&lt;/strong&gt; pra não sobrescrever uma pasta que seja valiosa pra você. sugiro criar uma pasta no próprio projeto pra que seja sempre o destino.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;sério, lê de novo o último parágrafo. atentamente. vai por mim.&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;beleza, achei legal, mas queria entender um pouco melhor!&lt;/h3&gt;
+&lt;p&gt;então, o código desse blog aqui tá num repositório aberto no github: &lt;a href=&quot;https://github.com/lucianoratamero/blog&quot;&gt;lucianoratamero/blog&lt;/a&gt;. claro que esse blog tem algumas sacanageiras a mais, mas dá pra entender tudo se você pegar esse post e comparar ao código. :)&lt;/p&gt;
+&lt;p&gt;também tem os &lt;a href=&quot;http://lucianoratamero.github.io/talks/2016/fazendo%20seu%20site%20-%20blog%20no%20Github%20Pages%20com%20Python%20e%20Lektor/&quot;&gt;slides da minha palestra na PythOnRio&lt;/a&gt;. e &lt;a href=&quot;http://facebook.com/lucianoratamero&quot;&gt;eu&lt;/a&gt;, caso queira tirar uma dúvida. pode perguntar sem medo! pode mandar ver nos comentários também, que eu recebo notificação (recebo mesmo!).&lt;/p&gt;
+&lt;p&gt;ficaram algumas features interessantes faltando, como a interface administrativa, a gerência de anexos, as ferramentas de deploy, os plugins e o uso com o &lt;a href=&quot;http://pages.github.io&quot;&gt;github pages&lt;/a&gt;, mas acho que pode ficar pra outro post. esse já tá meio grande demais. então até mais, vejo vocês outro dia o/&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="https://lucianoratamero.github.io/blog/finalmente-um-blog-decente/">
+    <title type="text">finalmente um blog decente</title>
+    <id>urn:uuid:fe2c92ee-0dcb-3757-9089-627d819545eb</id>
+    <updated>2016-01-12T13:31:00Z</updated>
+    <link href="https://lucianoratamero.github.io/blog/finalmente-um-blog-decente/" />
+    <author>
+      <name></name>
+    </author>
+    <content type="html">&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;img src=&quot;http://i.giphy.com/Ya2d8a4mghAA0.gif&quot;&gt;
+    &lt;p class=&quot;image-caption&quot;&gt;aquele fim de ano maroto, aquela resolução de ano novo, esse blog novo.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;há algum tempo eu tava com vontade de começar a escrever textos mais técnicos em algum lugar, mas o medium me irrita e eu queria fazer algo com as próprias mãos.
+assim, o ano termina, o ano começa, e eu ainda na inércia. eis que surge um projetinho chamado &lt;a href=&quot;https://www.getlektor.com/&quot;&gt;Lektor&lt;/a&gt;, um gerador de páginas estáticas escrito em python. dia vai, dia vem, percebo que rola de usar com o &lt;a href=&quot;https://pages.github.com/&quot;&gt;github pages&lt;/a&gt;, acho interessante, pego pra fazer e pá, tá pronto. :)&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;então, deixa eu me apresentar. meu nome é Luciano Ratamero, 26, sou desenvolvedor python/django/javascript há uns bons 5 anos e gosto de gatos. só vou usar gifs de gatos aqui. não quero saber.&lt;/p&gt;
+&lt;p&gt;pretendo falar de tudo um pouco, devolver um pouco pra comunidade o que eu aprendi e ainda aprendo ao longo do tempo. assim que eu der uma descansadinha, já vou mandar ver nesse post sobre o Lektor.&lt;/p&gt;
+&lt;p&gt;vocês também podem encontrar coisas minhas no &lt;a href=&quot;http://garimpo.fm/&quot;&gt;garimpo.fm&lt;/a&gt;, um blog de música que (se tudo der certo) vai voltar em breve, e no &lt;a href=&quot;http://pessoas.cc/&quot;&gt;pessoas&lt;/a&gt;, um blog mais pra coisas artistiquinhas.&lt;/p&gt;
+&lt;p&gt;por enquanto, fico por aqui, então até mais o/&lt;/p&gt;</content>
+  </entry>
+</feed>

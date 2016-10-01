@@ -1,0 +1,108 @@
+
+// variables
+$carbon: #333;
+$fa-font-path: "/static/scss/font-awesome/fonts";
+
+// dependencies
+@import "basscss.min.scss";
+@import "basscss-addons/btn/index.scss";
+@import "basscss-addons/btn-outline/index.scss";
+@import "basscss-addons/btn-sizes/index.scss";
+@import "basscss-addons/responsive-typography/css/responsive-typography.scss";
+@import "font-awesome/scss/font-awesome.scss";
+@import "../../node_modules/colors.css/src/_variables.css";
+@import "../../node_modules/colors.css/src/_skins.css";
+@import "../js/highlight/styles/zenburn.css";
+@import "../../node_modules/fullpage.js/jquery.fullPage.css";
+@import "../../node_modules/sass-css3-mixins/css3-mixins.scss";
+@import "loading.scss";
+
+// fonts
+@import "fonts.scss";
+
+// custom
+
+body { font-family: "Fira Sans"; color: $carbon; overflow-y: scroll; }
+h1 a { text-decoration: none; }
+img { max-width: 100%; }
+pre, code { font-family: 'Inconsolata', monospace; }
+.btn-block { display: block; text-align: center; }
+.btn-group { text-align: center; }
+
+a {
+  font-weight: 600; color: $carbon;
+
+  /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  -ms-word-break: break-all;
+  /* This is the dangerous one in WebKit, as it breaks things wherever */
+  word-break: break-all;
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+@media (max-width: 52em) {
+  h1 { font-size: 1.6rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.4rem; }
+}
+
+code {
+  padding: 4px;
+  line-height: 1.6em;
+  background-color: #f0f0f0;
+}
+
+#about {
+  .photo-section {
+    img {
+      max-width: 60%;
+      display: block;
+      margin: 0.5em auto;
+      @include border-radius;
+    }
+  }
+}
+
+#social a { text-decoration: none; }
+
+.blog-post {
+  margin-bottom: 2em;
+  padding-bottom: 2em;
+  line-height: 1.8em;
+  border-bottom: 1px dashed $carbon;
+
+  .blog-post-title {
+    h2 { margin-bottom: 0; }
+    p { margin: 0; }
+  }
+}
+
+.custom-pagination {
+  margin: 2em 0;
+  .btn {
+    &:hover { background-color: var(--silver); }
+    &.disabled {
+      color: var(--silver);
+      &:hover { background-color: white; }
+    }
+  }
+}
+
+.image-wrapper {
+  padding: 1em;
+  margin: 1em auto;
+  border: 1px solid var(--silver);
+  text-align: center;
+
+  img { max-width: 70%; }
+  .image-caption { margin: 1em 0 0; font-style: italic; }
+}
