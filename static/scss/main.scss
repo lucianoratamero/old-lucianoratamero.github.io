@@ -22,7 +22,7 @@ $fa-font-path: "/static/scss/font-awesome/fonts";
 
 // custom
 
-body { font-family: "Fira Sans"; color: $carbon; overflow-y: scroll; }
+body { font-family: "Lato"; font-weight: 300; font-size: 110%; color: $carbon; overflow-y: scroll; }
 h1 a { text-decoration: none; }
 img { max-width: 100%; }
 pre, code { font-family: 'Inconsolata', monospace; }
@@ -30,7 +30,8 @@ pre, code { font-family: 'Inconsolata', monospace; }
 .btn-group { text-align: center; }
 
 a {
-  font-weight: 600; color: $carbon;
+  color: $carbon;
+  font-weight: 400;
 
   /* These are technically the same, but use both */
   overflow-wrap: break-word;
@@ -49,6 +50,10 @@ a {
   hyphens: auto;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  a { font-weight: 600; }
+}
+
 @media (max-width: 52em) {
   h1 { font-size: 1.6rem; }
   h2 { font-size: 1.5rem; }
@@ -61,7 +66,10 @@ code {
   background-color: #f0f0f0;
 }
 
+#main-content { padding: 0 0 1em; }
+
 #about {
+  padding-top: 2em;
   .photo-section {
     img {
       max-width: 60%;
@@ -77,7 +85,7 @@ code {
 .blog-post {
   margin-bottom: 2em;
   padding-bottom: 2em;
-  line-height: 1.8em;
+  line-height: 1.6em;
   border-bottom: 1px dashed $carbon;
 
   .blog-post-title {
