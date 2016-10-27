@@ -1,0 +1,113 @@
+title: o estado atual do desenvolvimento frontend
+---
+body:
+<small><em>ou <strong>parem de usar javascript pra tudo, caceta</strong>.</em></small><br/>a web definitivamente mudou desde quando eu era criança. tudo era bem mais engessado, muito por conta da imaturidade, da falta de ferramentas e de processamento. sou, como a grande maioria que ainda faz a web, de uma época anterior ao google, anterior ao git. uma época de frames, gifs brilhantes, comic sans EVERYWHERE. a época do flash. e digo que não sinto a <strong>menor</strong> falta de grande parte disso. mas sinto que tá na hora de a gente ter uma conversinha sobre o estado atual do desenvolvimento frontend.
+
+o negócio é o seguinte, a mensagem é bem simples: fomos longe demais. demais. tipo, muito. paramos de pensar no que é desenvolver no cliente, para o cliente, e isso é tudo culpa do javascript.
+
+### ei, ei, calma aí, se esse é um post JS hater, vou embora
+
+sossega aí, eu amo javascript. foi a linguagem que me permitiu sair da minha formação (jornalismo) pra programação, e mesmo depois de tanto tempo programando quase que exclusivamente com Python (que é lindo demais), eu sinto falta e acabo sempre voltando ao javascript.
+
+o fato é que <strong>o javascript evoluiu de uma forma impressionante</strong>. eu me lembro do que era só usar jQuery num projeto, fazer tudo na mão, e vejo onde chegamos: temos servidores rodando js, bancos de dados escritos em js, cara, temos sistemas operacionais inteiros baseados em html/javascript. acho isso lindo demais.
+
+e é ótimo ver que a comunidade tá cada dia mais ativa, mais madura, mais preparada pra transformar uma linguagem de navegadores em uma verdadeira ferramenta pra qualquer negócio. meu problema não é com a comunidade, ou com a linguagem, ou com a evolução da web; meu problema é que, hoje, se usa javascript pra <strong>tudo</strong>.
+
+### isso é porque nós podemos usar pra tudo! isso não é bom?
+
+isso é ótimo. <strong>a possbilidade de podermos usar javascript pra tudo me encanta.</strong> o problema não é a possbilidade, mas o fato de que <em>boa parte dos projetos hoje em dia são feitos puramente em js, ou com o mínimo de outras ferramentas</em>. não consigo me lembrar da última vez em que entrei em um projeto que tivesse menos de 50% do seu código de frontend escrito com react ou angular.
+
+vou explicar melhor sobre alguns dos problemas que vejo nesse tipo de abordagem:
+- curva de aprendizado;
+- manutenção do projeto;
+- custo de carregamento e processamento.
+
+também vou discutir alguns prós de se usar js pra tudo e propor soluções fáceis pra elas:
+- não ter recarregamento da página, tanto do ponto de vista visual quanto do funcional;
+- projetos desacoplados;
+- código organizado;
+- performance.
+
+sem mais delongas, vamos começar.
+
+#### curva de aprendizado
+
+faz um mês em que peguei dois projetos em react pra fazer, e vou dizer que não foi fácil pegar um ritmo decente. claro que ter tido bastante experiência com js no passado me fez aprender relativamente rápido, mas <strong>se você precisa de um mês pra fazer uma página básica, tem alguma coisa errada</strong>. por mais simples que pareça, a máquina de estados do react deixa bastante coisa implícita - e estamos falando somente de uma biblioteca pra renderizar partes dinâmicas de html. quando junta com redux então, a brincadeira fica mais complicada.
+
+vejo que faz mais de um mês de aprendizado e <strong>só agora eu tô entendendo como fazer um ajax direito</strong>. não sei se vocês lembram, mas, usando jQuery, é só, bem, chamar <code>$.ajax</code> passando a url e meio que tá pronto. e a gente ainda não falou de webpack, es2015, typescript, promises, observables... tanta coisa junta exige conhecimento, empenho, um profissional dedicado, e isso nem sempre é bom.
+
+#### manutenção do projeto
+
+sei que sou sempre o cara chato que fala sobre manutenção, mas cada dia que passa eu sinto que tô mais e mais certo sobre isso. hoje, estamos vendo o problema que foi termos usado angular pra tudo. tá cada vez mais difícil achar gente que saiba bastante de angular, porque estamos migrando pro react, pro angular 2, pro vue, e precisamos cada vez mais de uma pessoa dedicada a esse código legado. <strong>código legado feito a menos de dois anos.</strong>
+
+e isso vai continuar acontecendo enquanto nós focarmos em conhecimento de frameworks/bibliotecas em vez de focarmos em aprender mais sobre o navegador, sobre design e sobre backend. fazer um código legível, com menos restrições de frameworks e com maior facilidade de testar faz com que o código seja mais fácil de manter e mais próximo do que um backend seria capaz de fazer - o que melhora em muito a facilidade de ter um projeto fácil de manter em longa data.
+
+sobre alguns detalhes desse tipo de pensamento, dêem uma olhada no <a href="http://lucianoratamero.github.io/blog/a-jquery-nao-e-a-vila-voce-e-uma-discussao-sobre-o-uso-da-jquery-em-grandes-projetos/" target="_blank">meu post sobre o uso da jQuery em grandes projetos</a>.
+
+#### custo de carregamento e processamento
+
+uma das grandes naturezas de fazer projetos somente com js é o fato de que, bem, <strong>o site todo é em js</strong>. isso significa que, na prática, temos 1 (hum) grande (gigantesco) arquivo js que é carregado assim que a página carrega. e por mais que isso seja bom na hora que a pessoa tá navegando, isso significa que não há cache e que cada micro alteração no código vai fazer com que todos seus usuários baixem o troço todo de novo.
+
+um exemplo: refiz meu site (do qual esse blog faz parte) faz pouco tempo. a princípio, pensei em usar react ou algo do tipo, já que o github pages (no qual esse site está hospedado) só aceita páginas estáticas. no entanto, assim que eu fiz o setup do projeto, ainda sem nada implementado, e vi que, com o que eu precisava, ia ter um arquivo js de mais de 800k (sim, sem <strong>nada</strong> implementado). desisti. hoje, tenho as mesmas funcionalidades com somente 140k, com <strong>tudo</strong> implementado, e features idênticas: roteamento com push state, animações bem feitas, otimizações mil. e o melhor: <em>sem toda aquela doideira de compilar nada</em>. só tenho um minificador e tá valendo.
+
+além disso, há um custo de não fazermos a renderização do html no backend: o de renderizar o html no cliente. pode parecer besteira, mas deixar pro cliente renderizar dinamicamente as páginas em vez de renderizar no backend faz com que você dependa do poder de processamento do cliente, o que pode piorar (e muito) a experiência do usuário em casos específicos (ou se o código for mal implementado). quem abriu a página mobile do facebook em um celular antigo sabe do que eu tô falando: é <strong>impossível</strong> de usar.
+
+### ah, Luciano, mas muitas vezes é necessário usar algo como o react pra ter um número maior de features, além da performance do virtual DOM
+
+olha, é <em>claro</em> que há vantagens <em>absurdas</em> em usar algo do tipo. em alguns lugares é até necessário. então agora vou falar um pouco mais sobre isso, ou seja, como ter uma aplicação equilibrada.
+
+#### não ter recarregamento de página é lindo, cara
+
+sim, é lindo! sou super a favor de uma interface que seja transparente pro usuário, ou seja, <strong>que o usuário não perceba o meio, e sim a mensagem</strong>. mas, ó, o conceito de AJAX não é novo, a implementação está longe de ser complexa, e o que não falta é renderizador de templates em js. podemos - e digo mais, <em>devemos</em> - usar algo mais simples quando for possível.
+
+##### mas aí não tem fetch, não tem Promise, não tem...
+
+na boa, tem. se você <strong>realmente não puder viver sem</strong> essas features, você pode. basta adicionar ao seu projeto um polyfill de Promises, um polyfill de fetch, ou seja lá o que raios você acha que precisa usar. ah, e só lembrando, <strong><a href="http://blog.monkey.codes/sequential-ajax-and-jquerys-promise/" target="_blank">até a jQuery já usa a interface de Promises</a></strong>, abstraindo lindamente toda essa questão de compatibilidade de browsers.
+
+#### mas é bom ter projetos desacoplados entre front e back, não é?
+
+é mesmo? sei lá, até hoje eu só tive problema com o fato de não entender como o backend ou o frontend funcionam. já trabalhei bastante com os dois lados da moeda: em aplicações backend que servem apis rest e em aplicações frontend que só consomem apis rest. em ambos os casos, tive ruídos de comunicação com a outra equipe e, muitas vezes, não pude prosseguir a tarefa que tinha que cumprir por algum problema de especificação.
+
+pra se ter um projeto de backend desacoplado do frontend de maneira saudável, é <strong>extremamente</strong> necessário que <strong>alguém</strong> faça <strong>bem</strong> o trabalho de articulação; e isso é <strong>muito</strong> raro. no entanto, se nós, como frontends, entendermos minimamente bem como o backend funciona, teremos uma facilidade imensa de detectar erros de especificação, resolver bugs de back que estejam impedindo o progresso de uma tarefa de front e não precisaremos de uma interação e gerenciamento tão fortes.
+
+##### Luciano, entendi, mas eu sei um bocado de backend. se você souber, acho que não tem problema desacoplar, né?
+
+<strong>o problema não é desacoplar os projetos ou não</strong>; até porque todo grande framework de backend tem suas formas de tornar o trabalho de front mais desacoplado do de back.
+
+<strong>o problema é incentivar que os fronts só saibam de front e os backs só saibam de back.</strong> criar feudos nos projetos é sempre (sim, sempre) um problema, porque pessoas são falhas. elas erram, elas saem de férias, elas ficam doentes, elas tomam um porre e não atendem o celular - <strong>elas têm direito a viver além do trabalho</strong>. ao criarmos feudos, impedimos a máquina do projeto de estar sempre funcionando, já que, assim que uma peça quebrar, a máquina para, em vez de sempre termos peças que se encaixem.
+
+#### uma coisa você tem que concordar, que fazermos projetos js puros faz nosso código ficar bem organizado
+
+yep, concordo. mesmo que seja à força, ter o código bem organizado é sempre importante pro projeto crescer e evoluir de uma forma sustentável. uma das coisas que mais amo em Python, por exemplo, é o fato dele te forçar a escrever um código mais legível e sempre te dar mais exemplos de como fazer um bom código, já que os sintomas de um código ruim aparecem rapidinho.
+
+o mesmo não acontece com js, então os frameworks e bibliotecas tomaram pra si o papel de obrigar um certo nível de organização do código - e isso é ótimo. mas o que eles estão te obrigando a fazer, cara, <strong>não deveria ser mais do que sua obrigação</strong>. organizar o código deveria ser parte do seu fluxo natural de desenvolvimento, então faça um favor e pratique fazer códigos js bem organizados sem a necessidade de um framework/biblioteca. o mundo agradece.
+
+#### ai, que ranzinza! vem cá, uma coisa que você não tem como negar: react (e afins) performam melhor que jQuery
+
+sim, sim. o advento do virtual DOM foi um grande possibilitador de aplicações js fazerem o que fazem hoje. é muito difícil fazer um dashboard gigantesco ou uma manipulação de gráficos performática sem algum tipo de framework/biblioteca que faça a gerência de memória/performance.
+
+<strong>então vamos usar react sim! vamos usar vue sim! até angular, o desespero da minha alma, vamos usar!</strong> mas ó, vamos combinar só um negócio: vamos usar <strong>só quando necessário, com o mínimo de complexidade possivel?</strong> porque, novamente, alguém vai ter que manter essa budega, e manter uma página é muito mais fácil do que manter uma aplicação inteira. precisa de lidar com complexidade nessa página, <strong>use nessa página, e só nela</strong>.
+
+<hr>
+
+pra terminar, meu último ponto é o seguinte: vamos começar a pensar mais o futuro, sim? <strong>não sobre o que usaremos no futuro, mas sobre o que <em>ainda vamos ter que usar</em></strong>. ainda vamos precisar manter aquele site em backbone ou knockout, ou ember. ainda vamos ter que manter aquele site em react e redux (e rxjs, e webpack, e es6, tudo junto). mas com o nosso aparente déficit de atenção, nós vamos acabar fazendo muita coisa e abandonando ainda mais.
+
+então estudemos react sim. e elm. e vue. mas antes de começar aquele projetinho novo, volta aqui, lê de novo e vê se o que você tá fazendo vai valer a pena. se sim, manda ver, e como sempre, desejo sucesso pra todo mundo! abraço, e até a próxima o/
+
+---
+cover_image:
+
+
+---
+pub_date: 2016-10-27 17:40:00
+
+
+---
+summary:
+<small><em>ou <strong>parem de usar javascript pra tudo, caceta</strong>.</em></small><br/>a web definitivamente mudou desde quando eu era criança. tudo era bem mais engessado, muito por conta da imaturidade, da falta de ferramentas e de processamento. sou, como a grande maioria que ainda faz a web, de uma época anterior ao google, anterior ao git. uma época de frames, gifs brilhantes, comic sans EVERYWHERE. a época do flash. e digo que não sinto a <strong>menor</strong> falta de grande parte disso. mas sinto que tá na hora de a gente ter uma conversinha sobre o estado atual do desenvolvimento frontend.
+
+
+---
+tags: javascript, frontend, react, webpack, es6, desespero
+
+
