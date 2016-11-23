@@ -22,7 +22,15 @@ $fa-font-path: "/static/scss/font-awesome/fonts";
 
 // custom
 
-body { font-family: "Lato"; font-weight: 300; font-size: 110%; color: $carbon; overflow-y: scroll; }
+body {
+  font-family: "Lato";
+  font-weight: 300;
+  font-size: 110%;
+  color: $carbon;
+  overflow-y: scroll;
+  background-image: url(/img/body-bg.png);
+}
+
 h1 a { text-decoration: none; }
 img { max-width: 100%; }
 pre, code { font-family: 'Inconsolata', monospace; }

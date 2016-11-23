@@ -3276,7 +3276,8 @@ body {
   font-weight: 300;
   font-size: 110%;
   color: #333;
-  overflow-y: scroll; }
+  overflow-y: scroll;
+  background-image: url(/img/body-bg.png); }
 
 h1 a {
   text-decoration: none; }
