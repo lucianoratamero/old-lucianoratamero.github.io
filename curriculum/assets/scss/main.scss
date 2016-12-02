@@ -1,0 +1,146 @@
+
+@import '../../node_modules/bootstrap-grid/dist/grid.min.css';
+
+$carbon: #333;
+
+* { box-sizing: border-box; }
+
+html, body {
+  font-family: "Lato";
+  font-weight: 400;
+  font-size: 80%;
+  color: $carbon;
+  margin: 0;
+  padding: 0;
+  -webkit-print-color-adjust: exact;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-size: 90%;
+  margin-bottom: 0;
+}
+
+img { width: 100%; margin: 0; border: 0; border-radius: 10px; }
+
+table {
+  border-spacing: 0;
+  width: 100%;
+  border-collapse: collapse;
+  th, td {
+    border: 1px solid #333;
+  }
+}
+
+[id*='pageHeader'] {
+  height: 92px;
+  border-bottom: 1px solid #63a35c;
+
+  img {
+    height: 90px;
+    width: auto;
+  }
+
+  table {
+    width: 842px;
+    th, td { border: 0; }
+  }
+  td { line-height: 1.45em; }
+  td:first-child { width: 173px }
+}
+
+[id*='pageContent'] {
+  height: 400px;
+  img { height: 100%; }
+}
+
+.page {
+  width: 90%;
+  margin: 1em auto;
+  position: relative;
+  page-break-after: always;
+  &:first-child {
+    h3 {
+      color: #666;
+    }
+    #pageHeader-1 {
+      border: 0;
+    }
+  }
+  &:last-child { page-break-after: auto; }
+}
+
+.page .content {
+  padding: 2cm 0;
+  height: 100%;
+  width: 100%;
+}
+
+.page-break {
+  page-break-after: always;
+}
+
+#page-17 {
+  h5 { margin-bottom: 0; }
+  table * { font-size: 0.9em; text-align: center; }
+}
+
+#page-18 {
+  table, td { border: 0; }
+}
+
+h1 a { text-decoration: none; }
+img { max-width: 100%; }
+pre, code { font-family: 'Inconsolata', monospace; }
+
+a {
+  color: $carbon;
+  font-weight: 400;
+
+  /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  -ms-word-break: break-all;
+  /* This is the dangerous one in WebKit, as it breaks things wherever */
+  word-break: break-all;
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  a { font-weight: 600; }
+}
+
+h1 { font-size: 1.4rem; }
+h2 { font-size: 1.2rem; }
+h3 { font-size: 0.9rem; }
+p  { font-size: 0.8rem; }
+
+code {
+  padding: 4px;
+  line-height: 1.6em;
+  background-color: #f0f0f0;
+}
+
+#curriculum-header {
+  text-align: center
+}
+
+#work-experience {
+  p { margin: 0.2em 0; }
+  h3 { margin-bottom: 0; }
+}
+
+.image-wrapper {
+  padding: 0.5em;
+  margin: 0 auto;
+  text-align: center;
+
+  .image-caption { margin: 1em 0 0; font-style: italic; }
+}
