@@ -2,6 +2,16 @@
 * {
   box-sizing: border-box; }
 
+#bg {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 9999999cm;
+  height: 9999999cm;
+  background-image: url(../../../img/background.jpeg); }
+
 html, body {
   font-family: "Lato";
   font-weight: 400;
@@ -49,8 +59,8 @@ table {
     height: 100%; }
 
 .page {
-  width: 90%;
-  margin: 1em auto;
+  width: 100%;
+  padding: 2em 1em;
   position: relative;
   page-break-after: always; }
   .page:first-child h3 {
@@ -67,16 +77,6 @@ table {
 
 .page-break {
   page-break-after: always; }
-
-#page-17 h5 {
-  margin-bottom: 0; }
-
-#page-17 table * {
-  font-size: 0.9em;
-  text-align: center; }
-
-#page-18 table, #page-18 td {
-  border: 0; }
 
 h1 a {
   text-decoration: none; }
@@ -126,6 +126,10 @@ code {
 
 #curriculum-header {
   text-align: center; }
+  #curriculum-header img {
+    padding: 0;
+    margin: 0 auto;
+    width: 100%; }
 
 #work-experience p {
   margin: 0.2em 0; }
