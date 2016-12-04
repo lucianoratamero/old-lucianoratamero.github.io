@@ -88,7 +88,10 @@ code {
   }
 }
 
-#social a { text-decoration: none; }
+#social {
+  a { text-decoration: none; }
+  p a { text-decoration: underline; }
+}
 
 .blog-post {
   margin-bottom: 2em;

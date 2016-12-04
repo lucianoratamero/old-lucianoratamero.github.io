@@ -3347,6 +3347,9 @@ code {
 #social a {
   text-decoration: none; }
 
+#social p a {
+  text-decoration: underline; }
+
 .blog-post {
   margin-bottom: 2em;
   padding-bottom: 2em;
