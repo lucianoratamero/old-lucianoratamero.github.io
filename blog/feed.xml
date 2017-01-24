@@ -1,17 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">blog@lucianoratamero.github.io</title>
-  <id>urn:uuid:aee81446-ef33-3bfc-b91b-44952cb6ebb8</id>
-  <updated>2016-10-27T17:40:00Z</updated>
+  <id>urn:uuid:8e9a9ece-d2cc-3e0e-9fb0-676848235923</id>
+  <updated>2017-01-24T15:40:00Z</updated>
   <link href="https://lucianoratamero.github.io/blog/" />
   <link href="https://lucianoratamero.github.io/blog/feed.xml" rel="self" />
   <author>
     <name></name>
   </author>
   <generator uri="https://github.com/ajdavis/lektor-atom" version="0.1">Lektor Atom Plugin</generator>
+  <entry xml:base="https://lucianoratamero.github.io/blog/porque-eu-trabalho-remotamente-mas-nao-culpo-quem-nao-contrata-gente-como-eu/">
+    <title type="text">porque eu trabalho remotamente — mas não culpo quem não contrata gente como eu</title>
+    <id>urn:uuid:6424a10f-2b16-3a16-9831-4551f1a4ca16</id>
+    <updated>2017-01-24T15:40:00Z</updated>
+    <link href="https://lucianoratamero.github.io/blog/porque-eu-trabalho-remotamente-mas-nao-culpo-quem-nao-contrata-gente-como-eu/" />
+    <author>
+      <name></name>
+    </author>
+    <content type="html">&lt;p&gt;&lt;em&gt;em resposta a &lt;a href=&quot;https://qz.com/891537/if-you-dont-trust-your-employees-to-work-remotely-you-shouldnt-have-hired-them-in-the-first-place/&quot; target=&quot;_blank&quot;&gt;esse post&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;&lt;p&gt;eu trabalho remoto. eu amo. é a vida que sempre quis: poucas horas, a hora que quiser, em uma empresa que me valoriza. demorei seis anos pra chegar aqui e me parece um caminho sem volta. no entanto, toda vez que vejo um post exaltando — não, mais do que isso, &lt;strong&gt;exigindo &lt;/strong&gt;— que as empresas contratem funcionários remotos, sempre tenho vontade de escrever textão; eis que estou aqui, pra falar um bocado sobre minha experiência e seus prós e contras, pra ver se o povo para com esse mimimi. vambora.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;vou dividir esse texto em quatro partes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;por que trabalhar em escritório é bom;&lt;/li&gt;
+&lt;li&gt;por que ter horário fixo é bom;&lt;/li&gt;
+&lt;li&gt;por que ter que trabalhar um certo número de horas é bom;&lt;/li&gt;
+&lt;li&gt;por que contratar remoto é uma decisão difícil.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;vamos direto pra primeira.&lt;/p&gt;
+&lt;h3&gt;por que trabalhar em escritório é bom&lt;/h3&gt;
+&lt;p&gt;esse é o primeiro mito que queria discutir. odeio dizer o óbvio, mas &lt;strong&gt;ter contato com outras pessoas não só é bom, quanto é necessário&lt;/strong&gt;. como desenvolvedor de software, é muito difícil planejar grandes tarefas, que envolvem várias pessoas, e ainda ter completo domínio do que o cliente pede quando se trabalha remoto.&lt;/p&gt;
+&lt;p&gt;já perdi a conta de quantas vezes eu tive uma grande dificuldade em resolver um problema por que não tinha uma pessoa do meu lado, uma pessoa física, pra me ajudar. também já perdi a conta de quantas vezes fiz algo errado por falha de comunicação, e quantas vezes perdi controle do que já foi feito em outras frentes que se integram com a minha — tudo por que não estou do lado de pessoas num espaço comum.&lt;/p&gt;
+&lt;p&gt;além disso, trabalhar junto com pessoas diferentes pode ruim, mas geralmente é bom. open office é um lixo, sim, mas me lembro de ter implementado muita coisa diferente (e até ter estudado novas tecnologias) por conta do simples fato de que alguém me ouviu falando sobre um problema e conseguiu propor uma solução.
+mas trabalhar em escritório exige uma coordenação pra ser efetivo, e isso se chama horário comercial.&lt;/p&gt;
+&lt;h3&gt;por que ter horário fixo é bom&lt;/h3&gt;
+&lt;p&gt;uma das coisas que ainda não consegui fazer remotamente é isso. ter flexibilidade de trabalhar quando quiser, o número de horas que eu quiser, me fez ter uma vida livre, mas extremamente caótica. muitos dias não durmo direito ou demais, ou não como direito, ou como demais. não ter uma rotina imposta me fez respeitar meu momento mais produtivo, &lt;strong&gt;mas também me fez me afastar das pessoas&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;sou uma pessoa mais noturna, e isso significa que, se eu quero fazer compras ou almoçar com alguém, eu literalmente tenho que me obrigar a acordar mais cedo, o que me deixa desregulado pro resto da semana. e quando as pessoas me chamam pra sair, eu provavelmente nem comecei a trabalhar, então tenho que escolher entre sair e trabalhar, o que não é maneiro pra ninguém.&lt;/p&gt;
+&lt;p&gt;e não ache que eu não sei o que é acordar às 5h pra ir trabalhar, porque &lt;strong&gt;eu sei bem&lt;/strong&gt; — mas eu não posso ignorar o quanto uma rotina é importante pra você, ser humaninho, e ao trabalhar remoto, sem horas fixas, tá tudo nas suas mãos, inclusive a tarefa de criar sua rotina. e isso soa muito mais fácil do que é, &lt;strong&gt;definitivamente&lt;/strong&gt; não é pra qualquer um.&lt;/p&gt;
+&lt;p&gt;também tem o ponto principal pras empresas: o horário do cliente. é complicado vender pro cliente sua cultura remota, sem horário fixo, porque o cliente quer que tudo funcione, e isso significa ter alguém disponível (de preferência a equipe toda) na hora que der problema.&lt;/p&gt;
+&lt;p&gt;além do clássico problema de que, caso seu horário não bata com o dos outros, em algum momento alguém vai precisar de você (ou vice-versa) e você não vai estar lá. e isso tem também a ver com a quantidade de horas que você trabalha.&lt;/p&gt;
+&lt;h3&gt;por que ter que trabalhar um certo número de horas é bom&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;“mas como isso pode ser bom, Luciano? tá doido? não tá todo mundo fugindo disso, incluindo você?”&lt;/em&gt; a resposta é sim. é ruim. mas é bom.&lt;/p&gt;
+&lt;p&gt;ter um horário delimitado no qual você deve executar seu trabalho é algo maravilhoso pra sua rotina, pro seu cliente, pra sua interação com outras pessoas. é ruim porque você acaba enrolando, mas, sinceramente, enrolar faz parte — e deveria ser incentivado pelas empresas.&lt;/p&gt;
+&lt;p&gt;poder sair da sua cadeira, tomar um café, comprar um breguete nas lojas americanas, capturar uns pokemons, tudo isso deveria ser obrigatório. &lt;strong&gt;tirar sua cabeça do trabalho te ajuda a tomar decisões e previne que você caia no buraco negro de um problema que parece não ter solução.&lt;/strong&gt; enrolar faz parte disso, e, cara, sério, &lt;em&gt;as empresas sabem que você tá enrolando&lt;/em&gt;. é só pararmos com essa hipocrisia de que você tem que estar trabalhando o tempo todo que todo mundo vai admitir que enrola e vamos ficar todos felizes.&lt;/p&gt;
+&lt;p&gt;mais um ponto: se você delimita um horário fixo de trabalho, você não pode ser obrigado a atender em horários fora do seu. sim. isso significa não ter que olhar o celular o tempo todo, isso significa compartimentar o trabalho, separar ele do momento que você tem pra curtir a vida, jogar um videogame, fazer um amorzinho. &lt;strong&gt;sem pensar no trabalho.&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;por que contratar remoto é uma decisão difícil&lt;/h3&gt;
+&lt;p&gt;mas vamos lá, digamos que nada do que eu te escrevi te mostrou que trabalhar num regime normal pode não ser tão ruim assim. digamos que mesmo assim você continua achando que geral devia contratar remoto mesmo e é isso aí, a vida tem que ser melhor (e eu meio que concordo com isso, viu?). então, tem mais um problema: contratar alguém pra trabalhar remoto é difícil.&lt;/p&gt;
+&lt;p&gt;todos os problemas que escrevi antes se aplicam aqui. pra trabalhar remoto bem, você tem que ter alguém responsável, que esteja sempre disponível, que tenha uma comunicação acima da média, que saiba se planejar e que, além disso tudo, sabia fazer o que você quer que ele faça bem. ou seja, o resultado pra uma busca tão filtrada é pequeno.&lt;/p&gt;
+&lt;p&gt;e não há processo seletivo que solucione esse problema, porque a raiz dele é a confiança. a empresa tem que confiar muito em uma pessoa que ela nunca viu na vida e que só tá indo pra ela pra receber dinheiro. por isso temos tão forte a questão da indicação no mercado de TI, porque ninguém consegue te conhecer em duas horas de entrevista. então, contatar alguém que você nunca viu, que você nunca teve por perto, é complicado demais.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;não me entendam mal, esse não é um post de ode ao trabalho escravo corporativo, porque não é. não gosto de ter que pegar trânsito pra ir trabalhar, e nem toda empresa é maneira (a grande maioria não é). mas negar que o regime de trabalho habitual tem seus valores é não ver que ele é hegemônico por vários bons motivos.&lt;/p&gt;
+&lt;p&gt;então na hora em que você tiver sucesso, dinheiro, fama e &lt;em&gt;~espírito empreendedor~&lt;/em&gt; (ugh), pense em qual vai ser o regime da sua empresa, aquela, que você vai acabar abrindo, por motivos não-ditos. e caso ainda queira meus pitacos, vamos colocar no google calendar, porque EU SEMPRE ME PERCO NOS DIAS.&lt;/p&gt;
+</content>
+  </entry>
   <entry xml:base="https://lucianoratamero.github.io/blog/o-estado-atual-do-desenvolvimento-frontend/">
     <title type="text">o estado atual do desenvolvimento frontend</title>
-    <id>urn:uuid:54c49710-30d1-3db2-8694-00c01da68d91</id>
+    <id>urn:uuid:f48a0925-ce65-3f63-b8cb-3090b6839021</id>
     <updated>2016-10-27T17:40:00Z</updated>
     <link href="https://lucianoratamero.github.io/blog/o-estado-atual-do-desenvolvimento-frontend/" />
     <author>
@@ -76,7 +121,7 @@
   </entry>
   <entry xml:base="https://lucianoratamero.github.io/blog/a-jquery-nao-e-a-vila-voce-e-uma-discussao-sobre-o-uso-da-jquery-em-grandes-projetos/">
     <title type="text">a jQuery não é a vilã; você é - uma discussão sobre o uso da jQuery em grandes projetos</title>
-    <id>urn:uuid:cf332909-fa48-3226-bf07-02ec268a81b6</id>
+    <id>urn:uuid:7cfae1fd-0fe3-3317-8d3c-fcb11b3c4cb2</id>
     <updated>2016-02-26T16:10:00Z</updated>
     <link href="https://lucianoratamero.github.io/blog/a-jquery-nao-e-a-vila-voce-e-uma-discussao-sobre-o-uso-da-jquery-em-grandes-projetos/" />
     <author>
@@ -144,7 +189,7 @@ mas isso não é tanto problema, já que no front a gente não precisa de uma pr
   </entry>
   <entry xml:base="https://lucianoratamero.github.io/blog/ajudaLuciano-distros-linux-da-vez-23-02-16/">
     <title type="text">#ajudaLuciano - distros linux da vez (23/02/2016)</title>
-    <id>urn:uuid:6dc9083f-32d0-348c-ac8a-73798a874d02</id>
+    <id>urn:uuid:e5edac54-7aee-3866-8ec0-d19dea490fa5</id>
     <updated>2016-02-23T01:31:00Z</updated>
     <link href="https://lucianoratamero.github.io/blog/ajudaLuciano-distros-linux-da-vez-23-02-16/" />
     <author>
@@ -214,7 +259,7 @@ mas isso não é tanto problema, já que no front a gente não precisa de uma pr
   </entry>
   <entry xml:base="https://lucianoratamero.github.io/blog/linux-para-leigos-por-que-usar-linux/">
     <title type="text">linux para leigos: por que usar linux?</title>
-    <id>urn:uuid:bed87b52-2f39-3b8b-a6b3-b81262dfe90c</id>
+    <id>urn:uuid:2af2b783-5595-3ba3-a956-7d8e61589434</id>
     <updated>2016-02-21T13:31:00Z</updated>
     <link href="https://lucianoratamero.github.io/blog/linux-para-leigos-por-que-usar-linux/" />
     <author>
@@ -273,7 +318,7 @@ mas isso não é tanto problema, já que no front a gente não precisa de uma pr
   </entry>
   <entry xml:base="https://lucianoratamero.github.io/blog/habemus-rss/">
     <title type="text">habemus rss!</title>
-    <id>urn:uuid:e009146a-f9c2-3a15-8481-e48d057625e6</id>
+    <id>urn:uuid:0c3a7183-1259-3d70-8265-69c697b90351</id>
     <updated>2016-02-20T01:31:00Z</updated>
     <link href="https://lucianoratamero.github.io/blog/habemus-rss/" />
     <author>
@@ -286,7 +331,7 @@ mas isso não é tanto problema, já que no front a gente não precisa de uma pr
   </entry>
   <entry xml:base="https://lucianoratamero.github.io/blog/git-e-github-parte-3-boas-praticas-de-organizacao-de-branchs/">
     <title type="text">git e github parte 3: boas práticas de organização de branches</title>
-    <id>urn:uuid:7b690811-eeda-300d-8841-2c11e0f92ee5</id>
+    <id>urn:uuid:685822a2-c98a-37d2-b834-44b7977276a7</id>
     <updated>2016-02-19T13:31:00Z</updated>
     <link href="https://lucianoratamero.github.io/blog/git-e-github-parte-3-boas-praticas-de-organizacao-de-branchs/" />
     <author>
@@ -329,7 +374,7 @@ mas isso não é tanto problema, já que no front a gente não precisa de uma pr
   </entry>
   <entry xml:base="https://lucianoratamero.github.io/blog/git-e-github-parte-2-conceitos-basicos-para-trabalhar-com-git/">
     <title type="text">git e github parte 2: conceitos básicos para trabalhar com git</title>
-    <id>urn:uuid:0585ff56-8306-31f3-aad3-862d1dc55222</id>
+    <id>urn:uuid:f9eb2fe5-5e96-35b0-a951-1abaf54cd524</id>
     <updated>2016-02-18T13:31:00Z</updated>
     <link href="https://lucianoratamero.github.io/blog/git-e-github-parte-2-conceitos-basicos-para-trabalhar-com-git/" />
     <author>
@@ -374,7 +419,7 @@ mas isso não é tanto problema, já que no front a gente não precisa de uma pr
   </entry>
   <entry xml:base="https://lucianoratamero.github.io/blog/git-e-github-parte-1-o-que-sao-e-como-usar/">
     <title type="text">git e github parte 1: o que são e como usar?</title>
-    <id>urn:uuid:1a16f0a5-02ad-3d38-8dbd-ae85738eb85f</id>
+    <id>urn:uuid:4cc83b68-bf41-37ee-bc32-749633464bbe</id>
     <updated>2016-02-14T13:31:00Z</updated>
     <link href="https://lucianoratamero.github.io/blog/git-e-github-parte-1-o-que-sao-e-como-usar/" />
     <author>
@@ -473,7 +518,7 @@ mas isso não é tanto problema, já que no front a gente não precisa de uma pr
   </entry>
   <entry xml:base="https://lucianoratamero.github.io/blog/lektor-parte-2-deploy-macros-admin-e-plugins/">
     <title type="text">Lektor parte 2: deploy, macros, admin e plugins</title>
-    <id>urn:uuid:0bc9642f-48ca-394a-a834-e0cf6b1bce22</id>
+    <id>urn:uuid:0b31b516-3adf-3bed-bd85-4e9c6b901f1c</id>
     <updated>2016-02-03T13:31:00Z</updated>
     <link href="https://lucianoratamero.github.io/blog/lektor-parte-2-deploy-macros-admin-e-plugins/" />
     <author>
@@ -553,7 +598,7 @@ lektor-disqus-comments = 0.1&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;isso fez com que, 
   </entry>
   <entry xml:base="https://lucianoratamero.github.io/blog/lektor-gerador-de-sites-estaticos-escrito-em-python/">
     <title type="text">Lektor: gerador de sites estáticos escrito em Python</title>
-    <id>urn:uuid:9955ebf8-ee8c-3428-a366-eded0c7a8655</id>
+    <id>urn:uuid:381b7b8f-a6d3-34e8-8315-e230fdfe8aeb</id>
     <updated>2016-02-02T13:31:00Z</updated>
     <link href="https://lucianoratamero.github.io/blog/lektor-gerador-de-sites-estaticos-escrito-em-python/" />
     <author>
@@ -596,7 +641,7 @@ lektor-disqus-comments = 0.1&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;isso fez com que, 
   </entry>
   <entry xml:base="https://lucianoratamero.github.io/blog/finalmente-um-blog-decente/">
     <title type="text">finalmente um blog decente</title>
-    <id>urn:uuid:7a4ffa2c-f83d-34a0-b667-ce105c9573fc</id>
+    <id>urn:uuid:0160b9b0-fb56-38e2-a42d-b626a23e70be</id>
     <updated>2016-01-12T13:31:00Z</updated>
     <link href="https://lucianoratamero.github.io/blog/finalmente-um-blog-decente/" />
     <author>
