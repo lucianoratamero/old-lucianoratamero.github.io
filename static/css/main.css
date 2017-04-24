@@ -3,7 +3,7 @@
 @import url(../../node_modules/colors.css/src/_variables.css);
 @import url(../../node_modules/colors.css/src/_skins.css);
 @import url(../js/highlight/styles/zenburn.css);
-@import url(../../node_modules/fullpage.js/jquery.fullPage.css);
+@import url(../../node_modules/fullpage.js/dist/jquery.fullpage.css);
 .h1 {
   font-size: 2rem; }
 
@@ -3379,3 +3379,22 @@ code {
   .image-wrapper .image-caption {
     margin: 1em 0 0;
     font-style: italic; }
+
+#fullpage {
+  font-size: 4em; }
+  #fullpage pre code {
+    font-size: 2em; }
+
+@media only screen and (max-width: 52em) {
+  #fullpage {
+    font-size: 2em; }
+    #fullpage a {
+      text-decoration: underline; }
+    #fullpage img {
+      max-width: 350px; }
+    #fullpage h1 {
+      font-size: 1.8em; }
+    #fullpage h3 {
+      font-size: 1.2em; }
+    #fullpage pre code {
+      font-size: 1em; } }

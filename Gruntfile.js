@@ -44,7 +44,7 @@ module.exports = function (grunt) {
                         'node_modules/jquery/dist/jquery.min.js',
                         'node_modules/iscroll/build/iscroll-lite.js',
                         'node_modules/page.js/page.js',
-                        'node_modules/fullpage.js/jquery.fullPage.js',
+                        'node_modules/fullpage.js/dist/jquery.fullpage.js',
                         'static/js/app.js'
                     ],
                 }
