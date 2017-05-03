@@ -20,8 +20,12 @@
 
   <script type="text/javascript">
     $(document).ready(function() {
+      $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+      });
       $('#fullpage').fullpage({
-        slidesNavigation: true,
+        slidesNavigation: false,
+        loopHorizontal: false,
         controlArrows: false,
         scrollingSpeed: 400,
       });
@@ -71,9 +75,7 @@
           <h1>avisos</h1>
           <ul>
             <li>palestra não muito técnica</li>
-            <li>linguagem simples</li>
-            <li>generalidades</li>
-            <li>tentarei não fazer juízo de valor</li>
+            <li>linguagem de baixo calão</li>
           </ul>
         </div>
       </div>
@@ -83,58 +85,93 @@
 
       <div class="slide">
         <div class="container">
-        <h1>três pontos de vista</h1>
+        <h1>três tipos de estratégias</h1>
         <ul>
-          <li>ponto de vista do <strong>produto</strong></li>
-          <li>ponto de vista da <strong>equipe</strong></li>
-          <li>ponto de vista da <strong>empresa</strong></li>
+          <li>acoplada</li>
+          <li>desacoplada</li>
+          <li>híbrida</li>
         </ul>
         </div>
       </div>
 
       <div class="slide">
         <div class="container">
-        <h1>três tipos de abordagem</h1>
-        <ul>
-          <li><strong>moderna:</strong> react/angular/vue/... + API (DRF)</li>
-          <li><strong>tradicional:</strong> django + JS embutido</li>
-          <li><strong>híbrida:</strong> django + JS desacoplado</li>
-        </ul>
+        <h1>acoplada</h1>
+        <div class="row acoplada">
+          <div class="col-xs-12 col-md-8 col-md-offset-2 caixa">
+            <h3>django</h3>
+            <h3>+</h3>
+            <h3>react / angular / jquery</h3>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <div id="acoplada-exemplo" class="slide">
+        <div class="container">
+        <h1>exemplo</h1>
+        <p><strong>quem-nunca.html</strong></p>
+        <pre><code class="django small">{% block content %}
+  &lt;body>
+    {{ context }}
+
+    &lt;script src="//code.jquery.com/jquery-3.2.1.js">&lt;/script>
+
+    &lt;script>
+      $(document).ready(function(){
+        $('body').hide();
+      });
+    &lt;/script>
+
+  &lt;/body>
+{% endblock content %}
+</code></pre>
         </div>
       </div>
 
       <div class="slide">
         <div class="container">
-        <h1>características da abordagem moderna</h1>
-        <ul>
-          <li>produto com cara de app</li>
-          <li>rápida prototipagem de interface</li>
-          <li>baixo custo a curto prazo, com aumento linear</li>
-          <li>fácil gerência de equipes</li>
-          <li>difícil coordenação de tarefas</li>
-          <li>decisões prévias</li>
-          <li>alta aposta no produto</li>
-        </ul>
+        <h1>características da estratégia acoplada</h1>
         </div>
       </div>
 
       <div class="slide">
         <div class="container">
-        <img class="fullwidth" src="assets/castelo-de-cartas.jpg">
+          <h3 class="mb1">produto com cara de web</h3>
+          <div class="row">
+            <div class="col-xs-12 col-md-8 col-md-offset-2">
+              <img src="assets/acoplada.gif">
+            </div>
+          </div>
         </div>
       </div>
-
       <div class="slide">
         <div class="container">
-        <h1>características da abordagem tradicional</h1>
-        <ul>
-          <li>produto com cara de web</li>
-          <li>rápida prototipagem em geral</li>
-          <li>baixo custo, com aumento exponencial</li>
-          <li>gerência complicada de equipes => feudos</li>
-          <li>coordenação complicada de tarefas => monolítico</li>
-          <li>baixa aposta no produto</li>
-        </ul>
+          <h3>baixa aposta na apresentação produto</h3>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="container">
+          <h3>rápida prototipagem / lenta refatoração</h3>
+          <p>como só se precisa lidar com um projeto, resolve-se rápido, mas tende-se a ter mais acoplamento</p>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="container">
+          <h3>baixo custo, com aumento exponencial</h3>
+          <p>acoplamento => baixa flexibilidade</p>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="container">
+          <h3>gerência complicada de equipes => feudos</h3>
+          <p>já que tudo tende a ser acoplado, só quem fez sabe o que aquela parte do código faz (se é que quem fez se lembra)</p>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="container">
+          <h3>coordenação complicada de tarefas => monolítico</h3>
+          <p>por termos feudos, se fulano está ausente, ferrou</p>
         </div>
       </div>
 
@@ -144,65 +181,204 @@
         </div>
       </div>
 
-      <div class="slide">
+      <div id="desacoplada" class="slide">
         <div class="container">
-        <h1>características da abordagem híbrida</h1>
-        <ul>
-          <li>produto com a cara que quiser</li>
-          <li>velocidade dependente da equipe e do momento</li>
-          <li>custo maior a curto prazo, dependente da equipe a longo</li>
-          <li>fácil gerência de equipes</li>
-          <li>fácil gerência de tarefas</li>
-          <li>aposta flexível no produto</li>
-        </ul>
+        <h1>desacoplada</h1>
+        <div class="row desacoplada">
+          <div class="col-xs-12 col-md-4 col-md-offset-1 caixa">
+            <h3>nodejs</h3>
+            <p>react-redux / angular-restangular</p>
+          </div>
+          <div class="col-xs-12 col-md-2 linhas">
+            <h3>rede</h3>
+          </div>
+          <div class="col-xs-12 col-md-4 caixa">
+            <h3>django</h3>
+            <p>rest framework</p>
+          </div>
+        </div>
         </div>
       </div>
 
       <div class="slide">
         <div class="container">
-        <img class="fullwidth" src="assets/rizoma.jpg">
+        <h1>características da estratégia desacoplada</h1>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+          <h3 class="mb1">produto com cara de app</h3>
+          <div class="row">
+            <div class="col-xs-12 col-md-8 col-md-offset-2">
+              <img src="assets/desacoplada.gif">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="container">
+          <h3>rápida prototipagem de interface</h3>
+          <p>você pode desenvolver só a interface enquanto arquiteta com mais cuidado o backend</p>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="container">
+          <h3>baixo custo a curto prazo, com aumento linear</h3>
+          <p>não há a bola de neve, pois as equipes são separadas e mais flexíveis</p>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="container">
+          <h3>fácil gerência de equipes</h3>
+          <p>você sabe quando e quem contratar e para quem enviar cada bug</p>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="container">
+          <h3>difícil coordenação de tarefas</h3>
+          <p>se houver alguma dessincronia entre as equipes, teremos atrito entre elas, além de um senso de "times"</p>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="container">
+          <h3>decisões prévias</h3>
+          <p>não há tempo para se ponderar qual framework usar, pois a decisão deve ser tomada logo de cara</p>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="container">
+          <h3>alta aposta no produto</h3>
+          <p>por conta das decisões prévias e da alta complexidade de front, quem usa essa estratégia precisa ter uma visão bem definida do futuro do produto</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <img src="assets/castelo-de-cartas.jpg">
+        </div>
+      </div>
+
+      <div id="híbrida" class="slide">
+        <div class="container">
+        <h1>híbrida</h1>
+        <div class="row">
+          <div class="col-xs-12 híbrida">
+            <div class="caixa">
+              <h3>django</h3>
+              <p>templates + js</p>
+              <div class="caixa">
+                <div>
+                  <h3>API views</h3>
+                  <p>rest framework</p>
+                </div>
+                <div>
+                  <h3>nodejs</h3>
+                  <p>react-redux / angular-restangular</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+          <h1 class="mb1">exemplo</h1>
+          <p>projeto > app django + API > templates > app nodejs</p>
+          <p>pode parecer uma péssima idéia, mas juro que não é</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>características da estratégia híbrida</h1>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+          <h3>produto com a cara que quiser</h3>
+          <p>quer cara de app? faz uma app. não quer? não precisa.<br/>quer fazer com API? faz. não quer? deixa pro futuro.<br/>não sabe se usa react ou angular? faz com django, projetando bem seu contexto.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="container">
+          <h3>aposta flexível no produto</h3>
+          <p>desde que você tenha visão do que pode se tornar desacoplável no futuro, tá de boas.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="container">
+          <h3>custo maior a curto prazo, dependente da equipe a longo</h3>
+          <p>se sua equipe tiver projetado bem o que pode ser desacoplável, você não terá problemas com aplicação django monolítica. não em relação ao front, pelo menos.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="container">
+          <h3>fácil gerência de equipes</h3>
+          <p>elas podem ser totalmente separadas, mas o front vai ter que saber um pouco de back e o back vai ter que saber um pouco de front.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="container">
+          <h3>fácil gerência de tarefas</h3>
+          <p>se todos têm uma noção geral do projeto, tapar buracos é fácil</p>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="container">
+          <h3>te força a pensar na arquitetura em vez da ferramenta</h3>
+          <p>coisa que a gente geralmente <strong>não</strong> faz</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <img src="assets/rizoma.jpg">
         </div>
       </div>
 
       <div class="slide">
         <div class="container">
         <h1>maiores dependências</h1>
-        <p>moderna: <strong>gerência</strong></p>
-        <p>tradicional: <strong>produto</strong></p>
+        <p>acoplada: <strong>produto</strong></p>
+        <p>desacoplada: <strong>empresa</strong></p>
         <p>híbrida: <strong>equipe</strong></p>
         </div>
       </div>
 
       <div class="slide">
         <div class="container">
-        <h1>moderna vai bem com:</h1>
+        <h1>use a estratégia acoplada quando:</h1>
         <ul>
-          <li>startups</li>
-          <li>equipes pequenas/remotas</li>
-          <li>proximidade de domínio entre devs e gerentes</li>
+          <li>tiver equipes/produtos estáveis</li>
+          <li>tiver grande entrada e saída de projetos</li>
+          <li>fizer projetos pessoais/descartáveis/burocráticos</li>
         </ul>
         </div>
       </div>
 
       <div class="slide">
         <div class="container">
-        <h1>tradicional vai bem com:</h1>
+        <h1>use a estrategia desacoplada quando:</h1>
         <ul>
-          <li>equipes/produtos estáticos</li>
-          <li>projetos pessoais/descartáveis/burocráticos</li>
-          <li>fábricas de software</li>
+          <li>for uma startup</li>
+          <li>tiver equipes pequenas/remotas</li>
+          <li>tiver proximidade de domínio entre devs e gerentes</li>
         </ul>
         </div>
       </div>
 
       <div class="slide">
         <div class="container">
-        <h1>híbrida vai bem com:</h1>
+        <h1>use a estratégia híbrida quando:</h1>
         <ul>
-          <li>equipes multidisciplinares</li>
-          <li>projetos longos, de baixa iteração</li>
-          <li>projetos com grande backlog</li>
-          <li>equipes desacopladas do cliente</li>
+          <li>tiver equipes multidisciplinares</li>
+          <li>tiver equipes desacopladas do cliente</li>
+          <li>fizer projetos longos, de baixa iteração</li>
+          <li>fizer projetos com grande backlog</li>
         </ul>
         </div>
       </div>
@@ -213,7 +389,6 @@
         <ul>
           <li>não use o framework "porque sim"</li>
           <li>deixe as decisões importantes pro futuro</li>
-          <li>encontre seu fluxo ideal (se puder)</li>
           <li>experimente</li>
         </ul>
         </div>

@@ -16,6 +16,7 @@ $fa-font-path: "/static/scss/font-awesome/fonts";
 @import "../../node_modules/fullpage.js/dist/jquery.fullpage.css";
 @import "../../node_modules/sass-css3-mixins/css3-mixins.scss";
 @import "loading.scss";
+@import "talks.scss";
 
 // fonts
 @import "fonts.scss";
@@ -124,23 +125,4 @@ code {
 
   img { max-width: 70%; }
   .image-caption { margin: 1em 0 0; font-style: italic; }
-}
-
-#fullpage {
-  font-size: 4em;
-
-  pre code {
-    font-size: 2em;
-  }
-}
-
-@media only screen and (max-width : 52em) {
-  #fullpage {
-    font-size: 2em;
-    a { text-decoration: underline; }
-    img { max-width: 350px }
-    h1 { font-size: 1.8em }
-    h3 { font-size: 1.2em }
-    pre code { font-size: 1em }
-  }
 }
