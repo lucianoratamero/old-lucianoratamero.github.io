@@ -1,7 +1,9 @@
 node_modules/
 bin/
 lib/
+local/
 include/
 .Python
 pip-selfcheck.json
+blog/.lektor
 .DS_Store
