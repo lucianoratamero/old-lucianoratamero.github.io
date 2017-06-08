@@ -8,7 +8,7 @@ cover_image:
 tags: python, javascript, frontend, dicas, tutorial
 ---
 body:
-<p>logo depois de ter lido <a href="https://dev.to/underdogio/python-for-javascript-developers" target="_blank">esse post</a>, eu percebi que as poucas dificuldades que tive durante minha adaptação de javascript pra python (há anos) nunca foram ensinadas pra mim de uma maneira clara.</p><p>apesar de ambas as linguagens serem razoavelmente parecidas, achei interessante a ideia, então aqui vão algumas diferenças pra se ter em mente na hora de virar a chave. algumas são de Mario Pabon, o autor do post original, e algumas coisas são minhas mesmo. :)</p><p>ah, só um detalhe: aqui vamos supor que você está usando python 3 e ES5, sim? depois faço um postzinho sobre o que o ES6(2015) e o ES7 têm e que são similares ao python. bem, vamos lá!</p>
+<p>logo depois de ter lido <a href="https://dev.to/underdogio/python-for-javascript-developers" target="_blank">esse post</a>, eu percebi que as poucas dificuldades que tive durante minha adaptação de javascript pra python (há anos) nunca foram ensinadas pra mim de uma maneira clara.</p><p>apesar de ambas as linguagens serem razoavelmente parecidas, achei interessante a ideia, então aqui vão algumas diferenças pra se ter em mente na hora de virar a chave. algumas são de Mario Pabon, o autor do post original, e algumas coisas são minhas mesmo. :)</p><p>ah, só um detalhe: aqui vamos supor que você está usando python 3, sim? bem, vamos lá!</p>
 
 <hr>
 
@@ -289,7 +289,7 @@ detalhe: não há par para <code>undefined</code> em python, já que tentar aces
 
 <h3 id="funções">funções</h3>
 
-assim como em javascript, funções também são objetos em python. isso significa que você pode passar funções como argumentos/callbacks ou atẽ assinalar propriedades pra funções.
+assim como em javascript, funções também são objetos em python. isso significa que você pode passar funções como argumentos/callbacks ou até assinalar propriedades pra funções.
 <div class="clearfix">
 <div class="sm-col sm-col-12">
     <pre><code class="python">def func_tainha(a, other_func):

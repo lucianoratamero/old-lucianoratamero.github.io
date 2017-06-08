@@ -56,7 +56,7 @@
         <p>08/06/2017, 17h40</p>
       
     </div>
-  <p>logo depois de ter lido <a href="https://dev.to/underdogio/python-for-javascript-developers" target="_blank">esse post</a>, eu percebi que as poucas dificuldades que tive durante minha adaptação de javascript pra python (há anos) nunca foram ensinadas pra mim de uma maneira clara.</p><p>apesar de ambas as linguagens serem razoavelmente parecidas, achei interessante a ideia, então aqui vão algumas diferenças pra se ter em mente na hora de virar a chave. algumas são de Mario Pabon, o autor do post original, e algumas coisas são minhas mesmo. :)</p><p>ah, só um detalhe: aqui vamos supor que você está usando python 3 e ES5, sim? depois faço um postzinho sobre o que o ES6(2015) e o ES7 têm e que são similares ao python. bem, vamos lá!</p><hr>
+  <p>logo depois de ter lido <a href="https://dev.to/underdogio/python-for-javascript-developers" target="_blank">esse post</a>, eu percebi que as poucas dificuldades que tive durante minha adaptação de javascript pra python (há anos) nunca foram ensinadas pra mim de uma maneira clara.</p><p>apesar de ambas as linguagens serem razoavelmente parecidas, achei interessante a ideia, então aqui vão algumas diferenças pra se ter em mente na hora de virar a chave. algumas são de Mario Pabon, o autor do post original, e algumas coisas são minhas mesmo. :)</p><p>ah, só um detalhe: aqui vamos supor que você está usando python 3, sim? bem, vamos lá!</p><hr>
 
 <p>pra quem quiser pular pra uma parte em específico, aqui vai:</p>
 <ul>
@@ -269,7 +269,7 @@ print(pessoa['gênero']) # KeyError, gênero não foi declarado</code></pre>
 </div>
 </div><h3 id="None">None</h3><p><code>None</code> é equivalente a <code>null</code> em javascript. isso significa que <code>None</code> representa a ausência de um valor e é avaliado como <code>false</code>.</p>
 <p>detalhe: não há par para <code>undefined</code> em python, já que tentar acessar algo não definido em python levanta uma exceção <code>NameError</code>.</p>
-<h3 id="funções">funções</h3><p>assim como em javascript, funções também são objetos em python. isso significa que você pode passar funções como argumentos/callbacks ou atẽ assinalar propriedades pra funções.</p>
+<h3 id="funções">funções</h3><p>assim como em javascript, funções também são objetos em python. isso significa que você pode passar funções como argumentos/callbacks ou até assinalar propriedades pra funções.</p>
 <div class="clearfix">
 <div class="sm-col sm-col-12">
     <pre><code class="python">def func_tainha(a, other_func):

@@ -17,7 +17,7 @@
     <author>
       <name></name>
     </author>
-    <content type="html">&lt;p&gt;logo depois de ter lido &lt;a href=&quot;https://dev.to/underdogio/python-for-javascript-developers&quot; target=&quot;_blank&quot;&gt;esse post&lt;/a&gt;, eu percebi que as poucas dificuldades que tive durante minha adaptação de javascript pra python (há anos) nunca foram ensinadas pra mim de uma maneira clara.&lt;/p&gt;&lt;p&gt;apesar de ambas as linguagens serem razoavelmente parecidas, achei interessante a ideia, então aqui vão algumas diferenças pra se ter em mente na hora de virar a chave. algumas são de Mario Pabon, o autor do post original, e algumas coisas são minhas mesmo. :)&lt;/p&gt;&lt;p&gt;ah, só um detalhe: aqui vamos supor que você está usando python 3 e ES5, sim? depois faço um postzinho sobre o que o ES6(2015) e o ES7 têm e que são similares ao python. bem, vamos lá!&lt;/p&gt;&lt;hr&gt;
+    <content type="html">&lt;p&gt;logo depois de ter lido &lt;a href=&quot;https://dev.to/underdogio/python-for-javascript-developers&quot; target=&quot;_blank&quot;&gt;esse post&lt;/a&gt;, eu percebi que as poucas dificuldades que tive durante minha adaptação de javascript pra python (há anos) nunca foram ensinadas pra mim de uma maneira clara.&lt;/p&gt;&lt;p&gt;apesar de ambas as linguagens serem razoavelmente parecidas, achei interessante a ideia, então aqui vão algumas diferenças pra se ter em mente na hora de virar a chave. algumas são de Mario Pabon, o autor do post original, e algumas coisas são minhas mesmo. :)&lt;/p&gt;&lt;p&gt;ah, só um detalhe: aqui vamos supor que você está usando python 3, sim? bem, vamos lá!&lt;/p&gt;&lt;hr&gt;
 
 &lt;p&gt;pra quem quiser pular pra uma parte em específico, aqui vai:&lt;/p&gt;
 &lt;ul&gt;
@@ -230,7 +230,7 @@ print(pessoa['gênero']) # KeyError, gênero não foi declarado&lt;/code&gt;&lt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&quot;None&quot;&gt;None&lt;/h3&gt;&lt;p&gt;&lt;code&gt;None&lt;/code&gt; é equivalente a &lt;code&gt;null&lt;/code&gt; em javascript. isso significa que &lt;code&gt;None&lt;/code&gt; representa a ausência de um valor e é avaliado como &lt;code&gt;false&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;detalhe: não há par para &lt;code&gt;undefined&lt;/code&gt; em python, já que tentar acessar algo não definido em python levanta uma exceção &lt;code&gt;NameError&lt;/code&gt;.&lt;/p&gt;
-&lt;h3 id=&quot;funções&quot;&gt;funções&lt;/h3&gt;&lt;p&gt;assim como em javascript, funções também são objetos em python. isso significa que você pode passar funções como argumentos/callbacks ou atẽ assinalar propriedades pra funções.&lt;/p&gt;
+&lt;h3 id=&quot;funções&quot;&gt;funções&lt;/h3&gt;&lt;p&gt;assim como em javascript, funções também são objetos em python. isso significa que você pode passar funções como argumentos/callbacks ou até assinalar propriedades pra funções.&lt;/p&gt;
 &lt;div class=&quot;clearfix&quot;&gt;
 &lt;div class=&quot;sm-col sm-col-12&quot;&gt;
     &lt;pre&gt;&lt;code class=&quot;python&quot;&gt;def func_tainha(a, other_func):
