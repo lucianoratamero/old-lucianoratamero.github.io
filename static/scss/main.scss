@@ -15,6 +15,7 @@ $fa-font-path: "/static/scss/font-awesome/fonts";
 @import "../js/highlight/styles/zenburn.css";
 @import "../../node_modules/fullpage.js/dist/jquery.fullpage.css";
 @import "../../node_modules/sass-css3-mixins/css3-mixins.scss";
+@import "../../node_modules/tippy.js/dist/tippy.css";
 @import "loading.scss";
 @import "talks.scss";
 
@@ -125,4 +126,10 @@ code {
 
   img { max-width: 70%; }
   .image-caption { margin: 1em 0 0; font-style: italic; }
+}
+
+.tip {
+  color: #933;
+  text-decoration: underline;
+  &:after { content: "*"; }
 }

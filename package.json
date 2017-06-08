@@ -10,7 +10,8 @@
     "fullpage.js": "^2.7.6",
     "highlight.js": "^9.7.0",
     "iscroll": "^5.2.0",
-    "jquery": "^2.2.4"
+    "jquery": "^2.2.4",
+    "tippy.js": "^0.16.1"
   },
   "devDependencies": {
     "basscss-addons": "^1.0.0",

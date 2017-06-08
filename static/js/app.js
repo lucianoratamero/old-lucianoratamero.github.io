@@ -49,6 +49,7 @@
     $('#index, #loading').fullpage.setResponsive(true); // firefox, you crazy bastard
     $('#font-awesome-loader').hide();
     hljs.initHighlightingOnLoad();
+    Tippy('.tip');
   }
 
   var goToSubsections = function(subsectionName){

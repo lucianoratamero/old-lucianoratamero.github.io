@@ -4,6 +4,7 @@
 @import url(../../node_modules/colors.css/src/_skins.css);
 @import url(../js/highlight/styles/zenburn.css);
 @import url(../../node_modules/fullpage.js/dist/jquery.fullpage.css);
+@import url(../../node_modules/tippy.js/dist/tippy.css);
 .h1 {
   font-size: 2rem; }
 
@@ -3451,3 +3452,9 @@ code {
   .image-wrapper .image-caption {
     margin: 1em 0 0;
     font-style: italic; }
+
+.tip {
+  color: #933;
+  text-decoration: underline; }
+  .tip:after {
+    content: "*"; }
