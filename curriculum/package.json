@@ -1,5 +1,5 @@
 {
-  "name": "curribulum generator",
+  "name": "curriculumGenerator",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -15,6 +15,7 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-html-pdf": "0.0.6",
     "grunt-inline": "git+https://git@github.com/lucianoratamero/grunt-inline.git#feature/css-url-replacing",
+    "grunt-inline-css": "^1.0.0",
     "grunt-sass": "^1.2.1",
     "html-pdf": "^2.1.0",
     "node-sass": "^3.10.0"

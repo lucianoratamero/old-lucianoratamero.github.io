@@ -15,6 +15,7 @@ module.exports = function (grunt) {
         var html = fs.readFileSync('curriculum.html', 'utf8');
         var options = {
           "format": "A4",
+					"phantomPath": "node_modules/.bin/phantomjs"
         };
         var newFile = new pdf(html, options);
 
