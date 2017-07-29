@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Django + React: dicas para quem quer fazer sua primeira app desacoplada - lucianoratamero.github.io</title>
+  <meta name="author" content="Luciano Ratamero" />
+  <meta name="description" content="Django + React: dicas para quem quer fazer sua primeira app desacoplada" />
+  <meta name="keywords"  content="django, react, lucianoratamero, Luciano Ratamero" />
+  <meta name="Resource-type" content="Document" />
+
+  <link rel="stylesheet" type="text/css" href="/static/css/talks.min.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/main.min.css" />
+  <script type="text/javascript" src="/static/js/talks.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="/static/js/highlight/styles/zenburn.css" />
+  <script type="text/javascript" src="/static/js/highlight/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+      });
+      $('#fullpage').fullpage({
+        slidesNavigation: false,
+        loopHorizontal: false,
+        controlArrows: false,
+        scrollingSpeed: 400,
+      });
+    });
+  </script>
+
+</head>
+<body>
+
+  <div id="fullpage">
+
+    <div class="section">
+      <div class="container">
+        <div class="intro">
+          <h1>quem quiser acompanhar</h1>
+          <p><a target="_blank" href="https://lucianoratamero.github.io/talks">ratamero.com/talks/</a></p>
+          <p>use as setas/swipes pra navegar ;)</p>
+          <h4>o código está no github:</h4>
+          <a href="https://github.com/lucianoratamero/django-react-blog-example" target="_blank">https://github.com/lucianoratamero/django-react-blog-example</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="container">
+        <div class="intro">
+          <h1>quem?</h1>
+          <p>Luciano Ratamero</p>
+          <p>Python/JavaScript</p>
+          <p><a target="_blank" href="https://lucianoratamero.github.io/">lucianoratamero.github.io</a></p>
+          <p><a target="_blank" href="https://www.facebook.com/lucianoratamero">fb.com/lucianoratamero</a></p>
+          <p><a target="_blank" href="https://www.twitter.com/lucianoratamero">@lucianoratamero</a></p>
+          <p><div class="row"><div class="col-xs-12 col-md-4 col-md-offset-4"><img src="assets/simple-fractal.png"></div></div></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="container">
+        <div class="intro">
+          <h1>Django + React: dicas para quem quer fazer sua primeira app desacoplada</h1>
+          <p>PythOnRio - 2017</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+
+      <div class="slide">
+        <div class="container">
+        <h1>quatro tópicos (se der tempo)</h1>
+        <ul>
+          <li>automatização de processos/envs</li>
+          <li>reuso de views e refatoração de contextos django</li>
+          <li>agrupamento de actions/reducers e asyncDispatch</li>
+          <li>imutáveis para props</li>
+        </ul>
+        <p>(aqui você já pode scrollar pro lado direito ;D)</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>dotenv (do lado do react)</h1>
+        <ul>
+          <li>facilita a gestão de opcões globais</li>
+          <li>deixa as opções do react com cara de settings do django</li>
+          <li>configuração zero</li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>npm scripts/makefile</h1>
+        <ul>
+          <li>facilitam lançamento de scripts secundários</li>
+          <li>te dão a opção de gerir processos de deploy/build</li>
+          <li>implementação js/shell</li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>virtualenvwrapper/postactivate</h1>
+        <ul>
+          <li>facilitam gestão de projetos</li>
+          <li>adicionam ao path comandos úteis</li>
+          <li>não são acoplados ao sistema operacional como o autoenv</li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>refatoração de views com uso de presenters</h1>
+        <ul>
+          <li>minimizam o esforço de refatoração</li>
+          <li>não dependem do django rest framework</li>
+          <li>isolam papéis que já deveriam ser distintos</li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>react e redux: como funcionam?</h1>
+        <ul>
+          <li>react => componentes => estados</li>
+          <li>redux => ações => mudanças de estados</li>
+          <li>componente => action => requisição => reducer => componente</li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>problemas</h1>
+        <ul>
+          <li>repetição eterna de código</li>
+          <li>requisições dentro das actions</li>
+          <li>controle chato de múltiplos disparos</li>
+          <li>controle de fluxo no componente</li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>middleware de agrupamento de actions no react</h1>
+        <ul>
+          <li>minimizam repetição de código</li>
+          <li>facilitam controle de disparo de requisições</li>
+          <li>abstrai requisições do código redux</li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>asyncDispatch</h1>
+        <ul>
+          <li>facilita disparo tardio e enfileiramento de actions</li>
+          <li>permite otimizações internas do react/redux</li>
+          <li>deixa na camada do redux o que é do redux</li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>immutablejs</h1>
+        <ul>
+          <li>evitam múltiplos disparos de redraws de componentes</li>
+          <li>mantêm estáveis as props</li>
+          <li>facilitam a réplica/filtragem de dados internos do componente</li>
+        </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section">
+      <div class="container">
+      <div class="intro">
+        <h1>perguntas?</h1>
+        <p>luciano@ratamero.com</p>
+        <p>cerveja/café</p>
+      </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="container">
+        <div class="intro">
+          <h1>é isso aí</h1>
+          <p><a target="_blank" href="../../../img/eu.jpg"><img src="../../../img/eu.jpg" style="max-width: 80%"></a></p>
+          <h3><a target="_blank" href="https://lucianoratamero.github.io/">lucianoratamero.github.io</a></h3>
+          <p>
+            <div class="row">
+              <div class="col-xs-12 col-sm-6">
+                <a target="_blank" href="https://www.facebook.com/lucianoratamero">fb.com/lucianoratamero</a>
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <a target="_blank" href="https://www.twitter.com/lucianoratamero">@lucianoratamero</a>
+              </div>
+            </div>
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+</body>
+</html>
