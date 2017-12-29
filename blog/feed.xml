@@ -2,13 +2,130 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">blog@lucianoratamero.github.io</title>
   <id>urn:uuid:8e9a9ece-d2cc-3e0e-9fb0-676848235923</id>
-  <updated>2017-06-08T17:40:00Z</updated>
+  <updated>2017-12-29T01:26:37.570505Z</updated>
   <link href="https://lucianoratamero.github.io/blog/" />
   <link href="https://lucianoratamero.github.io/blog/feed.xml" rel="self" />
   <author>
     <name></name>
   </author>
   <generator uri="https://github.com/ajdavis/lektor-atom" version="0.1">Lektor Atom Plugin</generator>
+  <entry xml:base="https://lucianoratamero.github.io/blog/ajudaLuciano-virtualenv-e-virtualenvwrapper/">
+    <title type="text">#ajudaLuciano - virtualenv e virtualenvwrapper: como eu uso</title>
+    <id>urn:uuid:dc298cf9-2ae3-332d-a579-f51c53a8dfec</id>
+    <updated>2017-12-28T19:31:00Z</updated>
+    <link href="https://lucianoratamero.github.io/blog/ajudaLuciano-virtualenv-e-virtualenvwrapper/" />
+    <author>
+      <name></name>
+    </author>
+    <content type="html">&lt;p&gt;como eu sou (pessimamente) conhecido por customizar (demais) meu computador de trabalho com scripts, aliases e o que for, faz um tempo que o pessoal tem me cobrado um post sobre como eu uso virtualenv e virtualenvwrapper. aqui vão algumas dicas de como eu uso ambos pra facilitar minha vida como desenvolvedor, principalmente nesse mundo de python 2/3, angular, react, docker, neo4j e afins. ;)&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;for native english speakers, &lt;a href=&quot;../halp-virtualenv-and-virtualenvwrapper/&quot;&gt;here's the translated post&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h3&gt;o que é o virtualenvwrapper&lt;/h3&gt;
+&lt;p&gt;pra quem não conhece, o &lt;a href=&quot;https://virtualenvwrapper.readthedocs.io/en/latest/&quot;&gt;virtualenvwrapper&lt;/a&gt; é &lt;strong&gt;um conjunto de extensões da virtualenv&lt;/strong&gt;. ele provê uma série de comandos úteis pra quem lida com virtualenvs (alguns que eu uso &lt;strong&gt;diariamente&lt;/strong&gt;).&lt;/p&gt;
+&lt;p&gt;o virtualenvwrapper funciona da seguinte forma: ele separa suas pastas de projeto das que pertencem à virtualenv, como &lt;code&gt;bin&lt;/code&gt;, &lt;code&gt;lib&lt;/code&gt;, &lt;code&gt;include&lt;/code&gt; e afins, e te dá algumas utilidades. ele coloca as virtualenvs dentro da pasta da variável de ambiente &lt;code&gt;WORKON_HOME&lt;/code&gt;. isso é ótimo pra quem gosta de não sujar a pasta do projeto com coisas externas e faz com que você não tenha que colocar as pastas da virtualenv no gitignore, por exemplo.&lt;/p&gt;
+&lt;p&gt;no entanto, eu &lt;strong&gt;pessoalmente&lt;/strong&gt; prefiro ter os arquivos de bibliotecas dentro da pasta do projeto por dois motivos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;sempre sei onde elas estão sem precisar me lembrar de qual pasta coloquei como &lt;code&gt;WORKON_HOME&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;e, o melhor, facilito a vida do meu editor de texto, que vai conseguir ler o código das bibliotecas usadas.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;isso faz com que, por exemplo, meu editor possa me recomendar nomes de módulos/classes/funções e faça funcionar o lindo &quot;Go To Definition&quot;, que abre o local do código-fonte de algum módulo/classe/função que está sendo usada no seu código. tanto o Atom quanto o Sublime têm plugins ótimos pra &quot;Go To Definition&quot;, e isso me salvou inúmeras vezes.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;go-to-definition.gif&quot;/&gt;&lt;/p&gt;
+&lt;p&gt;então, por motivos argumentativos, vou usar minha preferência pra explicar algumas das minhas decisões. belessa? belessa.&lt;/p&gt;
+&lt;h3&gt;&lt;code&gt;workon&lt;/code&gt;, &lt;code&gt;cdvirtualenv&lt;/code&gt; e outros comandos úteis&lt;/h3&gt;
+&lt;p&gt;o virtualenvwrapper tem uma cacetada de comandos bem úteis pro dia-a-dia do desenvolvedor python, então vou falar sobre os que eu mais uso:&lt;/p&gt;
+&lt;h4&gt;&lt;code&gt;workon&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;o &lt;code&gt;workon&lt;/code&gt; é um comando que serve pra você ligar sua virtualenv de qualquer lugar. ao executar &lt;code&gt;workon NOMEDOPROJETO&lt;/code&gt;, você fica na mesma pasta onde está, mas com todos os parâmetros da sua env, como a versão do python, as bibliotecas instaladas, as variáveis de ambiente e tudo mais. serve como ponto de entrada pra outros hacks que vou destrinchar e aceita &lt;em&gt;tab complete&lt;/em&gt;.&lt;/p&gt;
+&lt;h4&gt;&lt;code&gt;cdvirtualenv&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;extremamente útil se sua pasta de env e de projeto forem a mesma. o &lt;code&gt;cdvirtualenv&lt;/code&gt; te leva diretamente pra raiz da pasta que contém sua env sem que você precise saber qual ela é. se sua pasta de projeto for a mesma, você ganha o bônus de ir diretamente pra pasta do projeto sem precisar dar &lt;code&gt;cd&lt;/code&gt; pra ela. faz combo com o &lt;code&gt;workon&lt;/code&gt; (novo terminal &amp;gt; &lt;code&gt;workon NOMEDOPROJETO&lt;/code&gt; &amp;gt; &lt;code&gt;cdvirtualenv&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;workon-cdvirtualenv.gif&quot;/&gt;&lt;/p&gt;
+&lt;h4&gt;&lt;code&gt;cpvirtualenv&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;serve pra você replicar uma virtualenv pra outra. pouco usado, mas salvador da pátria quando é.&lt;/p&gt;
+&lt;h4&gt;&lt;code&gt;cdsitepackages&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;te leva pra pasta com todas suas bibliotecas instaladas. simples, lindo.&lt;/p&gt;
+&lt;h3&gt;a mágica dos scripts de &lt;code&gt;postactivate&lt;/code&gt; e &lt;code&gt;postdeactivate&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;agora que vêm os maiores pulos do gato (pulos dos gatos?): o virtualenvwrapper te dá a opção de você escrever scripts bash pra logo depois de você ativar uma virtualenv e pra logo depois de você desativar uma. basta colocar um arquivo chamado &lt;code&gt;postactivate&lt;/code&gt; e/ou &lt;code&gt;postdeactivate&lt;/code&gt; na pasta &lt;code&gt;bin&lt;/code&gt; da sua virtualenv e eles serão executados.&lt;/p&gt;
+&lt;p&gt;isso te permite fazer duas coisas extremamente úteis:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;exportar/sobrescrever variáveis de ambiente;&lt;/li&gt;
+&lt;li&gt;executar qualquer comando específico do seu projeto.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;o primeiro é autoexplicativo, mas o segundo é &lt;strong&gt;lindo demais&lt;/strong&gt;; ele faz com que você possa, por exemplo, executar um &lt;code&gt;cdvirtualenv&lt;/code&gt; assim que sua env for ativada, te levando direto pra pasta projeto. ou então, melhor ainda, &lt;strong&gt;iniciar dependências externas da sua aplicação/levantar imagens do docker&lt;/strong&gt;. ou até fazer com que uma vaquinha diga qual a pasta da sua virtualenv (&lt;code&gt;cowsay $VIRTUAL_ENV&lt;/code&gt;). o mesmo pra quando você desativa uma virtualenv (por favor, vamo desligar os treco de docker, né?). enfim, a utilidade é infinita.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;cowsay.gif&quot;/&gt;
+&lt;img src=&quot;run-apistar.gif&quot;/&gt;&lt;/p&gt;
+&lt;p&gt;outro ponto interessante é que o virtualenvwrapper cria arquivos globais de todos esses eventos (pré e pós tudo) na sua pasta de virtualenvs. caso esses sejam editados, todas as envs executarão esses scripts quando forem ativadas/desativadas.&lt;/p&gt;
+&lt;p&gt;pra fechar, em alguns dos projetos nos quais eu trabalho, a gente até já convencionou que terão, na pasta &lt;code&gt;contrib&lt;/code&gt;, um script de &lt;code&gt;postactivate&lt;/code&gt; pronto pra automatizar alguns processos. acaba servindo como documentação de como as coisas funcionam, e tendem a ser bem menos complicados do que dockerfiles, dependendo de pra que são usados. bem maneiro.&lt;/p&gt;
+&lt;hr/&gt;
+
+&lt;p&gt;enfim, essas foram algumas dicas de como eu automatizo alguns processos chatos usando virtualenv e virtualenvwrapper. espero que tenha sido útil pra vocês, e caso vocês tenham algum hack similar que ajude no desenvolvimento em ambientes python, mandem ver nos comentários! eu vou ficando por aqui. abraços, e até mais o/&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="https://lucianoratamero.github.io/blog/a-jquery-nao-e-a-vila-uma-discussao-sobre-o-uso-da-jquery-em-grandes-projetos/">
+    <title type="text">a jQuery não é a vilã - uma discussão sobre o uso da jQuery em grandes projetos</title>
+    <id>urn:uuid:411e33be-374e-3688-995c-0938ceeb188f</id>
+    <updated>2017-12-28T16:10:00Z</updated>
+    <link href="https://lucianoratamero.github.io/blog/a-jquery-nao-e-a-vila-uma-discussao-sobre-o-uso-da-jquery-em-grandes-projetos/" />
+    <author>
+      <name></name>
+    </author>
+    <content type="html">&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;img src=&quot;cover.png&quot;&gt;
+&lt;/div&gt;&lt;p&gt;&lt;em&gt;edit: esse post é um dos meus mais antigos, e como a linguagem da época era agressiva demais, decidi mudar um bocado. outro detalhe é que isso não reflete tanto meus pensamentos atuais sobre a jQuery em si, mas ainda são 100% válidos pra outros contextos. a versão antiga do post ainda pode ser encontrada aqui no blog, caso queira ver as mudanças ;)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;uma das coisas que mais me deixam feliz na comunidade de javascript é sua velocidade de mudança e absorção de ideias. durante meus cinco anos de desenvolvedor, vi grandes mudanças no uso e no perfil de quem usa javascript — pra melhor, &lt;strong&gt;muito&lt;/strong&gt; melhor. é uma comunidade com orgulho de ser jovem, de fazer as coisas com as próprias mãos, de não ter medo de aprender com as outras linguagens e que admite as próprias falhas. no entanto, uma coisa nunca fez muito sentido pra mim: por que raios todo mundo odeia a jQuery?&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;tenho alguns pensamentos sobre o assunto, e finalmente saí da inércia de escrever sobre isso. bem, antes de tudo, aqueles disclaimers: essa é a minha opinião, somente minha, e você tem todo o direito de concordar ou discordar, completamente ou em partes. minha intenção é exatamente essa, de gerar material para gerar discussão. :)&lt;/p&gt;
+&lt;p&gt;vou dividir meus pensamentos em quatro partes:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;jQuery como porta de entrada ao mundo do front end;&lt;/li&gt;
+&lt;li&gt;jQuery e seu papel em grandes projetos;&lt;/li&gt;
+&lt;li&gt;jQuery, suas características e seu ecossistema;&lt;/li&gt;
+&lt;li&gt;os problemas da jQuery e como solucioná-los.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;então sentem-se em um lugar confortável, peguem café e aguinha e lá vamos nós!&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3&gt;jQuery como porta de entrada ao mundo do front end&lt;/h3&gt;
+&lt;p&gt;bem, aqui vou chover um pouco no molhado, mas é necessário dizer: aprender javascript de front end é difícil. tão difícil como aprender outras linguagens de alto nível; talvez um pouco mais, por seus tipos dinâmicos e mensagens de erro não muito intuitivas (nunca vou me esquecer do meu primeiro NaN, e acho que vocês também não se esqueceram dos seus).
+um grande fator pra essa complicação toda é termos que lidar o tempo todo com o DOM, e ele tende a ser complicado de se entender logo de cara, difícil de desassociar do javascript como linguagem de programação.&lt;/p&gt;
+&lt;p&gt;no entanto, poucos de nós paramos pra realmente entender como o DOM funciona, exatamente porque não precisamos disso para a maioria das tarefas diárias. temos bibliotecas e frameworks que lidam com ele por nós — e isso é bom.&lt;/p&gt;
+&lt;p&gt;por isso eu digo: agradeço imensamente por ter começado a aprender javascript com front end, principalmente por ter aprendido com a jQuery. ela esconde o suficiente, te ensinando o necessário para suas tarefas diárias. a jQuery é tão boa, mas tão boa, que muitos nem aprendem javascript; ficam na jQuery mesmo.&lt;/p&gt;
+&lt;p&gt;a jQuery é boa pros iniciantes por ser uma camada fina, mas consistente, por cima do DOM.&lt;/p&gt;
+&lt;p&gt;“mas Luciano, eu não sou iniciante, eu sei javascript! se eu sei fazer o que a jQuery faz, pra que que eu preciso usar?”, você está pensando. calma, calma, vamos lá.&lt;/p&gt;
+&lt;h3&gt;jQuery e seu papel em grandes projetos&lt;/h3&gt;
+&lt;p&gt;quem aqui já teve que manter um projeto por mais de três anos, por favor, levante a mão. o/ manter um projeto de longa data não é fácil, e isso se dá por vários motivos: a rotatividade de pessoas tende a ser alta; as convenções de padrões de desenvolvimento se perdem; as dependências tecnológicas do projeto mudam.&lt;/p&gt;
+&lt;p&gt;em um projeto de longa data, o código que antes era bom e resolvia um problema agora é ruim, obsoleto, difícil de manter; e isso é natural.&lt;/p&gt;
+&lt;p&gt;é natural, porque as pessoas aprendem. porque elas evoluem, assim como a tecnologia. porque elas entram e saem do projeto, trazendo e levando a bagagem de cada um.&lt;/p&gt;
+&lt;p&gt;nessa hora, ter uma API consistente, única e bem documentada é essencial. uma API consistente permite que pessoas entrem e saiam do projeto sem ter medo de deixar um código ininteligível pra trás — a não ser que não vejam opção.&lt;/p&gt;
+&lt;p&gt;se a API for simples, fácil de usar e bem documentada, ela permite que desenvolvedores que mal conhecem do projeto possam cair dentro e desenvolverem o que precisam, sem muito medo de fazer besteira. e a jQuery é perfeita pra esse papel.&lt;/p&gt;
+&lt;p&gt;perdi a conta das vezes que vi desenvolvedores de back end ou de outros projetos mandando ver em correção de bug dos meus projetos, e isso só se tornou possível porque desenvolver front se tornou fácil.&lt;/p&gt;
+&lt;p&gt;“mas Luciano, a jQuery é muito pesada, quero que meu site mobile seja leve”, você diz. calma, calma, vamos lá.
+&lt;em&gt;edit: acho que essa preocupação com site leve meio que foi embora, já que geral hoje usa de tudo um pouco, e a média de tamanho dos sites só está crescendo.&lt;/em&gt;&lt;/p&gt;
+&lt;h3&gt;jQuery, suas características e seu ecossistema&lt;/h3&gt;
+&lt;p&gt;digamos que você tá fazendo seu projetinho, e ele é só seu, e você é bom em javascript, e você acha que a jQuery é pesada demais pro que você quer fazer. é uma preocupação válida, a de fazer seu usuário baixar o mínimo de script possível. só te digo uma coisa: falar que a jQuery é pesada é coisa do passado.&lt;/p&gt;
+&lt;p&gt;a jQuery mais nova, minificada e gzipada, pesa 29kbs. &lt;a href=&quot;https://mathiasbynens.be/demo/jquery-size&quot;&gt;sério. mesmo.&lt;/a&gt; 29kbs não é nada hoje em dia. &lt;a href=&quot;https://en.wikipedia.org/wiki/Nintendo_Entertainment_System_technical_specifications#Memory&quot;&gt;cabe até num cartucho de NES.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;outra coisa: ela aumentou de tamanho ao longo dos anos, sim, mas diminuiu de tamanho em relação a alguns anos atrás. isso, aliado à evolução da velocidade de tráfego de dados, faz com que o argumento que jQuery é pesada seja um tanto desinformado.&lt;/p&gt;
+&lt;p&gt;claro, claro, conseguimos fazer coisas mais leves, usando outros frameworks (como o &lt;a href=&quot;http://riotjs.com/&quot;&gt;riot&lt;/a&gt;) ou outras bibliotecas similares (como o &lt;a href=&quot;http://zeptojs.com/&quot;&gt;zepto&lt;/a&gt;) para fazermos trabalhos parecidos, mas nenhuma dessas bibliotecas/frameworks tem a longevidade (9 anos! &lt;em&gt;edit: 11 já! :O&lt;/em&gt;) e o ecossistema de extensões que a jQuery tem.&lt;/p&gt;
+&lt;p&gt;além disso, ela provê helpers pra fazer praticamente tudo que se precisa no dia a dia sem precisar de uma quantidade gigantesca de código. dessa forma, você não precisa de tanto trabalho braçal, nem de esquentar a cabeça com o tamanho dos seus próprios arquivos js.&lt;/p&gt;
+&lt;p&gt;então, antes de falar que a jQuery é pesada, pense na fonte marota que você mandou carregar no seu site mobile. naquela imagem bonita de capa. pense no quanto você pode economizar de outras formas e no quanto você pode facilitar a vida de outros, caso você decida abrir seu projeto.&lt;/p&gt;
+&lt;p&gt;“mas Luciano, na verdade eu não gosto da jQuery porque é horrível de manter. o código fica todo macarrônico, a gente nunca sabe o que tá fazendo o que, e por isso que eu uso o framework X, pra poder organizar o código”, você tá pensando. e é agora que eu digo: a vilã não é a jQuery — é quem a usa. vou explicar melhor nessa próxima parte.&lt;/p&gt;
+&lt;h3&gt;os problemas da jQuery e como resolvê-los&lt;/h3&gt;
+&lt;p&gt;todos nós provavelmente já passamos por algum projeto em que o js no front tava bizarro e botamos a culpa na jQuery. as críticas a ela nesse âmbito geralmente estão em três pontos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;o código está ilegível, macarrônico, desorganizado;&lt;/li&gt;
+&lt;li&gt;o código está difícil de testar;&lt;/li&gt;
+&lt;li&gt;o código tem problemas de performance.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;esses três pontos tem uma, e apenas uma variável em comum, e ela não é a jQuery; é como ela é usada.&lt;/p&gt;
+&lt;p&gt;pros dois primeiros problemas, digo o seguinte: a API da jQuery não permite declarar intenção, por ser predominantemente imperativa. ela não diz pra que ela serve no projeto, mas somente o que cada função faz. quem tem que deixar claro o papel do código no projeto é quem a usa. e a solução pra esse problema é a seguinte: envolva o código da jQuery em funções suas, em arquivos diferentes e categorizados. legibilidade conta, organização conta, &lt;strong&gt;contexto&lt;/strong&gt; conta.&lt;/p&gt;
+&lt;p&gt;ou, se quiser, melhor ainda: envolva todo e qualquer código que tenha ligações hardcoded com o DOM e pronto: você tem um código desacoplado. quer usar outra biblioteca no lugar da jQuery? só mudar as amarras com o DOM. quer testar? só mockar as chamadas à jQuery e pronto: seu código está testável.&lt;/p&gt;
+&lt;p&gt;faltou falar sobre problemas de performance, e digo que, se você estudar como os browsers funcionam, você consegue fazer um código rápido com quase qualquer ferramenta que você quiser usar. é um conhecimento bem útil pra quando você precisa otimizar alguma coisa. aliás, recomendo &lt;a href=&quot;https://www.youtube.com/watch?v=SmE4OwHztCc&quot;&gt;essa palestra aqui&lt;/a&gt; sobre esse tema.&lt;/p&gt;
+&lt;p&gt;e se, mesmo assim, você estiver tendo problemas, reveja o conceito da página, porque provavelmente ela está fazendo coisa demais. problemas conceituais, sejam de levantamento de requisito ou de design de fluxo da aplicação, sempre refletem no código, e é sempre bom estar com a guarda levantada sobre esse aspecto do desenvolvimento.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;enfim, espero que tenha apresentado meus pontos de vista direito. pra fechar, o clássico: use a ferramenta certa pro problema certo. eu mesmo me pego usando angular pra alguns projetos, e eu odeio angular, mas isso é papo pra outros posts. só queria deixar claro uma coisa: usar jQuery nunca é uma ideia ruim. pode até não ser uma ideia maravilhosa, mas ruim não é.&lt;/p&gt;
+&lt;p&gt;então antes de perder quinze horas fazendo aquela feature sem jQuery, pense duas vezes. recomendo usá-la, a não ser que você queira provar pra si mesmo que consegue fazer sem ela (o que é ótimo, até recomendável); mas num projeto de verdade, não tenha medo de usar.&lt;/p&gt;
+&lt;p&gt;abraços, e até mais! o/&lt;/p&gt;
+</content>
+  </entry>
   <entry xml:base="https://lucianoratamero.github.io/blog/python-para-desenvolvedores-javascript/">
     <title type="text">python para desenvolvedores javascript</title>
     <id>urn:uuid:f2eba2af-4055-3531-8475-6432cff25a18</id>
@@ -352,7 +469,7 @@ girafa.falar()
 &lt;/div&gt;&lt;hr/&gt;
 
 &lt;p&gt;é claro que tem MUITO mais sobre python do que só isso, então se tiverem qualquer dúvida ou acharem que algo poderia ser explicado melhor, só falar nos comentários.&lt;/p&gt;
-&lt;p&gt;e lembrem que a melhor forma de aprender uma linguagem é meter a mão na massa e fazer um projetinho! se não souberem por onde começar, eu recomendo fortemente o &lt;a href=&quot;https://tutorial.djangogirls.org/pt/&quot;&gt;tutorial das pyladies do Django Girls&lt;/a&gt;, mas se não quiser aprender com desenvolvimento web, rem sempre o &lt;a href=&quot;https://www.pycursos.com/python-para-zumbis/&quot;&gt;python para zumbis&lt;/a&gt; do querido e fofíssimo Masanori.&lt;/p&gt;
+&lt;p&gt;e lembrem que a melhor forma de aprender uma linguagem é meter a mão na massa e fazer um projetinho! se não souberem por onde começar, eu recomendo fortemente o &lt;a href=&quot;https://tutorial.djangogirls.org/pt/&quot;&gt;tutorial das pyladies do Django Girls&lt;/a&gt;, mas se não quiser aprender com desenvolvimento web, tem sempre o &lt;a href=&quot;https://www.pycursos.com/python-para-zumbis/&quot;&gt;python para zumbis&lt;/a&gt; do querido e fofíssimo Masanori.&lt;/p&gt;
 &lt;p&gt;abraços, e até a próxima!&lt;/p&gt;
 </content>
   </entry>
@@ -466,11 +583,11 @@ mas trabalhar em escritório exige uma coordenação pra ser efetivo, e isso se 
 &lt;p&gt;então estudemos react sim. e elm. e vue. mas antes de começar aquele projetinho novo, volta aqui, lê de novo e vê se o que você tá fazendo vai valer a pena. se sim, manda ver, e como sempre, desejo sucesso pra todo mundo! abraço, e até a próxima o/&lt;/p&gt;
 </content>
   </entry>
-  <entry xml:base="https://lucianoratamero.github.io/blog/a-jquery-nao-e-a-vila-voce-e-uma-discussao-sobre-o-uso-da-jquery-em-grandes-projetos/">
+  <entry xml:base="https://lucianoratamero.github.io/blog/a-jquery-nao-e-a-vila-voce-e-uma-discussao-sobre-o-uso-da-jquery-em-grandes-projetos-old/">
     <title type="text">a jQuery não é a vilã; você é - uma discussão sobre o uso da jQuery em grandes projetos</title>
-    <id>urn:uuid:7cfae1fd-0fe3-3317-8d3c-fcb11b3c4cb2</id>
+    <id>urn:uuid:518b1db7-e761-38bb-af04-39f3632760f9</id>
     <updated>2016-02-26T16:10:00Z</updated>
-    <link href="https://lucianoratamero.github.io/blog/a-jquery-nao-e-a-vila-voce-e-uma-discussao-sobre-o-uso-da-jquery-em-grandes-projetos/" />
+    <link href="https://lucianoratamero.github.io/blog/a-jquery-nao-e-a-vila-voce-e-uma-discussao-sobre-o-uso-da-jquery-em-grandes-projetos-old/" />
     <author>
       <name></name>
     </author>
@@ -1005,5 +1122,52 @@ assim, o ano termina, o ano começa, e eu ainda na inércia. eis que surge um pr
 &lt;p&gt;pretendo falar de tudo um pouco, devolver um pouco pra comunidade o que eu aprendi e ainda aprendo ao longo do tempo. assim que eu der uma descansadinha, já vou mandar ver nesse post sobre o Lektor.&lt;/p&gt;
 &lt;p&gt;vocês também podem encontrar coisas minhas no &lt;a href=&quot;http://garimpo.fm/&quot;&gt;garimpo.fm&lt;/a&gt;, um blog de música que (se tudo der certo) vai voltar em breve, e no &lt;a href=&quot;http://pessoas.cc/&quot;&gt;pessoas&lt;/a&gt;, um blog mais pra coisas artistiquinhas.&lt;/p&gt;
 &lt;p&gt;por enquanto, fico por aqui, então até mais o/&lt;/p&gt;</content>
+  </entry>
+  <entry xml:base="https://lucianoratamero.github.io/blog/halp-virtualenv-and-virtualenvwrapper/">
+    <title type="text">#halp - virtualenv and virtualenvwrapper</title>
+    <id>urn:uuid:e9a1ecd5-d59a-37e1-92f5-c8b275c5e283</id>
+    <updated>2017-12-29T01:26:37.570505Z</updated>
+    <link href="https://lucianoratamero.github.io/blog/halp-virtualenv-and-virtualenvwrapper/" />
+    <author>
+      <name></name>
+    </author>
+    <content type="html">&lt;p&gt;since I am known for (over)customizing my work pc with scripts, aliases and whatnot, there's always someone asking me for tips on how I use virtualenv and virtualenvwrapper. so here we go: get ready for a hack or two that make my life as a python developer waaay easier! ;)&lt;/p&gt;
+&lt;h3&gt;what is virtualenvwrapper?&lt;/h3&gt;
+&lt;p&gt;for those who don't know, &lt;a href=&quot;https://virtualenvwrapper.readthedocs.io/en/latest/&quot;&gt;virtualenvwrapper&lt;/a&gt; is a &lt;strong&gt;bundle of virtualenv extensions&lt;/strong&gt;. it provides a series of useful commands/scripts for dealing with virtualenvs, some of which I use daily.&lt;/p&gt;
+&lt;p&gt;before we start, here's how virtualenvwrapper works: it separates our project directories from the virtualenv specific folders, like &lt;code&gt;bin&lt;/code&gt;, &lt;code&gt;lib&lt;/code&gt;, &lt;code&gt;include&lt;/code&gt; and others, while giving us many goodies. it creates the env folders for each environment inside the &lt;code&gt;WORKON_HOME&lt;/code&gt; dir. it's great for people who don't want to put these folders inside the project directory; it means that, for example, you don't need to put them all into gitignore.&lt;/p&gt;
+&lt;p&gt;I, on the other hand, prefer &lt;strong&gt;not&lt;/strong&gt; to separate the env from the project for two main reasons:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;my memory is so bad that I prefer not to have to remember where the env folders are;&lt;/li&gt;
+&lt;li&gt;and, the best part, it makes it easier for my text editor to reach these library files.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;with that, my text editor is able to suggest module/class/function names from my libs and &quot;Go To Definition&quot; works properly. &quot;Go To Definition&quot; is a feature from modern text editors (such as Sublime and Atom) that opens the source code for any imported module/class/function directly from your code (and that saves me &lt;strong&gt;so much work&lt;/strong&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;go-to-definition.gif&quot;/&gt;&lt;/p&gt;
+&lt;p&gt;so, for explanation's sake, we'll suppose everything is bundled together inside your project folder. cool? cool.&lt;/p&gt;
+&lt;h3&gt;&lt;code&gt;workon&lt;/code&gt;, &lt;code&gt;cdvirtualenv&lt;/code&gt; and some other useful commands&lt;/h3&gt;
+&lt;p&gt;virtualenvwrapper has a bunch of useful commands for our day-to-day life as python developers, so these are some I use all the time:&lt;/p&gt;
+&lt;h4&gt;&lt;code&gt;workon&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;workon&lt;/code&gt; activates a given virtualenv from anywhere. when you run &lt;code&gt;workon PROJECTNAME&lt;/code&gt;, you stay at the current folder, but with every aspect of the env active, like the python version, installed libs, environment variables and everything else. it serves as an entry point for some other hacks I'll tell you about and, yeah, yeah, it accepts &lt;em&gt;tab completion&lt;/em&gt;.&lt;/p&gt;
+&lt;h4&gt;&lt;code&gt;cdvirtualenv&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;extremely useful if your env and project folders are the same. &lt;code&gt;cdvirtualenv&lt;/code&gt; sends you directly to the root dir of your virtualenv (so you don't need to remember anything). for me, the bonus of going to both my project and env folders without having to &lt;code&gt;cd&lt;/code&gt; to it is big enough. the combo of &lt;code&gt;workon&lt;/code&gt; and &lt;code&gt;cdvirtualenv&lt;/code&gt; is awesome!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;workon-cdvirtualenv.gif&quot;/&gt;&lt;/p&gt;
+&lt;h4&gt;&lt;code&gt;cpvirtualenv&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;it copies everything virtualenv related from one env to another. rarely used, but, oh, it comes in handy.&lt;/p&gt;
+&lt;h4&gt;&lt;code&gt;cdsitepackages&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;takes you to the installed libs directory. simple, beautiful.&lt;/p&gt;
+&lt;h3&gt;the magic of &lt;code&gt;postactivate&lt;/code&gt; and &lt;code&gt;postdeactivate&lt;/code&gt; scripts&lt;/h3&gt;
+&lt;p&gt;so, yeah, here's the meat of the post: virtualenvwrapper executes hooks - simple bash scripts - for every step of activating/deactivating a virtualenv. you only need to create a &lt;code&gt;postactivate&lt;/code&gt; and/or a &lt;code&gt;postdeactivate&lt;/code&gt; file inside the &lt;code&gt;bin&lt;/code&gt; folder of your env and they'll be executed when activating/deactivating the env.&lt;/p&gt;
+&lt;p&gt;this gives you two big features:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;you can export/overwrite environment variables on activation;&lt;/li&gt;
+&lt;li&gt;you can execute automating scripts.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;the first feature is self explanatory, but the second one is &lt;strong&gt;so beautiful&lt;/strong&gt;. for example, you may run &lt;code&gt;cdvirtualenv&lt;/code&gt; when activating your env, so you're taken to the project folder immediately. or even better: you may &lt;strong&gt;start project dependencies/fire up docker containers, or whatever you want&lt;/strong&gt;. you can even make a cow tell you your evnironment directory.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;cowsay.gif&quot;/&gt;
+&lt;img src=&quot;run-apistar.gif&quot;/&gt;&lt;/p&gt;
+&lt;p&gt;another interesting point is that virtualenvwrapper creates global hooks on your &lt;code&gt;WORKON_HOME&lt;/code&gt; folder. if you edit them, whenever you activate/deactivate an env, they'll be executed as well. pretty cool.&lt;/p&gt;
+&lt;hr/&gt;
+
+&lt;p&gt;well, these are some of my tips on how I automate some dull processes using virtualenv and virtualenvwrapper. I hope it's been useful, and if you have any similar hacks for python environments, tell us in the comments! see you next time o/&lt;/p&gt;
+</content>
   </entry>
 </feed>
