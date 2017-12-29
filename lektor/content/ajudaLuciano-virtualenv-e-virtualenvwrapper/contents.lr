@@ -52,7 +52,7 @@ te leva pra pasta com todas suas bibliotecas instaladas. simples, lindo.
 
 ### a mágica dos scripts de `postactivate` e `postdeactivate`
 
-agora que vêm os maiores pulos do gato (pulos dos gatos?): o virtualenvwrapper te dá a opção de você escrever scripts bash pra logo depois de você ativar uma virtualenv e pra logo depois de você desativar uma. basta colocar um arquivo chamado `postactivate` e/ou `postdeactivate` na pasta `bin` da sua virtualenv e eles serão executados.
+agora que vêm os maiores pulos do gato (pulos dos gatos?): o virtualenvwrapper te dá a opção de você escrever scripts bash pra antes/depois de você ativar uma virtualenv. basta colocar um arquivo chamado `postactivate` e/ou `postdeactivate` na pasta `bin` da sua virtualenv e eles serão executados.
 
 isso te permite fazer duas coisas extremamente úteis:
 - exportar/sobrescrever variáveis de ambiente;
