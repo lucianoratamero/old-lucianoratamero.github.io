@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>apistar: novo framework REST feito para python3 - lucianoratamero.github.io</title>
+  <meta name="author" content="Luciano Ratamero" />
+  <meta name="description" content="apistar: novo framework REST feito para python3" />
+  <meta name="keywords"  content="apistar, rest, drf, django, python, python3, lucianoratamero, Luciano Ratamero" />
+  <meta name="Resource-type" content="Document" />
+
+  <link rel="stylesheet" type="text/css" href="/static/css/talks.min.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/main.min.css" />
+  <script type="text/javascript" src="/static/js/talks.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="/static/js/highlight/styles/zenburn.css" />
+  <script type="text/javascript" src="/static/js/highlight/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+      });
+      $('#fullpage').fullpage({
+        slidesNavigation: false,
+        loopHorizontal: false,
+        controlArrows: false,
+        scrollingSpeed: 400,
+      });
+    });
+  </script>
+
+</head>
+<body>
+
+  <div id="fullpage">
+
+    <div class="section">
+      <div class="container">
+        <div class="intro">
+          <h1>API Star: novo framework REST do criador do DRF</h1>
+          <p>Python Sudeste - Abril - 2018</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="container">
+        <div class="intro">
+          <h1>quem?</h1>
+          <p>Luciano Ratamero</p>
+          <p>Python/JavaScript</p>
+          <p><a target="_blank" href="https://lucianoratamero.github.io/">lucianoratamero.github.io</a></p>
+          <p><a target="_blank" href="https://www.twitter.com/lucianoratamero">@lucianoratamero</a></p>
+          <p><div class="row"><div class="col-xs-12 col-md-4 col-md-offset-4"><img src="assets/simple-fractal.png"></div></div></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="container">
+        <div class="intro">
+          <h1>avisos</h1>
+          <ul>
+            <li>projeto novo - documentação fraca</li>
+            <li>linguagem de baixo calão</li>
+            <li>código API Star de exemplo:<br/><a href="https://git.io/vx0ep" target="_blank">https://git.io/vx0ep</a></li>
+            <li>código django_apistar de exemplo:<br/><a href="https://git.io/vx0eA" target="_blank">https://git.io/vx0eA</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+
+      <div class="slide">
+        <div class="container">
+        <h1>o que é o apistar</h1>
+        <ul>
+          <li>framework para APIs REST</li>
+          <li>python 3</li>
+          <li>performance</li>
+          <li>documentação</li>
+          <li>validação</li>
+        </ul>
+        <p>(aqui você já pode scrollar pro lado direito ;D)</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>sobre o que iremos falar</h1>
+        <ul>
+          <li>views</li>
+          <li>schemas</li>
+          <li>documentação</li>
+          <li>integração com o django</li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>começando!</h1>
+        <ul>
+          <li><pre><code>pip install apistar
+apistar new .
+apistar run</code></pre></li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>welcome</h1>
+        <ul>
+          <li><pre><code>http://localhost:8080/
+{"message": "Welcome to API Star!"}</code></pre></li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>welcome com nome</h1>
+        <ul>
+          <li><pre><code>http://localhost:8080/?name=lulu
+{"message": "Welcome to API Star, lulu!"}</code></pre></li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>views</h1>
+        <ul>
+          <li><pre><code>def welcome(name=None):
+    if name is None:
+        return {'message': 'Welcome to API Star!'}
+    return {'message': 'Welcome to API Star, %s!' % name}</code></pre></li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>routes</h1>
+        <ul>
+          <li><pre><code>from apistar import Include, Route
+from apistar.handlers import docs_urls, static_urls
+
+routes = [
+    Route('/', 'GET', welcome),
+    Include('/docs', docs_urls),
+    Include('/static', static_urls)
+]
+</code></pre></li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>docs</h1>
+        <ul>
+          <li><pre><code>http://localhost:8080/docs/</code></pre></li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>typesystem e schemas</h1>
+        <ul>
+          <li><pre><code>from apistar import typesystem
+
+class Nota(typesystem.Integer):
+    description = 'Nota pro produto'
+    minimum = 1
+    maximum = 5
+
+class TamanhoDeProduto(typesystem.Enum):
+    description = 'Acho que esse se explica'
+    enum = ['pequeno', 'normal', 'grande']</code></pre></li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>objetos complexos</h1>
+        <ul>
+          <li><pre><code>from apistar import typesystem
+
+class Produto(typesystem.Object):
+    properties = {
+        'nome': typesystem.string(description='Nome, cara. Nome.', min_length=1, max_length=100),
+        'nota': Nota,
+        'tamanho': TamanhoDeProduto,
+    }
+    required = ['nome', 'nota', 'tamanho']</code></pre></li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>de volta às docs</h1>
+        <ul>
+          <li><pre><code>http://localhost:8080/docs/</code></pre></li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>sessão do banco de dados</h1>
+        <ul>
+          <li><pre><code>from apistar import http
+from apistar.backends.django_orm import Session
+from src import schemas
+
+def criar_produto(produto: schemas.Produto, session: Session):
+    if not produto:
+        return http.Response(status=400)
+    db_produto = session.Produto(**produto)
+    db_produto.save()
+    return http.Response(
+        content=schemas.Produto(db_produto.__dict__),
+        status=201
+    )</code></pre></li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>banco de dados</h1>
+        <ul>
+          <li>sqlalchemy</li>
+          <li>django ORM</li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>settings</h1>
+        <ul>
+          <li><pre><code>settings = {
+    'DATABASES': {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': 'db.sqlite3',
+        }
+    },
+    'INSTALLED_APPS': ['src', ]
+}</code></pre></li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>models == djangão</h1>
+        <ul>
+          <li><pre><code>from django.db import models
+
+class Produto(models.Model):
+    nota = models.PositiveSmallIntegerField()
+    nome = models.CharField(max_length=100)
+    tamanho = models.CharField(max_length=100)</code></pre></li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>criando tabelas == djangão</h1>
+        <ul>
+          <li><pre><code>apistar makemigrations
+apistar migrate</code></pre></li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>validações customizadas</h1>
+        <ul>
+          <li><pre><code>class CPFField(typesystem.String):
+    min_length = 14
+    max_length = 14
+    pattern = "\d{3}\.\d{3}\.\d{3}-\d{2}"
+
+    def __new__(cls, *args, **kwargs):
+        cls.errors.update({'cpf_invalid': 'O CPF fornecido é inválido'})
+        value = super().__new__(cls, *args, **kwargs)
+        if not cpfcnpj.validate(value):
+            raise TypeSystemError(cls=cls, code='cpf_invalid')
+        return value</code></pre></li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>última visita às docs</h1>
+        <ul>
+          <li><pre><code>http://localhost:8080/docs/</code></pre></li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>mas você falou de integração com o django...</h1>
+        <ul>
+          <li>sim #horadojabá</li>
+          <li><img src="assets/tom_christie.png" /></li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1 style="color:#077172 !important;"><a style="color:#077172 !important;" href="https://github.com/lucianoratamero/django_apistar" target="_blank">django_apistar</a></h1>
+        <ul>
+          <li>app Django</li>
+          <li>implicitamente faz o roteamento entre o API Star e o Django</li>
+          <li>funciona inteiramente dentro de uma aplicação Django</li>
+          <li>foco no código em vez de foco na configuração</li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>instalando</h1>
+        <ul>
+          <li><pre><code>pip install django_apistar</pre></code></li>
+          <li>django>=1.8</li>
+          <li>apistar>=0.3.5</li>
+          <li>python>=3.6</li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>configurando</h1>
+        <ul>
+          <li>settings.py</li>
+          <li><pre><code>INSTALLED_APPS = (
+    ...
+    'django_apistar',
+    'your_api_star_app',
+    ...
+)
+
+APISTAR_SETTINGS = {
+    'ALLOWED_DJANGO_ROUTES': ('/admin/', '/static/'),
+}
+
+APISTAR_ROUTE_CONF = 'your_api_star_app.routes'</pre></code></li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>performance</h1>
+        <ul>
+          <p>
+            <div class="row">
+              <div class="col-xs-12 col-md-4">
+                <p>django_apistar</p>
+              </div>
+              <div class="col-xs-12 col-md-4">
+                <p>django 2</p>
+              </div>
+              <div class="col-xs-12 col-md-4">
+                <p>django 2 - sem middlewares</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-md-4">
+                <img src="assets/0.3.0.png">
+              </div>
+              <div class="col-xs-12 col-md-4">
+                <img src="assets/django2-jsonresponse.png">
+              </div>
+              <div class="col-xs-12 col-md-4">
+                <img src="assets/django2-jsonresponse-no-middlewares.png">
+              </div>
+            </div>
+          </p>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <ul>
+          <p>
+            <div class="row">
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-md-6">
+                <img src="assets/base-tree.png">
+              </div>
+              <div class="col-xs-12 col-md-6">
+                <img src="assets/app-tree.png">
+              </div>
+            </div>
+          </p>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <ul>
+          <p>
+            <div class="row">
+              <div class="col-xs-12">
+                <img src="assets/wow.gif">
+              </div>
+            </div>
+          </p>
+        </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section">
+      <div class="container">
+      <div class="intro">
+        <h1>dúvidas?</h1>
+        <p>luciano@ratamero.com</p>
+        <p>cerveja/café</p>
+      </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="container">
+        <div class="intro">
+          <h1>é isso aí</h1>
+          <p><a target="_blank" href="../../../img/eu_fb.jpg"><img src="../../../img/eu_fb.jpg" style="max-width: 80%"></a></p>
+          <h3><a target="_blank" href="https://lucianoratamero.github.io/">lucianoratamero.github.io</a></h3>
+          <p>
+            <div class="row">
+              <div class="col-xs-12 col-sm-6">
+                <a target="_blank" href="https://www.facebook.com/lucianoratamero">fb.com/lucianoratamero</a>
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <a target="_blank" href="https://www.twitter.com/lucianoratamero">@lucianoratamero</a>
+              </div>
+            </div>
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+</body>
+</html>
