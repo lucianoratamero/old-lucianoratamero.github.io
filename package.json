@@ -1,14 +1,14 @@
 {
   "name": "lucianoratamero.github.io",
-  "version": "1.0.0",
-  "description": "- adicionar paginação aos posts - estilizar images e código (verificar se markdown não resolve código) - popular banco de dados - adicionar links aos ícones de social media",
-  "main": "src/index.html",
+  "version": "2.0.0",
+  "description": "personal site ;]",
+  "main": "index.html",
   "directories": {
     "test": "tests"
   },
   "scripts": {
     "start": "node_modules/.bin/parcel src/index.html --open",
-    "build": "rm -rf build && node_modules/.bin/parcel build -d build --no-source-maps src/index.html && cp -R static/* build/",
+    "build": "rm -rf build && node_modules/.bin/parcel build -d build --no-source-maps src/index.html && cp -R static/* build/ && cp README.md build/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
