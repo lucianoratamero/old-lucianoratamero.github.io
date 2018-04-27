@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "node_modules/.bin/parcel src/index.html --open",
-    "build": "rm -rf build && node_modules/.bin/parcel build -d build --no-source-maps src/index.html && cp -R static/* build/ && cp README.md build/",
+    "build": "rm -rf build && node_modules/.bin/parcel build -d build --no-source-maps src/index.html && cp -R static/* build/ && cp README.md build/ && cp 404.html build/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
