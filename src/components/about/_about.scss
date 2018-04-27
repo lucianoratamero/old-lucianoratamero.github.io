@@ -1,0 +1,11 @@
+
+#about {
+  img {
+    border: 0.1em solid;
+    border-radius: 10px;
+    height: 300px;
+    background-color: $body-font-color;
+    margin: 1em auto;
+  }
+  p:first-child { margin-top: 1.6em; }
+}

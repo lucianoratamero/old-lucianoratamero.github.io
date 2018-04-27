@@ -1,0 +1,14 @@
+
+#social {
+  font-size: 2em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+
+  li {
+    margin-right: 0.4em;
+    @include breakpoint(small only){
+      margin: 0;
+    }
+    &:last-child { margin: 0; }
+  }
+}
