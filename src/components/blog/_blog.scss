@@ -1,5 +1,7 @@
 
-#posts, .post, .post-summary {
+
+
+.post, .post-summary {
   padding: 1.4em 0;
 }
 
@@ -11,6 +13,7 @@
 }
 
 #posts {
+  padding: 0.4em 0 2em;
 
   .post-summary {
     border-bottom: 1px dashed $darker-gray;

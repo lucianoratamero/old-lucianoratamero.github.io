@@ -86,7 +86,7 @@ class Posts extends React.Component {
             {!isLoading && posts
               ? (
                 <div>
-                  {posts.map((post, i) => <PostSummary key={i} post={post} />)}
+                  <AnimatedPostsMapper posts={posts} />
                   <ReactPaginate
                     containerClassName="paginator"
                     previousLabel="<"
@@ -100,7 +100,7 @@ class Posts extends React.Component {
                   />
                 </div>
               )
-              : <div style={{ textAlign: 'center' }}><Spinner name="line-scale" /></div>
+              : <div style={{ textAlign: 'center' }}><Spinner name="line-scale" fadeIn="none" /></div>
             }
           </Column>
         </Row>
@@ -108,5 +108,12 @@ class Posts extends React.Component {
     );
   }
 }
+
+class PostsMapper extends React.Component {
+  render(){
+    return <div>{this.props.posts.map((post, i) => <PostSummary key={i} post={post} />)}</div>
+  }
+}
+const AnimatedPostsMapper = AnimatedWrapper(PostsMapper);
 
 export default AnimatedWrapper(Posts);
