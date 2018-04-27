@@ -41,6 +41,7 @@ class Posts extends React.Component {
 
   static getDerivedStateFromProps(nextProps, prevState){
     const currentPage = parseInt(queryString.parse(nextProps.location.search).page);
+    console.log(currentPage);
     if (!prevState.isLoading && prevState.currentPage !== currentPage && !isNaN(currentPage)) {
       return { ...prevState, currentPage };
     }
