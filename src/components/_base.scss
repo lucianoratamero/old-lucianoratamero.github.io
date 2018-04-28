@@ -4,6 +4,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+a { word-break: break-word; }
+
 #layout {
 
   #content { width: 100%; }
