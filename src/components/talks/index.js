@@ -17,6 +17,13 @@ class Talks extends React.Component {
         </MetaTags>
         <Column small={12} medium={6} offsetOnMedium={3}>
           <h2><strong>2018</strong></h2>
+
+          <p>
+            <a rel="noreferrer noopener" target="_blank" href="/talks/2018/Django - da requisição à resposta/">
+              PythOnRio - Django - da requisição à resposta
+            </a>
+          </p>
+
           <p>
             <a rel="noreferrer noopener" target="_blank" href="/talks/2018/API Star: novo framework REST do criador do DRF/">
               Python Sudeste - API Star: novo framework REST do criador do DRF
