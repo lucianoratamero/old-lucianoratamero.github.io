@@ -18,7 +18,7 @@ class Post extends React.Component {
 
   componentWillMount() {
     const { slug } = this.props.match.params;
-    window.fetch(`${window.location.protocol}//ratamero-blog-api.herokuapp.com/post/${slug}/`)
+    window.fetch(`${window.location.protocol}//beta.ratamero.com/post/${slug}/`)
       .then((data) => {
         data.json().then((jsonData) => {
           this.setState({ post: jsonData });
