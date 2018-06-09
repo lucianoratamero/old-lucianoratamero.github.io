@@ -2,8 +2,9 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import HttpsRedirect from 'react-https-redirect';
 import TransitionGroup from 'react-transition-group/TransitionGroup';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Layout, { NoMatch } from './components/base';
 import Home from './components/home';
@@ -22,18 +23,20 @@ const firstChild = (props) => {
 
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Layout>
-      <Switch>
-        <Route path="/social/" component={Social} />
-        <Route path="/about/" component={About} />
-        <Route path="/blog/:slug/" component={Post} />
-        <Route exact path="/talks/" component={Talks} />
-        <Route exact path="/blog/" component={Posts} />
-        <Route exact path="/" component={Home} />
-        <Route component={NoMatch} />
-      </Switch>
-    </Layout>
-  </BrowserRouter>,
+  <HttpsRedirect>
+    <BrowserRouter>
+      <Layout>
+        <Switch>
+          <Route path="/social/" component={Social} />
+          <Route path="/about/" component={About} />
+          <Route path="/blog/:slug/" component={Post} />
+          <Route exact path="/talks/" component={Talks} />
+          <Route exact path="/blog/" component={Posts} />
+          <Route exact path="/" component={Home} />
+          <Route component={NoMatch} />
+        </Switch>
+      </Layout>
+    </BrowserRouter>
+  </HttpsRedirect>,
   document.getElementById('root'),
 );
