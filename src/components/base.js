@@ -1,5 +1,6 @@
 
 import React from 'react';
+import MetaTags from 'react-meta-tags';
 import { Row, Column } from 'react-foundation/lib';
 
 import { Link } from 'react-router-dom';
@@ -11,6 +12,11 @@ export default class Layout extends React.Component {
   render() {
     return (
       <div id="layout" style={{ minHeight: window.innerHeight }} className="flex-centralizer container">
+        <MetaTags>
+          <title>olá, Marilene — luciano@ratamero.com</title>
+          <meta name="description" content="luciano@ratamero.com" />
+          <meta name="author" content="Luciano Ratamero" />
+        </MetaTags>
         <div id="content">
           <div id="header">
             <Row>
