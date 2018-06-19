@@ -52,7 +52,7 @@ class Posts extends React.Component {
   fetchPosts(page){
     window.scrollTo(0, 0);
     this.setState({'isLoading': true}, () => {
-      window.fetch(`${window.location.protocol}//beta.ratamero.com/posts/?page=${page || 1}`)
+      window.fetch(`${window.location.protocol}//ratamero-blog-api.herokuapp.com/posts/?page=${page || 1}`)
         .then((data) => {
           data.json().then((jsonData) => {
             this.setState({
