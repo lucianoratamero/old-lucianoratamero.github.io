@@ -20,7 +20,7 @@ class About extends React.Component {
           <Column small={12} medium={4} style={{ textAlign: 'center' }}>
             <img src={Portrait} alt="Luciano Ratamero" />
             <h2>Luciano Ratamero</h2>
-            <p>28, python/javascript developer since 2011</p>
+            <p>29, python/javascript developer since 2011</p>
           </Column>
           <Column small={12} medium={8}>
             <p>
