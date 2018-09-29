@@ -10,6 +10,7 @@ build/
 dist/
 .cache/
 package-lock.json
+.vscode/
 
 # Runtime data
 pids
