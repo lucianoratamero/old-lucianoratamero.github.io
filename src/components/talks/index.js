@@ -19,6 +19,12 @@ class Talks extends React.Component {
           <h2><strong>2018</strong></h2>
 
           <p>
+            <a rel="noreferrer noopener" target="_blank" href="/talks/2018/pybr - Django - da requisição à resposta/">
+              Python Brasil - Django - da requisição à resposta
+            </a>
+          </p>
+
+          <p>
             <a rel="noreferrer noopener" target="_blank" href="/talks/2018/python para desenvolvedores javascript/">
               PythOnRio - python para desenvolvedores javascript
             </a>
