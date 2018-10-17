@@ -4,18 +4,18 @@ import { CodeSurfer } from "mdx-deck-code-surfer"
 import vsDark from "prism-react-renderer/themes/vsDark"
 
 <Head>
-  <title>Django: da requisição à resposta</title>
+  <title>django: da requisição à resposta</title>
   <link href="assets/fonts.css" rel="stylesheet" />
 </Head>
 
-# Django: da requisição à resposta
+# django: da requisição à resposta
 ### Python Brasil 2018
 ---
 ### quem sou eu?
 
 Luciano Ratamero
 
-Desenvolvedor e consultor Python/JS
+desenvolvedor e consultor Python/JS
 
 <a href="https://ferpection.com/" className="company-logo">![Ferpection](assets/ferpection.png)</a>
 
@@ -25,20 +25,72 @@ Desenvolvedor e consultor Python/JS
 
 ### sobre o que vamos falar
 
-- [django_apistar](#3)
-- [middlewares](#4)
-- [wsgi](#8)
-- [context processors](#12)
+- [wsgi](#5)
+- [middlewares](#9)
+- [context processors](#13)
 
 ---
 
-### django_apistar
+### como seu servidor processa uma requisição
 
-[django_apistar](https://github.com/lucianoratamero/django_apistar) é um projeto que visa juntar a autodocumentação e velocidade do [API Star](https://github.com/encode/apistar) com as ferramentas de teste, shell e admin do Django
+- servidor a nível de sistema (nginx/apache)
+- servidor a nível de aplicação/WSGI (gunicorn/uvicorn)
+- **django (estamos aqui!)**
 
 ---
 
-### primeira abordagem: middlewares
+### como o django processa uma requisição
+
+- request > WSGI handler > middlewares
+- views
+- middlewares > context_processors > response
+
+---
+
+### wsgi app/handler
+
+*Web Server Gateway Interface*
+
+wsgi é o padrão para objetos de comunicação web em aplicações python (PEP 333)
+
+serve para que todos os frameworks usem um mesmo padrão para receber e responder requisições http
+
+---
+
+<CodeSurfer
+  title='exemplo.wsgi'
+  code={require("!raw-loader!./snippets/wsgi.py")}
+  theme={vsDark}
+  lang="python"
+  showNumbers={false}
+  steps={[
+    { lines: [7, 9], notes: "vê se a rota (url) está registrada como rota do django" },
+    { lines: [10], notes: "se sim, responde chamando a app wsgi do django" },
+    { lines: [12], notes: "se não, responde chamando outra app wsgi" },
+  ]}
+/>
+
+---
+
+### vantagens das apps wsgi
+
+- permitem avaliações e respostas precoces
+- evitam processamentos desnecessários
+- te dão todos os recursos mais brutos da requisição
+
+---
+
+### modificando seu handler wsgi
+
+#### sua_app_django/settings.py
+
+```python
+WSGI_APPLICATION = '<sua_app_django>.wsgi'
+```
+
+---
+
+### middlewares
 
 middlewares são janelas para que você interfira no fluxo de requisição e resposta
 
@@ -74,49 +126,6 @@ são executados em camadas toda vez que uma requisição for feita
 - são chamados **sempre**
 - são chamados entre partes do próprio django
 - pouco performáticos para certos casos
-
----
-
-### segunda abordagem: wsgi app
-
-*Web Server Gateway Interface*
-
-wsgi é o padrão para objetos de comunicação web em aplicações python (PEP 333)
-
-serve para que todos os frameworks usem um mesmo padrão para receber e responder requisições http
-
----
-
-<CodeSurfer
-  title='django_apistar.wsgi'
-  code={require("!raw-loader!./snippets/wsgi.py")}
-  theme={vsDark}
-  lang="python"
-  showNumbers={false}
-  steps={[
-    { lines: [7, 11, 17], notes: "vê se a rota (url) está registrada como rota do django" },
-    { lines: [12], notes: "se sim, responde chamando a app wsgi do django" },
-    { lines: [14], notes: "se não, responde chamando a app wsgi do apistar" },
-  ]}
-/>
-
----
-
-### vantagens das apps wsgi
-
-- permitem avaliações e respostas precoces
-- evitam processamentos desnecessários
-- te dão todos os recursos mais brutos da requisição
-
----
-
-### modificando seu handler wsgi
-
-#### sua_app_django/settings.py
-
-```python
-WSGI_APPLICATION = '<sua_app_django>.wsgi'
-```
 
 ---
 
