@@ -31,11 +31,11 @@ desenvolvedor python/javascript
 
 ### sobre o que vamos falar
 
-- [como seu servidor processa uma requisição](#5)
-- [como o django processa uma requisição](#6)
-- [wsgi](#5)
-- [middlewares](#9)
-- [context processors](#13)
+- [como seu servidor processa uma requisição](#4)
+- [como o django processa uma requisição](#5)
+- [wsgi](#7)
+- [middlewares](#11)
+- [context processors](#15)
 
 ---
 
@@ -145,12 +145,11 @@ são executados em camadas toda vez que uma requisição for feita
 
 ---
 
-### outro ponto interessante: context processors
+### context processors
 
 - no fim de uma requisição, antes da renderização dos templates
-- permitem adicionar variáveis ao contexto
+- permitem adicionar variáveis ao contexto, de acesso direto no html
 - são funções simples e puras
-- acesso direto, dentro do html
 - trabalham bem em conjunto com middlewares
 
 ---
@@ -179,8 +178,8 @@ são executados em camadas toda vez que uma requisição for feita
 
 ### recapitulando
 
-- use middlewares pra processamento ou manipulação obrigatória
 - use uma app wsgi para avaliação e respostas precoces
+- use middlewares pra processamento ou manipulação obrigatória
 - use context processors para evitar repetições em suas views e testes
 
 ---
