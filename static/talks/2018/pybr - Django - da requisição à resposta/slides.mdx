@@ -1,7 +1,7 @@
 export theme from './theme';
 import { Head } from 'mdx-deck';
-import { CodeSurfer } from "mdx-deck-code-surfer"
-import vsDark from "prism-react-renderer/themes/vsDark"
+import { CodeSurfer } from "mdx-deck-code-surfer";
+import codeSurferTheme from "prism-react-renderer/themes/nightOwl";
 
 <Head>
   <title>django: da requisição à resposta</title>
@@ -15,16 +15,24 @@ import vsDark from "prism-react-renderer/themes/vsDark"
 
 Luciano Ratamero
 
-desenvolvedor e consultor Python/JS
+desenvolvedor python/javascript
 
 <a href="https://ferpection.com/" className="company-logo">![Ferpection](assets/ferpection.png)</a>
 
-<a href="https://simplefractal.com/" className="company-logo">![Simple Fractal](assets/simple-fractal.png)</a>
+---
+
+### por que dar essa palestra?
+
+- sempre achei o fluxo do django confuso
+- não é fácil encontrar informação sobre o fluxo inteiro
+- saber que algo existe ajuda a resolver problemas
 
 ---
 
 ### sobre o que vamos falar
 
+- [como seu servidor processa uma requisição](#5)
+- [como o django processa uma requisição](#6)
 - [wsgi](#5)
 - [middlewares](#9)
 - [context processors](#13)
@@ -33,7 +41,7 @@ desenvolvedor e consultor Python/JS
 
 ### como seu servidor processa uma requisição
 
-- servidor a nível de sistema (nginx/apache)
+- roteador/servidor a nível de sistema (nginx/apache)
 - servidor a nível de aplicação/WSGI (gunicorn/uvicorn)
 - **django (estamos aqui!)**
 
@@ -41,9 +49,17 @@ desenvolvedor e consultor Python/JS
 
 ### como o django processa uma requisição
 
-- request > WSGI handler > middlewares
-- views
-- middlewares > context_processors > response
+**na vinda:**
+
+- request > WSGI handler > middlewares > views
+
+---
+
+### como o django processa uma requisição
+
+**na volta:**
+
+- views > middlewares > context processors > response
 
 ---
 
@@ -60,7 +76,7 @@ serve para que todos os frameworks usem um mesmo padrão para receber e responde
 <CodeSurfer
   title='exemplo.wsgi'
   code={require("!raw-loader!./snippets/wsgi.py")}
-  theme={vsDark}
+  theme={codeSurferTheme}
   lang="python"
   showNumbers={false}
   steps={[
@@ -101,7 +117,7 @@ são executados em camadas toda vez que uma requisição for feita
 <CodeSurfer
   title='django.contrib.auth.middleware'
   code={require("!raw-loader!./snippets/middleware.py")}
-  theme={vsDark}
+  theme={codeSurferTheme}
   lang="python"
   showNumbers={false}
   steps={[
@@ -142,7 +158,7 @@ são executados em camadas toda vez que uma requisição for feita
 <CodeSurfer
   title='django.contrib.auth.context_processors'
   code={require("!raw-loader!./snippets/context_processor.py")}
-  theme={vsDark}
+  theme={codeSurferTheme}
   lang="python"
   showNumbers={false}
   steps={[
