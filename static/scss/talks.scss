@@ -1,0 +1,90 @@
+#fullpage {
+  font-size: 4em;
+
+  pre code {
+    font-size: 2em;
+  }
+
+  .caixa {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    border: 0.4em solid;
+    padding: 2em;
+  }
+
+  code.small {
+    font-size: 1.4em;
+  }
+
+  .desacoplada {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 90%;
+
+    p { margin: 0; }
+  }
+
+  .híbrida {
+    font-size: 70%;
+    .caixa .caixa {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.2em;
+      border-width: 0.2em;
+
+      > div {
+         padding: 0 1.4em;
+         &:first-child {
+           border-right: 0.1em solid;
+         }
+      }
+    }
+  }
+
+  .linhas {
+    background-color: rgba(68, 153, 204, 0.2);
+    border: 0 solid;
+    border-color: rgb(68, 153, 204);
+    border-top-width: .4em;
+    border-bottom-width: .4em;
+  }
+
+  .mt1 { margin-top: 1em; }
+  .mb1 { margin-bottom: 1em; }
+
+}
+
+.fullwidth { width: 100%; }
+
+@media only screen and (max-width : 52em) {
+  #fullpage {
+    font-size: 2em;
+    a { text-decoration: underline; }
+    img { max-width: 350px }
+    h1 { font-size: 1.8em }
+    h3 { font-size: 1.2em }
+    pre code { font-size: 1em }
+
+    code.small {
+      font-size: 0.8em;
+    }
+    .desacoplada {
+      display: block;
+    }
+
+    .caixa {
+      margin: 0;
+    }
+    .linhas {
+      padding: 1em 0;
+      border-top: 0;
+      border-bottom: 0;
+      border-left-width: 0.4em;
+      border-right-width: 0.4em;
+
+      h3 { margin: 0; }
+    }
+  }
+}

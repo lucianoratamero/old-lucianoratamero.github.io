@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>fazendo seu site/blog no GitHub Pages com Python e Lektor - lucianoratamero.github.io</title>
+  <meta name="author" content="Luciano Ratamero" />
+  <meta name="description" content="fazendo seu site/blog no Github Pages com Python e Lektor" />
+  <meta name="keywords"  content="Python, Lektor, site estático, static site, GitHub Pages, lucianoratamero, Luciano Ratamero" />
+  <meta name="Resource-type" content="Document" />
+
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="/static/css/talks.min.css" />
+  <script type="text/javascript" src="/static/js/talks.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="/static/lib/highlight.js/styles/zenburn.css" />
+  <script type="text/javascript" src="/static/lib/highlight.js/lib/highlight.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#fullpage').fullpage({
+        slidesNavigation: true,
+        controlArrows: false,
+        scrollingSpeed: 400,
+      });
+    });
+  </script>
+
+</head>
+<body>
+
+  <div id="fullpage">
+
+    <div class="section">
+      <div class="container">
+        <div class="intro">
+          <h1>fazendo seu site/blog no GitHub Pages com Python e Lektor</h1>
+          <p>PythOnRio - 2016</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="container">
+        <div class="intro">
+          <h1>quem?</h1>
+          <p>Luciano Ratamero</p>
+          <p>Desenvolvedor Python/Django e Front end</p>
+          <p><a target="_blank" href="https://lucianoratamero.github.io/">lucianoratamero.github.io</a></p>
+          <p><a target="_blank" href="https://www.facebook.com/lucianoratamero">fb.com/lucianoratamero</a></p>
+          <p><a target="_blank" href="https://www.twitter.com/lucianoratamero">@lucianoratamero</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+
+      <div class="slide">
+        <div class="container">
+        <h1>GitHub Pages?</h1>
+        <p>
+          <a target="_blank" href="https://pages.github.com/"><img src="assets/github-pages.jpg"></a>
+        </p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>Lektor?</h1>
+        <p>
+          <a target="_blank" href="https://www.getlektor.com/"><img src="assets/lektor.jpg"></a>
+        </p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>features</h1>
+        <ul>
+          <li>file based</li>
+          <li>admin interface</li>
+          <li>100% customizável + python API</li>
+          <li>fácil de deployar</li>
+          <li>servidor local</li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>getting started</h1>
+        <pre><code>pip install lektor
+lektor quickstart
+cd [nome-do-seu-projeto]
+lektor server</code></pre>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>página padrão</h1>
+        <a target="_blank" href="assets/start-page.jpg"><img src="assets/start-page.jpg"></a>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>árvore do projeto</h1>
+        <a target="_blank" href="assets/lektor-tree.jpg"><img src="assets/lektor-tree.jpg"></a>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>content</h1>
+        <a target="_blank" href="assets/content.jpg"><img src="assets/content.jpg"></a>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>models</h1>
+        <a target="_blank" href="assets/models.jpg"><img src="assets/models.jpg"></a>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>templates</h1>
+        <a target="_blank" href="assets/templates.jpg"><img src="assets/templates.jpg"></a>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>building</h1>
+        <pre><code>lektor build</code></pre>
+        <p>por padrão, usa pasta de caches do próprio lektor</p>
+        <p>para mudar, basta rodar com <code>--output-path [pasta]</code></p>
+        <div class="alert alert-danger">
+          <h3>cuidado!</h3>
+          <p>o lektor <strong>sobrescreve</strong> a pasta destino</p>
+        </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>deployando no GitHub Pages</h1>
+        <p>quatro passos:</p>
+        <ul>
+          <li>criar um repositório</li>
+          <li>push do código ao github</li>
+          <li>configurar o lektor</li>
+          <li>build && deploy</li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>criando um repositório</h1>
+        <p><a target="_blank" href="https://help.github.com/articles/create-a-repo/">https://help.github.com/articles/create-a-repo/</a></p>
+        <div class="alert alert-info">
+          <h3>sugestão</h3>
+          <p>caso esteja fazendo o seu site/blog, crie o repositório com o nome [nomedeusuario].github.io</p>
+          <p>assim, o github e o lektor reconhecem sua intenção e irão utilizar o branch <code>master</code> para deployar o site estático</p>
+        </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>push do código ao github</h1>
+        <pre><code>git init
+git remote add origin git@github.com:[nomedeusuario]/[nomedeusuario].github.io.git
+git add .
+git commit -m 'initial commit'
+git push -u origin code</code></pre>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>configurar o lektor</h1>
+        <a target="_blank" href="assets/deploy-config.jpg"><img src="assets/deploy-config.jpg"></a>
+        <p>então</p>
+        <pre><code>git add .
+git commit -m 'adds deploy configuration'
+git push origin code</code></pre>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>build && deploy</h1>
+        <pre><code>lektor build && lektor deploy</code></pre>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>resultado</h1>
+        <a target="_blank" href="assets/lektortest-live.jpg"><img src="assets/lektortest-live.jpg"></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section">
+      <div class="container">
+      <div class="intro">
+        <h1>dúvidas?</h1>
+        <p>exemplo de blog (com estrutura de front também, mas isso é outra palestra):</p>
+        <a target="_blank" href="https://github.com/lucianoratamero/blog/tree/vanilla-lektor-blog">https://github.com/lucianoratamero/blog/tree/vanilla-lektor-blog</a>
+      </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="container">
+      <div class="intro">
+        <h1>quer contribuir com um projeto de software livre?</h1>
+        <a target="_blank" href="https://github.com/lektor/lektor/issues/7">https://github.com/lektor/lektor/issues/7</a>
+      </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="container">
+        <div class="intro">
+          <h1>é isso aí</h1>
+          <p><a target="_blank" href="../../../img/eu.jpg"><img src="../../../img/eu.jpg" style="max-width: 80%"></a></p>
+          <h3><a target="_blank" href="https://lucianoratamero.github.io/">lucianoratamero.github.io</a></h3>
+          <p>
+            <div class="row">
+              <div class="col-xs-12 col-sm-6">
+                <a target="_blank" href="https://www.facebook.com/lucianoratamero">fb.com/lucianoratamero</a>
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <a target="_blank" href="https://www.twitter.com/lucianoratamero">@lucianoratamero</a>
+              </div>
+            </div>
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+</body>
+</html>

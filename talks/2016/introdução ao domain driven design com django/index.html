@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>introdução ao Domain Driven Design com Django - lucianoratamero.github.io</title>
+  <meta name="author" content="Luciano Ratamero" />
+  <meta name="description" content="introdução ao Domain Driven Design com Django" />
+  <meta name="keywords"  content="Python, DDD, Domain Driven Design, Django, lucianoratamero, Luciano Ratamero" />
+  <meta name="Resource-type" content="Document" />
+
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="/static/css/talks.min.css" />
+  <script type="text/javascript" src="/static/js/talks.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="/static/lib/highlight.js/styles/zenburn.css" />
+  <script type="text/javascript" src="/static/lib/highlight.js/lib/highlight.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#fullpage').fullpage({
+        slidesNavigation: true,
+        controlArrows: false,
+        scrollingSpeed: 400,
+      });
+    });
+  </script>
+
+</head>
+<body>
+
+  <div id="fullpage">
+
+    <div class="section">
+      <div class="container">
+        <div class="intro">
+          <h1>introdução ao Domain Driven Design com Django</h1>
+          <p>PythOnRio - 2016</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="container">
+        <div class="intro">
+          <h1>quem?</h1>
+          <p>Luciano Ratamero</p>
+          <p>Desenvolvedor Full-Stack Python/JavaScript</p>
+          <p><a target="_blank" href="https://ratamero.com/">ratamero.com</a></p>
+          <p><a target="_blank" href="https://www.facebook.com/lucianoratamero">fb.com/lucianoratamero</a></p>
+          <p><a target="_blank" href="https://www.twitter.com/lucianoratamero">@lucianoratamero</a></p>
+          <p><img src="assets/main-logo-onyo.png" width="200"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+
+      <div class="slide">
+        <div class="container">
+        <div class="alert alert-danger">
+          <h1>aviso!</h1>
+          <p>essa palestra é <strong>muito</strong> introdutória<br>alguns conceitos serão simplificados por fins didáticos</p>
+          <p style="margin-top: 1em"><em>"Show me the code!"</em> - BASTOS, Henrique<br><em>"Nope"</em> - RATAMERO, Luciano</p>
+        </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>Domain Driven Design?</h1>
+        <ul>
+          <li>pra que serve?</li>
+          <li>tem a ver com código?</li>
+          <li>dá pra usar com qualquer linguagem?</li>
+          <li>posso usar em tudo?</li>
+          <li>isso tá me soando como microservices...</li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>conceitos básicos</h1>
+        <ul>
+          <li>domínio</li>
+          <li>modelos</li>
+          <li>casos de uso</li>
+          <li>ubiquitous language</li>
+          <li>bounded context</li>
+          <li>aplicação em camadas</li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>maneiro, mas como é isso em Django?</h1>
+        <div class="alert alert-info">
+          <h3>detalhe</h3>
+          <p>tudo que vou dizer aqui são opiniões e sugestões de como aplicar alguns conceitos</p>
+        </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>django, domínio e modelos</h1>
+        <ul>
+          <li>desacoplamento</li>
+          <li>testabilidade</li>
+          <li>prototipagem</li>
+          <li>decisões tardias == <3</li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+          <img src="assets/ddd.jpg">
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>django e casos de uso</h1>
+        <ul>
+          <li>reuso</li>
+          <li>facilidade de compreensão</li>
+          <li>facilidade de explicação</li>
+          <li>mocks, mocks, mocks</li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+          <img src="assets/use-cases.jpg">
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>django, ubiquitous language e bounded context</h1>
+        <ul>
+          <li>semântica levada a sério</li>
+          <li>apps verdadeiramente desacopláveis</li>
+          <li>substituição de código legado</li>
+          <li>facilidade de gestão de equipes</li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>django e aplicação em camadas</h1>
+        <ul>
+          <li>models, views e templates</li>
+          <li>domain models, domain logic e presentation layers</li>
+          <li>papéis bem definidos</li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+          <img src="assets/layers.jpg">
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>mas e o front?</h1>
+        <p><em>"Deixa eu adivinhar: Segregated DOM?"</em> - TANDEL, Elias</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>adaptando conceitos ao JS</h1>
+        <ul>
+          <li>angular, react e afins == infra</li>
+          <li>JavaScript como linguagem de programação</li>
+          <li>camadas adaptadas: HTML, presentation layer, domain logic</li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+          <img src="assets/segregated-dom.jpg">
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>e o que eu ganho?</h1>
+        <ul>
+          <li>desacoplamento</li>
+          <li>testabilidade</li>
+          <li>prototipagem</li>
+          <li>decisões tardias == <3</li>
+        </ul>
+        <p><small>sim, de novo</small></p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>nem tudo é as mil maravilhas...</h1>
+        <ul>
+          <li>dificuldade de implantação</li>
+          <li>necessidade de alinhamento</li>
+          <li>perda de claras vantagens de frameworks</li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+        <h1>mas assim como o TDD...</h1>
+        <p>se você levar a sério, tudo se torna tranquilo</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section">
+      <div class="container">
+      <div class="intro">
+        <h1>dúvidas?</h1>
+        <ul>
+          <li><a target="_blank" href="http://www.methodsandtools.com/archive/archive.php?id=97">Artigo introdutório sobre implementação de DDD</a></li>
+          <li>me mandem por qualquer lugar, posso escrever post sobre o que quiserem!</li>
+        </ul>
+      </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="container">
+        <div class="intro">
+          <h1>é isso aí</h1>
+          <p><a target="_blank" href="../../../img/eu.jpg"><img src="../../../img/eu.jpg" style="max-width: 80%"></a></p>
+          <h3><a target="_blank" href="https://ratamero.com/">ratamero.com</a></h3>
+          <p>
+            <div class="row">
+              <div class="col-xs-12 col-sm-6">
+                <a target="_blank" href="https://www.facebook.com/lucianoratamero">fb.com/lucianoratamero</a>
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <a target="_blank" href="https://www.twitter.com/lucianoratamero">@lucianoratamero</a>
+              </div>
+            </div>
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+</body>
+</html>
