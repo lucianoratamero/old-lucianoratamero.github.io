@@ -53,9 +53,13 @@ nav.nav-desktop {
 
 nav.nav-mobile {
   display: block;
-  width: 100vw;
+  width: 100%;
   position: fixed;
   bottom: 0;
+
+  h1 {
+    margin: 0.4em auto;
+  }
 
   ul.navbar-nav {
     display: table;
@@ -65,9 +69,11 @@ nav.nav-mobile {
     margin: 0;
 
     > a {
-      padding: 0.5em 0;
+      padding: 0.6em 0;
       display: table-cell;
       text-align: center;
+
+      li { padding: 0; }
     }
   }
 

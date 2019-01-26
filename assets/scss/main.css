@@ -980,9 +980,12 @@ nav.nav-desktop h1 {
 
 nav.nav-mobile {
   display: block;
-  width: 100vw;
+  width: 100%;
   position: fixed;
   bottom: 0;
+}
+nav.nav-mobile h1 {
+  margin: 0.4em auto;
 }
 nav.nav-mobile ul.navbar-nav {
   display: table;
@@ -991,9 +994,12 @@ nav.nav-mobile ul.navbar-nav {
   margin: 0;
 }
 nav.nav-mobile ul.navbar-nav > a {
-  padding: 0.5em 0;
+  padding: 0.6em 0;
   display: table-cell;
   text-align: center;
+}
+nav.nav-mobile ul.navbar-nav > a li {
+  padding: 0;
 }
 @media only screen and (min-width: 75em) {
   nav.nav-mobile {
