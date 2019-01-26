@@ -11,4 +11,4 @@ compile:
 	lektor build -O build && node_modules/.bin/babel-node build-tools/build.js
 
 deploy:
-	make compile && gh-pages -d build
+	make compile && node_modules/.bin/gh-pages -d build -b master
