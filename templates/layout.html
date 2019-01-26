@@ -22,6 +22,22 @@
 
         <nav class="nav-desktop col-xs-3">
           <div class="flex-wrapper">
+            <ul class="nav navbar-nav">
+              {% for href, title in [
+                ['/blog', 'Blog'],
+                ['/previous-talks', 'Talks'],
+                ['/sketches', 'Sketches'],
+                ] %}
+                <a
+                  {% if 'sketches' in href %}
+                    class="no-ajaxy"
+                  {% endif %}
+                  href="{{ href|url }}"
+                >
+                  <li>{{ title }}</li>
+                </a>
+              {% endfor %}
+            </ul>
             <ul class="social-icons">
               <li>
                 <a href="https://twitter.com/lucianoratamero" target="_blank" rel="noopener noreferrer">
@@ -50,22 +66,6 @@
 
                 </a>
               </li>
-            </ul>
-            <ul class="nav navbar-nav">
-              {% for href, title in [
-                ['/blog', 'Blog'],
-                ['/previous-talks', 'Talks'],
-                ['/sketches', 'Sketches'],
-                ] %}
-                <a
-                  {% if 'sketches' in href %}
-                    class="no-ajaxy"
-                  {% endif %}
-                  href="{{ href|url }}"
-                >
-                  <li>{{ title }}</li>
-                </a>
-              {% endfor %}
             </ul>
             <h1><a href="{{ '/'|url }}">luciano@ratamero.com</a></h1>
           </div>
