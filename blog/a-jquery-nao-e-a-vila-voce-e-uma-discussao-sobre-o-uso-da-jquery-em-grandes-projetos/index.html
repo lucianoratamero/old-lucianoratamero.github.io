@@ -1,0 +1,191 @@
+<!doctype html>
+<meta charset="utf-8">
+
+<head>
+  <link rel="icon"
+        type="image/png"
+        href="favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+  <meta name="keywords" content="Luciano Ratamero, jQuery, grandes projetos, arquitetura, planejamento, frontend, javascript, frameworks, segregated dom"/>
+  <link rel="stylesheet" href="../../scss/main.css">
+  <title>a jQuery não é a vilã; você é - uma discussão sobre o uso da jQuery em grandes projetos — luciano@ratamero.com</title>
+</head>
+
+<body>
+  <div id="content">
+    <div class="container-fluid">
+
+      <div class="row">
+
+        <nav class="nav-desktop col-xs-3">
+          <div class="flex-wrapper">
+            <ul class="social-icons">
+              <li>
+                <a href="https://twitter.com/lucianoratamero" target="_blank" rel="noopener noreferrer">
+                  <svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 40 40" style="vertical-align: middle;"><g><path d="m31.6 13.6q-1.3 0.6-2.7 0.8 1.5-0.9 2-2.6-1.4 0.8-2.9 1.1-1.4-1.5-3.5-1.5-1.9 0-3.3 1.4t-1.3 3.3q0 0.7 0.1 1.1-2.9-0.2-5.4-1.5t-4.3-3.4q-0.7 1.1-0.7 2.3 0 2.6 2.1 3.9-1.1 0-2.3-0.5v0q0 1.7 1.1 3t2.8 1.6q-0.7 0.2-1.1 0.2-0.3 0-0.9-0.1 0.4 1.4 1.6 2.3t2.8 1q-2.6 2-5.9 2-0.6 0-1.1-0.1 3.3 2.1 7.2 2.1 2.5 0 4.7-0.8t3.7-2.1 2.7-3.1 1.7-3.6 0.5-3.7q0-0.4 0-0.7 1.4-1 2.4-2.4z m5.7-4.3v21.4q0 2.7-1.9 4.6t-4.5 1.8h-21.5q-2.6 0-4.5-1.8t-1.9-4.6v-21.4q0-2.7 1.9-4.6t4.5-1.8h21.5q2.6 0 4.5 1.8t1.9 4.6z"></path></g></svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/luciano-ratamero-06b98b32/" target="_blank" rel="noopener noreferrer">
+                  <svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 40 40" style="vertical-align: middle;"><g><path d="m8.3 31.6h5.1v-15.5h-5.1v15.5z m5.5-20.3q0-1.2-0.8-1.9t-2.1-0.8-2.1 0.8-0.8 1.9q0 1.1 0.8 1.9t2 0.8h0.1q1.3 0 2.1-0.8t0.8-1.9z m13 20.3h5.2v-8.9q0-3.5-1.6-5.2t-4.3-1.8q-3.1 0-4.7 2.6h0v-2.2h-5.1q0 1.4 0 15.5h5.1v-8.7q0-0.8 0.2-1.2 0.3-0.8 1-1.4t1.7-0.5q2.5 0 2.5 3.5v8.3z m10.5-22.3v21.4q0 2.7-1.9 4.6t-4.5 1.8h-21.5q-2.6 0-4.5-1.8t-1.9-4.6v-21.4q0-2.7 1.9-4.6t4.5-1.8h21.5q2.6 0 4.5 1.8t1.9 4.6z"></path></g></svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/lucianoratamero/" target="_blank" rel="noopener noreferrer">
+                  <svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 40 40" style="vertical-align: middle;"><g><path d="m14.6 26.8q0.1-0.1-0.1-0.3-0.2-0.2-0.3 0-0.1 0.1 0.1 0.2 0.2 0.2 0.3 0.1z m-0.6-0.9q-0.2-0.2-0.3-0.1-0.1 0.1 0 0.3 0.1 0.1 0.3 0.1 0.1-0.1 0-0.3z m-1-0.9q0.1-0.1-0.1-0.2-0.1 0-0.1 0-0.1 0.2 0 0.2 0.2 0.1 0.2 0z m0.5 0.5q0.1 0 0-0.1t0-0.1q-0.2-0.2-0.3-0.1t0.1 0.3q0.1 0.1 0.2 0z m1.9 1.7q0.1-0.2-0.2-0.3-0.2 0-0.3 0.1 0 0.2 0.2 0.3 0.2 0 0.3-0.1z m1 0q0-0.1-0.3-0.1-0.2 0-0.2 0.1t0.2 0.2 0.3-0.2z m0.8-0.1q0-0.2-0.2-0.1t-0.2 0.2q0 0.1 0.2 0.1t0.2-0.2z m14.4-7.1q0-4.7-3.4-8.1t-8.1-3.3-8 3.3-3.4 8.1q0 3.7 2.2 6.7t5.6 4.1q0.4 0.1 0.6-0.1t0.2-0.4q0-1.2 0-2.1-0.1 0-0.4 0t-0.8 0.1-1-0.1-1-0.5-0.7-0.9q-0.5-1.3-1.2-1.6-0.1-0.1-0.1-0.1l-0.2-0.2-0.2-0.2 0.1-0.2 0.5-0.1q0.1 0 0.3 0.1t0.7 0.3 0.7 0.8q0.4 0.7 0.8 1t1 0.3 0.9-0.1 0.6-0.2q0.2-1.1 0.8-1.6-1.1-0.1-1.9-0.4t-1.7-0.8-1.2-1.7-0.5-2.7q0-1.8 1.2-3.1-0.5-1.3 0.1-3 0.5-0.1 1.3 0.2t1.3 0.6l0.6 0.4q1.3-0.4 2.8-0.4t2.9 0.4q0.3-0.2 0.6-0.4t1.3-0.6 1.3-0.2q0.6 1.7 0.1 3 1.1 1.3 1.1 3.1 0 1.3-0.3 2.2t-0.8 1.6-1.2 1-1.3 0.6-1.6 0.2q0.8 0.7 0.8 2.2 0 0.9 0 2t0 1.1q0 0.3 0.2 0.4t0.6 0.1q3.4-1.1 5.6-4.1t2.2-6.7z m5.7-10.7v21.4q0 2.7-1.9 4.6t-4.5 1.8h-21.5q-2.6 0-4.5-1.8t-1.9-4.6v-21.4q0-2.7 1.9-4.6t4.5-1.8h21.5q2.6 0 4.5 1.8t1.9 4.6z"></path></g></svg>
+                </a>
+              </li>
+              <li>
+                <a href="http://lastfm.com/user/lucianoratamero" target="_blank" rel="noopener noreferrer">
+                  <svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 40 40" style="vertical-align: middle;"><g><path d="m35 23.5q0-3.9-5.3-5.4-0.7-0.2-1.1-0.3t-0.9-0.6-0.6-1q0-0.1-0.1-0.2t0-0.3-0.1-0.1q0-0.8 0.6-1.4t1.3-0.5q1.2 0 1.6 0.3h0q0.4 0.4 0.9 1.2l2-1.6q-0.8-1.2-1.1-1.4-0.7-0.7-1.5-0.9t-1.9-0.2q-1.8 0-3.1 1.3t-1.4 3q0 0.2 0 0.5 0.4 2.2 1.5 3.2t3.3 1.6q0.6 0.2 1.1 0.3t1 0.5 0.8 0.8 0.3 1v0.1q0.1 1.3-0.9 2.1t-2.2 0.8q-2.2 0-3.7-3.2-0.6-1.1-1.2-2.7t-1.1-2.8-1.2-2.5-1.6-2.1-2.3-1.4-3.3-0.5q-2.3 0-4.3 1.2t-3.2 3.3-1.1 4.3v0q0.1 2.4 1.1 4.5t3 3.3 4.4 1.2q4.1 0 6.2-2.4 0.4-0.6 0.7-1.2l-1.4-2.4q-0.9 1.8-2.2 2.6t-3.2 0.8q-2.6 0-4.3-1.9t-1.7-4.6q0-2.3 1.8-4.2t4.2-1.9q2.5 0 3.8 1.2t2.3 3.8q0.2 0.5 0.6 1.6t0.6 1.7 0.7 1.6 0.9 1.7 1 1.4 1.2 1.2 1.5 0.7 1.8 0.3q2.4 0 4.1-1.5t1.7-3.9z m2.3-14.2v21.4q0 2.7-1.9 4.6t-4.5 1.8h-21.5q-2.6 0-4.5-1.8t-1.9-4.6v-21.4q0-2.7 1.9-4.6t4.5-1.8h21.5q2.6 0 4.5 1.8t1.9 4.6z"></path></g></svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitch.tv/lucianoisstreaming" target="_blank" rel="noopener noreferrer">
+                  <!-- icons by FontAwesome! -->
+                  <svg aria-hidden="true" data-prefix="fab" data-icon="twitch" class="svg-inline--fa fa-twitch fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M40.1 32L10 108.9v314.3h107V480h60.2l56.8-56.8h87l117-117V32H40.1zm357.8 254.1L331 353H224l-56.8 56.8V353H76.9V72.1h321v214zM331 149v116.9h-40.1V149H331zm-107 0v116.9h-40.1V149H224z"></path></svg>
+
+                </a>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav">
+              
+                <a href="../../blog/">
+                  <li  class="active" >Blog</li>
+                </a>
+              
+                <a href="../../talks/">
+                  <li >Talks</li>
+                </a>
+              
+                <a href="../../sketches">
+                  <li >Sketches</li>
+                </a>
+              
+            </ul>
+            <h1><a href="../../">luciano@ratamero.com</a></h1>
+          </div>
+        </nav>
+
+        <div class="col-xs-12 col-lg-9 col-lg-offset-3">
+          <div class="page">
+            
+  
+  <div class="blog-post">
+  
+    <h2 class="page-title">a jQuery não é a vilã; você é - uma discussão sobre o uso da jQuery em grandes projetos</h2>
+  
+  <p class="meta">
+    
+      Luciano Ratamero
+    
+    - Friday, February 26, 2016
+  </p>
+  <div class="image-wrapper">
+    <img src="https://lucianoratamero.github.io/img/cover.png">
+</div><p><em>edit: esse post é um dos meus mais antigos, e como a linguagem da época era agressiva demais, decidi mudar um bocado. outro detalhe é que isso não reflete tanto meus pensamentos atuais sobre a jQuery em si, mas ainda são 100% válidos pra outros contextos ;)</em></p>
+<p>uma das coisas que mais me deixam feliz na comunidade de javascript é sua velocidade de mudança e absorção de ideias. durante meus cinco anos de desenvolvedor, vi grandes mudanças no uso e no perfil de quem usa javascript — pra melhor, <strong>muito</strong> melhor. é uma comunidade com orgulho de ser jovem, de fazer as coisas com as próprias mãos, de não ter medo de aprender com as outras linguagens e que admite as próprias falhas. no entanto, uma coisa nunca fez muito sentido pra mim: por que raios todo mundo odeia a jQuery?</p>
+<hr>
+
+<p>tenho alguns pensamentos sobre o assunto, e finalmente saí da inércia de escrever sobre isso. bem, antes de tudo, aqueles disclaimers: essa é a minha opinião, somente minha, e você tem todo o direito de concordar ou discordar, completamente ou em partes. minha intenção é exatamente essa, de gerar material para gerar discussão. :)</p>
+<p>vou dividir meus pensamentos em quatro partes:</p>
+<ol>
+<li>jQuery como porta de entrada ao mundo do front end;</li>
+<li>jQuery e seu papel em grandes projetos;</li>
+<li>jQuery, suas características e seu ecossistema;</li>
+<li>os problemas da jQuery e como solucioná-los.</li>
+</ol>
+<p>então sentem-se em um lugar confortável, peguem café e aguinha e lá vamos nós!</p>
+<hr>
+
+<h3>jQuery como porta de entrada ao mundo do front end</h3>
+<p>bem, aqui vou chover um pouco no molhado, mas é necessário dizer: aprender javascript de front end é difícil. tão difícil como aprender outras linguagens de alto nível; talvez um pouco mais, por seus tipos dinâmicos e mensagens de erro não muito intuitivas (nunca vou me esquecer do meu primeiro NaN, e acho que vocês também não se esqueceram dos seus).
+um grande fator pra essa complicação toda é termos que lidar o tempo todo com o DOM, e ele tende a ser complicado de se entender logo de cara, difícil de desassociar do javascript como linguagem de programação.</p>
+<p>no entanto, poucos de nós paramos pra realmente entender como o DOM funciona, exatamente porque não precisamos disso para a maioria das tarefas diárias. temos bibliotecas e frameworks que lidam com ele por nós — e isso é bom.</p>
+<p>por isso eu digo: agradeço imensamente por ter começado a aprender javascript com front end, principalmente por ter aprendido com a jQuery. ela esconde o suficiente, te ensinando o necessário para suas tarefas diárias. a jQuery é tão boa, mas tão boa, que muitos nem aprendem javascript; ficam na jQuery mesmo.</p>
+<p>a jQuery é boa pros iniciantes por ser uma camada fina, mas consistente, por cima do DOM.</p>
+<p>“mas Luciano, eu não sou iniciante, eu sei javascript! se eu sei fazer o que a jQuery faz, pra que que eu preciso usar?”, você está pensando. calma, calma, vamos lá.</p>
+<h3>jQuery e seu papel em grandes projetos</h3>
+<p>quem aqui já teve que manter um projeto por mais de três anos, por favor, levante a mão. o/ manter um projeto de longa data não é fácil, e isso se dá por vários motivos: a rotatividade de pessoas tende a ser alta; as convenções de padrões de desenvolvimento se perdem; as dependências tecnológicas do projeto mudam.</p>
+<p>em um projeto de longa data, o código que antes era bom e resolvia um problema agora é ruim, obsoleto, difícil de manter; e isso é natural.</p>
+<p>é natural, porque as pessoas aprendem. porque elas evoluem, assim como a tecnologia. porque elas entram e saem do projeto, trazendo e levando a bagagem de cada um.</p>
+<p>nessa hora, ter uma API consistente, única e bem documentada é essencial. uma API consistente permite que pessoas entrem e saiam do projeto sem ter medo de deixar um código ininteligível pra trás — a não ser que não vejam opção.</p>
+<p>se a API for simples, fácil de usar e bem documentada, ela permite que desenvolvedores que mal conhecem do projeto possam cair dentro e desenvolverem o que precisam, sem muito medo de fazer besteira. e a jQuery é perfeita pra esse papel.</p>
+<p>perdi a conta das vezes que vi desenvolvedores de back end ou de outros projetos mandando ver em correção de bug dos meus projetos, e isso só se tornou possível porque desenvolver front se tornou fácil.</p>
+<p>“mas Luciano, a jQuery é muito pesada, quero que meu site mobile seja leve”, você diz. calma, calma, vamos lá.
+<em>edit: acho que essa preocupação com site leve meio que foi embora, já que geral hoje usa de tudo um pouco, e a média de tamanho dos sites só está crescendo.</em></p>
+<h3>jQuery, suas características e seu ecossistema</h3>
+<p>digamos que você tá fazendo seu projetinho, e ele é só seu, e você é bom em javascript, e você acha que a jQuery é pesada demais pro que você quer fazer. é uma preocupação válida, a de fazer seu usuário baixar o mínimo de script possível. só te digo uma coisa: falar que a jQuery é pesada é coisa do passado.</p>
+<p>a jQuery mais nova, minificada e gzipada, pesa 29kbs. <a href="https://mathiasbynens.be/demo/jquery-size">sério. mesmo.</a> 29kbs não é nada hoje em dia. <a href="https://en.wikipedia.org/wiki/Nintendo_Entertainment_System_technical_specifications#Memory">cabe até num cartucho de NES.</a></p>
+<p>outra coisa: ela aumentou de tamanho ao longo dos anos, sim, mas diminuiu de tamanho em relação a alguns anos atrás. isso, aliado à evolução da velocidade de tráfego de dados, faz com que o argumento que jQuery é pesada seja um tanto desinformado.</p>
+<p>claro, claro, conseguimos fazer coisas mais leves, usando outros frameworks (como o <a href="http://riotjs.com/">riot</a>) ou outras bibliotecas similares (como o <a href="http://zeptojs.com/">zepto</a>) para fazermos trabalhos parecidos, mas nenhuma dessas bibliotecas/frameworks tem a longevidade (9 anos! <em>edit: 11 já! :O</em>) e o ecossistema de extensões que a jQuery tem.</p>
+<p>além disso, ela provê helpers pra fazer praticamente tudo que se precisa no dia a dia sem precisar de uma quantidade gigantesca de código. dessa forma, você não precisa de tanto trabalho braçal, nem de esquentar a cabeça com o tamanho dos seus próprios arquivos js.</p>
+<p>então, antes de falar que a jQuery é pesada, pense na fonte marota que você mandou carregar no seu site mobile. naquela imagem bonita de capa. pense no quanto você pode economizar de outras formas e no quanto você pode facilitar a vida de outros, caso você decida abrir seu projeto.</p>
+<p>“mas Luciano, na verdade eu não gosto da jQuery porque é horrível de manter. o código fica todo macarrônico, a gente nunca sabe o que tá fazendo o que, e por isso que eu uso o framework X, pra poder organizar o código”, você tá pensando. e é agora que eu digo: a vilã não é a jQuery — é quem a usa. vou explicar melhor nessa próxima parte.</p>
+<h3>os problemas da jQuery e como resolvê-los</h3>
+<p>todos nós provavelmente já passamos por algum projeto em que o js no front tava bizarro e botamos a culpa na jQuery. as críticas a ela nesse âmbito geralmente estão em três pontos:</p>
+<ul>
+<li>o código está ilegível, macarrônico, desorganizado;</li>
+<li>o código está difícil de testar;</li>
+<li>o código tem problemas de performance.</li>
+</ul>
+<p>esses três pontos tem uma, e apenas uma variável em comum, e ela não é a jQuery; é como ela é usada.</p>
+<p>pros dois primeiros problemas, digo o seguinte: a API da jQuery não permite declarar intenção, por ser predominantemente imperativa. ela não diz pra que ela serve no projeto, mas somente o que cada função faz. quem tem que deixar claro o papel do código no projeto é quem a usa. e a solução pra esse problema é a seguinte: envolva o código da jQuery em funções suas, em arquivos diferentes e categorizados. legibilidade conta, organização conta, <strong>contexto</strong> conta.</p>
+<p>ou, se quiser, melhor ainda: envolva todo e qualquer código que tenha ligações hardcoded com o DOM e pronto: você tem um código desacoplado. quer usar outra biblioteca no lugar da jQuery? só mudar as amarras com o DOM. quer testar? só mockar as chamadas à jQuery e pronto: seu código está testável.</p>
+<p>faltou falar sobre problemas de performance, e digo que, se você estudar como os browsers funcionam, você consegue fazer um código rápido com quase qualquer ferramenta que você quiser usar. é um conhecimento bem útil pra quando você precisa otimizar alguma coisa. aliás, recomendo <a href="https://www.youtube.com/watch?v=SmE4OwHztCc">essa palestra aqui</a> sobre esse tema.</p>
+<p>e se, mesmo assim, você estiver tendo problemas, reveja o conceito da página, porque provavelmente ela está fazendo coisa demais. problemas conceituais, sejam de levantamento de requisito ou de design de fluxo da aplicação, sempre refletem no código, e é sempre bom estar com a guarda levantada sobre esse aspecto do desenvolvimento.</p>
+<hr>
+
+<p>enfim, espero que tenha apresentado meus pontos de vista direito. pra fechar, o clássico: use a ferramenta certa pro problema certo. eu mesmo me pego usando angular pra alguns projetos, e eu odeio angular, mas isso é papo pra outros posts. só queria deixar claro uma coisa: usar jQuery nunca é uma ideia ruim. pode até não ser uma ideia maravilhosa, mas ruim não é.</p>
+<p>então antes de perder quinze horas fazendo aquela feature sem jQuery, pense duas vezes. recomendo usá-la, a não ser que você queira provar pra si mesmo que consegue fazer sem ela (o que é ótimo, até recomendável); mas num projeto de verdade, não tenha medo de usar.</p>
+<p>abraços, e até mais! o/</p>
+
+  </div>
+
+
+  <div class="comments">
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/blog/a-jquery-nao-e-a-vila-voce-e-uma-discussao-sobre-o-uso-da-jquery-em-grandes-projetos"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lucianoratamerosblog.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+</div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <nav class="nav-mobile">
+        <h1><a href="../../">luciano@ratamero.com</a></h1>
+        <ul class="nav navbar-nav">
+          
+            <a href="../../blog/">
+              <li  class="active" >Blog</li>
+            </a>
+          
+            <a href="../../talks/">
+              <li >Talks</li>
+            </a>
+          
+            <a href="../../sketches">
+              <li >Sketches</li>
+            </a>
+          
+        </ul>
+      </nav>
+    </div>
+
+  </div>
+  <div class="lds-ripple"><div></div><div></div></div>
+  <script src="../../js/main.js"></script>
+</body>

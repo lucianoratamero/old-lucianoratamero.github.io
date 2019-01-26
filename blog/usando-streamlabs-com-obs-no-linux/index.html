@@ -6,9 +6,9 @@
         type="image/png"
         href="favicon.png">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
-  <meta name="keywords" content="Luciano Ratamero, "/>
-  <link rel="stylesheet" href="./scss/main.css">
-  <title>welcome, welcome! — luciano@ratamero.com</title>
+  <meta name="keywords" content="Luciano Ratamero, streamlabs,obs,linux,alertas"/>
+  <link rel="stylesheet" href="../../scss/main.css">
+  <title>usando streamlabs com OBS no linux — luciano@ratamero.com</title>
 </head>
 
 <body>
@@ -50,36 +50,94 @@
             </ul>
             <ul class="nav navbar-nav">
               
-                <a href="./blog/">
-                  <li >Blog</li>
+                <a href="../../blog/">
+                  <li  class="active" >Blog</li>
                 </a>
               
-                <a href="./talks/">
+                <a href="../../talks/">
                   <li >Talks</li>
                 </a>
               
-                <a href="./sketches">
+                <a href="../../sketches">
                   <li >Sketches</li>
                 </a>
               
             </ul>
-            <h1><a href="./">luciano@ratamero.com</a></h1>
+            <h1><a href="../../">luciano@ratamero.com</a></h1>
           </div>
         </nav>
 
         <div class="col-xs-12 col-lg-9 col-lg-offset-3">
           <div class="page">
             
-  <h2 class="page-title">welcome, welcome!</h2>
-  <p><img class="about-image" src="/img/eu_fb_small.jpg" /></p>
-<p>My name is Luciano Ratamero, I'm 29, brazilian, programmer.</p>
-<p>I'm from Nova Friburgo, Brazil, and I love it here. it's a fairly small city on the mountains near Rio. cold enough in the winter, hot enough in the summer.</p>
-<p>I love tech, music, poetry, videogames and linux distros. and python. and javascript.</p>
-<p>I've worked in several different roles and technologies, from restful backend python/django applications to frontend react SPAs.</p>
-<p>if you want to hire me or just chat, don't hesitate to talk to me. anywhere. really.</p>
-<p>and if you're the type of person who likes a good curriculum, <a href="/static/curriculum/curriculum.pdf" class="no-ajaxy">I've generated one for you</a>.</p>
-<p>see you! :)</p>
+  
+  <div class="blog-post">
+  
+    <h2 class="page-title">usando streamlabs com OBS no linux</h2>
+  
+  <p class="meta">
+    
+      Luciano Ratamero
+    
+    - Friday, January 4, 2019
+  </p>
+  <div class="image-wrapper">
+    <img src="https://www.ratamero.com/img/usando-streamlabs-com-obs-no-linux/streamlabs%20obs%20linux.png">
+</div><p>ultimamente eu ando assistindo a muitos canais no twitch durante meu tempo livre. mesmo que tenha algo pra fazer ou só esteja cansado demais pra pensar, acabo sempre deixando uma aba aberta; mas é sempre com algo relacionado a algum jogo eletrônico. pensando nisso, tenho tido bastante vontade de começar a fazer streams de desenvolvimento de código.</p>
+<p>mas se é pra fazer streams, é importante se manter em contato com quem tá ali contigo, te assistindo ou seguindo, e se faz necessário o uso de alertas visuais e sonoros pra certas interações do usuário, como novos assinantes ou doadores. pra suprir essa demanda, o pessoal da <a href="https://streamlabs.com">streamlabs</a> oferece <a href="https://github.com/stream-labs/streamlabs-obs/">sua versão open source</a> do Open Broadcaster Studio, o famoso <a href="https://obsproject.com/">OBS</a>, com suas alterações, facilitando a vida de quem faz transmissões ao-vivo.</p>
+<p>só tem um problema: <strong>não funciona no linux</strong>.</p>
+<h3>sempre há um jeitinho</h3>
+<p>pra esses casos, o streamlabs oferece uma url pra uma página que exibe esses alertas - o que chamam de <strong>Alert Box</strong>. pra você achar o endereço do seu, faça login no streamlabs, clique em <strong>Widgets</strong>, depois em <strong>Alert Box</strong>. nessa página, você terá a opção de copiar a url da página de alertas.</p>
+<div class="image-wrapper">
+    <img src="https://www.ratamero.com/img/usando-streamlabs-com-obs-no-linux/widget-box-url.png">
+</div><p>com isso em mãos, tudo que a gente precisa fazer é abrir uma página web dentro do OBS como uma fonte de vídeo. é aí que entra o pulo do gato.</p>
+<h3>obs-linuxbrowser</h3>
+<div class="image-wrapper">
+    <img src="https://www.ratamero.com/img/usando-streamlabs-com-obs-no-linux/obs-linuxbrowser.png">
+</div><p>o usuário <a href="https://github.com/bazukas/">bazukas</a> publicou no github esse plugin lindo que faz todo o trabalho, o <a href="https://github.com/bazukas/obs-linuxbrowser/">obs-linuxbrowser</a>. o plugin usa o chromium por baixo dos panos pra conseguir usar uma página web como input de vídeo no OBS - e esse sim funciona no linux!</p>
+<p>supondo que você já tenha o OBS instalado, pra usar o plugin, é só baixar a versão mais nova da <a href="https://github.com/bazukas/obs-linuxbrowser/releases">página de releases</a> e descompactar ela pra pasta de plugins do OBS. essa pasta geralmente fica em <code>~/.config/obs-studio/plugins</code>.</p>
+<p>resumindo:</p>
+<ul>
+<li>baixe o plugin</li>
+<li><code>mkdir -p ~/.config/obs-studio/plugins/</code></li>
+<li><code>tar -zxvf linuxbrowser0.5.2-obs21.1.2-64bit.tgz -C ~/.config/obs-studio/plugins/</code></li>
+</ul>
+<p>com isso, uma nova opção de fonte irá aparecer no menu de fontes do OBS, chamada <strong>Linux Browser</strong>.</p>
+<div class="image-wrapper">
+  <a href="https://www.ratamero.com/img/usando-streamlabs-com-obs-no-linux/add-input.png">
+    <img src="https://www.ratamero.com/img/usando-streamlabs-com-obs-no-linux/add-input.png">
+  </a>
+</div><p>basta adicionar clicando no +, selecionar <strong>Linux Browser</strong> e colocar como url a sua url de <strong>Alert Box</strong>.</p>
+<div class="image-wrapper">
+  <a href="https://www.ratamero.com/img/usando-streamlabs-com-obs-no-linux/config-linux-browser.png">
+    <img src="https://www.ratamero.com/img/usando-streamlabs-com-obs-no-linux/config-linux-browser.png">
+  </a>
+</div><p>vale a pena também testar e ver se ela aparece no OBS; comigo funcionou de primeira!</p>
+<div class="image-wrapper">
+  <a href="https://www.ratamero.com/img/usando-streamlabs-com-obs-no-linux/test-alert.png">
+    <img src="https://www.ratamero.com/img/usando-streamlabs-com-obs-no-linux/test-alert.png">
+  </a>
+</div><p>por hoje é só! se tiverem dicas ou sugestões pra melhorar esse texto, só me cutucar nos comentários. abraços!</p>
 
+  </div>
+
+
+  <div class="comments">
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/blog/usando-streamlabs-com-obs-no-linux"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lucianoratamerosblog.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+</div>
 
           </div>
         </div>
@@ -87,18 +145,18 @@
       </div>
 
       <nav class="nav-mobile">
-        <h1><a href="./">luciano@ratamero.com</a></h1>
+        <h1><a href="../../">luciano@ratamero.com</a></h1>
         <ul class="nav navbar-nav">
           
-            <a href="./blog/">
-              <li >Blog</li>
+            <a href="../../blog/">
+              <li  class="active" >Blog</li>
             </a>
           
-            <a href="./talks/">
+            <a href="../../talks/">
               <li >Talks</li>
             </a>
           
-            <a href="./sketches">
+            <a href="../../sketches">
               <li >Sketches</li>
             </a>
           
@@ -108,5 +166,5 @@
 
   </div>
   <div class="lds-ripple"><div></div><div></div></div>
-  <script src="./js/main.js"></script>
+  <script src="../../js/main.js"></script>
 </body>

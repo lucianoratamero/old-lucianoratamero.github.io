@@ -1,0 +1,170 @@
+<!doctype html>
+<meta charset="utf-8">
+
+<head>
+  <link rel="icon"
+        type="image/png"
+        href="favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+  <meta name="keywords" content="Luciano Ratamero, site novo, react, parcel, django, apistar, Luciano Ratamero"/>
+  <link rel="stylesheet" href="../../scss/main.css">
+  <title>site novo: react + parcel + django_apistar — luciano@ratamero.com</title>
+</head>
+
+<body>
+  <div id="content">
+    <div class="container-fluid">
+
+      <div class="row">
+
+        <nav class="nav-desktop col-xs-3">
+          <div class="flex-wrapper">
+            <ul class="social-icons">
+              <li>
+                <a href="https://twitter.com/lucianoratamero" target="_blank" rel="noopener noreferrer">
+                  <svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 40 40" style="vertical-align: middle;"><g><path d="m31.6 13.6q-1.3 0.6-2.7 0.8 1.5-0.9 2-2.6-1.4 0.8-2.9 1.1-1.4-1.5-3.5-1.5-1.9 0-3.3 1.4t-1.3 3.3q0 0.7 0.1 1.1-2.9-0.2-5.4-1.5t-4.3-3.4q-0.7 1.1-0.7 2.3 0 2.6 2.1 3.9-1.1 0-2.3-0.5v0q0 1.7 1.1 3t2.8 1.6q-0.7 0.2-1.1 0.2-0.3 0-0.9-0.1 0.4 1.4 1.6 2.3t2.8 1q-2.6 2-5.9 2-0.6 0-1.1-0.1 3.3 2.1 7.2 2.1 2.5 0 4.7-0.8t3.7-2.1 2.7-3.1 1.7-3.6 0.5-3.7q0-0.4 0-0.7 1.4-1 2.4-2.4z m5.7-4.3v21.4q0 2.7-1.9 4.6t-4.5 1.8h-21.5q-2.6 0-4.5-1.8t-1.9-4.6v-21.4q0-2.7 1.9-4.6t4.5-1.8h21.5q2.6 0 4.5 1.8t1.9 4.6z"></path></g></svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/luciano-ratamero-06b98b32/" target="_blank" rel="noopener noreferrer">
+                  <svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 40 40" style="vertical-align: middle;"><g><path d="m8.3 31.6h5.1v-15.5h-5.1v15.5z m5.5-20.3q0-1.2-0.8-1.9t-2.1-0.8-2.1 0.8-0.8 1.9q0 1.1 0.8 1.9t2 0.8h0.1q1.3 0 2.1-0.8t0.8-1.9z m13 20.3h5.2v-8.9q0-3.5-1.6-5.2t-4.3-1.8q-3.1 0-4.7 2.6h0v-2.2h-5.1q0 1.4 0 15.5h5.1v-8.7q0-0.8 0.2-1.2 0.3-0.8 1-1.4t1.7-0.5q2.5 0 2.5 3.5v8.3z m10.5-22.3v21.4q0 2.7-1.9 4.6t-4.5 1.8h-21.5q-2.6 0-4.5-1.8t-1.9-4.6v-21.4q0-2.7 1.9-4.6t4.5-1.8h21.5q2.6 0 4.5 1.8t1.9 4.6z"></path></g></svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/lucianoratamero/" target="_blank" rel="noopener noreferrer">
+                  <svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 40 40" style="vertical-align: middle;"><g><path d="m14.6 26.8q0.1-0.1-0.1-0.3-0.2-0.2-0.3 0-0.1 0.1 0.1 0.2 0.2 0.2 0.3 0.1z m-0.6-0.9q-0.2-0.2-0.3-0.1-0.1 0.1 0 0.3 0.1 0.1 0.3 0.1 0.1-0.1 0-0.3z m-1-0.9q0.1-0.1-0.1-0.2-0.1 0-0.1 0-0.1 0.2 0 0.2 0.2 0.1 0.2 0z m0.5 0.5q0.1 0 0-0.1t0-0.1q-0.2-0.2-0.3-0.1t0.1 0.3q0.1 0.1 0.2 0z m1.9 1.7q0.1-0.2-0.2-0.3-0.2 0-0.3 0.1 0 0.2 0.2 0.3 0.2 0 0.3-0.1z m1 0q0-0.1-0.3-0.1-0.2 0-0.2 0.1t0.2 0.2 0.3-0.2z m0.8-0.1q0-0.2-0.2-0.1t-0.2 0.2q0 0.1 0.2 0.1t0.2-0.2z m14.4-7.1q0-4.7-3.4-8.1t-8.1-3.3-8 3.3-3.4 8.1q0 3.7 2.2 6.7t5.6 4.1q0.4 0.1 0.6-0.1t0.2-0.4q0-1.2 0-2.1-0.1 0-0.4 0t-0.8 0.1-1-0.1-1-0.5-0.7-0.9q-0.5-1.3-1.2-1.6-0.1-0.1-0.1-0.1l-0.2-0.2-0.2-0.2 0.1-0.2 0.5-0.1q0.1 0 0.3 0.1t0.7 0.3 0.7 0.8q0.4 0.7 0.8 1t1 0.3 0.9-0.1 0.6-0.2q0.2-1.1 0.8-1.6-1.1-0.1-1.9-0.4t-1.7-0.8-1.2-1.7-0.5-2.7q0-1.8 1.2-3.1-0.5-1.3 0.1-3 0.5-0.1 1.3 0.2t1.3 0.6l0.6 0.4q1.3-0.4 2.8-0.4t2.9 0.4q0.3-0.2 0.6-0.4t1.3-0.6 1.3-0.2q0.6 1.7 0.1 3 1.1 1.3 1.1 3.1 0 1.3-0.3 2.2t-0.8 1.6-1.2 1-1.3 0.6-1.6 0.2q0.8 0.7 0.8 2.2 0 0.9 0 2t0 1.1q0 0.3 0.2 0.4t0.6 0.1q3.4-1.1 5.6-4.1t2.2-6.7z m5.7-10.7v21.4q0 2.7-1.9 4.6t-4.5 1.8h-21.5q-2.6 0-4.5-1.8t-1.9-4.6v-21.4q0-2.7 1.9-4.6t4.5-1.8h21.5q2.6 0 4.5 1.8t1.9 4.6z"></path></g></svg>
+                </a>
+              </li>
+              <li>
+                <a href="http://lastfm.com/user/lucianoratamero" target="_blank" rel="noopener noreferrer">
+                  <svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 40 40" style="vertical-align: middle;"><g><path d="m35 23.5q0-3.9-5.3-5.4-0.7-0.2-1.1-0.3t-0.9-0.6-0.6-1q0-0.1-0.1-0.2t0-0.3-0.1-0.1q0-0.8 0.6-1.4t1.3-0.5q1.2 0 1.6 0.3h0q0.4 0.4 0.9 1.2l2-1.6q-0.8-1.2-1.1-1.4-0.7-0.7-1.5-0.9t-1.9-0.2q-1.8 0-3.1 1.3t-1.4 3q0 0.2 0 0.5 0.4 2.2 1.5 3.2t3.3 1.6q0.6 0.2 1.1 0.3t1 0.5 0.8 0.8 0.3 1v0.1q0.1 1.3-0.9 2.1t-2.2 0.8q-2.2 0-3.7-3.2-0.6-1.1-1.2-2.7t-1.1-2.8-1.2-2.5-1.6-2.1-2.3-1.4-3.3-0.5q-2.3 0-4.3 1.2t-3.2 3.3-1.1 4.3v0q0.1 2.4 1.1 4.5t3 3.3 4.4 1.2q4.1 0 6.2-2.4 0.4-0.6 0.7-1.2l-1.4-2.4q-0.9 1.8-2.2 2.6t-3.2 0.8q-2.6 0-4.3-1.9t-1.7-4.6q0-2.3 1.8-4.2t4.2-1.9q2.5 0 3.8 1.2t2.3 3.8q0.2 0.5 0.6 1.6t0.6 1.7 0.7 1.6 0.9 1.7 1 1.4 1.2 1.2 1.5 0.7 1.8 0.3q2.4 0 4.1-1.5t1.7-3.9z m2.3-14.2v21.4q0 2.7-1.9 4.6t-4.5 1.8h-21.5q-2.6 0-4.5-1.8t-1.9-4.6v-21.4q0-2.7 1.9-4.6t4.5-1.8h21.5q2.6 0 4.5 1.8t1.9 4.6z"></path></g></svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitch.tv/lucianoisstreaming" target="_blank" rel="noopener noreferrer">
+                  <!-- icons by FontAwesome! -->
+                  <svg aria-hidden="true" data-prefix="fab" data-icon="twitch" class="svg-inline--fa fa-twitch fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M40.1 32L10 108.9v314.3h107V480h60.2l56.8-56.8h87l117-117V32H40.1zm357.8 254.1L331 353H224l-56.8 56.8V353H76.9V72.1h321v214zM331 149v116.9h-40.1V149H331zm-107 0v116.9h-40.1V149H224z"></path></svg>
+
+                </a>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav">
+              
+                <a href="../../blog/">
+                  <li  class="active" >Blog</li>
+                </a>
+              
+                <a href="../../talks/">
+                  <li >Talks</li>
+                </a>
+              
+                <a href="../../sketches">
+                  <li >Sketches</li>
+                </a>
+              
+            </ul>
+            <h1><a href="../../">luciano@ratamero.com</a></h1>
+          </div>
+        </nav>
+
+        <div class="col-xs-12 col-lg-9 col-lg-offset-3">
+          <div class="page">
+            
+  
+  <div class="blog-post">
+  
+    <h2 class="page-title">site novo: react + parcel + django_apistar</h2>
+  
+  <p class="meta">
+    
+      Luciano Ratamero
+    
+    - Friday, April 27, 2018
+  </p>
+  <div class="image-wrapper">
+    <img src="https://lucianoratamero.github.io/img/cover-site-novo.png">
+</div><p>fala, pessoal! depois de muito tempo, tô de volta, e dessa vez com o site novo, bonito, enxuto; e o melhor: funcionando. antes, ele era implementado com <a href="https://www.getlektor.com/">lektor</a>. apesar de tudo funcionar, o processo de criar um post novo era chato, desnecessariamente complexo e - sendo sincero - cheio de bugs. então vou falar um pouco como foi pensar nessa versão nova e quais foram as decisões tomadas. vamos lá!</p>
+<hr>
+<h3>antigamente...</h3>
+<p>lá pros idos de 2014, as coisas eram bem diferentes. mesmo com react e angular já fazendo e acontecendo, pouca gente, pelo menos no meu círculo social, falava em single-page applications; apesar de sabermos de sua aplicação prática. sem SPAs em mente, minha solução pra fazer meu site no github pages era apenas uma: usar geradores de sites estáticos.</p>
+<p>em 2016, já com um site estaticão (bem bizarro, por sinal), decidi que era hora de pegar um desses geradores pra fazer um blog meu, sem depender de medium, wordpress ou blogger. achei o lektor, escrito em python, e por um bom tempo ele me foi bem útil.</p>
+<p>os problemas começaram a surgir na hora em que eu fui obrigado a quebrar uma feature obrigatória - a interface administrativa - pra poder fazer as coisas do meu jeito. depois, tive que congelar a versão, porque meus hacks não funcionavam mais nas versões novas. no fim das contas, fiquei preso no python 2, com um framework que mal funcionava, e fui perdendo a paciência. até que, um dia, comecei a usar react no trabalho.</p>
+<h3>por que react?</h3>
+<p>porque eu uso no trabalho, então é o que eu sei. próxima!</p>
+<h3>por que não fez antes?</h3>
+<p>grande parte de ter deixado a rescrita do site pra depois foi uma só: migração dentro do github pages. por mais que seja maravilhoso poder hospedar sites aqui e termos ferramentas como o <a href="../../blog/site-novo-react-parcel-django_apistar/travis-ci.org">travis-ci</a> pra lidar com a parte chata, migrar todo o site antigo, incluindo os posts de blog, mantendo os estáticos no mesmo lugar, se provou ser uma tarefa... inconveniente.</p>
+<p>a estrutura de dados do lektor também não ajudou. ele tem seu próprio formato pro conteúdo, baseado em markdown, mas sem muita flexibilidade. não seria tão fácil de manter uma aplicação react que fosse direto nesses estáticos pra ler os posts, e manter htmls antigos, com layouts antigos, seria um péssimo cartão de visita.</p>
+<p>pra piorar a vida, quando a gente pensa em react, a gente pensa em es6/7. eu ia <strong>ter</strong> que aprender webpack.</p>
+<h3>wtf webpack</h3>
+<p>ok, ok, webpack é lindo, resolve muita coisa, mas, <strong>nossa, que troço frustrante</strong>. quem vier falar "mas o react já vem com webpack incluso, e funciona bem" nunca teve que fazer simples tarefas, como copiar pastas de lá pra cá durante o deploy. e ejetar o webpack é pedir pra dar problema; então fui eu aprender webpack. cheguei a <a href="https://github.com/lucianoratamero/rmw-setup">fazer um boilerplate</a> pra usar react com webpack desacoplado, e tudo funcionava - mas cada vez que eu precisava fazer uma coisinha a mais, se iam mais duas, três horas martelando as arestas.</p>
+<p>eis que um dia eu acordei e vi um post, não lembro onde, de um cara falando pra tentar, só tentar, usar esse malandro, o <a href="https://parceljs.org/">parcel</a>. a ideia dele é que você configure o mínimo possível, ou até mesmo não configure nada, e ele lide com tudo pra você. e, apesar de uns poucos problemas e a clássica falta de documentação decente de pacotes javascript, ele cumpriu muito bem as expectativas.</p>
+<h3>yay parcel</h3>
+<p>o que eu fiz: deletei meu package.json antigo, criei um novo, salvei o parcel como dependência de desenvolvimento, adicionei um .babelrc bem simples, apontei o parcel pro meu html de entrada e puf, tudo rolando. mesmo. teve <strong>uma</strong> biblioteca que eu tava usando que me deu um pouco de dor de cabeça, mas foi só usar a versão es5 dela que tudo funcionou de primeira. no final do post tem um link pro código fonte.</p>
+<p>sério, só vou usar webpack agora se eu precisar de algo <strong>muito</strong> chato de configurar. mesmo.</p>
+<h3>mas e os posts, tão dentro da app react?</h3>
+<p>coloquei django e api star aqui no post por um motivo, né? pra migrar os posts, criei um backend django com uma api feita com api star usando <a href="https://github.com/lucianoratamero/django_apistar">esse meu projetinho maneiro</a> e entrei na tediosa tarefa de ir todos os posts, um por um, e copiando os dados e respectivas urls pro banco da <a href="https://github.com/lucianoratamero/ratamero-blog-api">app nova</a>. a api <a href="https://ratamero-blog-api.herokuapp.com/docs/">tá aberta</a>, até.</p>
+<h3>e o deploy?</h3>
+<p>travis-ci. lindo. só olhar o <a href="https://docs.travis-ci.com/user/deployment/pages/">getting started</a>.</p>
+<h3>legal, tudo pronto, e agora? que que falta fazer?</h3>
+<p>bom, algumas coisas ainda podem ser acertadas, como, por exemplo, aprimorar a api pra suportar busca textual, melhorar a acessibilidade e testar em mais dispositivos (incluindo IE, que eu não tenho nem como testar). mas acho que por enquanto tá bom o suficiente, então vou indo nessa, deixando aí embaixo os links pros projetos que usei e pros códigos-fontes. abraço, pessoal, até a próxima - e como é bom estar de volta! o/</p>
+<p>projetos:</p>
+<ul>
+<li>django_apistar: <a href="https://github.com/lucianoratamero/django_apistar">https://github.com/lucianoratamero/django_apistar</a></li>
+<li>api star: <a href="https://github.com/encode/apistar">https://github.com/encode/apistar</a></li>
+<li>parcel: <a href="https://parceljs.org/">https://parceljs.org/</a></li>
+</ul>
+<p>códigos-fontes:</p>
+<ul>
+<li>ratamero-blog-api: <a href="https://github.com/lucianoratamero/ratamero-blog-api">https://github.com/lucianoratamero/ratamero-blog-api</a></li>
+<li>react frontend: <a href="https://github.com/lucianoratamero/lucianoratamero.github.io/tree/src">https://github.com/lucianoratamero/lucianoratamero.github.io/tree/src</a></li>
+</ul>
+
+  </div>
+
+
+  <div class="comments">
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/blog/site-novo-react-parcel-django_apistar"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lucianoratamerosblog.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+</div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <nav class="nav-mobile">
+        <h1><a href="../../">luciano@ratamero.com</a></h1>
+        <ul class="nav navbar-nav">
+          
+            <a href="../../blog/">
+              <li  class="active" >Blog</li>
+            </a>
+          
+            <a href="../../talks/">
+              <li >Talks</li>
+            </a>
+          
+            <a href="../../sketches">
+              <li >Sketches</li>
+            </a>
+          
+        </ul>
+      </nav>
+    </div>
+
+  </div>
+  <div class="lds-ripple"><div></div><div></div></div>
+  <script src="../../js/main.js"></script>
+</body>

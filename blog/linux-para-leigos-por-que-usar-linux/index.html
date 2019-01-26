@@ -1,0 +1,182 @@
+<!doctype html>
+<meta charset="utf-8">
+
+<head>
+  <link rel="icon"
+        type="image/png"
+        href="favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+  <meta name="keywords" content="Luciano Ratamero, linux, leigos, por que usar, Luciano Ratamero"/>
+  <link rel="stylesheet" href="../../scss/main.css">
+  <title>linux para leigos: por que usar linux? — luciano@ratamero.com</title>
+</head>
+
+<body>
+  <div id="content">
+    <div class="container-fluid">
+
+      <div class="row">
+
+        <nav class="nav-desktop col-xs-3">
+          <div class="flex-wrapper">
+            <ul class="social-icons">
+              <li>
+                <a href="https://twitter.com/lucianoratamero" target="_blank" rel="noopener noreferrer">
+                  <svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 40 40" style="vertical-align: middle;"><g><path d="m31.6 13.6q-1.3 0.6-2.7 0.8 1.5-0.9 2-2.6-1.4 0.8-2.9 1.1-1.4-1.5-3.5-1.5-1.9 0-3.3 1.4t-1.3 3.3q0 0.7 0.1 1.1-2.9-0.2-5.4-1.5t-4.3-3.4q-0.7 1.1-0.7 2.3 0 2.6 2.1 3.9-1.1 0-2.3-0.5v0q0 1.7 1.1 3t2.8 1.6q-0.7 0.2-1.1 0.2-0.3 0-0.9-0.1 0.4 1.4 1.6 2.3t2.8 1q-2.6 2-5.9 2-0.6 0-1.1-0.1 3.3 2.1 7.2 2.1 2.5 0 4.7-0.8t3.7-2.1 2.7-3.1 1.7-3.6 0.5-3.7q0-0.4 0-0.7 1.4-1 2.4-2.4z m5.7-4.3v21.4q0 2.7-1.9 4.6t-4.5 1.8h-21.5q-2.6 0-4.5-1.8t-1.9-4.6v-21.4q0-2.7 1.9-4.6t4.5-1.8h21.5q2.6 0 4.5 1.8t1.9 4.6z"></path></g></svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/luciano-ratamero-06b98b32/" target="_blank" rel="noopener noreferrer">
+                  <svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 40 40" style="vertical-align: middle;"><g><path d="m8.3 31.6h5.1v-15.5h-5.1v15.5z m5.5-20.3q0-1.2-0.8-1.9t-2.1-0.8-2.1 0.8-0.8 1.9q0 1.1 0.8 1.9t2 0.8h0.1q1.3 0 2.1-0.8t0.8-1.9z m13 20.3h5.2v-8.9q0-3.5-1.6-5.2t-4.3-1.8q-3.1 0-4.7 2.6h0v-2.2h-5.1q0 1.4 0 15.5h5.1v-8.7q0-0.8 0.2-1.2 0.3-0.8 1-1.4t1.7-0.5q2.5 0 2.5 3.5v8.3z m10.5-22.3v21.4q0 2.7-1.9 4.6t-4.5 1.8h-21.5q-2.6 0-4.5-1.8t-1.9-4.6v-21.4q0-2.7 1.9-4.6t4.5-1.8h21.5q2.6 0 4.5 1.8t1.9 4.6z"></path></g></svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/lucianoratamero/" target="_blank" rel="noopener noreferrer">
+                  <svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 40 40" style="vertical-align: middle;"><g><path d="m14.6 26.8q0.1-0.1-0.1-0.3-0.2-0.2-0.3 0-0.1 0.1 0.1 0.2 0.2 0.2 0.3 0.1z m-0.6-0.9q-0.2-0.2-0.3-0.1-0.1 0.1 0 0.3 0.1 0.1 0.3 0.1 0.1-0.1 0-0.3z m-1-0.9q0.1-0.1-0.1-0.2-0.1 0-0.1 0-0.1 0.2 0 0.2 0.2 0.1 0.2 0z m0.5 0.5q0.1 0 0-0.1t0-0.1q-0.2-0.2-0.3-0.1t0.1 0.3q0.1 0.1 0.2 0z m1.9 1.7q0.1-0.2-0.2-0.3-0.2 0-0.3 0.1 0 0.2 0.2 0.3 0.2 0 0.3-0.1z m1 0q0-0.1-0.3-0.1-0.2 0-0.2 0.1t0.2 0.2 0.3-0.2z m0.8-0.1q0-0.2-0.2-0.1t-0.2 0.2q0 0.1 0.2 0.1t0.2-0.2z m14.4-7.1q0-4.7-3.4-8.1t-8.1-3.3-8 3.3-3.4 8.1q0 3.7 2.2 6.7t5.6 4.1q0.4 0.1 0.6-0.1t0.2-0.4q0-1.2 0-2.1-0.1 0-0.4 0t-0.8 0.1-1-0.1-1-0.5-0.7-0.9q-0.5-1.3-1.2-1.6-0.1-0.1-0.1-0.1l-0.2-0.2-0.2-0.2 0.1-0.2 0.5-0.1q0.1 0 0.3 0.1t0.7 0.3 0.7 0.8q0.4 0.7 0.8 1t1 0.3 0.9-0.1 0.6-0.2q0.2-1.1 0.8-1.6-1.1-0.1-1.9-0.4t-1.7-0.8-1.2-1.7-0.5-2.7q0-1.8 1.2-3.1-0.5-1.3 0.1-3 0.5-0.1 1.3 0.2t1.3 0.6l0.6 0.4q1.3-0.4 2.8-0.4t2.9 0.4q0.3-0.2 0.6-0.4t1.3-0.6 1.3-0.2q0.6 1.7 0.1 3 1.1 1.3 1.1 3.1 0 1.3-0.3 2.2t-0.8 1.6-1.2 1-1.3 0.6-1.6 0.2q0.8 0.7 0.8 2.2 0 0.9 0 2t0 1.1q0 0.3 0.2 0.4t0.6 0.1q3.4-1.1 5.6-4.1t2.2-6.7z m5.7-10.7v21.4q0 2.7-1.9 4.6t-4.5 1.8h-21.5q-2.6 0-4.5-1.8t-1.9-4.6v-21.4q0-2.7 1.9-4.6t4.5-1.8h21.5q2.6 0 4.5 1.8t1.9 4.6z"></path></g></svg>
+                </a>
+              </li>
+              <li>
+                <a href="http://lastfm.com/user/lucianoratamero" target="_blank" rel="noopener noreferrer">
+                  <svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 40 40" style="vertical-align: middle;"><g><path d="m35 23.5q0-3.9-5.3-5.4-0.7-0.2-1.1-0.3t-0.9-0.6-0.6-1q0-0.1-0.1-0.2t0-0.3-0.1-0.1q0-0.8 0.6-1.4t1.3-0.5q1.2 0 1.6 0.3h0q0.4 0.4 0.9 1.2l2-1.6q-0.8-1.2-1.1-1.4-0.7-0.7-1.5-0.9t-1.9-0.2q-1.8 0-3.1 1.3t-1.4 3q0 0.2 0 0.5 0.4 2.2 1.5 3.2t3.3 1.6q0.6 0.2 1.1 0.3t1 0.5 0.8 0.8 0.3 1v0.1q0.1 1.3-0.9 2.1t-2.2 0.8q-2.2 0-3.7-3.2-0.6-1.1-1.2-2.7t-1.1-2.8-1.2-2.5-1.6-2.1-2.3-1.4-3.3-0.5q-2.3 0-4.3 1.2t-3.2 3.3-1.1 4.3v0q0.1 2.4 1.1 4.5t3 3.3 4.4 1.2q4.1 0 6.2-2.4 0.4-0.6 0.7-1.2l-1.4-2.4q-0.9 1.8-2.2 2.6t-3.2 0.8q-2.6 0-4.3-1.9t-1.7-4.6q0-2.3 1.8-4.2t4.2-1.9q2.5 0 3.8 1.2t2.3 3.8q0.2 0.5 0.6 1.6t0.6 1.7 0.7 1.6 0.9 1.7 1 1.4 1.2 1.2 1.5 0.7 1.8 0.3q2.4 0 4.1-1.5t1.7-3.9z m2.3-14.2v21.4q0 2.7-1.9 4.6t-4.5 1.8h-21.5q-2.6 0-4.5-1.8t-1.9-4.6v-21.4q0-2.7 1.9-4.6t4.5-1.8h21.5q2.6 0 4.5 1.8t1.9 4.6z"></path></g></svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitch.tv/lucianoisstreaming" target="_blank" rel="noopener noreferrer">
+                  <!-- icons by FontAwesome! -->
+                  <svg aria-hidden="true" data-prefix="fab" data-icon="twitch" class="svg-inline--fa fa-twitch fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M40.1 32L10 108.9v314.3h107V480h60.2l56.8-56.8h87l117-117V32H40.1zm357.8 254.1L331 353H224l-56.8 56.8V353H76.9V72.1h321v214zM331 149v116.9h-40.1V149H331zm-107 0v116.9h-40.1V149H224z"></path></svg>
+
+                </a>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav">
+              
+                <a href="../../blog/">
+                  <li  class="active" >Blog</li>
+                </a>
+              
+                <a href="../../talks/">
+                  <li >Talks</li>
+                </a>
+              
+                <a href="../../sketches">
+                  <li >Sketches</li>
+                </a>
+              
+            </ul>
+            <h1><a href="../../">luciano@ratamero.com</a></h1>
+          </div>
+        </nav>
+
+        <div class="col-xs-12 col-lg-9 col-lg-offset-3">
+          <div class="page">
+            
+  
+  <div class="blog-post">
+  
+    <h2 class="page-title">linux para leigos: por que usar linux?</h2>
+  
+  <p class="meta">
+    
+      Luciano Ratamero
+    
+    - Tuesday, June 21, 2016
+  </p>
+  <div class="image-wrapper">
+    <img src="https://lucianoratamero.github.io/img/cover-distros.png">
+</div><p>se você está lendo isso daqui, quer dizer que você já pelo menos pensou na possibilidade de usar linux (que bonito! :D). seja por esforço de um amigo ou parente, ou até pela busca no google, você decidiu que quer entender melhor qual é a desse negócio de linux. bem, não posso te prometer nada, mas vou tentar passar pelos maiores argumentos pra que você faça a transição sabendo da coisa linda que tá fazendo. sem mais delongas, vamos começar!</p>
+<div class="callout text-center">
+    <p><strong>aviso:</strong></p>
+    <p>pro povo que já sabe qual é, devo deixar só o aviso de que quando falo <strong>linux</strong>, me refiro a <strong>distribuições GNU/Linux</strong>.</p>
+    <p>só quero simplificar a ideia e não queria muito perder tempo com a questão semântica de me referir ao GNU/Linux como linux, ok? ok, então. fica triste não :*</p>
+</div><hr>
+
+<h3>o que é o linux?</h3>
+<p>quando falamos de <strong>linux</strong>, estamos falando de <strong>sistemas operacionais baseados em linux</strong>.</p>
+<h4>pera, já começou complicado, o que raios é um sistema operacional? e como assim baseado em linux?</h4>
+<p>caaaalma, caaaalma, vamos por partes. um <strong>sistema operacional</strong> não é nada mais que um conjunto de <strong>programas</strong> que fazem a <strong>ponte entre o que o seu computador entende (zeros e uns) e o que os seres humanos entendem (textos, sons, imagens, vídeos)</strong>.</p>
+<p>eles fazem com que, quando você movimente o mouse, a imagem do cursor mude de lugar na tela, por exemplo. lidam com todas as camadas: a sensibilidade de ver que o mouse mexeu, a interpretação disso como uma intenção de mover o cursor, a atualização do local onde o cursor está e a exibição dele no novo lugar da tela. não parece, mas essa é uma operação mega complexa. enfim, eles fazem isso, e também dão recursos para que <strong>outros programas possam ser instalados</strong> e usados nesse computador.</p>
+<h4>hmm, saquei, então por isso que linux é tipo o windows, né?</h4>
+<p>isso, ele é igual ao windows no sentido de que você primeiro precisa instalar ele, o sistema operacional, antes de instalar todos os outros programas, exatamente por ele ser essa ponte. mas, é claro, se o linux não fosse diferente o suficiente, eu não estaria explicando, né. então vamos pras diferenças reais!</p>
+<h3>instalação de programas</h3>
+<p>uma das primeiras grandes vantagens do linux é seu modo de instalar programas. em todas as grandes <strong>distribuições linux</strong>, o sistema já vem com um programa que <strong>literalmente</strong> te deixa instalar qualquer programa disponível. <strong>no mundo. <em>sim. isso mesmo.</em></strong> cabou superdownloads, cabou o negócio de você instalar uma toolbar sem querer só por causa do winrar, cabou essa caça por lugares confiáveis pra baixar os programas. (ah, chamamos de distribuição linux um sistema qualquer que use linux. leia-se somente <em>linux</em>)</p>
+<div class="image-wrapper">
+    <img src="https://lucianoratamero.github.io/img/instalador de programas.png">
+</div><p>basicamente, toda distribuição tem seus <strong>repositórios de softwares</strong>. pense nisso como o seguinte: toda distribuição tem um <strong>gigantesco</strong> servidor com <strong>todos os programas nele</strong>. daí, quer instalar alguma coisa, só abrir o programa de instalar programas, buscar o que quer e pronto, instalado. fácil, limpo, sem medo de ser feliz (e sem <a href="http://olhardigital.uol.com.br/noticia/saiba-como-remover-o-hao123-do-computador/44048">pegadinha do Hao123</a>).</p>
+<p>o único problema é que programas patenteados <em>(estou olhando pra você, Adobe)</em> não podem ser distribuídos dessa forma. isso significa <strong>nada de photoshop, nada de office</strong>. mas, relaxa, <strong>existem programas extremamente competentes</strong> em fazer o trabalho que esses aí fazem; só é necessário que você pare pra aprender como mexer neles, assim como aprendeu a mexer no office. e, olha, geralmente eles são <strong>bem parecidos</strong> (como o <a href="https://www.wps.com/linux">WPS Office</a>, por exemplo) e compatíveis. e o melhor, <strong>tudo grátis, pra sempre grátis</strong>.</p>
+<h3>velocidade</h3>
+<p>cara, eu tenho um computador de 7 anos atrás, um <strong>celeron</strong> bosta, todo ferrado, mais lento que meu smartphone, e ele roda linux <strong>como um campeão</strong>. se você não entendeu, te digo então: <strong><em>linux é rápido pra cacete</em></strong>. então se você quer usar seu laptop por mais, sei lá, quatro anos, mas ele tá lento, coloca linux nele. não vai se arrepender.</p>
+<p>ah, só pra dizer, seu smartphone também é linux, provavelmente. é android? sim, android é linux. a google foi muito esperta mesmo.</p>
+<h3>segurança</h3>
+<p>como eu disse ali em cima, você nunca mais vai cair nas pegadinhas de instaladores do windows. além disso, como toda a instalação está centralizada em um programa só, ele sabe perfeitamente quando tem que atualizar os programas, caso algum deles deixe alguma brecha de segurança aberta.</p>
+<p>mas o que mais explica a segurança dos sistemas linux é o fato de que, geralmente, todos os programas são, pelo menos, <strong>open source</strong>.</p>
+<h4>como assim? ter o código inteiro do programa aberto pra qualquer um ver não significa que qualquer um pode ver as falhas dele?</h4>
+<p>é, parece um paradoxo, né? engraçado, mas o fato de ter as falhas expostas só faz com que os programas sejam <strong>ainda mais seguros</strong>. já que as falhas estão expostas, qualquer um pode apontar a falha, e isso faz com que as brechas de segurança sejam consertadas <strong>em questão de minutos</strong>. porque esse é o ponto principal: já que é a <strong>própria comunidade</strong> que vê e corrige os problemas de forma <strong>voluntária</strong>, o único motivo que sobra para consertar algo é, bem, <em>ter algo consertado</em>.</p>
+<p>no windows, quando um problema é encontrado, a microsoft tem que <strong>pagar alguém</strong> pra ir lá e consertar; ou seja, como uma empresa, ela geralmente prefere <strong>esconder suas falhas</strong> pra não gastar dinheiro do que pagar alguém pra consertar. isso significa que uma <strong>falha de segurança</strong> que está lá, no seu computador, <strong>há anos</strong>, pode estar sendo explorada por alguém, pelo simples fato de que a microsoft quer economizar grana e não deixa o código do windows aberto.</p>
+<p>yep, abrir o código te dá mais segurança. <em>deal with it.</em></p>
+<h3>drivers? que drivers?</h3>
+<p>falando em windows, quem aqui nunca teve problema de drivers levanta a mão! sabe quando você compra um computador e ele vem cheio de programa aleatório com nome de quinze empresas, e se você quiser tirar, se ferra aí? esses são nossos amigos <strong>drivers</strong> (mentira, são inimigos mesmo).</p>
+<p>outro cenário: deu pau no seu HD e você tem que formatar tudo? <strong><em>oh, noez,</em></strong> agora tá tudo zoado, nem o som funciona direito, a tela tá com tudo grande, a wifi não funciona. <em>drivers, man, friggin drivers.</em></p>
+<p>cabou. linux tem disso não. instalou o sistema operacional, tá tudo funcionando. mesmo. tipo, cabou drivers, não tem mais drivers. <a href="https://www.youtube.com/watch?v=z64LKnEAI7k">morreu. feneceu. tá enterrado.</a> assim, <em>até tem</em>, e de vez em quando <em>sim, dá problema</em>, mas, sério, faz <strong>muito</strong> tempo que não vejo gente reclamando de drivers quando tá usando linux (fora o pessoal que é chato e fica mexendo onde não deve, né, Rômulo?). isso significa que <strong>você pode instalar linux num pendrive e usar como computador</strong>. sério! eu já fiz isso, foi super de boa :D</p>
+<h3>suporte e comunidade</h3>
+<p>eu já disse que é tudo grátis, né? então, o suporte também é grátis. na verdade, <a href="http://www.diolinux.com.br/2016/02/russia-vai-migrar-para-linux.html">tem <strong>muita</strong> repartição pública pelo mundo</a> que tá trocando pra linux exatamente porque tudo se atualiza automaticamente, e tudo é grátis, sem ligação direta com nenhuma empresa. eu lembro que <a href="http://www.ic.uff.br/index.php/pt/laboratorios/graduacao">até a UFF já usa linux em seus laboratórios de informática</a> pra não precisar pagar os <strong>rios de dinheiros</strong> em licensas do windows.</p>
+<p>bem, de vez em quando você vai ter um problema ou outro, e isso é normal com qualquer tipo de computador e sistema. mas aí vem outra parte importante do mundo linux: <strong>a comunidade</strong>. se você tá tendo um problema, cara, <strong>alguém</strong> já teve esse problema e provavelmente <strong>já resolveu</strong>. uma bela busca no google e pronto, você mesmo consertou seu pc. no pior dos piores casos, é só você instalar o linux de novo, o que é mais fácil que entender como funciona o jogo do truco (sério, não entendo truco até hoje!).</p>
+<h3>personalização</h3>
+<p>outra grande vantagem é que você não tem só uma versão do sistema pra usar. na verdade, existem <a href="http://distrowatch.com/dwres.php?resource=popularity">mais de 270 versões diferentes de linux por aí</a>. imagina como seria ter 270 versões diferentes do windows? de repente, <em>até teria uma boa!</em></p>
+<p>ok, brincadeiras de lado, além de tantas distribuições diferentes, também temos várias interfaces diferentes pra se escolher. essas interfaces mudam de tudo, desde como usar as janelas, onde fica a barra de notificações, onde fica o relógio, onde ficam os ícones dos programas a serem abertos, enfim, <strong>tudo que é visual</strong>. sempre tem <strong>alguma</strong> dessas interfaces que vai ser a melhor pra você, desde o <a href="https://unity.ubuntu.com/">unity</a>, até o <a href="https://www.gnome.org/gnome-3/">gnome</a>, o <a href="https://www.kde.org/screenshots/">kde</a>, o <a href="https://en.wikipedia.org/wiki/Elementary_OS#/media/File:Elementary_OS_0.3_%22Freya%22.png">pantheon</a>, o <a href="http://www.xfce.org/about/screenshots">xfce</a>, o <a href="http://lxde.org/image_galleries/screenshots/">lxde</a>, o <a href="http://openbox.org/wiki/Openbox:Screenshots">openbox</a>... tem muitos pra listar aqui. <strong><a href="http://www.howtogeek.com/163154/linux-users-have-a-choice-8-linux-desktop-environments/">mesmo.</a></strong></p>
+<p>aliás, o <a href="https://elementary.io/pt_BR/">elementary os</a> é o sistema operacional mais lindo que já vi, na boa.</p>
+<h3>bem-vindo ao mundo do software livre!</h3>
+<p>além das <strong>claras</strong> vantagens sobre o windows, você começa a se envolver no mundo do software livre. foi a partir do linux que comecei a querer me tornar programador, e por causa do software livre que fiquei. é um mundo vasto, cheio de pessoas lindas e coisas novas a descobrir.</p>
+<h3>tl;dr, #comofas</h3>
+<p>o linux é pra você se você quer algo <strong>seguro, gratuito, leve, bonito e configurável</strong>. ou seja, <strong>não há motivos pra não querer usar</strong>. já se foi o tempo em que era difícil instalar e configurar; hoje, instalar é fácil, usar é fácil, manter atualizado é fácil.</p>
+<p>só <strong>não recomendo linux pra</strong> dois tipos de público: <strong>designers</strong> e <strong>gamers</strong>. apesar de termos ferramentas maravilhosas como o <a href="https://inkscape.org/">inkscape</a> para trabalhar como designer e de termos a <a href="http://store.steampowered.com/browse/linux/">steam disponível pra linux</a>, ainda não chegamos no ponto de simplesmente substituir o windows ou o osx pra esses públicos. <strong>mas as coisas estão melhorando nesses aspectos</strong> e duvido que vá demorar muito mais tempo pra quebrarmos de vez todas as barreiras.</p>
+<p>se você ficou empolgado e agora quer dar o pontapé inicial, <a href="https://www.facebook.com/lucianoratamero">pode falar comigo no facebook</a> ou esperar um post que está por vir, o de <strong>como escolher a distribuição linux ideal pra você</strong>. até lá, fico por aqui, respondendo a comentários. abraços o/</p>
+
+  </div>
+
+
+  <div class="comments">
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/blog/linux-para-leigos-por-que-usar-linux"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lucianoratamerosblog.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+</div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <nav class="nav-mobile">
+        <h1><a href="../../">luciano@ratamero.com</a></h1>
+        <ul class="nav navbar-nav">
+          
+            <a href="../../blog/">
+              <li  class="active" >Blog</li>
+            </a>
+          
+            <a href="../../talks/">
+              <li >Talks</li>
+            </a>
+          
+            <a href="../../sketches">
+              <li >Sketches</li>
+            </a>
+          
+        </ul>
+      </nav>
+    </div>
+
+  </div>
+  <div class="lds-ripple"><div></div><div></div></div>
+  <script src="../../js/main.js"></script>
+</body>
