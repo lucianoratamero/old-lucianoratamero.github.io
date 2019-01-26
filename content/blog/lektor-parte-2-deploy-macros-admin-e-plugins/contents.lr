@@ -1,0 +1,130 @@
+title: Lektor parte 2: deploy, macros, admin e plugins
+---
+author: Luciano Ratamero
+---
+body:
+
+<div class="image-wrapper">
+    <a target="_blank" href="https://getlektor.com/"><img src="https://lucianoratamero.github.io/img/cover-lektor-2.png"></a>
+</div>
+
+agora que já expliquei o básico de como utilizar o Lektor pra desenvolver seu site estático, vou começar a explicar alguns aspectos mais avançados. não pretendo ser muito detalhista, mas fiquem a vontade para pedir mais informações nos comentários. aí vai!
+
+<hr>
+
+### deploy
+
+sim, o Lektor vem pronto para uma série de opções para deploy facilitado: [rsync](https://www.getlektor.com/docs/deployment/rsync/), [ftp](https://www.getlektor.com/docs/deployment/ftp/), [github pages](https://www.getlektor.com/docs/deployment/ghpages/) e, via plugin, [s3](https://github.com/spenczar/lektor-s3). isso significa que basta ter um local remoto para manter seus arquivos estáticos que você tem um site pronto, com deploy e tudo.
+
+o deploy dele é facilmente configurado e bem inteligente, já que ele verifica somente os arquivos que precisam ser alterados e os sobrescreve. para configurar, basta seguir [a documentação](https://www.getlektor.com/docs/deployment/#lektor-assisted-deployments) do método escolhido e rodar <code>lektor build  lektor deploy</code>. esse processo garante que o Lektor pegará a versão mais nova antes de sincronizar com o servidor.
+
+no meu caso, foi só (juro que foi só isso) colocar o seguinte no meu arquivo de projeto, o <code>blog.lektorproject</code>:
+
+<pre><code>[servers.ghpages]
+target = ghpages+https://lucianoratamero/blog</code></pre>
+
+não cheguei a ver os outros, mas **duvido** que sejam muito mais complicados que isso.
+
+### macros
+
+quando você tiver brincado o suficiente com os modelos do Lektor, você vai sentir falta de iteradores de template. um exemplo clássico é uma página de resumo dos posts de um blog, como a que eu tenho na home desse aqui.
+
+pra isso, existem as macros. elas são templates com lógicas embutidas. mais fácil de explicar mostrando um exemplo.
+
+<pre><code class="django">{% macro render_blog_post(post, from_index=false) %}
+  &lt;div class="blog-post"&gt;
+  {% if from_index %}
+    &lt;h2&gt;&lt;a href="{{ post|url }}"&gt;{{ post.title }}&lt;/a&gt;&lt;/h2&gt;
+  {% else %}
+    &lt;h2&gt;{{ post.title }}&lt;/h2&gt;
+  {% endif %}
+  &lt;p class="meta"&gt;
+    {{ post.pub_date }}
+  &lt;/p&gt;
+  {{ post.body }}
+  &lt;/div&gt;
+{% endmacro %}</code></pre>
+
+o papel dessa macro é receber um objeto <code>post</code> e formatá-lo de acordo com o template. ele é usado pelo template de blog da seguinte forma:
+
+<pre><code class="django">{% extends "layout.html" %}
+{% from "macros/blog.html" import render_blog_post %}
+{% from "macros/pagination.html" import render_pagination %}
+
+{% block title %}
+  {% if this.title %}{{ this.title }}{% else %}olar{% endif %}
+{% endblock %}
+
+{% block body %}
+  {% for child in this.pagination.items %}
+    {{ render_blog_post(child, from_index=true) }}
+  {% endfor %}
+
+  {{ render_pagination(this.pagination) }}
+{% endblock %} </code></pre>
+
+vemos assim que só é necessário importar a macro criada e passar os objetos corretos. pra saber quais objetos e como usá-los, é só dar uma olhada na documentação da [API de tratamento de dados](https://www.getlektor.com/docs/api/db/) do Lektor.
+
+### admin
+
+ah, sim, o Lektor, quando usado localmente, oferece uma interface administrativa pra edição e criação de conteúdo. pra usá-la, basta rodar o servidor com <code>lektor server</code>, acessar a página <code>localhost:5000</code> e clicar no ícone do lápis do canto da tela.
+
+<div class="image-wrapper">
+    <img src="https://lucianoratamero.github.io/img/acessando-o-admin.jpg">
+</div>
+
+isso te levará pra uma página do admin similar à essa:
+
+<div class="image-wrapper">
+    <img src="https://lucianoratamero.github.io/img/admin.jpg">
+</div>
+
+todas as alterações feitas nela refletirão nos seus arquivos do projeto e vice-versa. fica na sua preferência utilizar a interface administrativa ou editar os arquivos <code>content.lr</code> diretamente. :) mais um pouco e já poderemos colocar isso na mão dos próprios clientes!
+
+### plugins
+
+como o Lektor é bem documentado e extensível, ficou fácil pra (pequena) comunidade criar plugins que adicionam novos comportamentos. vocês devem ter notado que uso o disqus como plataforma de comentários, e não tive trabalho quase nenhum pra colocá-lo no blog, quase nenhum **mesmo**.
+
+pra usar um plugin, é só procurar na [página de plugins do Lektor](https://www.getlektor.com/docs/plugins/) o plugin que quer usar e seguir a própria documentação. vou demonstrar pra vocês como foi fácil colocar o [plugin de comentários do disqus](https://github.com/lektor/lektor-disqus-comments).
+
+o que eu fiz foi abrir o aquivo <code>blog.lektorproject</code> na raiz do meu projeto (o nome do arquivo varia com o nome do projeto) e colocar as seguintes linhas:
+
+<pre><code>[packages]
+lektor-disqus-comments = 0.1</code></pre>
+
+isso fez com que, quando eu rodasse <code>lektor server</code> ou <code>lektor build</code>, ele detectasse minha intenção, instalasse as dependências e ficasse pronto pra usar o plugin.
+
+depois disso, fui no [disqus](https://publishers.disqus.com/engage?utm_source=Home-Nav) e criei uma comunidade pro blog (é bem autoexplicativo o processo, não me demorou dois minutos).
+
+com o nome da comunidade em mãos, criei uma pasta <code>configs/</code> na raiz do projeto com um arquivo <code>disqus-comments.ini</code> dentro. nesse arquivo, só precisei declarar o shortname da comunidade.
+
+<pre><code>shortname = lucianoratamerosblog</code></pre>
+
+com o disqus configurado, escolhi o template de blog-post pra habilitar os comentários e os coloquei assim:
+
+<pre><code class="django">{% extends "layout.html" %}
+{% from "macros/blog.html" import render_blog_post %}
+{% block title %}{{ this.title }}{% endblock %}
+{% block tags %}{{ this.tags }}{% endblock %}
+{% block body %}
+  {{ render_blog_post(this) }}
+  <div class="comments">{{ render_disqus_comments() }}</div>
+{% endblock %} </code></pre>
+
+só precisei botar mesmo a div de comentários. daí foi recarregar a página e voilá, tudo funcionando **lindamente**.
+
+<hr>
+
+enfim, espero ter abordado um pouco melhor alguns detalhes e features interessantes do Lektor. caso tenham alguma pergunta ou dúvida, só mandarem ver nos comentários. é isso por enquanto, minha gente, vejo vocês na próxima! o/
+---
+pub_date: 2016-02-03
+---
+summary:
+
+<div class="image-wrapper">
+    <a target="_blank" href="https://getlektor.com/"><img src="https://lucianoratamero.github.io/img/cover-lektor-2.png"></a>
+</div>
+
+agora que já expliquei o básico de como utilizar o Lektor pra desenvolver seu site estático, vou começar a explicar alguns aspectos mais avançados. não pretendo ser muito detalhista, mas fiquem a vontade para pedir mais informações nos comentários. aí vai!
+---
+tags: lektor, python, site estático, deploy, macros, admin, plugins

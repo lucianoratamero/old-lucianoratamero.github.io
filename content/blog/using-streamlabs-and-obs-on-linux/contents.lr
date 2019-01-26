@@ -1,0 +1,83 @@
+title: using streamlabs and OBS on linux
+---
+author: Luciano Ratamero
+---
+body:
+
+<div class="image-wrapper">
+    <img src="https://www.ratamero.com/img/usando-streamlabs-com-obs-no-linux/streamlabs%20obs%20linux.png">
+</div>
+
+lately I've been watching a lot of streams on twitch. even if I'm doing something or just want to turn my brain off, I always leave a tab open; but the streams are always related to video games. with that in mind, I was thinking about streaming some coding sessions for a change.
+
+but if you're streaming, it's important to keep an eye on people chatting and watching, so it nice to have a couple of alerts for certain user interactions, like who followed you or subscribed to you, for example. for that, people from [streamlabs](https://streamlabs.com) offer [their open sourced version](https://github.com/stream-labs/streamlabs-obs/) of the famous Open Broadcaster Studio - aka [OBS](https://obsproject.com/) - with their own tweaks, to make it easy to handle stream related alerts.
+
+the only catch: **it doesn't work on linux**.
+
+### there's always a way
+
+for these cases, streamlabs offers an url to a private web page that shows these alerts: the **Alert Box**. if you want to find the url to yours, log into streamlabs, click on **Widgets**, then **Alert Box** and you'll have the option to copy the url to your Alert Box page.
+
+<div class="image-wrapper">
+    <img src="https://www.ratamero.com/img/usando-streamlabs-com-obs-no-linux/widget-box-url.png">
+</div>
+
+with that, all we need is to have OBS treat this web page as a real input device. it's here that the magic happens.
+
+### obs-linuxbrowser
+
+<div class="image-wrapper">
+    <img src="https://www.ratamero.com/img/usando-streamlabs-com-obs-no-linux/obs-linuxbrowser.png">
+</div>
+
+the user [bazukas](https://github.com/bazukas/) has published this beautiful plugin that does all the grunt work for us: [obs-linuxbrowser](https://github.com/bazukas/obs-linuxbrowser/). this plugin uses chromium behind the scenes to render any web page as an OBS input - and yeah, **it works on linux**.
+
+with OBS installed, to use the pugin, you only need to download the latest version from their [releases page](https://github.com/bazukas/obs-linuxbrowser/releases) and unpack it to your OBS' plugins directory. the default directory is `~/.config/obs-studio/plugins`.
+
+tldr:
+
+- download the plugin
+- `mkdir -p ~/.config/obs-studio/plugins/`
+- `tar -zxvf linuxbrowser0.5.2-obs21.1.2-64bit.tgz -C ~/.config/obs-studio/plugins/`
+
+with that done, a new source type will appear in the add sources menu on OBS, called **Linux Browser**.
+
+<div class="image-wrapper">
+  <a href="https://www.ratamero.com/img/usando-streamlabs-com-obs-no-linux/add-input.png">
+    <img src="https://www.ratamero.com/img/usando-streamlabs-com-obs-no-linux/add-input.png">
+  </a>
+</div>
+
+you just need to add it by clicking on +, then **Linux Browser** and put your **Alert Box** url in the URL field.
+
+<div class="image-wrapper">
+  <a href="https://www.ratamero.com/img/usando-streamlabs-com-obs-no-linux/config-linux-browser.png">
+    <img src="https://www.ratamero.com/img/usando-streamlabs-com-obs-no-linux/config-linux-browser.png">
+  </a>
+</div>
+
+you could test if the alerts are appearing on OBS by going to streamlabs and clicking the test buttons!
+
+<div class="image-wrapper">
+  <a href="https://www.ratamero.com/img/usando-streamlabs-com-obs-no-linux/test-alert.png">
+    <img src="https://www.ratamero.com/img/usando-streamlabs-com-obs-no-linux/test-alert.png">
+  </a>
+</div>
+
+that's it for today! if you have any tips or suggestions on how to improve this post, just ping me in the comments section. see you!
+---
+pub_date: 2019-01-04
+---
+summary:
+
+<div class="image-wrapper">
+    <img src="https://www.ratamero.com/img/usando-streamlabs-com-obs-no-linux/streamlabs%20obs%20linux.png">
+</div>
+
+lately I've been watching a lot of streams on twitch. even if I'm doing something or just want to turn my brain off, I always leave a tab open; but the streams are always related to video games. with that in mind, I was thinking about streaming some coding sessions for a change.
+
+but if you're streaming, it's important to keep an eye on people chatting and watching, so it nice to have a couple of alerts for certain user interactions, like who followed you or subscribed to you, for example. for that, people from [streamlabs](https://streamlabs.com) offer [their open sourced version](https://github.com/stream-labs/streamlabs-obs/) of the famous Open Broadcaster Studio - aka [OBS](https://obsproject.com/) - with their own tweaks, to make it easy to handle stream related alerts.
+
+the only catch: **it doesn't work on linux**.
+---
+tags: streamlabs,obs,linux,alerts

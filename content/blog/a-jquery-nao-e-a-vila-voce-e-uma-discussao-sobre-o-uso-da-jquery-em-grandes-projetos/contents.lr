@@ -1,0 +1,114 @@
+title: a jQuery não é a vilã; você é - uma discussão sobre o uso da jQuery em grandes projetos
+---
+author: Luciano Ratamero
+---
+body:
+
+<div class="image-wrapper">
+    <img src="https://lucianoratamero.github.io/img/cover.png">
+</div>
+
+*edit: esse post é um dos meus mais antigos, e como a linguagem da época era agressiva demais, decidi mudar um bocado. outro detalhe é que isso não reflete tanto meus pensamentos atuais sobre a jQuery em si, mas ainda são 100% válidos pra outros contextos ;)*
+
+uma das coisas que mais me deixam feliz na comunidade de javascript é sua velocidade de mudança e absorção de ideias. durante meus cinco anos de desenvolvedor, vi grandes mudanças no uso e no perfil de quem usa javascript — pra melhor, **muito** melhor. é uma comunidade com orgulho de ser jovem, de fazer as coisas com as próprias mãos, de não ter medo de aprender com as outras linguagens e que admite as próprias falhas. no entanto, uma coisa nunca fez muito sentido pra mim: por que raios todo mundo odeia a jQuery?
+
+<hr>
+
+tenho alguns pensamentos sobre o assunto, e finalmente saí da inércia de escrever sobre isso. bem, antes de tudo, aqueles disclaimers: essa é a minha opinião, somente minha, e você tem todo o direito de concordar ou discordar, completamente ou em partes. minha intenção é exatamente essa, de gerar material para gerar discussão. :)
+
+vou dividir meus pensamentos em quatro partes:
+
+1. jQuery como porta de entrada ao mundo do front end;
+2. jQuery e seu papel em grandes projetos;
+3. jQuery, suas características e seu ecossistema;
+4. os problemas da jQuery e como solucioná-los.
+
+então sentem-se em um lugar confortável, peguem café e aguinha e lá vamos nós!
+
+<hr>
+
+### jQuery como porta de entrada ao mundo do front end
+
+bem, aqui vou chover um pouco no molhado, mas é necessário dizer: aprender javascript de front end é difícil. tão difícil como aprender outras linguagens de alto nível; talvez um pouco mais, por seus tipos dinâmicos e mensagens de erro não muito intuitivas (nunca vou me esquecer do meu primeiro NaN, e acho que vocês também não se esqueceram dos seus).
+um grande fator pra essa complicação toda é termos que lidar o tempo todo com o DOM, e ele tende a ser complicado de se entender logo de cara, difícil de desassociar do javascript como linguagem de programação.
+
+no entanto, poucos de nós paramos pra realmente entender como o DOM funciona, exatamente porque não precisamos disso para a maioria das tarefas diárias. temos bibliotecas e frameworks que lidam com ele por nós — e isso é bom.
+
+por isso eu digo: agradeço imensamente por ter começado a aprender javascript com front end, principalmente por ter aprendido com a jQuery. ela esconde o suficiente, te ensinando o necessário para suas tarefas diárias. a jQuery é tão boa, mas tão boa, que muitos nem aprendem javascript; ficam na jQuery mesmo.
+
+a jQuery é boa pros iniciantes por ser uma camada fina, mas consistente, por cima do DOM.
+
+“mas Luciano, eu não sou iniciante, eu sei javascript! se eu sei fazer o que a jQuery faz, pra que que eu preciso usar?”, você está pensando. calma, calma, vamos lá.
+
+### jQuery e seu papel em grandes projetos
+
+quem aqui já teve que manter um projeto por mais de três anos, por favor, levante a mão. o/ manter um projeto de longa data não é fácil, e isso se dá por vários motivos: a rotatividade de pessoas tende a ser alta; as convenções de padrões de desenvolvimento se perdem; as dependências tecnológicas do projeto mudam.
+
+em um projeto de longa data, o código que antes era bom e resolvia um problema agora é ruim, obsoleto, difícil de manter; e isso é natural.
+
+é natural, porque as pessoas aprendem. porque elas evoluem, assim como a tecnologia. porque elas entram e saem do projeto, trazendo e levando a bagagem de cada um.
+
+nessa hora, ter uma API consistente, única e bem documentada é essencial. uma API consistente permite que pessoas entrem e saiam do projeto sem ter medo de deixar um código ininteligível pra trás — a não ser que não vejam opção.
+
+se a API for simples, fácil de usar e bem documentada, ela permite que desenvolvedores que mal conhecem do projeto possam cair dentro e desenvolverem o que precisam, sem muito medo de fazer besteira. e a jQuery é perfeita pra esse papel.
+
+perdi a conta das vezes que vi desenvolvedores de back end ou de outros projetos mandando ver em correção de bug dos meus projetos, e isso só se tornou possível porque desenvolver front se tornou fácil.
+
+“mas Luciano, a jQuery é muito pesada, quero que meu site mobile seja leve”, você diz. calma, calma, vamos lá.
+*edit: acho que essa preocupação com site leve meio que foi embora, já que geral hoje usa de tudo um pouco, e a média de tamanho dos sites só está crescendo.*
+
+### jQuery, suas características e seu ecossistema
+
+digamos que você tá fazendo seu projetinho, e ele é só seu, e você é bom em javascript, e você acha que a jQuery é pesada demais pro que você quer fazer. é uma preocupação válida, a de fazer seu usuário baixar o mínimo de script possível. só te digo uma coisa: falar que a jQuery é pesada é coisa do passado.
+
+a jQuery mais nova, minificada e gzipada, pesa 29kbs. [sério. mesmo.](https://mathiasbynens.be/demo/jquery-size) 29kbs não é nada hoje em dia. [cabe até num cartucho de NES.](https://en.wikipedia.org/wiki/Nintendo_Entertainment_System_technical_specifications#Memory)
+
+outra coisa: ela aumentou de tamanho ao longo dos anos, sim, mas diminuiu de tamanho em relação a alguns anos atrás. isso, aliado à evolução da velocidade de tráfego de dados, faz com que o argumento que jQuery é pesada seja um tanto desinformado.
+
+claro, claro, conseguimos fazer coisas mais leves, usando outros frameworks (como o [riot](http://riotjs.com/)) ou outras bibliotecas similares (como o [zepto](http://zeptojs.com/)) para fazermos trabalhos parecidos, mas nenhuma dessas bibliotecas/frameworks tem a longevidade (9 anos! *edit: 11 já! :O*) e o ecossistema de extensões que a jQuery tem.
+
+além disso, ela provê helpers pra fazer praticamente tudo que se precisa no dia a dia sem precisar de uma quantidade gigantesca de código. dessa forma, você não precisa de tanto trabalho braçal, nem de esquentar a cabeça com o tamanho dos seus próprios arquivos js.
+
+então, antes de falar que a jQuery é pesada, pense na fonte marota que você mandou carregar no seu site mobile. naquela imagem bonita de capa. pense no quanto você pode economizar de outras formas e no quanto você pode facilitar a vida de outros, caso você decida abrir seu projeto.
+
+“mas Luciano, na verdade eu não gosto da jQuery porque é horrível de manter. o código fica todo macarrônico, a gente nunca sabe o que tá fazendo o que, e por isso que eu uso o framework X, pra poder organizar o código”, você tá pensando. e é agora que eu digo: a vilã não é a jQuery — é quem a usa. vou explicar melhor nessa próxima parte.
+
+### os problemas da jQuery e como resolvê-los
+
+todos nós provavelmente já passamos por algum projeto em que o js no front tava bizarro e botamos a culpa na jQuery. as críticas a ela nesse âmbito geralmente estão em três pontos:
+
+* o código está ilegível, macarrônico, desorganizado;
+* o código está difícil de testar;
+* o código tem problemas de performance.
+
+esses três pontos tem uma, e apenas uma variável em comum, e ela não é a jQuery; é como ela é usada.
+
+pros dois primeiros problemas, digo o seguinte: a API da jQuery não permite declarar intenção, por ser predominantemente imperativa. ela não diz pra que ela serve no projeto, mas somente o que cada função faz. quem tem que deixar claro o papel do código no projeto é quem a usa. e a solução pra esse problema é a seguinte: envolva o código da jQuery em funções suas, em arquivos diferentes e categorizados. legibilidade conta, organização conta, **contexto** conta.
+
+ou, se quiser, melhor ainda: envolva todo e qualquer código que tenha ligações hardcoded com o DOM e pronto: você tem um código desacoplado. quer usar outra biblioteca no lugar da jQuery? só mudar as amarras com o DOM. quer testar? só mockar as chamadas à jQuery e pronto: seu código está testável.
+
+faltou falar sobre problemas de performance, e digo que, se você estudar como os browsers funcionam, você consegue fazer um código rápido com quase qualquer ferramenta que você quiser usar. é um conhecimento bem útil pra quando você precisa otimizar alguma coisa. aliás, recomendo [essa palestra aqui](https://www.youtube.com/watch?v=SmE4OwHztCc) sobre esse tema.
+
+e se, mesmo assim, você estiver tendo problemas, reveja o conceito da página, porque provavelmente ela está fazendo coisa demais. problemas conceituais, sejam de levantamento de requisito ou de design de fluxo da aplicação, sempre refletem no código, e é sempre bom estar com a guarda levantada sobre esse aspecto do desenvolvimento.
+
+<hr>
+
+enfim, espero que tenha apresentado meus pontos de vista direito. pra fechar, o clássico: use a ferramenta certa pro problema certo. eu mesmo me pego usando angular pra alguns projetos, e eu odeio angular, mas isso é papo pra outros posts. só queria deixar claro uma coisa: usar jQuery nunca é uma ideia ruim. pode até não ser uma ideia maravilhosa, mas ruim não é.
+
+então antes de perder quinze horas fazendo aquela feature sem jQuery, pense duas vezes. recomendo usá-la, a não ser que você queira provar pra si mesmo que consegue fazer sem ela (o que é ótimo, até recomendável); mas num projeto de verdade, não tenha medo de usar.
+
+abraços, e até mais! o/
+---
+pub_date: 2016-02-26
+---
+summary:
+
+<div class="image-wrapper">
+    <img src="https://lucianoratamero.github.io/img/cover.png">
+</div>
+
+*edit: esse post é um dos meus mais antigos, e como a linguagem da época era agressiva demais, decidi mudar um bocado. outro detalhe é que isso não reflete tanto meus pensamentos atuais sobre a jQuery em si, mas ainda são 100% válidos pra outros contextos.  ;)*
+
+uma das coisas que mais me deixam feliz na comunidade de javascript é sua velocidade de mudança e absorção de ideias. durante meus cinco anos de desenvolvedor, vi grandes mudanças no uso e no perfil de quem usa javascript — pra melhor, **muito** melhor. é uma comunidade com orgulho de ser jovem, de fazer as coisas com as próprias mãos, de não ter medo de aprender com as outras linguagens e que admite as próprias falhas. no entanto, uma coisa nunca fez muito sentido pra mim: por que raios todo mundo odeia a jQuery?
+---
+tags: jQuery, grandes projetos, arquitetura, planejamento, frontend, javascript, frameworks, segregated dom

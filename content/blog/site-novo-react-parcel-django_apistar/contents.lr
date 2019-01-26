@@ -1,0 +1,80 @@
+title: site novo: react + parcel + django_apistar
+---
+author: Luciano Ratamero
+---
+body:
+
+<div class="image-wrapper">
+    <img src="https://lucianoratamero.github.io/img/cover-site-novo.png">
+</div>
+
+fala, pessoal! depois de muito tempo, tô de volta, e dessa vez com o site novo, bonito, enxuto; e o melhor: funcionando. antes, ele era implementado com [lektor](https://www.getlektor.com/). apesar de tudo funcionar, o processo de criar um post novo era chato, desnecessariamente complexo e - sendo sincero - cheio de bugs. então vou falar um pouco como foi pensar nessa versão nova e quais foram as decisões tomadas. vamos lá!
+
+--------
+
+### antigamente...
+
+lá pros idos de 2014, as coisas eram bem diferentes. mesmo com react e angular já fazendo e acontecendo, pouca gente, pelo menos no meu círculo social, falava em single-page applications; apesar de sabermos de sua aplicação prática. sem SPAs em mente, minha solução pra fazer meu site no github pages era apenas uma: usar geradores de sites estáticos.
+
+em 2016, já com um site estaticão (bem bizarro, por sinal), decidi que era hora de pegar um desses geradores pra fazer um blog meu, sem depender de medium, wordpress ou blogger. achei o lektor, escrito em python, e por um bom tempo ele me foi bem útil.
+
+os problemas começaram a surgir na hora em que eu fui obrigado a quebrar uma feature obrigatória - a interface administrativa - pra poder fazer as coisas do meu jeito. depois, tive que congelar a versão, porque meus hacks não funcionavam mais nas versões novas. no fim das contas, fiquei preso no python 2, com um framework que mal funcionava, e fui perdendo a paciência. até que, um dia, comecei a usar react no trabalho.
+
+### por que react?
+
+porque eu uso no trabalho, então é o que eu sei. próxima!
+
+### por que não fez antes?
+
+grande parte de ter deixado a rescrita do site pra depois foi uma só: migração dentro do github pages. por mais que seja maravilhoso poder hospedar sites aqui e termos ferramentas como o [travis-ci](travis-ci.org) pra lidar com a parte chata, migrar todo o site antigo, incluindo os posts de blog, mantendo os estáticos no mesmo lugar, se provou ser uma tarefa... inconveniente.
+
+a estrutura de dados do lektor também não ajudou. ele tem seu próprio formato pro conteúdo, baseado em markdown, mas sem muita flexibilidade. não seria tão fácil de manter uma aplicação react que fosse direto nesses estáticos pra ler os posts, e manter htmls antigos, com layouts antigos, seria um péssimo cartão de visita.
+
+pra piorar a vida, quando a gente pensa em react, a gente pensa em es6/7. eu ia **ter** que aprender webpack.
+
+### wtf webpack
+
+ok, ok, webpack é lindo, resolve muita coisa, mas, **nossa, que troço frustrante**. quem vier falar "mas o react já vem com webpack incluso, e funciona bem" nunca teve que fazer simples tarefas, como copiar pastas de lá pra cá durante o deploy. e ejetar o webpack é pedir pra dar problema; então fui eu aprender webpack. cheguei a [fazer um boilerplate](https://github.com/lucianoratamero/rmw-setup) pra usar react com webpack desacoplado, e tudo funcionava - mas cada vez que eu precisava fazer uma coisinha a mais, se iam mais duas, três horas martelando as arestas.
+
+eis que um dia eu acordei e vi um post, não lembro onde, de um cara falando pra tentar, só tentar, usar esse malandro, o [parcel](https://parceljs.org/). a ideia dele é que você configure o mínimo possível, ou até mesmo não configure nada, e ele lide com tudo pra você. e, apesar de uns poucos problemas e a clássica falta de documentação decente de pacotes javascript, ele cumpriu muito bem as expectativas.
+
+### yay parcel
+
+o que eu fiz: deletei meu package.json antigo, criei um novo, salvei o parcel como dependência de desenvolvimento, adicionei um .babelrc bem simples, apontei o parcel pro meu html de entrada e puf, tudo rolando. mesmo. teve **uma** biblioteca que eu tava usando que me deu um pouco de dor de cabeça, mas foi só usar a versão es5 dela que tudo funcionou de primeira. no final do post tem um link pro código fonte.
+
+sério, só vou usar webpack agora se eu precisar de algo **muito** chato de configurar. mesmo.
+
+### mas e os posts, tão dentro da app react?
+
+coloquei django e api star aqui no post por um motivo, né? pra migrar os posts, criei um backend django com uma api feita com api star usando [esse meu projetinho maneiro](https://github.com/lucianoratamero/django_apistar) e entrei na tediosa tarefa de ir todos os posts, um por um, e copiando os dados e respectivas urls pro banco da [app nova](https://github.com/lucianoratamero/ratamero-blog-api). a api [tá aberta](https://ratamero-blog-api.herokuapp.com/docs/), até.
+
+### e o deploy?
+
+travis-ci. lindo. só olhar o [getting started](https://docs.travis-ci.com/user/deployment/pages/).
+
+### legal, tudo pronto, e agora? que que falta fazer?
+
+bom, algumas coisas ainda podem ser acertadas, como, por exemplo, aprimorar a api pra suportar busca textual, melhorar a acessibilidade e testar em mais dispositivos (incluindo IE, que eu não tenho nem como testar). mas acho que por enquanto tá bom o suficiente, então vou indo nessa, deixando aí embaixo os links pros projetos que usei e pros códigos-fontes. abraço, pessoal, até a próxima - e como é bom estar de volta! o/
+
+projetos:
+
+- django_apistar: [https://github.com/lucianoratamero/django_apistar](https://github.com/lucianoratamero/django_apistar)
+- api star: [https://github.com/encode/apistar](https://github.com/encode/apistar)
+- parcel: [https://parceljs.org/](https://parceljs.org/)
+
+códigos-fontes:
+
+- ratamero-blog-api: [https://github.com/lucianoratamero/ratamero-blog-api](https://github.com/lucianoratamero/ratamero-blog-api)
+- react frontend: [https://github.com/lucianoratamero/lucianoratamero.github.io/tree/src](https://github.com/lucianoratamero/lucianoratamero.github.io/tree/src)
+---
+pub_date: 2018-04-27
+---
+summary:
+
+<div class="image-wrapper">
+    <img src="https://lucianoratamero.github.io/img/cover-site-novo.png">
+</div>
+
+fala, pessoal! depois de muito tempo, tô de volta, e dessa vez com o site novo, bonito, enxuto; e o melhor: funcionando. antes, ele era implementado com [lektor](https://www.getlektor.com/). apesar de tudo funcionar, o processo de criar um post novo era chato, desnecessariamente complexo e - sendo sincero - cheio de bugs. então vou falar um pouco como foi pensar nessa versão nova e quais foram as decisões tomadas. vamos lá!
+---
+tags: site novo, react, parcel, django, apistar, Luciano Ratamero

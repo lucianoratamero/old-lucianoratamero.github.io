@@ -1,0 +1,34 @@
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+a {
+  font-weight: bold;
+  color: $secondary_blue;
+  text-decoration: none;
+  border-bottom: 3px dashed $primary_light;
+
+  &:visited {
+    color: $main_blue;
+  }
+}
+
+.page {
+  padding-bottom: 2em;
+  @media only screen and (max-width: 74.99em) {
+    padding-bottom: 10em;
+  }
+
+  .page-title {
+    color: $secondary_blue;
+  }
+
+  .about-image {
+    border-radius: 3px;
+  }
+}
+
+@import "_nav";
+@import "_blog";
+@import "_pagination";

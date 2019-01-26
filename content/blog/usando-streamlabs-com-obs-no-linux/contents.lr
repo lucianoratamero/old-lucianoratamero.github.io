@@ -1,0 +1,83 @@
+title: usando streamlabs com OBS no linux
+---
+author: Luciano Ratamero
+---
+body:
+
+<div class="image-wrapper">
+    <img src="https://www.ratamero.com/img/usando-streamlabs-com-obs-no-linux/streamlabs%20obs%20linux.png">
+</div>
+
+ultimamente eu ando assistindo a muitos canais no twitch durante meu tempo livre. mesmo que tenha algo pra fazer ou só esteja cansado demais pra pensar, acabo sempre deixando uma aba aberta; mas é sempre com algo relacionado a algum jogo eletrônico. pensando nisso, tenho tido bastante vontade de começar a fazer streams de desenvolvimento de código.
+
+mas se é pra fazer streams, é importante se manter em contato com quem tá ali contigo, te assistindo ou seguindo, e se faz necessário o uso de alertas visuais e sonoros pra certas interações do usuário, como novos assinantes ou doadores. pra suprir essa demanda, o pessoal da [streamlabs](https://streamlabs.com) oferece [sua versão open source](https://github.com/stream-labs/streamlabs-obs/) do Open Broadcaster Studio, o famoso [OBS](https://obsproject.com/), com suas alterações, facilitando a vida de quem faz transmissões ao-vivo.
+
+só tem um problema: **não funciona no linux**.
+
+### sempre há um jeitinho
+
+pra esses casos, o streamlabs oferece uma url pra uma página que exibe esses alertas - o que chamam de **Alert Box**. pra você achar o endereço do seu, faça login no streamlabs, clique em **Widgets**, depois em **Alert Box**. nessa página, você terá a opção de copiar a url da página de alertas.
+
+<div class="image-wrapper">
+    <img src="https://www.ratamero.com/img/usando-streamlabs-com-obs-no-linux/widget-box-url.png">
+</div>
+
+com isso em mãos, tudo que a gente precisa fazer é abrir uma página web dentro do OBS como uma fonte de vídeo. é aí que entra o pulo do gato.
+
+### obs-linuxbrowser
+
+<div class="image-wrapper">
+    <img src="https://www.ratamero.com/img/usando-streamlabs-com-obs-no-linux/obs-linuxbrowser.png">
+</div>
+
+o usuário [bazukas](https://github.com/bazukas/) publicou no github esse plugin lindo que faz todo o trabalho, o [obs-linuxbrowser](https://github.com/bazukas/obs-linuxbrowser/). o plugin usa o chromium por baixo dos panos pra conseguir usar uma página web como input de vídeo no OBS - e esse sim funciona no linux!
+
+supondo que você já tenha o OBS instalado, pra usar o plugin, é só baixar a versão mais nova da [página de releases](https://github.com/bazukas/obs-linuxbrowser/releases) e descompactar ela pra pasta de plugins do OBS. essa pasta geralmente fica em `~/.config/obs-studio/plugins`.
+
+resumindo:
+
+- baixe o plugin
+- `mkdir -p ~/.config/obs-studio/plugins/`
+- `tar -zxvf linuxbrowser0.5.2-obs21.1.2-64bit.tgz -C ~/.config/obs-studio/plugins/`
+
+com isso, uma nova opção de fonte irá aparecer no menu de fontes do OBS, chamada **Linux Browser**.
+
+<div class="image-wrapper">
+  <a href="https://www.ratamero.com/img/usando-streamlabs-com-obs-no-linux/add-input.png">
+    <img src="https://www.ratamero.com/img/usando-streamlabs-com-obs-no-linux/add-input.png">
+  </a>
+</div>
+
+basta adicionar clicando no +, selecionar **Linux Browser** e colocar como url a sua url de **Alert Box**.
+
+<div class="image-wrapper">
+  <a href="https://www.ratamero.com/img/usando-streamlabs-com-obs-no-linux/config-linux-browser.png">
+    <img src="https://www.ratamero.com/img/usando-streamlabs-com-obs-no-linux/config-linux-browser.png">
+  </a>
+</div>
+
+vale a pena também testar e ver se ela aparece no OBS; comigo funcionou de primeira!
+
+<div class="image-wrapper">
+  <a href="https://www.ratamero.com/img/usando-streamlabs-com-obs-no-linux/test-alert.png">
+    <img src="https://www.ratamero.com/img/usando-streamlabs-com-obs-no-linux/test-alert.png">
+  </a>
+</div>
+
+por hoje é só! se tiverem dicas ou sugestões pra melhorar esse texto, só me cutucar nos comentários. abraços!
+---
+pub_date: 2019-01-04
+---
+summary:
+
+<div class="image-wrapper">
+    <img src="https://www.ratamero.com/img/usando-streamlabs-com-obs-no-linux/streamlabs%20obs%20linux.png">
+</div>
+
+ultimamente eu ando assistindo a muitos canais no twitch durante meu tempo livre. mesmo que tenha algo pra fazer ou só esteja cansado demais pra pensar, acabo sempre deixando uma aba aberta; mas é sempre com algo relacionado a algum jogo eletrônico. pensando nisso, tenho tido bastante vontade de começar a fazer streams de desenvolvimento de código.
+
+mas se é pra fazer streams, é importante se manter em contato com quem tá ali contigo, te assistindo ou seguindo, e se faz necessário o uso de alertas visuais e sonoros pra certas interações do usuário, como novos assinantes ou doadores. pra suprir essa demanda, o pessoal da [streamlabs](https://streamlabs.com) oferece [sua versão open source](https://github.com/stream-labs/streamlabs-obs/) do Open Broadcaster Studio, o famoso [OBS](https://obsproject.com/), com suas alterações, facilitando a vida de quem faz transmissões ao-vivo.
+
+só tem um problema: **não funciona no linux**.
+---
+tags: streamlabs,obs,linux,alertas

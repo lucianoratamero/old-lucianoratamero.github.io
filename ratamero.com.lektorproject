@@ -1,0 +1,5 @@
+[project]
+name = ratamero.com
+
+[packages]
+lektor-disqus-comments = 0.4.1

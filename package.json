@@ -1,0 +1,29 @@
+{
+  "name": "ratamero",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "lektor build -O build && node_modules/.bin/babel-node build.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "gh-pages": "^2.0.1",
+    "glob-promise": "^3.4.0",
+    "parcel-bundler": "^1.11.0",
+    "parcel-plugin-compress": "^1.0.6",
+    "sass": "^1.16.1"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}

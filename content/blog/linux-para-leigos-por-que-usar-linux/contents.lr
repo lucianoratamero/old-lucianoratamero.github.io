@@ -1,0 +1,111 @@
+title: linux para leigos: por que usar linux?
+---
+author: Luciano Ratamero
+---
+body:
+
+<div class="image-wrapper">
+    <img src="https://lucianoratamero.github.io/img/cover-distros.png">
+</div>
+
+se você está lendo isso daqui, quer dizer que você já pelo menos pensou na possibilidade de usar linux (que bonito! :D). seja por esforço de um amigo ou parente, ou até pela busca no google, você decidiu que quer entender melhor qual é a desse negócio de linux. bem, não posso te prometer nada, mas vou tentar passar pelos maiores argumentos pra que você faça a transição sabendo da coisa linda que tá fazendo. sem mais delongas, vamos começar!
+
+<div class="callout text-center">
+    <p><strong>aviso:</strong></p>
+    <p>pro povo que já sabe qual é, devo deixar só o aviso de que quando falo <strong>linux</strong>, me refiro a <strong>distribuições GNU/Linux</strong>.</p>
+    <p>só quero simplificar a ideia e não queria muito perder tempo com a questão semântica de me referir ao GNU/Linux como linux, ok? ok, então. fica triste não :*</p>
+</div>
+
+<hr>
+
+### o que é o linux?
+
+quando falamos de **linux**, estamos falando de **sistemas operacionais baseados em linux**.
+
+#### pera, já começou complicado, o que raios é um sistema operacional? e como assim baseado em linux?
+
+caaaalma, caaaalma, vamos por partes. um **sistema operacional** não é nada mais que um conjunto de **programas** que fazem a **ponte entre o que o seu computador entende (zeros e uns) e o que os seres humanos entendem (textos, sons, imagens, vídeos)**.
+
+eles fazem com que, quando você movimente o mouse, a imagem do cursor mude de lugar na tela, por exemplo. lidam com todas as camadas: a sensibilidade de ver que o mouse mexeu, a interpretação disso como uma intenção de mover o cursor, a atualização do local onde o cursor está e a exibição dele no novo lugar da tela. não parece, mas essa é uma operação mega complexa. enfim, eles fazem isso, e também dão recursos para que **outros programas possam ser instalados** e usados nesse computador.
+
+#### hmm, saquei, então por isso que linux é tipo o windows, né?
+
+isso, ele é igual ao windows no sentido de que você primeiro precisa instalar ele, o sistema operacional, antes de instalar todos os outros programas, exatamente por ele ser essa ponte. mas, é claro, se o linux não fosse diferente o suficiente, eu não estaria explicando, né. então vamos pras diferenças reais!
+
+### instalação de programas
+
+uma das primeiras grandes vantagens do linux é seu modo de instalar programas. em todas as grandes **distribuições linux**, o sistema já vem com um programa que **literalmente** te deixa instalar qualquer programa disponível. **no mundo. *sim. isso mesmo.*** cabou superdownloads, cabou o negócio de você instalar uma toolbar sem querer só por causa do winrar, cabou essa caça por lugares confiáveis pra baixar os programas. (ah, chamamos de distribuição linux um sistema qualquer que use linux. leia-se somente *linux*)
+
+<div class="image-wrapper">
+    <img src="https://lucianoratamero.github.io/img/instalador de programas.png">
+</div>
+
+basicamente, toda distribuição tem seus **repositórios de softwares**. pense nisso como o seguinte: toda distribuição tem um **gigantesco** servidor com **todos os programas nele**. daí, quer instalar alguma coisa, só abrir o programa de instalar programas, buscar o que quer e pronto, instalado. fácil, limpo, sem medo de ser feliz (e sem [pegadinha do Hao123](http://olhardigital.uol.com.br/noticia/saiba-como-remover-o-hao123-do-computador/44048)).
+
+o único problema é que programas patenteados *(estou olhando pra você, Adobe)* não podem ser distribuídos dessa forma. isso significa **nada de photoshop, nada de office**. mas, relaxa, **existem programas extremamente competentes** em fazer o trabalho que esses aí fazem; só é necessário que você pare pra aprender como mexer neles, assim como aprendeu a mexer no office. e, olha, geralmente eles são **bem parecidos** (como o [WPS Office](https://www.wps.com/linux), por exemplo) e compatíveis. e o melhor, **tudo grátis, pra sempre grátis**.
+
+### velocidade
+
+cara, eu tenho um computador de 7 anos atrás, um **celeron** bosta, todo ferrado, mais lento que meu smartphone, e ele roda linux **como um campeão**. se você não entendeu, te digo então: ***linux é rápido pra cacete***. então se você quer usar seu laptop por mais, sei lá, quatro anos, mas ele tá lento, coloca linux nele. não vai se arrepender.
+
+ah, só pra dizer, seu smartphone também é linux, provavelmente. é android? sim, android é linux. a google foi muito esperta mesmo.
+
+### segurança
+
+como eu disse ali em cima, você nunca mais vai cair nas pegadinhas de instaladores do windows. além disso, como toda a instalação está centralizada em um programa só, ele sabe perfeitamente quando tem que atualizar os programas, caso algum deles deixe alguma brecha de segurança aberta.
+
+mas o que mais explica a segurança dos sistemas linux é o fato de que, geralmente, todos os programas são, pelo menos, **open source**.
+
+#### como assim? ter o código inteiro do programa aberto pra qualquer um ver não significa que qualquer um pode ver as falhas dele?
+
+é, parece um paradoxo, né? engraçado, mas o fato de ter as falhas expostas só faz com que os programas sejam **ainda mais seguros**. já que as falhas estão expostas, qualquer um pode apontar a falha, e isso faz com que as brechas de segurança sejam consertadas **em questão de minutos**. porque esse é o ponto principal: já que é a **própria comunidade** que vê e corrige os problemas de forma **voluntária**, o único motivo que sobra para consertar algo é, bem, *ter algo consertado*.
+
+no windows, quando um problema é encontrado, a microsoft tem que **pagar alguém** pra ir lá e consertar; ou seja, como uma empresa, ela geralmente prefere **esconder suas falhas** pra não gastar dinheiro do que pagar alguém pra consertar. isso significa que uma **falha de segurança** que está lá, no seu computador, **há anos**, pode estar sendo explorada por alguém, pelo simples fato de que a microsoft quer economizar grana e não deixa o código do windows aberto.
+
+yep, abrir o código te dá mais segurança. *deal with it.*
+
+### drivers? que drivers?
+
+falando em windows, quem aqui nunca teve problema de drivers levanta a mão! sabe quando você compra um computador e ele vem cheio de programa aleatório com nome de quinze empresas, e se você quiser tirar, se ferra aí? esses são nossos amigos **drivers** (mentira, são inimigos mesmo).
+
+outro cenário: deu pau no seu HD e você tem que formatar tudo? ***oh, noez,*** agora tá tudo zoado, nem o som funciona direito, a tela tá com tudo grande, a wifi não funciona. *drivers, man, friggin drivers.*
+
+cabou. linux tem disso não. instalou o sistema operacional, tá tudo funcionando. mesmo. tipo, cabou drivers, não tem mais drivers. [morreu. feneceu. tá enterrado.](https://www.youtube.com/watch?v=z64LKnEAI7k) assim, *até tem*, e de vez em quando *sim, dá problema*, mas, sério, faz **muito** tempo que não vejo gente reclamando de drivers quando tá usando linux (fora o pessoal que é chato e fica mexendo onde não deve, né, Rômulo?). isso significa que **você pode instalar linux num pendrive e usar como computador**. sério! eu já fiz isso, foi super de boa :D
+
+### suporte e comunidade
+
+eu já disse que é tudo grátis, né? então, o suporte também é grátis. na verdade, [tem **muita** repartição pública pelo mundo](http://www.diolinux.com.br/2016/02/russia-vai-migrar-para-linux.html) que tá trocando pra linux exatamente porque tudo se atualiza automaticamente, e tudo é grátis, sem ligação direta com nenhuma empresa. eu lembro que [até a UFF já usa linux em seus laboratórios de informática](http://www.ic.uff.br/index.php/pt/laboratorios/graduacao) pra não precisar pagar os **rios de dinheiros** em licensas do windows.
+
+bem, de vez em quando você vai ter um problema ou outro, e isso é normal com qualquer tipo de computador e sistema. mas aí vem outra parte importante do mundo linux: **a comunidade**. se você tá tendo um problema, cara, **alguém** já teve esse problema e provavelmente **já resolveu**. uma bela busca no google e pronto, você mesmo consertou seu pc. no pior dos piores casos, é só você instalar o linux de novo, o que é mais fácil que entender como funciona o jogo do truco (sério, não entendo truco até hoje!).
+
+### personalização
+
+outra grande vantagem é que você não tem só uma versão do sistema pra usar. na verdade, existem [mais de 270 versões diferentes de linux por aí](http://distrowatch.com/dwres.php?resource=popularity). imagina como seria ter 270 versões diferentes do windows? de repente, *até teria uma boa!*
+
+ok, brincadeiras de lado, além de tantas distribuições diferentes, também temos várias interfaces diferentes pra se escolher. essas interfaces mudam de tudo, desde como usar as janelas, onde fica a barra de notificações, onde fica o relógio, onde ficam os ícones dos programas a serem abertos, enfim, **tudo que é visual**. sempre tem **alguma** dessas interfaces que vai ser a melhor pra você, desde o [unity](https://unity.ubuntu.com/), até o [gnome](https://www.gnome.org/gnome-3/), o [kde](https://www.kde.org/screenshots/), o [pantheon](https://en.wikipedia.org/wiki/Elementary_OS#/media/File:Elementary_OS_0.3_%22Freya%22.png), o [xfce](http://www.xfce.org/about/screenshots), o [lxde](http://lxde.org/image_galleries/screenshots/), o [openbox](http://openbox.org/wiki/Openbox:Screenshots)... tem muitos pra listar aqui. **[mesmo.](http://www.howtogeek.com/163154/linux-users-have-a-choice-8-linux-desktop-environments/)**
+
+aliás, o [elementary os](https://elementary.io/pt_BR/) é o sistema operacional mais lindo que já vi, na boa.
+
+### bem-vindo ao mundo do software livre!
+
+além das **claras** vantagens sobre o windows, você começa a se envolver no mundo do software livre. foi a partir do linux que comecei a querer me tornar programador, e por causa do software livre que fiquei. é um mundo vasto, cheio de pessoas lindas e coisas novas a descobrir.
+
+### tl;dr, #comofas
+
+o linux é pra você se você quer algo **seguro, gratuito, leve, bonito e configurável**. ou seja, **não há motivos pra não querer usar**. já se foi o tempo em que era difícil instalar e configurar; hoje, instalar é fácil, usar é fácil, manter atualizado é fácil.
+
+só **não recomendo linux pra** dois tipos de público: **designers** e **gamers**. apesar de termos ferramentas maravilhosas como o [inkscape](https://inkscape.org/) para trabalhar como designer e de termos a [steam disponível pra linux](http://store.steampowered.com/browse/linux/), ainda não chegamos no ponto de simplesmente substituir o windows ou o osx pra esses públicos. **mas as coisas estão melhorando nesses aspectos** e duvido que vá demorar muito mais tempo pra quebrarmos de vez todas as barreiras.
+
+se você ficou empolgado e agora quer dar o pontapé inicial, [pode falar comigo no facebook](https://www.facebook.com/lucianoratamero) ou esperar um post que está por vir, o de **como escolher a distribuição linux ideal pra você**. até lá, fico por aqui, respondendo a comentários. abraços o/
+---
+pub_date: 2016-06-21
+---
+summary:
+
+<div class="image-wrapper">
+    <img src="https://lucianoratamero.github.io/img/cover-distros.png">
+</div>
+
+se você está lendo isso daqui, quer dizer que você já pelo menos pensou na possibilidade de usar linux (que bonito! :D). seja por esforço de um amigo ou parente, ou até pela busca no google, você decidiu que quer entender melhor qual é a desse negócio de linux. bem, não posso te prometer nada, mas vou tentar passar pelos maiores argumentos pra que você faça a transição sabendo da coisa linda que tá fazendo. sem mais delongas, vamos começar!
+---
+tags: linux, leigos, por que usar, Luciano Ratamero

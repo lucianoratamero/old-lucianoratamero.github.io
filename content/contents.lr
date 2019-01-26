@@ -1,0 +1,19 @@
+title: welcome, welcome!
+---
+body:
+
+<img class="about-image" src="/img/eu_fb_small.jpg" />
+
+My name is Luciano Ratamero, I'm 29, brazilian, programmer.
+
+I'm from Nova Friburgo, Brazil, and I love it here. it's a fairly small city on the mountains near Rio. cold enough in the winter, hot enough in the summer.
+
+I love tech, music, poetry, videogames and linux distros. and python. and javascript.
+
+I've worked in several different roles and technologies, from restful backend python/django applications to frontend react SPAs.
+
+if you want to hire me or just chat, don't hesitate to talk to me. anywhere. really.
+
+and if you're the type of person who likes a good curriculum, <a href="/static/curriculum/curriculum.pdf" class="no-ajaxy">I've generated one for you</a>.
+
+see you! :)
