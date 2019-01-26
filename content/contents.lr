@@ -2,7 +2,7 @@ title: welcome, welcome!
 ---
 body:
 
-<img class="about-image" src="/img/eu_fb_small.jpg" />
+<img class="about-image" src="/img/eu-novo-small.jpg" style="width: 50%" />
 
 My name is Luciano Ratamero, I'm 29, brazilian, programmer.
 
