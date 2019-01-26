@@ -54,8 +54,13 @@
                 ['/previous-talks', 'Talks'],
                 ['/sketches', 'Sketches'],
                 ] %}
-                <a href="{{ href|url }}">
-                  <li {% if this.is_child_of(href) %} class="active" {% endif %}>{{ title }}</li>
+                <a
+                  {% if 'sketches' in href %}
+                    class="no-ajaxy"
+                  {% endif %}
+                  href="{{ href|url }}"
+                >
+                  <li>{{ title }}</li>
                 </a>
               {% endfor %}
             </ul>
@@ -79,8 +84,13 @@
             ['/previous-talks', 'Talks'],
             ['/sketches', 'Sketches'],
             ] %}
-            <a href="{{ href|url }}">
-              <li {% if this.is_child_of(href) %} class="active" {% endif %}>{{ title }}</li>
+            <a
+              {% if 'sketches' in href %}
+                class="no-ajaxy"
+              {% endif %}
+              href="{{ href|url }}"
+            >
+              <li>{{ title }}</li>
             </a>
           {% endfor %}
         </ul>
