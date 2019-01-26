@@ -5,6 +5,6 @@
 
 this is the code for my personal site.
 
-it uses parcel instead of webpack to build, react as a frontend and django_apistar as the backend (in the `ratamero-blog-api` project).
+it uses [lektor](https://www.getlektor.com) to generate the site/blog and [parcel](https://parceljs.org/) to deal with assets.
 
 if you have any questions or suggestions, be free to add an issue/pull request or contact me at luciano@ratamero.com.
