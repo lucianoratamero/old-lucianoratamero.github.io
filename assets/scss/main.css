@@ -944,7 +944,8 @@ nav ul.navbar-nav a:hover {
   background-color: #41a4f3;
 }
 nav ul.navbar-nav a li {
-  padding: 0.5em 0;
+  padding: 0.5em 1em;
+  margin: 0 -1em;
 }
 nav ul.navbar-nav a li:hover {
   background-color: #41a4f3;

@@ -16,7 +16,8 @@ nav {
       }
 
       li {
-        padding: 0.5em 0;
+        padding: .5em 1em;
+        margin: 0 -1em;
 
         &:hover {
           background-color: lighten($main_blue, 10);
