@@ -1027,6 +1027,11 @@ nav.nav-mobile ul.navbar-nav > a li {
   margin: 0 auto;
   max-width: 70%;
 }
+.blog-post img + em {
+  text-align: center;
+  display: block;
+  font-size: 0.8em;
+}
 .blog-post p {
   line-height: 1.8;
 }
@@ -1039,6 +1044,13 @@ nav.nav-mobile ul.navbar-nav > a li {
   padding: 0.6em;
   border-radius: 4px;
   margin-bottom: 2em;
+}
+
+blockquote {
+  margin: 0;
+  padding: 0.6em 0.6em 0.6em 2em;
+  border-left: 0.4em solid #004182;
+  background-color: #f9f9f9;
 }
 
 .pagination {
