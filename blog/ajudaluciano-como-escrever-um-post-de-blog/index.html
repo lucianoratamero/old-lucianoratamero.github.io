@@ -1,0 +1,260 @@
+<!doctype html>
+<meta charset="utf-8">
+
+<head>
+  <link rel="icon"
+        type="image/png"
+        href="favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+  <link rel="stylesheet" href="../../scss/main.css">
+
+  <meta name="keywords" content="Luciano Ratamero, post, blog, jornalismo, post técnico"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>#ajudaLuciano  —  como escrever um post de blog — luciano@ratamero.com</title>
+</head>
+
+<body>
+  <div id="content">
+    <div class="container-fluid">
+
+      <div class="row">
+
+        <nav class="nav-desktop col-xs-3">
+          <div class="flex-wrapper">
+            <ul class="nav navbar-nav">
+              
+                <a
+                  
+                  href="../../blog/"
+                >
+                  <li>Blog</li>
+                </a>
+              
+                <a
+                  
+                  href="../../previous-talks/"
+                >
+                  <li>Talks</li>
+                </a>
+              
+                <a
+                  
+                    class="no-ajaxy"
+                  
+                  href="../../sketches"
+                >
+                  <li>Sketches</li>
+                </a>
+              
+            </ul>
+            <ul class="social-icons">
+              <li>
+                <a href="https://twitter.com/lucianoratamero" target="_blank" rel="noopener noreferrer">
+                  <svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 40 40" style="vertical-align: middle;"><g><path d="m31.6 13.6q-1.3 0.6-2.7 0.8 1.5-0.9 2-2.6-1.4 0.8-2.9 1.1-1.4-1.5-3.5-1.5-1.9 0-3.3 1.4t-1.3 3.3q0 0.7 0.1 1.1-2.9-0.2-5.4-1.5t-4.3-3.4q-0.7 1.1-0.7 2.3 0 2.6 2.1 3.9-1.1 0-2.3-0.5v0q0 1.7 1.1 3t2.8 1.6q-0.7 0.2-1.1 0.2-0.3 0-0.9-0.1 0.4 1.4 1.6 2.3t2.8 1q-2.6 2-5.9 2-0.6 0-1.1-0.1 3.3 2.1 7.2 2.1 2.5 0 4.7-0.8t3.7-2.1 2.7-3.1 1.7-3.6 0.5-3.7q0-0.4 0-0.7 1.4-1 2.4-2.4z m5.7-4.3v21.4q0 2.7-1.9 4.6t-4.5 1.8h-21.5q-2.6 0-4.5-1.8t-1.9-4.6v-21.4q0-2.7 1.9-4.6t4.5-1.8h21.5q2.6 0 4.5 1.8t1.9 4.6z"></path></g></svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/luciano-ratamero-06b98b32/" target="_blank" rel="noopener noreferrer">
+                  <svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 40 40" style="vertical-align: middle;"><g><path d="m8.3 31.6h5.1v-15.5h-5.1v15.5z m5.5-20.3q0-1.2-0.8-1.9t-2.1-0.8-2.1 0.8-0.8 1.9q0 1.1 0.8 1.9t2 0.8h0.1q1.3 0 2.1-0.8t0.8-1.9z m13 20.3h5.2v-8.9q0-3.5-1.6-5.2t-4.3-1.8q-3.1 0-4.7 2.6h0v-2.2h-5.1q0 1.4 0 15.5h5.1v-8.7q0-0.8 0.2-1.2 0.3-0.8 1-1.4t1.7-0.5q2.5 0 2.5 3.5v8.3z m10.5-22.3v21.4q0 2.7-1.9 4.6t-4.5 1.8h-21.5q-2.6 0-4.5-1.8t-1.9-4.6v-21.4q0-2.7 1.9-4.6t4.5-1.8h21.5q2.6 0 4.5 1.8t1.9 4.6z"></path></g></svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/lucianoratamero/" target="_blank" rel="noopener noreferrer">
+                  <svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 40 40" style="vertical-align: middle;"><g><path d="m14.6 26.8q0.1-0.1-0.1-0.3-0.2-0.2-0.3 0-0.1 0.1 0.1 0.2 0.2 0.2 0.3 0.1z m-0.6-0.9q-0.2-0.2-0.3-0.1-0.1 0.1 0 0.3 0.1 0.1 0.3 0.1 0.1-0.1 0-0.3z m-1-0.9q0.1-0.1-0.1-0.2-0.1 0-0.1 0-0.1 0.2 0 0.2 0.2 0.1 0.2 0z m0.5 0.5q0.1 0 0-0.1t0-0.1q-0.2-0.2-0.3-0.1t0.1 0.3q0.1 0.1 0.2 0z m1.9 1.7q0.1-0.2-0.2-0.3-0.2 0-0.3 0.1 0 0.2 0.2 0.3 0.2 0 0.3-0.1z m1 0q0-0.1-0.3-0.1-0.2 0-0.2 0.1t0.2 0.2 0.3-0.2z m0.8-0.1q0-0.2-0.2-0.1t-0.2 0.2q0 0.1 0.2 0.1t0.2-0.2z m14.4-7.1q0-4.7-3.4-8.1t-8.1-3.3-8 3.3-3.4 8.1q0 3.7 2.2 6.7t5.6 4.1q0.4 0.1 0.6-0.1t0.2-0.4q0-1.2 0-2.1-0.1 0-0.4 0t-0.8 0.1-1-0.1-1-0.5-0.7-0.9q-0.5-1.3-1.2-1.6-0.1-0.1-0.1-0.1l-0.2-0.2-0.2-0.2 0.1-0.2 0.5-0.1q0.1 0 0.3 0.1t0.7 0.3 0.7 0.8q0.4 0.7 0.8 1t1 0.3 0.9-0.1 0.6-0.2q0.2-1.1 0.8-1.6-1.1-0.1-1.9-0.4t-1.7-0.8-1.2-1.7-0.5-2.7q0-1.8 1.2-3.1-0.5-1.3 0.1-3 0.5-0.1 1.3 0.2t1.3 0.6l0.6 0.4q1.3-0.4 2.8-0.4t2.9 0.4q0.3-0.2 0.6-0.4t1.3-0.6 1.3-0.2q0.6 1.7 0.1 3 1.1 1.3 1.1 3.1 0 1.3-0.3 2.2t-0.8 1.6-1.2 1-1.3 0.6-1.6 0.2q0.8 0.7 0.8 2.2 0 0.9 0 2t0 1.1q0 0.3 0.2 0.4t0.6 0.1q3.4-1.1 5.6-4.1t2.2-6.7z m5.7-10.7v21.4q0 2.7-1.9 4.6t-4.5 1.8h-21.5q-2.6 0-4.5-1.8t-1.9-4.6v-21.4q0-2.7 1.9-4.6t4.5-1.8h21.5q2.6 0 4.5 1.8t1.9 4.6z"></path></g></svg>
+                </a>
+              </li>
+              <li>
+                <a href="http://lastfm.com/user/lucianoratamero" target="_blank" rel="noopener noreferrer">
+                  <svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 40 40" style="vertical-align: middle;"><g><path d="m35 23.5q0-3.9-5.3-5.4-0.7-0.2-1.1-0.3t-0.9-0.6-0.6-1q0-0.1-0.1-0.2t0-0.3-0.1-0.1q0-0.8 0.6-1.4t1.3-0.5q1.2 0 1.6 0.3h0q0.4 0.4 0.9 1.2l2-1.6q-0.8-1.2-1.1-1.4-0.7-0.7-1.5-0.9t-1.9-0.2q-1.8 0-3.1 1.3t-1.4 3q0 0.2 0 0.5 0.4 2.2 1.5 3.2t3.3 1.6q0.6 0.2 1.1 0.3t1 0.5 0.8 0.8 0.3 1v0.1q0.1 1.3-0.9 2.1t-2.2 0.8q-2.2 0-3.7-3.2-0.6-1.1-1.2-2.7t-1.1-2.8-1.2-2.5-1.6-2.1-2.3-1.4-3.3-0.5q-2.3 0-4.3 1.2t-3.2 3.3-1.1 4.3v0q0.1 2.4 1.1 4.5t3 3.3 4.4 1.2q4.1 0 6.2-2.4 0.4-0.6 0.7-1.2l-1.4-2.4q-0.9 1.8-2.2 2.6t-3.2 0.8q-2.6 0-4.3-1.9t-1.7-4.6q0-2.3 1.8-4.2t4.2-1.9q2.5 0 3.8 1.2t2.3 3.8q0.2 0.5 0.6 1.6t0.6 1.7 0.7 1.6 0.9 1.7 1 1.4 1.2 1.2 1.5 0.7 1.8 0.3q2.4 0 4.1-1.5t1.7-3.9z m2.3-14.2v21.4q0 2.7-1.9 4.6t-4.5 1.8h-21.5q-2.6 0-4.5-1.8t-1.9-4.6v-21.4q0-2.7 1.9-4.6t4.5-1.8h21.5q2.6 0 4.5 1.8t1.9 4.6z"></path></g></svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitch.tv/lucianoisstreaming" target="_blank" rel="noopener noreferrer">
+                  <!-- icons by FontAwesome! -->
+                  <svg
+                     enable-background="new 0 0 512 512"
+                     height="512px"
+                     version="1.1"
+                     viewBox="0 0 512 512"
+                     width="512px"
+                     xml:space="preserve"
+                     inkscape:version="0.92.3 (2405546, 2018-03-11)"><metadata
+                       id="metadata15"><rdf:RDF><cc:Work
+                           rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+                             rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+                       id="defs13" /><sodipodi:namedview
+                       pagecolor="#ffffff"
+                       bordercolor="#666666"
+                       borderopacity="1"
+                       objecttolerance="10"
+                       gridtolerance="10"
+                       guidetolerance="10"
+                       inkscape:pageopacity="0"
+                       inkscape:pageshadow="2"
+                       inkscape:window-width="1920"
+                       inkscape:window-height="1052"
+                       id="namedview11"
+                       showgrid="false"
+                       inkscape:zoom="0.4609375"
+                       inkscape:cx="253.83051"
+                       inkscape:cy="429.55932"
+                       inkscape:window-x="0"
+                       inkscape:window-y="28"
+                       inkscape:window-maximized="1"
+                       inkscape:current-layer="Layer_1" /><path
+                       style="fill:#ffffff;stroke-width:0.868644"
+                       d="m 103.11879,33.62773 c -38.376702,0 -69.491057,31.114354 -69.491059,69.49104 v 305.76246 c 0,38.37669 31.114357,69.49104 69.491059,69.49104 h 305.76244 c 38.37669,0 69.49104,-31.11435 69.49104,-69.49104 V 103.11877 c 0,-38.376685 -31.11435,-69.491039 -69.49104,-69.491039 z m 25.14824,62.706744 H 405.02257 V 287.93348 l -85.15655,85.1547 h -63.86509 l -31.93441,42.57734 H 181.48918 V 373.08818 H 106.97929 V 150.95893 Z m 21.28961,31.932546 v 202.2438 h 63.86509 v 42.57736 l 42.5792,-42.57736 h 63.86509 l 53.22214,-53.22214 V 128.26702 Z m 74.50988,53.22215 h 31.93441 v 85.1547 h -31.93441 z m 63.86696,0 h 31.93254 v 85.1547 h -31.93254 z"
+                       id="path2"
+                       inkscape:connector-curvature="0" /></svg>
+                </a>
+              </li>
+            </ul>
+            <h1><a href="../../">luciano@ratamero.com</a></h1>
+          </div>
+        </nav>
+
+        <div class="col-xs-12 col-lg-9 col-lg-offset-3">
+          <div class="page">
+            
+  
+  <div class="blog-post">
+  
+    <h2 class="page-title">#ajudaLuciano  —  como escrever um post de blog</h2>
+  
+  <p class="meta">
+    
+      Luciano Ratamero
+    
+    - Wednesday, July 3, 2019
+  </p>
+  <p><strong>Escrever texto é muito difícil.</strong> Pra nós programadores, as coisas muitas vezes fazem total sentido dentro da nossa cabeça de uma maneira intuitiva. Mesmo assim, <strong>colocar as ideias no papel</strong> parece ser uma <strong>tarefa monumental</strong>. Eu, no entanto, nunca tive muito problema: sou formado em jornalismo (<strong>muahaha &gt;:D</strong>). Vim aqui compartilhar com vocês algumas das coisas que me ajudam a escrever um post ou formatar uma palestra. Vamos lá!</p>
+<h2>Problemas mais comuns</h2>
+<p>Quando eu converso com a galera da <a href="https://labcodes.com.br/">Labcodes</a>, eu noto que <strong>os problemas mais comuns</strong> são os seguintes:</p>
+<ul>
+<li><p>não saber <strong>qual</strong> assunto abordar;</p>
+</li>
+<li><p>não saber <strong>o que falar</strong> sobre dado assunto;</p>
+</li>
+<li><p>não conseguir <strong>encadear</strong> o conteúdo direitinho;</p>
+</li>
+<li><p>não saber <strong>como concluir ou resumir</strong> o texto.</p>
+</li>
+</ul>
+<p>A questão é que jornalistas fazem isso <strong>o tempo todo</strong>; <em>até quando não devem</em>.</p>
+<p><img src="../../blog/ajudaluciano-como-escrever-um-post-de-blog/caetano.png" alt="[A matéria jornalística que chocou o mundo](https://www.terra.com.br/diversao/gente/caetano-veloso-passeia-pelo-leblon-e-estaciona-o-carro,e0d3399ae915a310VgnCLD200000bbcceb0aRCRD.html)"><em><a href="https://www.terra.com.br/diversao/gente/caetano-veloso-passeia-pelo-leblon-e-estaciona-o-carro,e0d3399ae915a310VgnCLD200000bbcceb0aRCRD.html">A matéria jornalística que chocou o mundo</a></em></p>
+<p>E se você tá se perguntando, <strong>sim</strong>, nós temos uma <strong>receitinha</strong> de como fazer essas <em>chocantes</em> matérias.</p>
+<h3>Ao pensar sobre o assunto, o importante é o público</h3>
+<p>Quando você começa a pensar sobre um post/palestra, a primeira coisa que eu gosto de fazer é pensar em <strong>quem vai ler/assistir </strong>ao conteúdo. Esse post é pra prospectar <strong>clientes</strong>? Então de repente vale ter os <strong>valores</strong> do cliente na cabeça. É uma palestra pra <strong>iniciantes</strong>? Então vale deixar de lado os <strong>jargões</strong>.</p>
+<p>Outro fator importante é ter em mente que um post é uma via de mão dupla. <strong>Você</strong>, autor, está contribuindo com algo que você <strong>pode dar</strong> (conteúdo, entretenimento) em <strong>troca</strong> pelo que o leitor pode dar: <strong>atenção</strong>.</p>
+<blockquote><p>Manter essa troca de <strong>informação</strong> por <strong>atenção</strong> é essencial se você quer que as pessoas continuem lendo seu texto.</p>
+</blockquote>
+<p>Pra fechar essa parte, uma boa dica pra resolver sobre <strong>qual</strong> assunto abordar é pensar sobre <strong>o que te frustra</strong> diariamente como profissional. Os ModelSerializers do DRF te incomodam por serem acoplados demais? O docker é muito complicado de configurar? Então provavelmente esses são assuntos que poderiam interessar a <strong>outras pessoas</strong>. E com o assunto em mãos…</p>
+<h3>…tudo começa com uma frase</h3>
+<p>A gente tem que começar de algum lugar, certo? Pessoalmente, acho a <strong>primeira frase</strong> muito importante. Ela delimita o<strong> tom</strong> do texto; e ela nem precisa dar informações sobre o assunto. Pode ser algo como:</p>
+<ul>
+<li><p><em>Fazer deploy é chato.</em></p>
+</li>
+<li><p><em>É 2019 e ainda tem muita gente que não usa grid nos layouts.</em></p>
+</li>
+<li><p><em>Essa é a história de como eu descobri o Flask.</em></p>
+</li>
+<li><p><em>Escrever texto é muito difícil.</em></p>
+</li>
+</ul>
+<p>Pegando o exemplo do deploy, vemos que a primeira frase geralmente é o <strong>porquê</strong> de você estar escrevendo o texto. O que você quer com essa frase é <strong>dar contexto</strong> e <strong>se engajar</strong> com o leitor. Fale algo que faça o leitor pensar “<em>putz, é verdade, deploy é chato mesmo, quero ver que que esse cara vai falar</em>”.</p>
+<p>E com o tom dado, a gente pode continuar o primeiro parágrafo com <strong>informações</strong> mais precisas sobre o tópico. Você poderia continuar, por exemplo, com “<em>Aqui na Labcodes, a gente resolveu esse problema com x, y, z de uma maneira bem elegante e simples</em>”. Algo que deixe <strong>claro</strong> sobre o que você vai falar, <strong>deixando os detalhes</strong> pro corpo do texto.</p>
+<p>Pra concluir o primeiro parágrafo, é importante ter algo que <strong>ligue</strong> o que você <strong>disse</strong> com o que você <strong>vai falar</strong>. Ainda no caso do deploy, poderia ser algo como “<em>Mas as soluções que nós demos criaram um novo desafio: como vamos usar x, y, z nos nossos projetos legados?</em>” que deixaria o leitor <strong>pronto e interessado</strong> em ler a próxima parte do texto.</p>
+<blockquote><p>A estrutura de <strong>contexto &gt; informação &gt; ligação</strong> é uma boa receita tanto pra começar quanto pra escrever todo o texto.</p>
+</blockquote>
+<p>E com o primeiro parágrafo rascunhado, as coisas ficam bem mais simples.</p>
+<h3>Escrevendo o corpo do texto</h3>
+<p>Escrever o corpo do texto geralmente é mais fácil. Nesse ponto, você provavelmente já tem uma noção de quais tópicos abordar, e já dá pra montar qual parte vai ver depois da outra. Mesmo assim, é importante ter algumas coisas sempre em mente.</p>
+<p>Lembra que eu falei pra ter em mente seu público ao escrever? No corpo do texto, isso é <strong>importante</strong> pra você saber como dosar partes de <strong>respiro</strong>. Essas partes geralmente são imagens, gifs, subtítulos ou frases de destaque.</p>
+<blockquote><p>No corpo do texto, mais que nunca, a troca entre <strong>informação</strong> e <strong>atenção</strong> é essencial.</p>
+</blockquote>
+<p>Pra me manter focado, eu gosto de me dar um <strong>número de minutos</strong> pra <strong>escrever cada parágrafo</strong>. Isso me previne de ficar mexendo em coisa que já tá pronta enquanto eu podia estar pensando em outra coisa. Escrever é um processo <strong>cíclico</strong> e <strong>de descoberta</strong>, então é melhor você escrever muito e <strong>cortar</strong> o que é demais do que ficar polindo um parágrafo e nunca terminar o texto.</p>
+<p>De resto, é repetir a estrutura de <em>contexto &gt; informação &gt; ligação</em> e escrever a conclusão.</p>
+<h3>Legal, mas meu problema é exatamente concluir!</h3>
+<p>Relaxa, já chegamos no que te interessa então! Como sempre, tudo depende de <strong>quem</strong> vai estar lendo o texto e <strong>qual sentimento</strong> ou informação você quer que a pessoa <strong>saia dali sentindo</strong> ou sabendo. Pra facilitar, eu gosto de falar sobre três possíveis <strong>padrões</strong> de conclusão:</p>
+<ul>
+<li><p>recapitulação;</p>
+</li>
+<li><p>opinião;</p>
+</li>
+<li><p>referenciamento.</p>
+</li>
+</ul>
+<p><strong>Recapitulação</strong> é o mais autoexplicativo. Pense exatamente sobre o que a pessoa <strong>precisa sair do post sabendo</strong>, ou o que é mais difícil de entender, e escreva sobre. Um exemplo seria o seguinte:</p>
+<p><em>“Vimos hoje que o Django Rest Framework tem muitos pontos de acoplamento, mas que com uma boa estrutura de código, podemos testar tudo sem abrir mão da documentação automática. Lembre-se de separar bem a lógica de negócio do framework e testar tudo direitinho. Nos vemos por aí, até a próxima!”</em></p>
+<p><strong>Opinião</strong> é um pouquinho mais complicada. Se você está <strong>concluindo</strong> com uma opinião, é importante que <strong>todo seu texto</strong> tenha já expressado sua opinião, e que a conclusão seja só para que a pessoa saiba <strong>resumidamente qual opinião foi dita</strong>. Por exemplo:</p>
+<p><em>“O Django Rest Framework deixa muito a desejar. Os ModelSerializers, além de lentos, geram um acoplamento muito grande entre os Models e a API. Pense bem se ele é a melhor opção antes de entrar de cabeça, e cuidado com os hacks. Nos vemos por aí, até a próxima!”</em></p>
+<p>A forma mais popular de concluir, no entanto, é o <strong>referenciamento</strong>. Basicamente, você deve falar sobre <strong>onde</strong> a pessoa pode adquirir <strong>mais informações</strong> sobre o assunto. Algo como:</p>
+<p><em>“Caso queira saber mais sobre o Django Rest Framework, leia a documentação e veja essa app Django que eu criei com os exemplos. Não tenha medo de comentar com as suas dúvidas, e se quiser dicas sobre casos específicos, falem comigo no telegram da Python Brasil. Nos vemos por aí, até a próxima!”</em></p>
+<h3>Epa, então fechou, né?</h3>
+<p><strong>Pera</strong>, calma, tenho umas coisinhas pra falar ainda, mas é jogo rápido! Com o texto pronto, se dê um tempinho pra colocar em <strong>bold</strong> as palavras-chaves; isso ajuda <strong>muito</strong> quem tá lendo rápido ou relendo pra pegar referências.</p>
+<p>E se você <strong>não tá se sentindo bem</strong> com alguma parte do texto, tente identificar <strong>qual frase</strong> ou qual termo tá te deixando desconfortável. Às vezes é uma palavra, às vezes é o fluxo da frase, mas muitas vezes é a ordem gramatical mesmo. <em>Cara, não vou tocar na gramática não.</em></p>
+<h3>No pior dos casos…</h3>
+<p>…comece do zero. <strong>Sério</strong>. Como tudo na vida, escrever bem é questão de prática. No começo, vai demorar muito e vai ser um processo chatinho, mas depois de você internalizar o que eu disse aí em cima, você vai conseguir criar em cima disso com uma certa facilidade.</p>
+<p>E se teve algo que você queria que eu falasse sobre e eu não falei, pode me <a href="https://twitter.com/lucianoratamero">xingar no twitter</a>. Mentira, melhor que você me diga nos comentários mesmo, com calma, pra eu poder complementar depois. Valeu pela atenção, e nos vemos na próxima!</p>
+
+  </div>
+
+
+  <div class="comments">
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/blog/ajudaluciano-como-escrever-um-post-de-blog"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lucianoratamerosblog.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+</div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <nav class="nav-mobile">
+        <h1><a href="../../">luciano@ratamero.com</a></h1>
+        <ul class="nav navbar-nav">
+          
+            <a
+              
+              href="../../blog/"
+            >
+              <li>Blog</li>
+            </a>
+          
+            <a
+              
+              href="../../previous-talks/"
+            >
+              <li>Talks</li>
+            </a>
+          
+            <a
+              
+                class="no-ajaxy"
+              
+              href="../../sketches"
+            >
+              <li>Sketches</li>
+            </a>
+          
+        </ul>
+      </nav>
+    </div>
+
+  </div>
+  <div class="lds-ripple"><div></div><div></div></div>
+  <script src="../../js/main.js"></script>
+</body>
