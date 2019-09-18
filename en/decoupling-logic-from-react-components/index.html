@@ -6,12 +6,12 @@
         type="image/png"
         href="favicon.png">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
-  <link rel="stylesheet" href="../../../scss/main.css">
+  <link rel="stylesheet" href="../../scss/main.css">
 
-  <meta name="keywords" content="Luciano Ratamero, "/>
+  <meta name="keywords" content="Luciano Ratamero, react, redux, big projects, architecture, planning, frontend, javascript, frameworks"/>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Blog — luciano@ratamero.com</title>
+  <title>Decoupling logic from react components — luciano@ratamero.com</title>
 </head>
 
 <body>
@@ -26,14 +26,14 @@
               
                 <a
                   
-                  href="../../../blog/"
+                  href="../../blog/"
                 >
                   <li>Blog</li>
                 </a>
               
                 <a
                   
-                  href="../../../previous-talks/"
+                  href="../../previous-talks/"
                 >
                   <li>Talks</li>
                 </a>
@@ -42,7 +42,7 @@
                   
                     class="no-ajaxy"
                   
-                  href="../../../sketches"
+                  href="../../sketches"
                 >
                   <li>Sketches</li>
                 </a>
@@ -110,7 +110,7 @@
                 </a>
               </li>
             </ul>
-            <h1><a href="../../../">luciano@ratamero.com</a></h1>
+            <h1><a href="../../">luciano@ratamero.com</a></h1>
           </div>
         </nav>
 
@@ -118,55 +118,73 @@
           <div class="page">
             
   
-    
   <div class="blog-post">
   
-    <h2><a href="../../../blog/lektor-parte-2-deploy-macros-admin-e-plugins/">Lektor parte 2: deploy, macros, admin e plugins</a></h2>
+    <h2 class="page-title">Decoupling logic from react components</h2>
   
   <p class="meta">
     
       Luciano Ratamero
     
-    - Wednesday, February 3, 2016
+    - Tuesday, July 23, 2019
   </p>
   <div class="image-wrapper">
-    <a target="_blank" href="https://getlektor.com/"><img src="https://lucianoratamero.github.io/img/cover-lektor-2.png"></a>
-</div><p>agora que já expliquei o básico de como utilizar o Lektor pra desenvolver seu site estático, vou começar a explicar alguns aspectos mais avançados. não pretendo ser muito detalhista, mas fiquem a vontade para pedir mais informações nos comentários. aí vai!</p>
-
+    <img src="cover.png">
+</div><p>Whenever there’s a new React project, most frontend developers will fumble around with the basic configurations. Patterns of style implementation, component decoupling and folder structure will emerge - <strong>not always for the good</strong>. The worst part is that every single frontend dev I’ve ever seen will solve the biggest problem of them all, the <em>business logic</em> conundrum, in a different way. In an effort to create a standard to solve the domain layer issue at Labcodes, I’ve researched a bit and found a good and sustainable way to deal with requests and data processing. The end result: react-redux-api-tools.</p>
+<h2>Let’s imagine a common scenario: CRUD</h2>
+<p>Since javascript is too permissive, there are endless ways to make a CRUD SPA. Limiting the scope to react helps a bit, but there are still way too many different possible implementations. One of them is to use lifecycle hooks to make requests. Your code may look a bit like this:</p>
+<p><img alt="first code" src="image1.png"></p>
+<p>I think I don’t need to say this, but I’ll do it anyway: this implementation, even though it’s completely valid, has some <strong>big</strong> drawbacks.</p>
+<p>1.The request is being made inside a component, which, in theory, should have only one job: <strong>render data</strong>. If, for example, you needed to clear out a user’s session or any other business logic, it would probably be here, and that’s <strong>even worse</strong>;<br>
+2. The response data lives <strong>inside</strong> the component’s state, and that means that it’s gone as soon as the component unmounts;<br>
+3. You’ll have to <strong>always</strong> fetch the data for each instance of the component, even if that specific request was already done a billion times;<br>
+4. There is no specific middle state between the request start and the response, so no loading spinners (though you may be able to implement it using setState callback hells);<br>
+5. Since react components are hierarchical, if you need this data inside a child or a parent component, you’ll need to implement contexts/props and callbacks. <strong>It gets messy. FAST.</strong><br></p>
+<p>To make it better, most of us prefer to use a library to provide a global application state; one that lives outside all components.</p>
+<h2>Second step: use Redux</h2>
+<p>Redux is one of the most amazing tools for the job. So let’s say you’re using redux to manage the data and business logic. Assuming you’ll be using the reducers to deal with business logic and data formatting, your component code will probably look a bit like this:</p>
+<p><img alt="second code" src="image2.png"></p>
+<p>This solves most of the issues, but I would argue that this solution makes everything <strong>even more coupled</strong> and, for sure, <strong>worse to read and maintain</strong>. The root cause of the issue is that the component is still being responsible for <strong>everything</strong>: fetching the data and orchestrating redux actions, when it’s only supposed to... render stuff.
+The ideal flow to solve all issues, <em>at least the best for most cases</em>, would be something akin to the following flowchart:</p>
+<p><img alt="first process" src="image3.png"></p>
+<p>Note that the only way to remove completely the business logic from the component is to trigger the ‘Success’ and ‘Failure’ use cases <strong>outside</strong> of the component. Components should render stuff, not deal with <strong>application-wide</strong> state management. That means that the component should only dispatch one event (the <em>‘get me the data’</em> event), then react to it whenever the data is there.
+For that, our component code would need to be as simple as this:</p>
+<p><img alt="third code" src="image4.png"></p>
+<p>And that means that… the actions should fetch the data? And reducers would dispatch actions? Sounds weird, right?
+Because it is. And it’s not what I’m suggesting whatsoever.</p>
+<h2>Enter the middlewares</h2>
+<p>To deliver the ideal data flow, <strong>redux middlewares are amazing</strong>. Let’s say we want our component to be exactly like that last bit of code. If we had something in between actions and reducers, for example, we could make this <strong>inbetween</strong> code deal with fetching the data and figuring out which reducers to fire, leaving redux to do its job of managing state and events, while leaving components focused on their jobs of rendering, and rendering only.
+The data flow would be something like this:</p>
+<p><img alt="second process" src="image5.png"></p>
+<p>With this proposed flow, our action could look like this:</p>
+<p><img alt="fourth code" src="image6.png"></p>
+<p>Ok, let’s slow down. What you see above is the current API for a request action, using the middleware included in our <code>[react-redux-api-tools](https://www.npmjs.com/package/react-redux-api-tools)</code> npm package. Dispatching this action would configure the middleware to make the request (by calling <code>apiCallFunction</code>) and to use the correct reducer whenever the request is done.
+Meanwhile, our component and reducers would remain unaltered:</p>
+<p><img alt="fifth code" src="image7.png"></p>
+<p><img alt="sixth code" src="image8.png"></p>
+<p>And <em>voilá</em>, the flow is much cleaner, simpler and decoupled!</p>
+<h2>If you liked this or it seems too magical...</h2>
+<p>Have you enjoyed this middleware API, want to develop your react-redux app like this or are just curious on how this all works? Then consider using and contributing to our <a href="https://www.npmjs.com/package/react-redux-api-tools">react-redux-api-tools</a> npm package. Bugs and feature proposals are welcome!
+And this is only the start; <a href="https://www.npmjs.com/package/react-redux-api-tools">react-redux-api-tools</a> has a bunch of other features I’ve not talked about. Give our docs a good read to find out how to further improve and simplify your code using our tools! Thanks, and see you later!</p>
   </div>
-  <a class="post-button" href="../../../blog/lektor-parte-2-deploy-macros-admin-e-plugins/">Read more</a>
 
-  
-    
-  <div class="blog-post">
-  
-    <h2><a href="../../../blog/lektor-gerador-de-sites-estaticos-escrito-em-python/">Lektor: gerador de sites estáticos escrito em Python</a></h2>
-  
-  <p class="meta">
-    
-      Luciano Ratamero
-    
-    - Tuesday, February 2, 2016
-  </p>
-  <div class="image-wrapper">
-    <a target="_blank" href="https://getlektor.com/"><img src="https://lucianoratamero.github.io/img/cover-lektor.png"></a>
-</div><p><em>edit: esse blog agora funciona com django_apistar como backend e react + parcel no front</em></p>
-<p>vamos começar com um post um pouco meta: sobre como eu fiz esse blog usando Python e <a href="https://getlektor.com/">Lektor</a>, um gerador de sites estáticos escrito em Python. por que usar uma ferramenta em Python em vez de JavaScript? pra poder falar sobre ele pro pessoal da <a href="https://www.facebook.com/pythonrio/">PythOnRio</a>, claro. e porque foi a melhor ferramenta que usei pra esse propósito até hoje. mas isso é só um detalhe. enfim, vamos começar do começo: o que raios é Lektor?</p>
 
-  </div>
-  <a class="post-button" href="../../../blog/lektor-gerador-de-sites-estaticos-escrito-em-python/">Read more</a>
-
-  
-
-  
-  <div class="pagination">
-    
-      <a href="../../../blog/page/4/"> < 4</a>
-    
-    | 5 |
-    
-  </div>
-
+  <div class="comments">
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/en/decoupling-logic-from-react-components"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lucianoratamerosblog.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+</div>
 
           </div>
         </div>
@@ -174,19 +192,19 @@
       </div>
 
       <nav class="nav-mobile">
-        <h1><a href="../../../">luciano@ratamero.com</a></h1>
+        <h1><a href="../../">luciano@ratamero.com</a></h1>
         <ul class="nav navbar-nav">
           
             <a
               
-              href="../../../blog/"
+              href="../../blog/"
             >
               <li>Blog</li>
             </a>
           
             <a
               
-              href="../../../previous-talks/"
+              href="../../previous-talks/"
             >
               <li>Talks</li>
             </a>
@@ -195,7 +213,7 @@
               
                 class="no-ajaxy"
               
-              href="../../../sketches"
+              href="../../sketches"
             >
               <li>Sketches</li>
             </a>
@@ -206,5 +224,5 @@
 
   </div>
   <div class="lds-ripple"><div></div><div></div></div>
-  <script src="../../../js/main.js"></script>
+  <script src="../../js/main.js"></script>
 </body>

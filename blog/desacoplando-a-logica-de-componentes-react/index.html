@@ -6,12 +6,12 @@
         type="image/png"
         href="favicon.png">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
-  <link rel="stylesheet" href="../../../scss/main.css">
+  <link rel="stylesheet" href="../../scss/main.css">
 
-  <meta name="keywords" content="Luciano Ratamero, "/>
+  <meta name="keywords" content="Luciano Ratamero, react, redux, grandes projetos, arquitetura, planejamento, frontend, javascript, frameworks"/>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Blog — luciano@ratamero.com</title>
+  <title>Desacoplando a lógica de componentes React — luciano@ratamero.com</title>
 </head>
 
 <body>
@@ -26,14 +26,14 @@
               
                 <a
                   
-                  href="../../../blog/"
+                  href="../../blog/"
                 >
                   <li>Blog</li>
                 </a>
               
                 <a
                   
-                  href="../../../previous-talks/"
+                  href="../../previous-talks/"
                 >
                   <li>Talks</li>
                 </a>
@@ -42,7 +42,7 @@
                   
                     class="no-ajaxy"
                   
-                  href="../../../sketches"
+                  href="../../sketches"
                 >
                   <li>Sketches</li>
                 </a>
@@ -110,7 +110,7 @@
                 </a>
               </li>
             </ul>
-            <h1><a href="../../../">luciano@ratamero.com</a></h1>
+            <h1><a href="../../">luciano@ratamero.com</a></h1>
           </div>
         </nav>
 
@@ -118,55 +118,114 @@
           <div class="page">
             
   
-    
   <div class="blog-post">
   
-    <h2><a href="../../../blog/lektor-parte-2-deploy-macros-admin-e-plugins/">Lektor parte 2: deploy, macros, admin e plugins</a></h2>
+    <h2 class="page-title">Desacoplando a lógica de componentes React</h2>
   
   <p class="meta">
     
       Luciano Ratamero
     
-    - Wednesday, February 3, 2016
+    - Tuesday, July 23, 2019
   </p>
   <div class="image-wrapper">
-    <a target="_blank" href="https://getlektor.com/"><img src="https://lucianoratamero.github.io/img/cover-lektor-2.png"></a>
-</div><p>agora que já expliquei o básico de como utilizar o Lektor pra desenvolver seu site estático, vou começar a explicar alguns aspectos mais avançados. não pretendo ser muito detalhista, mas fiquem a vontade para pedir mais informações nos comentários. aí vai!</p>
-
+    <img src="cover.png">
+</div><p><em>for native english speakers, <a href="../../en/decoupling-logic-from-react-components/">here's the translated post</a></em></p>
+<p>Sempre que há um novo projeto baseado em React, grande parte dos devs frontend irão passar pelo ritual de
+    configuração inicial. Padrões de implementação de estilos, desacoplamento de componentes e estrutura de diretórios
+    irão emergir - <strong>nem sempre pro bem</strong>. O pior é que todo dev frontend que eu já vi irá resolver o maior
+    problema de todos, o problema de desacoplar lógica de negócio, de uma forma diferente. Em um esforço para criar uma
+    padronização e resolver a questão da camada de domínio aqui na Labcodes, eu pesquisei um bocado e achei uma forma
+    boa e sustentável para lidar com requisições e processamento de dados. O resultado: react-redux-api-tools.</p>
+<h2>Vamos imaginar um cenário comum: CRUD</h2>
+<p>Já que o javascript é muito permissivo, há inúmeras maneiras de implementarmos um CRUD em uma SPA. Se limitarmos o
+    escopo ao uso do react, as coisas ficam mais fáceis, mas ainda há possíveis implementações demais. Uma delas é de
+    usar os hooks de ciclo de vida para fazer as requisições. Seu código provavelmente irá ficar parecido com isso:</p>
+<p><img alt="primeiro código" src="image1.png"></p>
+<p>Eu acho que não preciso falar muito sobre isso, mas vou falar de qualquer forma: essa implementação, mesmo sendo
+    perfeitamente válida, tem alguns <strong>grandes</strong> problemas.</p>
+<p>1.A requisição está sendo feita dentro do componente que, em teoria, deveria ter apenas um trabalho:
+    <strong>renderizar os dados</strong>. Se, por exemplo, você precisasse limpar a sessão do usuário ou executar
+    qualquer lógica de negócio, ela provavelmente estaria aqui, o que é <strong>ainda pior</strong>;<br>
+    2. Os dados da resposta da requisição está vivendo dentro do estado do componente, e isso significa que tudo será
+    perdido assim que o componente desmontar;<br>
+    3. Você terá <strong>sempre</strong> que pegar os dados da API para cada instância do componente, mesmo que já tenha
+    feito essa específica requisição um bilhão de vezes;<br>
+    4. Não há nenhum estado intermediário entre o início da requisição e sua resposta, então nada de spinners de loading
+    (apesar de você poder implementar essa lógica construindo um <em>callback hell</em> de setStates);<br>
+    5. Já que componentes react são hierárquicos, se você precisar desses dados dentro de um componente filho ou pai,
+    você terá que implementar contextos/props e callbacks. <strong>O código fica complicado. RAPIDINHO.</strong><br></p>
+<p>Para melhorar esse código, muitos de nós preferem usar uma biblioteca para prover um estado mais global para a
+    aplicação; um estado que vive fora de todos os componentes.</p>
+<h2>Segundo passo: usando Redux</h2>
+<p>Redux é uma das melhores bibliotecas para esse tipo de trabalho. Digamos que você vai usar redux para lidar com dados
+    e lógica de negócio. Assumindo que você usará a camada de reducers para formatar dados e chamar lógicas de domínio,
+    seu componente vai ficar mais ou menos assim:</p>
+<p><img alt="segundo código" src="image2.png"></p>
+<p>Isso resolve grande parte dos problemas, mas eu diria que essa solução acopla ainda mais o código e, certeza, deixa
+    ele mais difícil de ler e manter. A causa raiz disso tudo é o fato de que o componente está sendo responsável por
+    absolutamente tudo: pegar os dados da API e orquestrar eventos do redux, quando era para ele estar… renderizando
+    coisas.
+    O fluxo ideal para resolver todos os problemas, pelo menos os mais importantes, seria algo similar a isso:</p>
+<p><img alt="primeiro processo" src="image3.png"></p>
+<p>Note que a única forma de completamente remover a lógica de negócio dos componentes é acionando os casos de uso de
+    ‘Sucesso’ e ‘Falha’ <strong>fora do componente</strong>. Componentes devem renderizar coisas, não lidar com
+    gerenciamento de estado da <strong>aplicação inteira</strong>. Isso significa que o componente apenas deve avisar a
+    alguém que precisa de dados, disparando um evento (o evento de ‘pega esses dados pra mim’), e então reagir aos dados
+    quando eles estiverem lá.
+    Para respeitar essa ideia, nosso código do componente deveria ser tão simples quanto isso:</p>
+<p><img alt="terceiro codigo" src="image4.png"></p>
+<p>E isso significa que… as actions devem fazer a requisição dos dados? E reducers iriam disparar outras ações? Soa
+    estranho, né?
+    Porque é. E não é o que eu estou sugerindo <strong>mesmo</strong>.</p>
+<h2>Eis que chegam os middlewares</h2>
+<p>Para entregarmos o fluxo ideal de dados, <strong>middlewares do redux são maravilhosos</strong>. Imaginem que
+    queremos que nosso componente seja exatamente como o código que vimos acima. Se nós, por exemplo, tivéssemos algo
+    entre as actions e os reducers, a gente conseguiria fazer com que esse <em>código do meio</em> <strong>fizesse a
+        requisição</strong> e, dependendo do resultado, <strong>decidisse quais reducers disparar</strong>. Assim,
+    deixaríamos o redux livre para fazer seu trabalho de gerenciar o estado da aplicação e lidar com eventos, enquanto
+    os componentes focariam em renderizar coisas - <strong>somente</strong> renderizar coisas.
+    Estou falando sobre algo como isso aqui:</p>
+<p><img alt="segundo processo" src="image5.png"></p>
+<p>Com esse fluxo proposto, nossas actions poderiam ser mais ou menos assim:</p>
+<p><img alt="quarto codigo" src="image6.png"></p>
+<p>Ok, vamos com calma. O que você está vendo aí em cima é a nossa convenção atual que descreve uma <em>action de
+        requisição</em>, que usa o middleware incluído no nosso pacote npm
+    <code>[react-redux-api-tools](https://www.npmjs.com/package/react-redux-api-tools)</code>. Fazer o dispatch dessa
+    action <strong>configura</strong> o middleware para <strong>fazer a requisição</strong> (ao chamar a
+    <code>apiCallFunction</code>) e para <strong>usar o reducer correto</strong> assim que a requisição estiver
+    concluída.
+    Enquanto isso, nossos componentes e reducers se manteriam inalterados:</p>
+<p><img alt="quinto codigo" src="image7.png"></p>
+<p><img alt="sexto codigo" src="image8.png"></p>
+<p>E <em>voilá,</em> nosso fluxo está bem mais limpo, simples e desacoplado!</p>
+<h2>Se você gostou disso ou isso parece mágico demais…</h2>
+<p>Gostou na API desse middleware? Quer desenvolver seus projetos react-redux dessa maneira? Está curiosa para saber
+    como tudo isso funciona por baixo dos panos? Então você é uma pessoa que poderia usar e contribuir com nosso pacote
+    npm <a href="https://www.npmjs.com/package/react-redux-api-tools">react-redux-api-tools</a>. Reportagem de bugs e
+    sugestões de features são bem vindas!
+    E isso tudo é só o começo; <a href="https://www.npmjs.com/package/react-redux-api-tools">react-redux-api-tools</a>
+    traz um monte de outras features que não consegui descrever nesse post. Dê uma boa olhada na nossa documentação para
+    descobrir como melhorar e simplificar seu código usando nossas ferramentas! Obrigado, e até a próxima!</p>
   </div>
-  <a class="post-button" href="../../../blog/lektor-parte-2-deploy-macros-admin-e-plugins/">Read more</a>
 
-  
-    
-  <div class="blog-post">
-  
-    <h2><a href="../../../blog/lektor-gerador-de-sites-estaticos-escrito-em-python/">Lektor: gerador de sites estáticos escrito em Python</a></h2>
-  
-  <p class="meta">
-    
-      Luciano Ratamero
-    
-    - Tuesday, February 2, 2016
-  </p>
-  <div class="image-wrapper">
-    <a target="_blank" href="https://getlektor.com/"><img src="https://lucianoratamero.github.io/img/cover-lektor.png"></a>
-</div><p><em>edit: esse blog agora funciona com django_apistar como backend e react + parcel no front</em></p>
-<p>vamos começar com um post um pouco meta: sobre como eu fiz esse blog usando Python e <a href="https://getlektor.com/">Lektor</a>, um gerador de sites estáticos escrito em Python. por que usar uma ferramenta em Python em vez de JavaScript? pra poder falar sobre ele pro pessoal da <a href="https://www.facebook.com/pythonrio/">PythOnRio</a>, claro. e porque foi a melhor ferramenta que usei pra esse propósito até hoje. mas isso é só um detalhe. enfim, vamos começar do começo: o que raios é Lektor?</p>
 
-  </div>
-  <a class="post-button" href="../../../blog/lektor-gerador-de-sites-estaticos-escrito-em-python/">Read more</a>
-
-  
-
-  
-  <div class="pagination">
-    
-      <a href="../../../blog/page/4/"> < 4</a>
-    
-    | 5 |
-    
-  </div>
-
+  <div class="comments">
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/blog/desacoplando-a-logica-de-componentes-react"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lucianoratamerosblog.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+</div>
 
           </div>
         </div>
@@ -174,19 +233,19 @@
       </div>
 
       <nav class="nav-mobile">
-        <h1><a href="../../../">luciano@ratamero.com</a></h1>
+        <h1><a href="../../">luciano@ratamero.com</a></h1>
         <ul class="nav navbar-nav">
           
             <a
               
-              href="../../../blog/"
+              href="../../blog/"
             >
               <li>Blog</li>
             </a>
           
             <a
               
-              href="../../../previous-talks/"
+              href="../../previous-talks/"
             >
               <li>Talks</li>
             </a>
@@ -195,7 +254,7 @@
               
                 class="no-ajaxy"
               
-              href="../../../sketches"
+              href="../../sketches"
             >
               <li>Sketches</li>
             </a>
@@ -206,5 +265,5 @@
 
   </div>
   <div class="lds-ripple"><div></div><div></div></div>
-  <script src="../../../js/main.js"></script>
+  <script src="../../js/main.js"></script>
 </body>
