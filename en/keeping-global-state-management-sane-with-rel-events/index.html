@@ -6,12 +6,12 @@
         type="image/png"
         href="favicon.png">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
-  <link rel="stylesheet" href="../scss/main.css">
+  <link rel="stylesheet" href="../../scss/main.css">
 
-  <meta name="keywords" content="Luciano Ratamero, "/>
+  <meta name="keywords" content="Luciano Ratamero, rel-events, react, redux, big projects, architecture, planning, frontend, javascript, frameworks"/>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Blog — luciano@ratamero.com</title>
+  <title>Keeping global state management sane with rel-events — luciano@ratamero.com</title>
 </head>
 
 <body>
@@ -26,14 +26,14 @@
               
                 <a
                   
-                  href="../blog/"
+                  href="../../blog/"
                 >
                   <li>Blog</li>
                 </a>
               
                 <a
                   
-                  href="../previous-talks/"
+                  href="../../previous-talks/"
                 >
                   <li>Talks</li>
                 </a>
@@ -42,7 +42,7 @@
                   
                     class="no-ajaxy"
                   
-                  href="../sketches"
+                  href="../../sketches"
                 >
                   <li>Sketches</li>
                 </a>
@@ -110,7 +110,7 @@
                 </a>
               </li>
             </ul>
-            <h1><a href="../">luciano@ratamero.com</a></h1>
+            <h1><a href="../../">luciano@ratamero.com</a></h1>
           </div>
         </nav>
 
@@ -118,10 +118,9 @@
           <div class="page">
             
   
-    
   <div class="blog-post">
   
-    <h2><a href="../en/keeping-global-state-management-sane-with-rel-events/">Keeping global state management sane with rel-events</a></h2>
+    <h2 class="page-title">Keeping global state management sane with rel-events</h2>
   
   <p class="meta">
     
@@ -130,39 +129,61 @@
     - Thursday, September 19, 2019
   </p>
   <div class="image-wrapper">
-    <img src="./keeping-global-state-management-sane-with-rel-events/cover.png">
+    <img src="cover.png">
 </div><p>Maintaining a big and complex react app is not for amateurs. Whatever you may choose to manage your app state, chances are that it's hard to pick up, like redux, or really convoluted, like making yourself a service layer. With the goal of making it easy for new developers to jump into our projects, we at Labcodes decided it was time to give this problem a little more thought. Our answer was <a href="https://github.com/labcodes/rel-events">rel-events</a>.</p>
+<h2>Why another library to manage states?</h2>
+<p><a href="https://xkcd.com/927/"><img src="https://imgs.xkcd.com/comics/standards.png" alt="xkcd is always right"></a></p>
+<p>Whenever I think of making something new and shiny, this xkcd strip comes to haunt me. Believe me, I don't want to be the kind of person that does everything themselves, and that's one of my grievances with the fork mentality. However, it was about time I did something to address a pesky problem I deal with daily: using whatever library to separate business logic from react components.</p>
+<p>At the end of the day, after much thought, I always end up surrendering and running <code>npm install redux react-redux --save</code>. I even shared my basic tools to deal with redux on our <a href="https://github.com/labcodes/react-redux-api-tools/"><code>react-redux-api-tools</code></a> package.</p>
+<p>And by no means I hate redux; in fact, I love it. It gets the job done, it's ultra flexible, with low side effects. But let's be frank here: the discomfort of reading <code>mapStateToProps</code> for the first time is <strong>real</strong>. It took me a long while to properly understand what was going on. Then there are actions, action creators, reducers, dispatches and middlewares, and sagas, and async dispatches; it's neverending.</p>
+<p>After those confusing and long first months, things started to get easier, but way, <strong>way</strong> too verbose. I always thought that redux felt a lower level tool, and that I was always in need of specifying, step by step, exactly and strictly what and how things should be done. No abstraction at all. A lot of copy and paste, though.</p>
+<p>I came to the conclusion that it would be nice to have all the features I would like in my redux configuration - a proper HTTP request flow, less repetition, meaningful connection between actions and reducers -, without sacrificing anything. I got the green light to develop internally a solution for that: <code>rel-events</code>.</p>
+<h2>Cool, but what's <code>rel-events</code>?</h2>
+<p><code>rel-events</code> is a React Events Library that takes the concept of events, present in redux, to a higher level of abstraction. It's a thin layer over redux that enables you to stop thinking about actions, reducers, stores and middlewares, so you can focus on what needs to be done: executing domain logic reactively when events pop up.</p>
+<p>To do that, let's imagine a simple scenario: we need to enable a user to log into our app.</p>
+<p>You could do the whole request flow inside your components, but <a href="https://labcodes.com.br/blog/en/decoupling-logic-from-react-components.html">as we stated on our previous blog post</a>, we don't really recommend doing that - it always ends up messy. We could use redux, but then our junior developers would need to pass that <code>mapStateToProps</code> hurdle, and sometimes we don't have the luxury of taking our time. We could use sagas, but then redux is back with a vengeance.</p>
+<p>Now, forget about actions and reducers and imagine we have an object called LoginEvent. Whenever we call it passing an email and password, things get done and data comes through to the component. Imagine you don't need to know anything but its name. No reducers, no actions, no <code>connect</code> or <code>mapStateToProps</code>. It would be something like this:</p>
+<p><img src="../../en/keeping-global-state-management-sane-with-rel-events/1-imaginary-event.png" alt="Imaginary Event"></p>
+<p>Cool, but what about the whole behavior? Where's the logic to make the request? How to deal with bad requests? Let's say, besides the Event, we have something that manages the event flow, an Event Manager:</p>
+<p><img src="../../en/keeping-global-state-management-sane-with-rel-events/2-basic-http-event.png" alt="Basic rel-events HTTPEvent"></p>
+<p>That's better. But how is this manager implemented? Because, if it needs to deal with the event flow, it needs to do a lot of stuff: know how to make the request and what to do when the request succeeds or fails. Oh, and we need an intermediary state, because we love loading spinners! Hell, I forgot about the inital state of the event as well! Ok, ok, let's see:</p>
+<p><img src="../../en/keeping-global-state-management-sane-with-rel-events/3-login-event-manager.png" alt="LoginEventManager"></p>
+<p>That's about it, right? But, hey, how do we trigger it? And how do I make the Event register which Components are able to trigger it? How does the component get the data from it? We're almost there:</p>
+<p><img src="../../en/keeping-global-state-management-sane-with-rel-events/4-registering-component.png" alt="Registering the component"></p>
+<p>And that's exactly the current API for a HTTPEvent from <code>rel-events</code>. No actions, no reducers, no coupling between the logic and the component layers, nothing. Of course, it needs some configuration to hook it up with redux, but it's mostly a one time setup, very well documented <a href="https://github.com/labcodes/rel-events/tree/master/docs">in our docs</a>.</p>
+<h2>That sounds... nice! But what about features? I want features!</h2>
+<p>With our current beta version (0.1.3 as of September 2019), you're able to:</p>
+<ul>
+<li>a basic Event type (for the times you don't need to make HTTP requests);</li>
+<li>Events/HTTPEvents chaining (useful for fetching more data when a request is done);</li>
+<li>multiple Events registering to the same Component (you'll probably have a Component that needs to listen to multiple Events);</li>
+<li>execute code after dispatching an Event (with <code>afterDispatch</code>);</li>
+<li>execute code after a request is successful (with <code>afterSuccess</code>);</li>
+<li>execute code after a request has failed (with <code>afterFailure</code>);</li>
+<li>evaluate if an event should be dispatched or not (with the <code>shouldDispatch</code> method).</li>
+</ul>
+<p>And more! All that without the cognitive burden, the crazy constants, the store names and all the bad developer experience from redux. The best part: no huge learning curve. This post has basically all you need to know to use our lib. Really.</p>
+<p>So if you liked it, <a href="https://github.com/labcodes/rel-events">take a look at our github repo</a> to get started and share the love! Thanks for your attention, and see you next time!</p>
 
   </div>
-  <a class="post-button" href="../en/keeping-global-state-management-sane-with-rel-events/">Read more</a>
 
-  
-    
-  <div class="blog-post">
-  
-    <h2><a href="../en/decoupling-logic-from-react-components/">Decoupling logic from react components</a></h2>
-  
-  <p class="meta">
-    
-      Luciano Ratamero
-    
-    - Tuesday, July 23, 2019
-  </p>
-  <div class="image-wrapper">
-    <img src="./decoupling-logic-from-react-components/cover.png">
-</div><p>Whenever there’s a new React project, most frontend developers will fumble around with the basic configurations. Patterns of style implementation, component decoupling and folder structure will emerge - <strong>not always for the good</strong>. The worst part is that every single frontend dev I’ve ever seen will solve the biggest problem of them all, the <em>business logic</em> conundrum, in a different way. In an effort to create a standard to solve the domain layer issue at Labcodes, I’ve researched a bit and found a good and sustainable way to deal with requests and data processing. The end result: react-redux-api-tools.</p>
-  </div>
-  <a class="post-button" href="../en/decoupling-logic-from-react-components/">Read more</a>
 
-  
-
-  
-  <div class="pagination">
-    
-    | 1 |
-    
-  </div>
-
+  <div class="comments">
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/en/keeping-global-state-management-sane-with-rel-events"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lucianoratamerosblog.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+</div>
 
           </div>
         </div>
@@ -170,19 +191,19 @@
       </div>
 
       <nav class="nav-mobile">
-        <h1><a href="../">luciano@ratamero.com</a></h1>
+        <h1><a href="../../">luciano@ratamero.com</a></h1>
         <ul class="nav navbar-nav">
           
             <a
               
-              href="../blog/"
+              href="../../blog/"
             >
               <li>Blog</li>
             </a>
           
             <a
               
-              href="../previous-talks/"
+              href="../../previous-talks/"
             >
               <li>Talks</li>
             </a>
@@ -191,7 +212,7 @@
               
                 class="no-ajaxy"
               
-              href="../sketches"
+              href="../../sketches"
             >
               <li>Sketches</li>
             </a>
@@ -202,5 +223,5 @@
 
   </div>
   <div class="lds-ripple"><div></div><div></div></div>
-  <script src="../js/main.js"></script>
+  <script src="../../js/main.js"></script>
 </body>
