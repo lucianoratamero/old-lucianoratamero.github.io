@@ -10,7 +10,7 @@ body:
 
 *for native english speakers, [here's the translated post](https://lucianoratamero.github.io/en/keeping-global-state-management-sane-with-rel-events/)*
 
-Manter uma aplicação react grande e complexa não é um trabalho pra amadores. Não importa o que você escolher para lidar com a máquina de estados da aplicação, é quase certo de que é algo difícil de aprender, como redux, ou realmente complicado, como fazer uma camada de serviços na mão. Com o objetivo de fazer com que novas pepssoas possam entrar fácil nos projetos, a galera da Labcodes decidiu que tava na hora de dar mais atenção e uma verdadeira solução pra esse tipo de problema. Nossa resposta foi criar a biblioteca [rel-events](https://github.com/labcodes/rel-events).
+Manter uma aplicação react grande e complexa não é um trabalho pra amadores. Não importa o que você escolher para lidar com a máquina de estados da aplicação, é quase certo de que é algo difícil de aprender, como redux, ou realmente complicado, como fazer uma camada de serviços na mão. Com o objetivo de fazer com que novas pessoas possam entrar fácil nos projetos, a galera da Labcodes decidiu que tava na hora de dar mais atenção e uma verdadeira solução pra esse tipo de problema. Nossa resposta foi criar a biblioteca [rel-events](https://github.com/labcodes/rel-events).
 
 ## Pra que mais uma biblioteca para gerenciar estado?
 
@@ -74,7 +74,7 @@ summary:
     <img src="./mantendo-o-estado-global-de-uma-maneira-sa-com-rel-events/cover.png">
 </div>
 
-Manter uma aplicação react grande e complexa não é um trabalho pra amadores. Não importa o que você escolher para lidar com a máquina de estados da aplicação, é quase certo de que é algo difícil de aprender, como redux, ou realmente complicado, como fazer uma camada de serviços na mão. Com o objetivo de fazer com que novas pepssoas possam entrar fácil nos projetos, a galera da Labcodes decidiu que tava na hora de dar mais atenção e uma verdadeira solução pra esse tipo de problema. Nossa resposta foi criar a biblioteca [rel-events](https://github.com/labcodes/rel-events).
+Manter uma aplicação react grande e complexa não é um trabalho pra amadores. Não importa o que você escolher para lidar com a máquina de estados da aplicação, é quase certo de que é algo difícil de aprender, como redux, ou realmente complicado, como fazer uma camada de serviços na mão. Com o objetivo de fazer com que novas pessoas possam entrar fácil nos projetos, a galera da Labcodes decidiu que tava na hora de dar mais atenção e uma verdadeira solução pra esse tipo de problema. Nossa resposta foi criar a biblioteca [rel-events](https://github.com/labcodes/rel-events).
 ---
 pub_date: 2019-09-19
 ---
