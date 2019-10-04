@@ -59,9 +59,9 @@ Na nossa atual versão beta (0.1.3, de Setembro de 2019), você pode:
 *   usar um Evento (Event) básico (pras horas em que você não precisa fazer requisições);
 *   encadear um Event/HTTPEvent em outro (útil pra quando você quer buscar mais dados depois que um evento teve sucesso);
 *   ter múltiplos Events registrados para um mesmo Componente (porque você provavelmente vai ter um Componente que precisa ler dados de vários lugares);
-*   executár código depois das mudanças de estado de um Evento que foi disparado (usando `afterDispatch`);
-*   executár código depois das mudanças de estado de uma requisição que teve sucesso (usando `afterSuccess`);
-*   executár código depois das mudanças de estado de uma requisição que falhou (usando `afterFailure`);
+*   executar código depois das mudanças de estado de um Evento que foi disparado (usando `afterDispatch`);
+*   executar código depois das mudanças de estado de uma requisição que teve sucesso (usando `afterSuccess`);
+*   executar código depois das mudanças de estado de uma requisição que falhou (usando `afterFailure`);
 *   avaliar se um evento deve ser disparado ou não (com o método `shouldDispatch` do EventManager).
 
 E muito mais! Tudo isso sem a carga cognitiva, sem as constantes aleatórias, sem os nomes de store manuais e toda a má experiência de desenvolvimento do redux. E a melhor parte: sem uma grande curva de aprendizado. Esse post tem basicamente tudo que você precisa saber pra usar nossa biblioteca no dia-a-dia. Mesmo. Eu sei, porque tô usando!
