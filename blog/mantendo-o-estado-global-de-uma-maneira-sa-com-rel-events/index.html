@@ -1,0 +1,228 @@
+<!doctype html>
+<meta charset="utf-8">
+
+<head>
+  <link rel="icon"
+        type="image/png"
+        href="favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+  <link rel="stylesheet" href="../../scss/main.css">
+
+  <meta name="keywords" content="Luciano Ratamero, rel-events, react, redux, big projects, architecture, planning, frontend, javascript, frameworks"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Mantendo o estado global de uma maneira sã com rel-events — luciano@ratamero.com</title>
+</head>
+
+<body>
+  <div id="content">
+    <div class="container-fluid">
+
+      <div class="row">
+
+        <nav class="nav-desktop col-xs-3">
+          <div class="flex-wrapper">
+            <ul class="nav navbar-nav">
+              
+                <a
+                  
+                  href="../../blog/"
+                >
+                  <li>Blog</li>
+                </a>
+              
+                <a
+                  
+                  href="../../previous-talks/"
+                >
+                  <li>Talks</li>
+                </a>
+              
+                <a
+                  
+                    class="no-ajaxy"
+                  
+                  href="../../sketches"
+                >
+                  <li>Sketches</li>
+                </a>
+              
+            </ul>
+            <ul class="social-icons">
+              <li>
+                <a href="https://twitter.com/lucianoratamero" target="_blank" rel="noopener noreferrer">
+                  <svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 40 40" style="vertical-align: middle;"><g><path d="m31.6 13.6q-1.3 0.6-2.7 0.8 1.5-0.9 2-2.6-1.4 0.8-2.9 1.1-1.4-1.5-3.5-1.5-1.9 0-3.3 1.4t-1.3 3.3q0 0.7 0.1 1.1-2.9-0.2-5.4-1.5t-4.3-3.4q-0.7 1.1-0.7 2.3 0 2.6 2.1 3.9-1.1 0-2.3-0.5v0q0 1.7 1.1 3t2.8 1.6q-0.7 0.2-1.1 0.2-0.3 0-0.9-0.1 0.4 1.4 1.6 2.3t2.8 1q-2.6 2-5.9 2-0.6 0-1.1-0.1 3.3 2.1 7.2 2.1 2.5 0 4.7-0.8t3.7-2.1 2.7-3.1 1.7-3.6 0.5-3.7q0-0.4 0-0.7 1.4-1 2.4-2.4z m5.7-4.3v21.4q0 2.7-1.9 4.6t-4.5 1.8h-21.5q-2.6 0-4.5-1.8t-1.9-4.6v-21.4q0-2.7 1.9-4.6t4.5-1.8h21.5q2.6 0 4.5 1.8t1.9 4.6z"></path></g></svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/luciano-ratamero-06b98b32/" target="_blank" rel="noopener noreferrer">
+                  <svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 40 40" style="vertical-align: middle;"><g><path d="m8.3 31.6h5.1v-15.5h-5.1v15.5z m5.5-20.3q0-1.2-0.8-1.9t-2.1-0.8-2.1 0.8-0.8 1.9q0 1.1 0.8 1.9t2 0.8h0.1q1.3 0 2.1-0.8t0.8-1.9z m13 20.3h5.2v-8.9q0-3.5-1.6-5.2t-4.3-1.8q-3.1 0-4.7 2.6h0v-2.2h-5.1q0 1.4 0 15.5h5.1v-8.7q0-0.8 0.2-1.2 0.3-0.8 1-1.4t1.7-0.5q2.5 0 2.5 3.5v8.3z m10.5-22.3v21.4q0 2.7-1.9 4.6t-4.5 1.8h-21.5q-2.6 0-4.5-1.8t-1.9-4.6v-21.4q0-2.7 1.9-4.6t4.5-1.8h21.5q2.6 0 4.5 1.8t1.9 4.6z"></path></g></svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/lucianoratamero/" target="_blank" rel="noopener noreferrer">
+                  <svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 40 40" style="vertical-align: middle;"><g><path d="m14.6 26.8q0.1-0.1-0.1-0.3-0.2-0.2-0.3 0-0.1 0.1 0.1 0.2 0.2 0.2 0.3 0.1z m-0.6-0.9q-0.2-0.2-0.3-0.1-0.1 0.1 0 0.3 0.1 0.1 0.3 0.1 0.1-0.1 0-0.3z m-1-0.9q0.1-0.1-0.1-0.2-0.1 0-0.1 0-0.1 0.2 0 0.2 0.2 0.1 0.2 0z m0.5 0.5q0.1 0 0-0.1t0-0.1q-0.2-0.2-0.3-0.1t0.1 0.3q0.1 0.1 0.2 0z m1.9 1.7q0.1-0.2-0.2-0.3-0.2 0-0.3 0.1 0 0.2 0.2 0.3 0.2 0 0.3-0.1z m1 0q0-0.1-0.3-0.1-0.2 0-0.2 0.1t0.2 0.2 0.3-0.2z m0.8-0.1q0-0.2-0.2-0.1t-0.2 0.2q0 0.1 0.2 0.1t0.2-0.2z m14.4-7.1q0-4.7-3.4-8.1t-8.1-3.3-8 3.3-3.4 8.1q0 3.7 2.2 6.7t5.6 4.1q0.4 0.1 0.6-0.1t0.2-0.4q0-1.2 0-2.1-0.1 0-0.4 0t-0.8 0.1-1-0.1-1-0.5-0.7-0.9q-0.5-1.3-1.2-1.6-0.1-0.1-0.1-0.1l-0.2-0.2-0.2-0.2 0.1-0.2 0.5-0.1q0.1 0 0.3 0.1t0.7 0.3 0.7 0.8q0.4 0.7 0.8 1t1 0.3 0.9-0.1 0.6-0.2q0.2-1.1 0.8-1.6-1.1-0.1-1.9-0.4t-1.7-0.8-1.2-1.7-0.5-2.7q0-1.8 1.2-3.1-0.5-1.3 0.1-3 0.5-0.1 1.3 0.2t1.3 0.6l0.6 0.4q1.3-0.4 2.8-0.4t2.9 0.4q0.3-0.2 0.6-0.4t1.3-0.6 1.3-0.2q0.6 1.7 0.1 3 1.1 1.3 1.1 3.1 0 1.3-0.3 2.2t-0.8 1.6-1.2 1-1.3 0.6-1.6 0.2q0.8 0.7 0.8 2.2 0 0.9 0 2t0 1.1q0 0.3 0.2 0.4t0.6 0.1q3.4-1.1 5.6-4.1t2.2-6.7z m5.7-10.7v21.4q0 2.7-1.9 4.6t-4.5 1.8h-21.5q-2.6 0-4.5-1.8t-1.9-4.6v-21.4q0-2.7 1.9-4.6t4.5-1.8h21.5q2.6 0 4.5 1.8t1.9 4.6z"></path></g></svg>
+                </a>
+              </li>
+              <li>
+                <a href="http://lastfm.com/user/lucianoratamero" target="_blank" rel="noopener noreferrer">
+                  <svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 40 40" style="vertical-align: middle;"><g><path d="m35 23.5q0-3.9-5.3-5.4-0.7-0.2-1.1-0.3t-0.9-0.6-0.6-1q0-0.1-0.1-0.2t0-0.3-0.1-0.1q0-0.8 0.6-1.4t1.3-0.5q1.2 0 1.6 0.3h0q0.4 0.4 0.9 1.2l2-1.6q-0.8-1.2-1.1-1.4-0.7-0.7-1.5-0.9t-1.9-0.2q-1.8 0-3.1 1.3t-1.4 3q0 0.2 0 0.5 0.4 2.2 1.5 3.2t3.3 1.6q0.6 0.2 1.1 0.3t1 0.5 0.8 0.8 0.3 1v0.1q0.1 1.3-0.9 2.1t-2.2 0.8q-2.2 0-3.7-3.2-0.6-1.1-1.2-2.7t-1.1-2.8-1.2-2.5-1.6-2.1-2.3-1.4-3.3-0.5q-2.3 0-4.3 1.2t-3.2 3.3-1.1 4.3v0q0.1 2.4 1.1 4.5t3 3.3 4.4 1.2q4.1 0 6.2-2.4 0.4-0.6 0.7-1.2l-1.4-2.4q-0.9 1.8-2.2 2.6t-3.2 0.8q-2.6 0-4.3-1.9t-1.7-4.6q0-2.3 1.8-4.2t4.2-1.9q2.5 0 3.8 1.2t2.3 3.8q0.2 0.5 0.6 1.6t0.6 1.7 0.7 1.6 0.9 1.7 1 1.4 1.2 1.2 1.5 0.7 1.8 0.3q2.4 0 4.1-1.5t1.7-3.9z m2.3-14.2v21.4q0 2.7-1.9 4.6t-4.5 1.8h-21.5q-2.6 0-4.5-1.8t-1.9-4.6v-21.4q0-2.7 1.9-4.6t4.5-1.8h21.5q2.6 0 4.5 1.8t1.9 4.6z"></path></g></svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitch.tv/lucianoisstreaming" target="_blank" rel="noopener noreferrer">
+                  <!-- icons by FontAwesome! -->
+                  <svg
+                     enable-background="new 0 0 512 512"
+                     height="512px"
+                     version="1.1"
+                     viewBox="0 0 512 512"
+                     width="512px"
+                     xml:space="preserve"
+                     inkscape:version="0.92.3 (2405546, 2018-03-11)"><metadata
+                       id="metadata15"><rdf:RDF><cc:Work
+                           rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+                             rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+                       id="defs13" /><sodipodi:namedview
+                       pagecolor="#ffffff"
+                       bordercolor="#666666"
+                       borderopacity="1"
+                       objecttolerance="10"
+                       gridtolerance="10"
+                       guidetolerance="10"
+                       inkscape:pageopacity="0"
+                       inkscape:pageshadow="2"
+                       inkscape:window-width="1920"
+                       inkscape:window-height="1052"
+                       id="namedview11"
+                       showgrid="false"
+                       inkscape:zoom="0.4609375"
+                       inkscape:cx="253.83051"
+                       inkscape:cy="429.55932"
+                       inkscape:window-x="0"
+                       inkscape:window-y="28"
+                       inkscape:window-maximized="1"
+                       inkscape:current-layer="Layer_1" /><path
+                       style="fill:#ffffff;stroke-width:0.868644"
+                       d="m 103.11879,33.62773 c -38.376702,0 -69.491057,31.114354 -69.491059,69.49104 v 305.76246 c 0,38.37669 31.114357,69.49104 69.491059,69.49104 h 305.76244 c 38.37669,0 69.49104,-31.11435 69.49104,-69.49104 V 103.11877 c 0,-38.376685 -31.11435,-69.491039 -69.49104,-69.491039 z m 25.14824,62.706744 H 405.02257 V 287.93348 l -85.15655,85.1547 h -63.86509 l -31.93441,42.57734 H 181.48918 V 373.08818 H 106.97929 V 150.95893 Z m 21.28961,31.932546 v 202.2438 h 63.86509 v 42.57736 l 42.5792,-42.57736 h 63.86509 l 53.22214,-53.22214 V 128.26702 Z m 74.50988,53.22215 h 31.93441 v 85.1547 h -31.93441 z m 63.86696,0 h 31.93254 v 85.1547 h -31.93254 z"
+                       id="path2"
+                       inkscape:connector-curvature="0" /></svg>
+                </a>
+              </li>
+            </ul>
+            <h1><a href="../../">luciano@ratamero.com</a></h1>
+          </div>
+        </nav>
+
+        <div class="col-xs-12 col-lg-9 col-lg-offset-3">
+          <div class="page">
+            
+  
+  <div class="blog-post">
+  
+    <h2 class="page-title">Mantendo o estado global de uma maneira sã com rel-events</h2>
+  
+  <p class="meta">
+    
+      Luciano Ratamero
+    
+    - Thursday, September 19, 2019
+  </p>
+  <div class="image-wrapper">
+    <img src="cover.png">
+</div><p><em>for native english speakers, <a href="https://lucianoratamero.github.io/en/keeping-global-state-management-sane-with-rel-events/">here's the translated post</a></em></p>
+<p>Manter uma aplicação react grande e complexa não é um trabalho pra amadores. Não importa o que você escolher para lidar com a máquina de estados da aplicação, é quase certo de que é algo difícil de aprender, como redux, ou realmente complicado, como fazer uma camada de serviços na mão. Com o objetivo de fazer com que novas pepssoas possam entrar fácil nos projetos, a galera da Labcodes decidiu que tava na hora de dar mais atenção e uma verdadeira solução pra esse tipo de problema. Nossa resposta foi criar a biblioteca <a href="https://github.com/labcodes/rel-events">rel-events</a>.</p>
+<h2>Pra que mais uma biblioteca para gerenciar estado?</h2>
+<p><a href="https://xkcd.com/927/"><img src="https://imgs.xkcd.com/comics/standards.png" alt="xkcd tá sempre certo"></a></p>
+<p>Sempre que eu penso em criar uma biblioteca nova, essa tirinha do xkcd vem me assombrar. Acreditem, eu não quero ser o tipo de pessoa que faz tudo por conta própria em vez de contribuir com algo que já existe, e esse é um dos problemas com essa mentalidade de forkar tudo. No entanto, eu sempre quis resolver um problema com o qual eu lido diariamente: usar uma biblioteca qualquer pra separar lógica de negócio/domínio dos meus componentes react.</p>
+<p>Mas no fim do dia, depois de pensar muito, acabo me rendendo e rodando o clássico <code>npm install redux react-redux --save</code>. Eu até compartilhei algumas das ferramentas que eu uso com redux na nossa outra lib <a href="https://github.com/labcodes/react-redux-api-tools/"><code>react-redux-api-tools</code></a>.</p>
+<p>Não ache que eu odeio o redux; pelo contrário, eu amo. Ele cumpre sua função, é ultra flexível, com poucos efeitos colaterais. Mas vamos ser sinceros: o desconforto quando lemos <code>mapStateToProps</code> pela primeira vez é <strong>real</strong>. Demorei um bom tempo pra entender o que tava acontecendo de verdade. E ainda tem actions, action creators, reducers, dispatches e middlewares, e sagas, e async dispatches; o aprendizado nunca acaba.</p>
+<p>Depois dos primeiros confusos meses, lidar com o redux fica mais fácil (como quase tudo na vida), mas muito, <strong>muito</strong> mais verboso. Eu sempre pensei que o redux parecia uma biblioteca muito baixo nível e que eu sempre sou obrigado a especificar, passo a passo, exatamente e estritamente o que precisa ser feito. Zero abstração. E muita cópia e cola.</p>
+<p>Cheguei à conclusão de que seria ótimo ter todas as features que gosto na minha configuração do redux - um fluxo para HTTP bem definido, menos repetição, conexão semântica entre actions e reducers -, sem sacrificar nada. Daí me deram a luz verde pra desenvolver internamente uma solução pra isso: <code>rel-events</code>.</p>
+<h2>Legal, mas o que raios é <code>rel-events</code>?</h2>
+<p><code>rel-events</code> é uma biblioteca de eventos para react (React Events Library, por isso rel ;]). Ela leva o conceito de eventos, que já existe no redux, pra um nível mais alto de abstração. É uma camada fina por cima do redux que permite que você pare de pensar em actions, reducers, stores e middlewares, pra que você possa focar no que precisa ser feito, que é executar lógica de negócio de forma reativa quando eventos acontecem.</p>
+<p>Pra isso, vou propor que a gente imagine um cenário bem comum: precisamos fazer com que um usuário faça login na nossa aplicação.</p>
+<p>Nós poderíamos fazer todo o fluxo de requisições dentro dos próprios componentes, mas <a href="https://labcodes.com.br/blog/pt/desacoplando-a-logica-de-componentes-react.html">como dissemos no nosso outro post</a>, nós não exatamente recomendamos esse caminho - sempre termina com código macarronado. Nós poderíamos usar redux, mas aí nossos devs juniors precisariam antes passar pela barreira do <code>mapStateToProps</code>, e às vezes nós não temos tempo de falar sobre absolutamente tudo de redux antes de entregar nossos projetos. Nós poderíamos usar sagas, mas aí o redux volta pra nos atazanar em dobro.</p>
+<p>Então, vamos por uns minutos esquecer de actions e reducers e imaginemos um objeto chamado LoginEvent. Sempre que executamos algo sobre esse objeto passando email e senha, coisas acontecem e os dados corretos (de sucesso ou falha do login) são passados pros componentes. Imagine que você não precise saber nada sobre esse objeto, apenas seu nome. Sem reducers, sem actions, sem <code>connect</code> ou <code>mapStateToProps</code>. Seria algo mais ou menos assim:</p>
+<p><img src="../../blog/mantendo-o-estado-global-de-uma-maneira-sa-com-rel-events/1-imaginary-event.png" alt="Evento Imaginário"></p>
+<p>Legal, mas onde colocaríamos todo seu comportamento? Onde tá o código que faz a requisição? Como lidar com casos de erro? Digamos que, além do objeto de evento, nós tenhamos algo que gerencia todo o fluxo do evento, que chamaríamos de Event Manager:</p>
+<p><img src="../../blog/mantendo-o-estado-global-de-uma-maneira-sa-com-rel-events/2-basic-http-event.png" alt="Basic rel-events HTTPEvent"></p>
+<p>Melhor. Mas como esse manager tá implementado? Porque, se a gente precisa lidar com o fluxo inteiro dentro dele, ele precisa saber de muita coisa: como fazer a requisição, por exemplo, ou o que fazer com o estado global quando a requisição tiver sucesso ou falha. Ah, e seria bom ter um estado intermediário quando a requisição começa, porque a gente ama spinners de loading! Eita, esqueci que eu preciso de um estado inicial pra esse evento também, pra gente ter dados antes mesmo da requisição. Calma, calma, vamo lá:</p>
+<p><img src="../../blog/mantendo-o-estado-global-de-uma-maneira-sa-com-rel-events/3-login-event-manager.png" alt="LoginEventManager"></p>
+<p>É mais ou menos isso que a gente precisa, né? Mas então, como que a gente faria pra registrar quais Componentes que poderiam disparar esse Evento? Como que o Componente pegaria os dados desse evento? Tamo quase lá:</p>
+<p><img src="../../blog/mantendo-o-estado-global-de-uma-maneira-sa-com-rel-events/4-registering-component.png" alt="Registering the component"></p>
+<p>E essa é exatamente a API atual para um Evento HTTP (HTTPEvent) da lib <code>rel-events</code>. Nada de actions nem reducers, nada de acoplar as camadas de domínio com a de componentes, nada. Claro, a gente precisaria antes configurar como nossa lib se encaixa com o redux, mas geralmente é uma configuração de uma vez só, e muito bem documentada <a href="https://github.com/labcodes/rel-events/tree/master/docs">na nossa documentação (ainda só em inglês, com português em breve</a>).</p>
+<h2>Isso parece... bom! Mas e as funcionalidades? Eu quero features!</h2>
+<p>Na nossa atual versão beta (0.1.3, de Setembro de 2019), você pode:</p>
+<ul>
+<li>usar um Evento (Event) básico (pras horas em que você não precisa fazer requisições);</li>
+<li>encadear um Event/HTTPEvent em outro (útil pra quando você quer buscar mais dados depois que um evento teve sucesso);</li>
+<li>ter múltiplos Events registrados para um mesmo Componente (porque você provavelmente vai ter um Componente que precisa ler dados de vários lugares);</li>
+<li>executár código depois das mudanças de estado de um Evento que foi disparado (usando <code>afterDispatch</code>);</li>
+<li>executár código depois das mudanças de estado de uma requisição que teve sucesso (usando <code>afterSuccess</code>);</li>
+<li>executár código depois das mudanças de estado de uma requisição que falhou (usando <code>afterFailure</code>);</li>
+<li>avaliar se um evento deve ser disparado ou não (com o método <code>shouldDispatch</code> do EventManager).</li>
+</ul>
+<p>E muito mais! Tudo isso sem a carga cognitiva, sem as constantes aleatórias, sem os nomes de store manuais e toda a má experiência de desenvolvimento do redux. E a melhor parte: sem uma grande curva de aprendizado. Esse post tem basicamente tudo que você precisa saber pra usar nossa biblioteca no dia-a-dia. Mesmo. Eu sei, porque tô usando!</p>
+<p>Então se você gostou, <a href="https://github.com/labcodes/rel-events">dá uma olhada no nosso repositório no github</a> pra começar a usar e comparilhe o amor! Valeu pela atenção, e eu vejo vocês na próxima!</p>
+
+  </div>
+
+
+  <div class="comments">
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/blog/mantendo-o-estado-global-de-uma-maneira-sa-com-rel-events"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lucianoratamerosblog.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+</div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <nav class="nav-mobile">
+        <h1><a href="../../">luciano@ratamero.com</a></h1>
+        <ul class="nav navbar-nav">
+          
+            <a
+              
+              href="../../blog/"
+            >
+              <li>Blog</li>
+            </a>
+          
+            <a
+              
+              href="../../previous-talks/"
+            >
+              <li>Talks</li>
+            </a>
+          
+            <a
+              
+                class="no-ajaxy"
+              
+              href="../../sketches"
+            >
+              <li>Sketches</li>
+            </a>
+          
+        </ul>
+      </nav>
+    </div>
+
+  </div>
+  <div class="lds-ripple"><div></div><div></div></div>
+  <script src="../../js/main.js"></script>
+</body>
